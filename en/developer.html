@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FArk Studio — About Us</title>
-    <meta name="description" content="FArk Studio — Digital health technologies and software studio. Digital health technologies.">
+    <meta name="description" content="FArk Studio — Digital health technologies and software studio.">
     <meta property="og:title" content="FArk Studio — About Us">
-    <meta property="og:description" content="Digital health technologies and software studio. Digital health technologies.">
+    <meta property="og:description" content="Digital health technologies and software studio.">
     <link rel="icon" type="image/png" href="../assets/app_icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -106,30 +106,6 @@
         }
         .app-info h3 { font-size:18px; font-weight:700; margin-bottom:4px; }
         .app-info .app-desc { font-size:13px; color:var(--text-secondary); margin-bottom:8px; }
-        .app-info .app-tech { display:flex; gap:6px; flex-wrap:wrap; }
-        .tech-tag {
-            padding:3px 10px; background:rgba(233,69,96,0.08); border:1px solid rgba(233,69,96,0.15);
-            border-radius:6px; font-size:11px; color:var(--accent); font-weight:500;
-        }
-
-        /* Values */
-        .values-list { list-style:none; }
-        .values-list li {
-            padding:16px 0; border-bottom:1px solid var(--border);
-            display:flex; gap:16px; align-items:flex-start;
-        }
-        .values-list li:last-child { border-bottom:none; }
-        .value-icon {
-            width:36px; height:36px; border-radius:10px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:16px; flex-shrink:0;
-        }
-        .value-icon-privacy { background:rgba(99,102,241,0.1); }
-        .value-icon-quality { background:rgba(52,211,153,0.1); }
-        .value-icon-health { background:rgba(251,191,36,0.1); }
-        .value-icon-user { background:rgba(251,113,133,0.1); }
-        .value-title { font-size:15px; font-weight:600; margin-bottom:2px; }
-        .value-desc { font-size:13px; color:var(--text-secondary); }
 
         /* Footer */
         .footer { padding:40px 0; border-top:1px solid var(--border); text-align:center; margin-top:40px; }
@@ -140,7 +116,6 @@
         @media (max-width:600px) {
             .info-grid { grid-template-columns:1fr; }
             .app-card { flex-direction:column; text-align:center; }
-            .app-info .app-tech { justify-content:center; }
         }
     </style>
 </head>
@@ -167,10 +142,11 @@
         <!-- Developer Header -->
         <div class="dev-header">
             <div class="dev-avatar"><img src="../assets/app_icon.png" alt="FArk Studio Logo"></div>
-            <h1>FArk Studio</h1>
-            <div class="subtitle">Digital Health Focused Software Studio</div>
+            <h1>About Us</h1>
             <p class="bio">
-                We develop mobile applications shaped by physiotherapist input, focused on consistent posture assessment and exercise guidance.
+                <strong>FArk Studio</strong><br>
+                <span style="color:var(--accent); font-weight:600; display:block; margin:8px 0;">Independent Developer</span>
+                Physio Metric is a digital health application shaped by physiotherapist insights, offering consistent posture assessment and exercise guidance. Our goal is to make professional posture analysis and exercise guidance accessible to everyone.
             </p>
         </div>
 
@@ -189,12 +165,6 @@
                     <div class="info-card-value">Turkey</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-card-label">GitHub</div>
-                    <div class="info-card-value">
-                        <a href="https://github.com/f-ark" target="_blank" rel="noopener">github.com/f-ark</a>
-                    </div>
-                </div>
-                <div class="info-card">
                     <div class="info-card-label">Website</div>
                     <div class="info-card-value">
                         <a href="https://physiometric.app">physiometric.app</a>
@@ -211,47 +181,10 @@
                 <div class="app-info">
                     <h3>Physio Metric</h3>
                     <p class="app-desc">
-                        Machine learning-supported posture analysis, physiotherapist-approved exercise prescription, 
-                        and a digital health app providing concrete proof of progress.
+                        A digital health app providing machine learning-powered posture analysis, physiotherapist-approved exercise prescriptions, and concrete progress evidence.
                     </p>
-
                 </div>
             </div>
-        </div>
-
-        <!-- Developer Values -->
-        <div class="info-section">
-            <h2>Developer Principles</h2>
-            <ul class="values-list">
-                <li>
-                    <div class="value-icon value-icon-privacy">🔒</div>
-                    <div>
-                        <div class="value-title">Privacy First</div>
-                        <div class="value-desc">All analyses are performed on-device. User data is not sent to the cloud. Minimum data collection principle.</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="value-icon value-icon-quality">✅</div>
-                    <div>
-                        <div class="value-title">Clinical Accuracy</div>
-                        <div class="value-desc">Algorithms verified in collaboration with physiotherapists. Deterministic, reliable results.</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="value-icon value-icon-health">⚕️</div>
-                    <div>
-                        <div class="value-title">Sense of Responsibility</div>
-                        <div class="value-desc">The app is a support tool. Users are always encouraged to seek professional healthcare services.</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="value-icon value-icon-user">💡</div>
-                    <div>
-                        <div class="value-title">User-Centric</div>
-                        <div class="value-desc">A constantly evolving product shaped by real user feedback.</div>
-                    </div>
-                </li>
-            </ul>
         </div>
 
         <!-- Legal Links -->
@@ -265,9 +198,9 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <div class="info-card-label">Terms of Use</div>
+                    <div class="info-card-label">Terms of Service</div>
                     <div class="info-card-value">
-                        <a href="terms.html">Terms of Use →</a>
+                        <a href="terms.html">Terms of Service →</a>
                     </div>
                 </div>
             </div>
@@ -276,7 +209,7 @@
 
     <footer class="footer">
         <p>
-            © 2026 FArk Studio
+            <img src="../assets/fark_logo.png" alt="FArk Studio" style="height:32px; width:auto; border-radius:6px; margin-bottom:8px;">
             <br>
             <a href="index.html">Home</a> ·
             <a href="privacy.html">Privacy</a> ·
