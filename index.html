@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FArk Studio — Physio Metric</title>
+    <meta name="description"
+        content="Physio Metric: Cebindeki Fizyoterapist. Makine öğrenmesi destekli postür analizi, kişiselleştirilmiş egzersiz planı ve somut ilerleme kanıtı.">
+    <meta property="og:title" content="FArk Studio — Physio Metric">
+    <meta property="og:description"
+        content="Ölç. Düzelt. Kanıtla. — Makine öğrenmesi destekli postür analizi ve kişiselleştirilmiş egzersiz planı.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://f-ark.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="assets/fark_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════
+           DESIGN TOKENS — Physio Metric "Premium Dark Health" Palette
+           ═══════════════════════════════════════════════ */
+        :root {
+            --bg-primary: #1A1A2E;
+            --bg-secondary: #16213E;
+            --bg-deep: #0F0F1E;
+            --bg-card: rgba(22, 33, 62, 0.5);
+            --bg-card-hover: rgba(22, 33, 62, 0.8);
+            --border-subtle: rgba(76, 201, 240, 0.08);
+            --border-accent: rgba(233, 69, 96, 0.3);
+            --border-cyan: rgba(76, 201, 240, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #B0B0C0;
+            --text-muted: #6E6E80;
+            --primary: #E94560;
+            --primary-light: #FF4D6D;
+            --cyan: #4CC9F0;
+            --emerald: #00E676;
+            --rose: #FF0076;
+            --amber: #FF6D00;
+            --gradient-hero: linear-gradient(135deg, #1A1A2E 0%, #16213E 40%, #0F0F1E 100%);
+            --gradient-card: linear-gradient(135deg, rgba(233, 69, 96, 0.06) 0%, rgba(76, 201, 240, 0.03) 100%);
+            --gradient-text: linear-gradient(135deg, #E94560, #FF4D6D, #4CC9F0);
+            --gradient-primary: linear-gradient(135deg, #E94560, #FF4D6D);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --shadow-primary: 0 4px 20px rgba(233, 69, 96, 0.25);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 10px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════════════ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(233, 69, 96, 0.15);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(233, 69, 96, 0.3);
+            }
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                r: 3;
+                opacity: 0.8;
+            }
+
+            50% {
+                r: 5;
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes scoreCount {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════════════════════
+           LAYOUT
+           ═══════════════════════════════════════════════ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 14px 0;
+            background: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-brand-logo {
+            height: 32px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 1px;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ═══════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .hero-orb-1 {
+            width: 350px;
+            height: 350px;
+            background: rgba(233, 69, 96, 0.08);
+            top: 10%;
+            left: -5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: rgba(76, 201, 240, 0.06);
+            bottom: 15%;
+            right: -3%;
+            animation: float 6s ease-in-out infinite 2s;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(233, 69, 96, 0.08);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 28px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 8px rgba(0, 230, 118, 0.5);
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 26px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-card);
+            border-color: var(--border-accent);
+        }
+
+        /* Google Play Badge */
+        .play-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .play-badge:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+        }
+
+        .play-badge svg {
+            flex-shrink: 0;
+        }
+
+        .play-badge-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .play-badge-text small {
+            font-size: 10px;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .play-badge-text strong {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ─── Before / After — App Dashboard Kart Stili ─── */
+        .hero-visual {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .app-card-mock {
+            width: 280px;
+            border-radius: 20px;
+            padding: 24px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .app-card-mock:hover {
+            transform: translateY(-6px);
+        }
+
+        .app-card-mock::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .app-card--before {
+            background: linear-gradient(145deg, rgba(255, 109, 0, 0.08) 0%, rgba(22, 33, 62, 0.95) 40%, var(--bg-secondary) 100%);
+            border: 1px solid rgba(255, 109, 0, 0.2);
+            box-shadow: 0 0 30px rgba(255, 109, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .app-card--after {
+            background: linear-gradient(145deg, rgba(0, 230, 118, 0.08) 0%, rgba(22, 33, 62, 0.95) 40%, var(--bg-secondary) 100%);
+            border: 1px solid rgba(0, 230, 118, 0.2);
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: float 7s ease-in-out infinite 1.5s;
+        }
+
+        /* Önce/Sonra etiket */
+        .card-phase-label {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase--before {
+            background: rgba(255, 109, 0, 0.12);
+            color: #FF6D00;
+            border: 1px solid rgba(255, 109, 0, 0.25);
+        }
+
+        .phase--after {
+            background: rgba(0, 230, 118, 0.1);
+            color: #00E676;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        /* Skor + Label satırı */
+        .card-score-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        /* Circular Progress */
+        .score-ring {
+            width: 72px;
+            height: 72px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .score-ring svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .score-ring-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.05);
+            stroke-width: 7;
+        }
+
+        .score-ring-fg {
+            fill: none;
+            stroke-width: 7;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.5s ease;
+        }
+
+        .ring--orange {
+            stroke: #FF6D00;
+            filter: drop-shadow(0 0 6px rgba(255, 109, 0, 0.4));
+        }
+
+        .ring--green {
+            stroke: #00E676;
+            filter: drop-shadow(0 0 6px rgba(0, 230, 118, 0.4));
+        }
+
+        .score-ring-value {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .val--orange {
+            color: #FF6D00;
+        }
+
+        .val--green {
+            color: #00E676;
+        }
+
+        .card-score-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-score-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .card-score-status {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .card-streak {
+            font-size: 12px;
+            font-weight: 600;
+            color: #FF6D00;
+        }
+
+        /* İstatistik satırı */
+        .card-stats-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            margin-bottom: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .card-stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .card-stat-icon {
+            font-size: 14px;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .card-stat-value {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .card-stat-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sparkline */
+        .card-sparkline {
+            width: 100%;
+            height: 36px;
+            margin-bottom: 10px;
+        }
+
+        .sparkline-line {
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .spark--orange {
+            stroke: #FF6D00;
+        }
+
+        .spark--green {
+            stroke: #00E676;
+        }
+
+        .sparkline-area {
+            opacity: 0.1;
+        }
+
+        .sparkarea--orange {
+            fill: #FF6D00;
+        }
+
+        .sparkarea--green {
+            fill: #00E676;
+        }
+
+        /* Tanı etiketi */
+        .card-diagnosis {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .diag-severity {
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .sev--orta {
+            background: rgba(255, 109, 0, 0.15);
+            color: #FF6D00;
+        }
+
+        .sev--iyilesti {
+            background: rgba(0, 230, 118, 0.12);
+            color: #00E676;
+        }
+
+        .diag-name {
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Paylaş ipucu */
+        .card-share-hint {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+            margin-top: 8px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Arrow between cards */
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .comparison-arrow-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 24px rgba(233, 69, 96, 0.3);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* ═══════════════════════════════════════════════
+           STATS
+           ═══════════════════════════════════════════════ */
+        .stats {
+            padding: 70px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 28px 16px;
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+        }
+
+        .stat-value {
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════════════
+           FEATURES (3 Cards)
+           ═══════════════════════════════════════════════ */
+        .features {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 32px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:nth-child(1)::before {
+            background: var(--gradient-primary);
+        }
+
+        .feature-card:nth-child(2)::before {
+            background: linear-gradient(135deg, var(--cyan), #34d399);
+        }
+
+        .feature-card:nth-child(3)::before {
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
+        }
+
+        .feature-card:nth-child(4)::before {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon--clinical {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--primary);
+        }
+
+        .feature-icon--qr {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--cyan);
+        }
+
+        .feature-icon--privacy {
+            background: rgba(129, 140, 248, 0.1);
+            color: #a78bfa;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .tag--deterministic {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--primary-light);
+        }
+
+        .tag--b2b2c {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--cyan);
+        }
+
+        .tag--offline {
+            background: rgba(129, 140, 248, 0.08);
+            color: #a78bfa;
+        }
+
+        /* ═══════════════════════════════════════════════
+           ECOSYSTEM DIAGRAM
+           ═══════════════════════════════════════════════ */
+        .ecosystem {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ecosystem::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(76, 201, 240, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .eco-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0;
+            align-items: stretch;
+            margin-top: 48px;
+            position: relative;
+        }
+
+        .eco-side {
+            padding: 32px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .eco-side:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .eco-side:hover::before {
+            opacity: 1;
+        }
+
+        .eco-side--expert {
+            border-color: var(--border-cyan);
+        }
+
+        .eco-side--expert::before {
+            background: linear-gradient(135deg, var(--cyan), #34d399);
+        }
+
+        .eco-side--individual {
+            border-color: var(--border-accent);
+        }
+
+        .eco-side--individual::before {
+            background: var(--gradient-primary);
+        }
+
+        .eco-side-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .eco-side-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .eco-side-icon--expert {
+            background: rgba(76, 201, 240, 0.1);
+            border: 1px solid rgba(76, 201, 240, 0.15);
+        }
+
+        .eco-side-icon--individual {
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.15);
+        }
+
+        .eco-side-title {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .eco-side-subtitle {
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .eco-side-subtitle--expert {
+            color: var(--cyan);
+        }
+
+        .eco-side-subtitle--individual {
+            color: var(--primary);
+        }
+
+        .eco-feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .eco-feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .eco-feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .eco-feature-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .eco-check--expert {
+            background: rgba(76, 201, 240, 0.12);
+            color: var(--cyan);
+        }
+
+        .eco-check--individual {
+            background: rgba(233, 69, 96, 0.12);
+            color: var(--primary);
+        }
+
+        .eco-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .eco-tag--free {
+            background: rgba(0, 230, 118, 0.1);
+            color: var(--emerald);
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        .eco-tag--ai {
+            background: rgba(233, 69, 96, 0.08);
+            color: var(--primary-light);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        /* QR Bridge (Center Column) */
+        .eco-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 28px;
+            position: relative;
+            min-width: 160px;
+        }
+
+        .eco-bridge-qr {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(233, 69, 96, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            animation: pulse-glow 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eco-bridge-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 14px;
+            text-align: center;
+            letter-spacing: -0.2px;
+        }
+
+        .eco-bridge-sublabel {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        /* Animated connection lines */
+        .eco-bridge-line {
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(76, 201, 240, 0.3), transparent);
+            z-index: 1;
+        }
+
+        .eco-bridge-line--left {
+            right: 50%;
+            left: -40px;
+            background: linear-gradient(90deg, rgba(76, 201, 240, 0.05), rgba(76, 201, 240, 0.3));
+        }
+
+        .eco-bridge-line--right {
+            left: 50%;
+            right: -40px;
+            background: linear-gradient(90deg, rgba(233, 69, 96, 0.3), rgba(233, 69, 96, 0.05));
+        }
+
+        @keyframes flowRight {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .eco-bridge-arrow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .eco-bridge-arrow svg {
+            opacity: 0.5;
+        }
+
+        /* ═══════════════════════════════════════════════
+           DUAL PERSPECTIVE CARDS
+           ═══════════════════════════════════════════════ */
+        .perspectives {
+            padding: 40px 0 80px;
+        }
+
+        .perspectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .perspective-card {
+            padding: 36px 32px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .perspective-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transition: opacity 0.3s;
+        }
+
+        .perspective-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .perspective-card--expert::before {
+            background: linear-gradient(135deg, var(--cyan), #34d399);
+            opacity: 1;
+        }
+
+        .perspective-card--expert {
+            border-color: var(--border-cyan);
+        }
+
+        .perspective-card--individual::before {
+            background: var(--gradient-primary);
+            opacity: 1;
+        }
+
+        .perspective-card--individual {
+            border-color: var(--border-accent);
+        }
+
+        .perspective-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .perspective-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .perspective-icon--expert {
+            background: rgba(76, 201, 240, 0.1);
+        }
+
+        .perspective-icon--individual {
+            background: rgba(233, 69, 96, 0.1);
+        }
+
+        .perspective-title {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .perspective-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .perspective-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .perspective-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .perspective-features li + li {
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .pf-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        .pf-check--cyan {
+            background: rgba(76, 201, 240, 0.12);
+            color: var(--cyan);
+        }
+
+        .pf-check--primary {
+            background: rgba(233, 69, 96, 0.12);
+            color: var(--primary);
+        }
+
+        /* ═══════════════════════════════════════════════
+           HOW IT WORKS — DUAL FLOW
+           ═══════════════════════════════════════════════ */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .flow-tabs {
+            display: flex;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 4px;
+            width: fit-content;
+            margin-bottom: 40px;
+        }
+
+        .flow-tab {
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: var(--font);
+        }
+
+        .flow-tab:hover {
+            color: var(--text-secondary);
+        }
+
+        .flow-tab.active {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .flow-tab--expert.active {
+            background: rgba(76, 201, 240, 0.12);
+            color: var(--cyan);
+        }
+
+        .flow-tab--individual.active {
+            background: rgba(233, 69, 96, 0.12);
+            color: var(--primary-light);
+        }
+
+        .flow-content {
+            display: none;
+        }
+
+        .flow-content.active {
+            display: block;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 0;
+        }
+
+        .step {
+            position: relative;
+            padding: 28px 22px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid var(--border-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .step-number--expert {
+            background: rgba(76, 201, 240, 0.1);
+            border: 1px solid var(--border-cyan);
+            color: var(--cyan);
+        }
+
+        .step-emoji {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .step h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .step--expert:hover {
+            border-color: var(--border-cyan);
+        }
+
+        /* ═══════════════════════════════════════════════
+           ABOUT / DEVELOPER
+           ═══════════════════════════════════════════════ */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-card {
+            padding: 44px;
+            background: var(--gradient-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            padding: 12px;
+        }
+
+        .about-avatar img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .about-info h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .about-info .about-role {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .about-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .about-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .about-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .about-links a:hover {
+            border-color: var(--border-accent);
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        /* ═══════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════ */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .eco-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .eco-bridge {
+                flex-direction: row;
+                padding: 20px 0;
+                min-width: auto;
+            }
+
+            .eco-bridge-line--left,
+            .eco-bridge-line--right {
+                display: none;
+            }
+
+            .perspectives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: -1px;
+            }
+
+            .hero-visual {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .app-card-mock {
+                width: 260px;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+            }
+
+            .eco-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .eco-bridge {
+                padding: 16px 0;
+            }
+
+            .flow-tabs {
+                width: 100%;
+            }
+
+            .flow-tab {
+                flex: 1;
+                text-align: center;
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px;
+            }
+
+            .about-links {
+                justify-content: center;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .app-card-mock {
+                width: 240px;
+                padding: 18px 16px;
+            }
+
+            .score-ring {
+                width: 60px;
+                height: 60px;
+            }
+
+            .score-ring-value {
+                font-size: 18px;
+            }
+
+            .card-score-status {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">
+                <img src="assets/fark_logo.png" alt="FArk Logo" class="nav-brand-logo">
+            </a>
+            <div style="display:flex; align-items:center; gap:24px;">
+                <ul class="nav-links">
+                    <li><a href="#ecosystem">Ekosistem</a></li>
+                    <li><a href="#how-it-works">Nasıl Çalışır</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="privacy.html">Gizlilik</a></li>
+                </ul>
+                <div style="display:flex; gap:8px; font-size:13px; font-weight:600; color:var(--text-muted);">
+                    <a href="#" style="color:var(--text); text-decoration:none;">TR</a>
+                    <span>|</span>
+                    <a href="en/index.html"
+                        style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;"
+                        onmouseover="this.style.color='var(--accent)'"
+                        onmouseout="this.style.color='var(--text-muted)'">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Cebindeki Fizyoterapist
+                </div>
+
+                <h1>
+                    Postürünü<br>
+                    <span class="gradient-text">Ölç. Düzelt. Kanıtla.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Makine öğrenmesi destekli postür analizi, kişiselleştirilmiş egzersiz planı ve somut ilerleme kanıtı — tek
+                    uygulamada.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#ecosystem" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        Keşfet
+                    </a>
+                    <a href="privacy.html" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Gizlilik Politikası
+                    </a>
+                </div>
+
+                <!-- Google Play Badge -->
+                <a href="#" class="play-badge" title="Çok Yakında Google Play'de">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.395 12l2.302-2.492zM5.864 2.658L16.8 9.991l-2.302 2.302L5.864 2.658z" />
+                    </svg>
+                    <div class="play-badge-text">
+                        <small>ÇOK YAKINDA</small>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
+
+                <!-- Before / After — App Dashboard Kartları -->
+                <div class="hero-visual">
+                    <!-- BEFORE Card -->
+                    <div class="app-card-mock app-card--before">
+                        <div class="card-phase-label phase--before">Önce</div>
+                        <!-- Skor + Label -->
+                        <div class="card-score-row">
+                            <div class="score-ring">
+                                <svg viewBox="0 0 72 72">
+                                    <circle cx="36" cy="36" r="30" class="score-ring-bg" />
+                                    <circle cx="36" cy="36" r="30" class="score-ring-fg ring--orange"
+                                        stroke-dasharray="188.5" stroke-dashoffset="71.6" />
+                                </svg>
+                                <div class="score-ring-value val--orange">62</div>
+                            </div>
+                            <div class="card-score-info">
+                                <div class="card-score-label">Postür Sağlık Skoru</div>
+                                <div class="card-score-status">Geliştirilebilir</div>
+                            </div>
+                        </div>
+                        <!-- Stats Row -->
+                        <div class="card-stats-row">
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#E94560;">📊</span>
+                                <div class="card-stat-value" style="color:#E94560;">3</div>
+                                <div class="card-stat-label">Analiz</div>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#FF6D00;">🏆</span>
+                                <div class="card-stat-value" style="color:#FF6D00;">2</div>
+                                <div class="card-stat-label">Rekor</div>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#FF5252;">📉</span>
+                                <div class="card-stat-value" style="color:#FF5252;">↓</div>
+                                <div class="card-stat-label">Trend</div>
+                            </div>
+                        </div>
+                        <!-- Sparkline -->
+                        <svg class="card-sparkline" viewBox="0 0 240 36" preserveAspectRatio="none">
+                            <path d="M0 28 L80 20 L160 24 L240 18" class="sparkline-line spark--orange" />
+                            <path d="M0 28 L80 20 L160 24 L240 18 L240 36 L0 36 Z"
+                                class="sparkline-area sparkarea--orange" />
+                        </svg>
+                        <!-- Postür Sonucu -->
+                        <div class="card-diagnosis">
+                            <span class="diag-severity sev--orta">ORTA</span>
+                            <span class="diag-name">İleri Baş Duruşu</span>
+                        </div>
+                        <!-- Paylaş -->
+                        <div class="card-share-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" />
+                            </svg>
+                            Paylaşmak için dokun
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="comparison-arrow">
+                        <div class="comparison-arrow-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- AFTER Card -->
+                    <div class="app-card-mock app-card--after">
+                        <div class="card-phase-label phase--after">Sonra</div>
+                        <!-- Skor + Label -->
+                        <div class="card-score-row">
+                            <div class="score-ring">
+                                <svg viewBox="0 0 72 72">
+                                    <circle cx="36" cy="36" r="30" class="score-ring-bg" />
+                                    <circle cx="36" cy="36" r="30" class="score-ring-fg ring--green"
+                                        stroke-dasharray="188.5" stroke-dashoffset="22.6" />
+                                </svg>
+                                <div class="score-ring-value val--green">88</div>
+                            </div>
+                            <div class="card-score-info">
+                                <div class="card-score-label">Postür Sağlık Skoru</div>
+                                <div class="card-score-status">Harika!</div>
+                                <div class="card-streak">🔥 12 günlük seri</div>
+                            </div>
+                        </div>
+                        <!-- Stats Row -->
+                        <div class="card-stats-row">
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#E94560;">📊</span>
+                                <div class="card-stat-value" style="color:#E94560;">7</div>
+                                <div class="card-stat-label">Analiz</div>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#FF6D00;">🏆</span>
+                                <div class="card-stat-value" style="color:#FF6D00;">12</div>
+                                <div class="card-stat-label">Rekor</div>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-icon" style="color:#00E676;">📈</span>
+                                <div class="card-stat-value" style="color:#00E676;">↑</div>
+                                <div class="card-stat-label">Trend</div>
+                            </div>
+                        </div>
+                        <!-- Sparkline -->
+                        <svg class="card-sparkline" viewBox="0 0 240 36" preserveAspectRatio="none">
+                            <path d="M0 30 L40 26 L80 22 L120 20 L160 14 L200 10 L240 6"
+                                class="sparkline-line spark--green" />
+                            <path d="M0 30 L40 26 L80 22 L120 20 L160 14 L200 10 L240 6 L240 36 L0 36 Z"
+                                class="sparkline-area sparkarea--green" />
+                        </svg>
+                        <!-- Postür Sonucu -->
+                        <div class="card-diagnosis">
+                            <span class="diag-severity sev--iyilesti">İYİLEŞTİ</span>
+                            <span class="diag-name">✅ İleri Baş Duruşu düzeldi</span>
+                        </div>
+                        <!-- Paylaş -->
+                        <div class="card-share-hint">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" />
+                            </svg>
+                            Paylaşmak için dokun
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section class="stats fade-in">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">22</div>
+                    <div class="stat-label">Değerlendirme Kuralı</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">37+</div>
+                    <div class="stat-label">Egzersiz</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3D</div>
+                    <div class="stat-label">Animasyonlu Koçluk</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">%100</div>
+                    <div class="stat-label">Cihazda Kalır</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ECOSYSTEM DIAGRAM ═══ -->
+    <section class="ecosystem" id="ecosystem">
+        <div class="container">
+            <div class="section-label fade-in">Nasıl Bir Ekosistem?</div>
+            <h2 class="section-title fade-in">İki dünya,<br><span style="background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">tek uygulama.</span></h2>
+            <p class="section-subtitle fade-in">
+                Fizyoterapist ve birey, QR köprüsüyle buluşur.
+            </p>
+
+            <div class="eco-grid">
+                <!-- EXPERT SIDE -->
+                <div class="eco-side eco-side--expert fade-in">
+                    <div class="eco-side-header">
+                        <div class="eco-side-icon eco-side-icon--expert">🩺</div>
+                        <div>
+                            <div class="eco-side-title">Fizyoterapist</div>
+                            <div class="eco-side-subtitle eco-side-subtitle--expert">Dijital Reçete Asistanı</div>
+                        </div>
+                    </div>
+                    <ul class="eco-feature-list">
+                        <li>
+                            <span class="eco-feature-check eco-check--expert">✓</span>
+                            <span>Egzersiz kataloğundan <strong style="color:var(--text-primary)">kişiye özel program</strong> oluşturun</span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--expert">✓</span>
+                            <span><strong style="color:var(--text-primary)">QR kod</strong> oluşturarak hastanıza anında iletin</span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--expert">✓</span>
+                            <span>Hastalarınızın egzersiz tamamlama yüzdesini <strong style="color:var(--text-primary)">takip panelinden</strong> görün</span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--expert">✓</span>
+                            <span>Paylaşım ve takip sayınızla <strong style="color:var(--text-primary)">uzman seviyenizi</strong> yükseltin</span>
+                        </li>
+                    </ul>
+                    <span class="eco-tag eco-tag--free">✦ TAMAMEN ÜCRETSİZ</span>
+                </div>
+
+                <!-- QR BRIDGE -->
+                <div class="eco-bridge fade-in">
+                    <div class="eco-bridge-line eco-bridge-line--left"></div>
+                    <div class="eco-bridge-line eco-bridge-line--right"></div>
+                    <div class="eco-bridge-qr">📱</div>
+                    <div class="eco-bridge-label">QR Köprüsü</div>
+                    <div class="eco-bridge-sublabel">Şifreli & Güvenli</div>
+                    <div class="eco-bridge-arrow">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                        </svg>
+                        Bağlantı
+                    </div>
+                </div>
+
+                <!-- INDIVIDUAL SIDE -->
+                <div class="eco-side eco-side--individual fade-in">
+                    <div class="eco-side-header">
+                        <div class="eco-side-icon eco-side-icon--individual">🙋</div>
+                        <div>
+                            <div class="eco-side-title">Bireysel Kullanıcı</div>
+                            <div class="eco-side-subtitle eco-side-subtitle--individual">Cebindeki Fizyoterapist</div>
+                        </div>
+                    </div>
+                    <ul class="eco-feature-list">
+                        <li>
+                            <span class="eco-feature-check eco-check--individual">✓</span>
+                            <span>İki yoldan başla: <strong style="color:var(--text-primary)">Uzman QR okut</strong> veya <strong style="color:var(--text-primary)">kendi analizini yap</strong></span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--individual">✓</span>
+                            <span><strong style="color:var(--text-primary)">33 eklem noktası</strong>, 22 kural ile makine öğrenmesi destekli postür analizi</span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--individual">✓</span>
+                            <span>Ağrı haritası + postür analizi = <strong style="color:var(--text-primary)">akıllı egzersiz eşleştirme</strong></span>
+                        </li>
+                        <li>
+                            <span class="eco-feature-check eco-check--individual">✓</span>
+                            <span><strong style="color:var(--text-primary)">3 günlük döngü</strong> ile somut ilerleme kanıtı</span>
+                        </li>
+                    </ul>
+                    <span class="eco-tag eco-tag--ai">✦ MAKİNE ÖĞRENMESİ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DUAL PERSPECTIVE CARDS ═══ -->
+    <section class="perspectives fade-in">
+        <div class="container">
+            <div class="section-label fade-in">Kim İçin?</div>
+            <h2 class="section-title fade-in">Her iki taraf için<br>güçlü özellikler.</h2>
+
+            <div class="perspectives-grid">
+                <!-- Expert Card -->
+                <div class="perspective-card perspective-card--expert fade-in">
+                    <div class="perspective-header">
+                        <div class="perspective-icon perspective-icon--expert">👨‍⚕️</div>
+                        <div>
+                            <div class="perspective-title">Fizyoterapist misiniz?</div>
+                            <div class="perspective-desc">Ücretsiz dijital reçete aracınız</div>
+                        </div>
+                    </div>
+                    <ul class="perspective-features">
+                        <li>
+                            <span class="pf-check pf-check--cyan">✓</span>
+                            37+ egzersizden özel program hazırlayın
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--cyan">✓</span>
+                            QR ile anında hastanıza iletin — kayıt gerektirmez
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--cyan">✓</span>
+                            Hasta egzersiz uyumunu takip panelinden izleyin
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--cyan">✓</span>
+                            Seviye sistemiyle profesyonel profilinizi büyütün
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--cyan">✓</span>
+                            Klinik güven skoru ile analiz kalitesini artırın
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Individual Card -->
+                <div class="perspective-card perspective-card--individual fade-in">
+                    <div class="perspective-header">
+                        <div class="perspective-icon perspective-icon--individual">🙋</div>
+                        <div>
+                            <div class="perspective-title">Bireysel Kullanıcı</div>
+                            <div class="perspective-desc">Cebinizde profesyonel rehberlik</div>
+                        </div>
+                    </div>
+                    <ul class="perspective-features">
+                        <li>
+                            <span class="pf-check pf-check--primary">✓</span>
+                            Kameranızla makine öğrenmesi destekli postür analizi — 33 eklem, 22 kural
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--primary">✓</span>
+                            Etkileşimli ağrı haritası ile akıllı egzersiz seçimi
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--primary">✓</span>
+                            3D animasyonlu sesli koçluk ile doğru uygulama
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--primary">✓</span>
+                            3 günlük döngü ile ölçülebilir ilerleme kanıtı
+                        </li>
+                        <li>
+                            <span class="pf-check pf-check--primary">✓</span>
+                            Tüm veriler %100 cihazınızda — tam gizlilik
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS — DUAL FLOW ═══ -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-label fade-in">Nasıl Çalışır</div>
+            <h2 class="section-title fade-in">Her iki yoldan da<br>4 adımda başla</h2>
+            <p class="section-subtitle fade-in">
+                Uzman reçetesiyle veya kendi analizinle — aynı güçlü döngü.
+            </p>
+
+            <div class="flow-tabs fade-in">
+                <button class="flow-tab flow-tab--individual active" onclick="switchFlow('individual')">🙋 Bireysel Kullanıcı</button>
+                <button class="flow-tab flow-tab--expert" onclick="switchFlow('expert')">🩺 Fizyoterapist</button>
+            </div>
+
+            <!-- Individual Flow -->
+            <div class="flow-content active" id="flow-individual">
+                <div class="steps">
+                    <div class="step fade-in">
+                        <span class="step-emoji">📸</span>
+                        <div class="step-number">1</div>
+                        <h3>Dijital Postür Analizi</h3>
+                        <p>Kameranızla duruş fotoğrafı çekin. Makine öğrenmesi modeli otomatik olarak 33 eklem noktasını algılar ve postürünüzü 22 kurala göre analiz eder.</p>
+                    </div>
+                    <div class="step fade-in">
+                        <span class="step-emoji">📍</span>
+                        <div class="step-number">2</div>
+                        <h3>Ağrı Haritası</h3>
+                        <p>Vücudunuzdaki ağrı noktalarını ve şiddetini belirtin. Analiz + ağrı verisi birleşerek size en uygun egzersiz planı oluşturulur.</p>
+                    </div>
+                    <div class="step fade-in">
+                        <span class="step-emoji">💪</span>
+                        <div class="step-number">3</div>
+                        <h3>3 Günlük Egzersiz Döngüsü</h3>
+                        <p>3D animasyonlu sesli koçlukla egzersizlerinizi yapın. Yapamadığınız egzersizler kaybolmaz, ertesi güne devreder.</p>
+                    </div>
+                    <div class="step fade-in">
+                        <span class="step-emoji">📊</span>
+                        <div class="step-number">4</div>
+                        <h3>Gelişim Kanıtı</h3>
+                        <p>Döngü sonunda yeniden analiz yapın. Skorunuzdaki değişimi görün ve somut ilerlemenizi kanıtlayın.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert Flow -->
+            <div class="flow-content" id="flow-expert">
+                <div class="steps">
+                    <div class="step step--expert fade-in">
+                        <span class="step-emoji">📋</span>
+                        <div class="step-number step-number--expert">1</div>
+                        <h3>Egzersiz Programı Oluştur</h3>
+                        <p>37+ egzersiz kataloğundan hastanıza uygun egzersizleri seçin ve kişiye özel bir program hazırlayın.</p>
+                    </div>
+                    <div class="step step--expert fade-in">
+                        <span class="step-emoji">📱</span>
+                        <div class="step-number step-number--expert">2</div>
+                        <h3>QR Kod ile İlet</h3>
+                        <p>Oluşturduğunuz reçete otomatik olarak şifreli QR koda dönüşür. Hastanız QR'ı okutarak programa anında erişir.</p>
+                    </div>
+                    <div class="step step--expert fade-in">
+                        <span class="step-emoji">👁️</span>
+                        <div class="step-number step-number--expert">3</div>
+                        <h3>Hasta Takibi</h3>
+                        <p>Hastanızın egzersiz tamamlama yüzdesini takip panelinden görün. Uyumu izleyin, gerektiğinde programı güncelleyin.</p>
+                    </div>
+                    <div class="step step--expert fade-in">
+                        <span class="step-emoji">⭐</span>
+                        <div class="step-number step-number--expert">4</div>
+                        <h3>Uzman Seviyeni Yükselt</h3>
+                        <p>Paylaşım sayınız ve hasta uyum oranlarıyla seviyeniz artar. Dijital portföyünüzü büyütün.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-label fade-in">Geliştirici</div>
+            <h2 class="section-title fade-in">Hakkımızda</h2>
+            <p class="section-subtitle fade-in">
+                Fizyoterapist görüşleriyle şekillenen, tutarlı postür değerlendirme ve egzersiz rehberliği sunan dijital sağlık.
+            </p>
+
+            <div class="about-card fade-in">
+                <div class="about-avatar">
+                    <img src="assets/fark_logo.png" alt="FArk Studio Logo">
+                </div>
+                <div class="about-info">
+                    <h3>FArk Studio</h3>
+                    <div class="about-role">Bağımsız Geliştirici</div>
+                    <p>
+                        Physio Metric, fizyoterapist görüşleriyle şekillenen, tutarlı postür değerlendirme ve egzersiz rehberliği sunan bir dijital sağlık uygulamasıdır.
+                        Amacımız, profesyonel postür analizi ve egzersiz rehberliğini herkes için erişilebilir kılmaktır.
+                    </p>
+                    <div class="about-links">
+                        <a href="https://github.com/f-ark" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="mailto:ferdiarikan@gmail.com">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            İletişim
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-copy">
+                © 2026 FArk Studio. Tüm hakları saklıdır.
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Şartları</a>
+                <a href="developer.html">Geliştirici</a>
+                <a href="mailto:ferdiarikan@gmail.com">İletişim</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ SCROLL ANIMATIONS ═══ -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all fade-in elements with stagger delay
+        document.querySelectorAll('.fade-in').forEach((el, i) => {
+            el.dataset.delay = i % 6;
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollY = window.scrollY;
+            if (scrollY > 100) {
+                navbar.style.background = 'rgba(26, 26, 46, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(26, 26, 46, 0.85)';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Flow tab switching
+        function switchFlow(type) {
+            // Update tabs
+            document.querySelectorAll('.flow-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector('.flow-tab--' + type).classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.flow-content').forEach(content => content.classList.remove('active'));
+            document.getElementById('flow-' + type).classList.add('active');
+
+            // Re-trigger fade-in for new steps
+            document.querySelectorAll('#flow-' + type + ' .fade-in').forEach((el, i) => {
+                el.classList.remove('visible');
+                setTimeout(() => el.classList.add('visible'), i * 100);
+            });
+        }
+    </script>
+</body>
+
+</html>

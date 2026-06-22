@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Physio Metric</title>
+    <meta name="description" content="Privacy policy for the Physio Metric application. How your data is used and protected.">
+    <meta property="og:title" content="Privacy Policy — Physio Metric">
+    <meta property="og:description" content="How your data is used and protected in the Physio Metric application.">
+    <link rel="icon" type="image/png" href="../assets/fark_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #1A1A2E;
+            --bg-card: rgba(22,33,62,0.5);
+            --border: rgba(76,201,240,0.08);
+            --text: #ffffff;
+            --text-secondary: #B0B0C0;
+            --text-muted: #6E6E80;
+            --accent: #E94560;
+            --font: 'Inter', -apple-system, sans-serif;
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
+        .container { max-width:760px; margin:0 auto; padding:0 24px; }
+        
+        .navbar {
+            position:sticky; top:0; z-index:100; padding:16px 0;
+            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border);
+        }
+        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
+        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
+        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
+        .nav-back:hover { color:var(--accent); }
+
+        .page-header { padding:80px 0 40px; }
+        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
+        .page-header p { color:var(--text-muted); font-size:14px; }
+
+        .content { padding:0 0 80px; }
+        .content h2 {
+            font-size:20px; font-weight:700; margin:40px 0 16px;
+            padding-bottom:8px; border-bottom:1px solid var(--border);
+        }
+        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
+        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
+        .content ul { padding-left:20px; }
+        .content li { margin-bottom:8px; }
+        .content a { color:var(--accent); text-decoration:none; }
+        .content a:hover { text-decoration:underline; }
+        
+        .highlight-box {
+            padding:20px; margin:20px 0;
+            background:rgba(76,201,240,0.05); border:1px solid var(--border);
+            border-radius:14px; font-size:14px;
+        }
+
+        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
+        .footer p { font-size:13px; color:var(--text-muted); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand"><img src="../assets/fark_logo.png" alt="FArk" style="height:26px;width:auto;border-radius:4px;"> FArk Studio</a>
+            <div style="display:flex; align-items:center; gap:20px;">
+                <a href="index.html" class="nav-back">← Home</a>
+                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
+                    <a href="../privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">TR</a>
+                    <span style="color:var(--text-muted)">|</span>
+                    <a href="#" style="color:var(--text); text-decoration:none;">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: June 17, 2026</p>
+        </div>
+
+        <div class="content">
+            <p><strong>Core Principle:</strong> Physio Metric was developed with a privacy-first approach. We believe your health data belongs only to you.</p>
+            
+            <div class="highlight-box">
+                <strong>Important Note:</strong> The Physio Metric app is designed to work completely offline. Account creation is optional. The core posture analysis features are designed to work offline without requiring an account, and your health data is never sent to our servers.
+            </div>
+
+            <div class="highlight-box" style="background:rgba(251,191,36,0.06); border-color:rgba(251,191,36,0.15);">
+                <strong>⚕️ Medical Disclaimer:</strong> Physio Metric is not a medical device. The app is not intended to diagnose, treat, cure, or prevent any disease or medical condition. The information provided is for informational and exercise tracking purposes only. Please consult a physician or physiotherapist for medical decisions.
+            </div>
+
+            <h2>1. Collected Data</h2>
+            
+            <h3>1.1. On-Device Data (Not Sent to Servers)</h3>
+            <ul>
+                <li><strong>Posture Analysis Data:</strong> Skeletal point detection, angle calculations, and posture evaluation results powered by machine learning algorithms are processed and stored entirely on your device. These results do not constitute a medical diagnosis.</li>
+                <li><strong>Photos:</strong> Photos taken for analysis do not leave your device. They are not transferred to servers or cloud services.</li>
+                <li><strong>Exercise Data:</strong> Exercise history, streak information, and progress data are stored in a local database.</li>
+                <li><strong>Pain Map:</strong> Pain points and severity information you mark are kept solely on your device.</li>
+            </ul>
+
+            <h3>1.2. Account Information (Firebase Authentication)</h3>
+            <ul>
+                <li><strong>Email address:</strong> If you sign in with Google or Apple, it is processed by Firebase Authentication for identity verification purposes.</li>
+                <li><strong>Display name:</strong> If you sign in with Google or Apple, it is processed by Firebase Authentication for identity verification purposes.</li>
+                <li>This information is only used for session management and basic account creation. It is not shared with third parties.</li>
+            </ul>
+
+            <h3>1.3. Anonymous Usage Data</h3>
+            <ul>
+                <li><strong>Firebase Crashlytics:</strong> In the event of an app crash, crash reports, device model, OS version, app version, error logs, and technical identifiers linked to the app installation (Crashlytics Installation UUID) may be processed for debugging purposes. This data is used to identify and fix app errors; it does not contain direct health data or photos.</li>
+                <li><strong>Firebase App Check:</strong> Device integrity checks are performed to verify that the app is running on a genuine device.</li>
+            </ul>
+
+            <h2>2. Permissions and Purposes of Use</h2>
+            <ul>
+                <li><strong>Camera Permission:</strong> Used only to perform live posture analysis.</li>
+                <li><strong>Storage / Photos Permission:</strong> Requested to let you choose a photo from your gallery for analysis and to save analysis results to your device.</li>
+            </ul>
+
+            <h2>3. Data Sharing</h2>
+            <p>We do not sell, rent, or share your personal data or health information with third parties for marketing purposes.</p>
+
+            <h2>4. Data Security</h2>
+            <ul>
+                <li>Analysis data is stored in a local database on your device. It is protected by the device's operating system security mechanisms and the app sandbox architecture.</li>
+                <li>API requests are verified with Firebase App Check</li>
+                <li>Data transmission is protected with SSL/TLS encryption</li>
+                <li>Minimum data collection principle is applied</li>
+            </ul>
+            <p>When you uninstall the app, all app data stored on your device is permanently deleted.</p>
+
+            <h2>5. Third-Party Services</h2>
+            <p>The app uses the following third-party services:</p>
+            <ul>
+                <li><strong>Firebase (Google):</strong> Google Firebase infrastructure is used for authentication, error reporting, and app security. Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
+            </ul>
+
+            <h2>6. User Rights</h2>
+            <p>You have the following rights:</p>
+            <ul>
+                <li><strong>Data deletion:</strong> You can permanently delete all your data using the "Profile > Delete Account" option within the app. If you cannot access the app, you can follow instructions on our <a href="delete-account.html" style="color:var(--accent);">account deletion page</a>.</li>
+                <li><strong>Data access:</strong> You can access all your data stored on your device through the app.</li>
+                <li><strong>Account closure:</strong> You can close your account and delete all associated data at any time.</li>
+            </ul>
+
+            <h2>7. Children's Privacy</h2>
+            <p>This app does not knowingly collect personal data from children under 13. If we learn that we have collected such data, we will immediately delete it.</p>
+
+            <h2>8. Changes</h2>
+            <p>Our privacy policy may be updated from time to time. The current version will always be published on this page.</p>
+
+            <h2>9. Contact</h2>
+            <p>For questions regarding privacy:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:ferdiarikan@gmail.com" style="color:var(--accent);">ferdiarikan@gmail.com</a></li>
+                <li><strong>Developer:</strong> FArk Studio</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 FArk Studio · <a href="index.html">Home</a> · <a href="terms.html">Terms of Use</a> · <a href="delete-account.html">Delete Account</a></p>
+    </footer>
+</body>
+</html>

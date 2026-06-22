@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Silme — Physio Metric</title>
+    <meta name="description" content="Physio Metric uygulaması hesap ve veri silme işlemleri.">
+    <link rel="icon" type="image/png" href="assets/fark_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #1A1A2E;
+            --bg-card: rgba(22,33,62,0.5);
+            --border: rgba(76,201,240,0.08);
+            --text: #ffffff;
+            --text-secondary: #B0B0C0;
+            --text-muted: #6E6E80;
+            --accent: #E94560;
+            --font: 'Inter', -apple-system, sans-serif;
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
+        .container { max-width:760px; margin:0 auto; padding:0 24px; }
+        .navbar {
+            position:sticky; top:0; z-index:100; padding:16px 0;
+            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border);
+        }
+        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
+        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
+        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
+        .nav-back:hover { color:var(--accent); }
+        .page-header { padding:80px 0 40px; }
+        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
+        .page-header p { color:var(--text-muted); font-size:14px; }
+        .content { padding:0 0 80px; }
+        .content h2 {
+            font-size:20px; font-weight:700; margin:40px 0 16px;
+            padding-bottom:8px; border-bottom:1px solid var(--border);
+        }
+        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
+        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
+        .content ul { padding-left:20px; }
+        .content li { margin-bottom:8px; }
+        .warning-box {
+            padding:20px; margin:20px 0;
+            background:rgba(233,69,96,0.06); border:1px solid rgba(233,69,96,0.15);
+            border-radius:14px; font-size:14px;
+        }
+        .warning-box strong { color:var(--accent); font-weight:700; }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            color: var(--text);
+            font-weight: 600;
+            background: rgba(255,255,255,0.03);
+        }
+        .data-table td {
+            color: var(--text-secondary);
+        }
+        
+        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
+        .footer p { font-size:13px; color:var(--text-muted); }
+        .footer a { color:var(--text-muted); text-decoration:none; }
+        .footer a:hover { color:var(--accent); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand"><img src="assets/fark_logo.png" alt="FArk" style="height:26px;width:auto;border-radius:4px;"> FArk Studio</a>
+            <div style="display:flex; align-items:center; gap:20px;">
+                <a href="index.html" class="nav-back">← Ana Sayfa</a>
+                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
+                    <a href="#" style="color:var(--text); text-decoration:none;">TR</a>
+                    <span style="color:var(--text-muted)">|</span>
+                    <a href="en/delete-account.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">EN</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Hesap Silme Talebi</h1>
+            <p>Son güncelleme: 17 Haziran 2026</p>
+        </div>
+
+        <div class="content">
+            <div class="warning-box">
+                <strong>⚠️ Önemli:</strong> Hesap silme işlemi <strong>geri alınamaz</strong>. Hesabınızı sildiğinizde, ilerlemeleriniz, egzersiz geçmişiniz ve uygulamaya dair tüm verileriniz kalıcı olarak kaldırılır.
+            </div>
+
+            <h2>Yöntem 1: Uygulama İçinden Hızlı Silme (Önerilen)</h2>
+            <p>Uygulamaya erişiminiz varsa, hesabınızı en hızlı şekilde doğrudan cihazınızdan silebilirsiniz:</p>
+            <ul>
+                <li>Physio Metric uygulamasını açın.</li>
+                <li>Profil sekmesine gidin.</li>
+                <li><strong>"Hesabı Sil"</strong> butonuna dokunun ve onaylayın.</li>
+            </ul>
+
+            <h2>Yöntem 2: E-posta ile Hesap Silme Talebi</h2>
+            <p>Uygulamayı sildiyseniz veya erişiminiz yoksa, hesabınızın silinmesini e-posta yoluyla talep edebilirsiniz:</p>
+            <ul>
+                <li>Kayıt olduğunuz veya giriş yaptığınız e-posta adresinizden bize ulaşın.</li>
+                <li>E-postayı <strong><a href="mailto:ferdiarikan@gmail.com" style="color:var(--accent);">ferdiarikan@gmail.com</a></strong> adresine gönderin.</li>
+                <li>Konu başlığına "Hesap Silme Talebi - Physio Metric" yazın.</li>
+                <li>Talebiniz doğrulandıktan sonra verileriniz 48 saat içinde kalıcı olarak silinecektir.</li>
+            </ul>
+
+            <h2>Hesap Silindiğinde Ne Olur?</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Veri Türü</th>
+                        <th>Silinme Durumu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Oturum Bilgileri</strong><br>(Firebase Auth)</td>
+                        <td>Talep işleme alındığı an kalıcı olarak silinir.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analiz ve Sağlık Verileri</strong><br>(Postür, Egzersiz vb.)</td>
+                        <td>Sunucularımızda zaten tutulmaz. Cihazınızdaki uygulamayı kaldırdığınız an tamamen yok olur.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hata Günlükleri</strong><br>(Crashlytics)</td>
+                        <td>Teknik çökme kayıtları ve uygulama kurulumuna bağlı teknik tanımlayıcılar, hata ayıklama amacıyla işlenebilir ve maksimum 90 gün içinde otomatik olarak sistemden silinir.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>Gizlilik uygulamalarımız hakkında daha fazla bilgi almak için <a href="privacy.html" style="color:var(--accent);">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 FArk Studio · <a href="index.html">Ana Sayfa</a> · <a href="privacy.html">Gizlilik Politikası</a> · <a href="terms.html">Kullanım Şartları</a></p>
+    </footer>
+</body>
+</html>
