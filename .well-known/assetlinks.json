@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fark.physiometric",
+      "sha256_cert_fingerprints": [
+        "8F:1D:A9:FE:A6:A8:EE:1C:79:39:42:6F:35:F8:F2:87:CB:45:B9:11:FD:86:5A:9D:38:E0:76:33:9F:C4:10:8F"
+      ]
+    }
+  }
+]
