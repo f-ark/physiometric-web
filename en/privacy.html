@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Physio Metric</title>
-    <meta name="description" content="Privacy policy for the Physio Metric application. How your data is used and protected.">
-    <meta property="og:title" content="Privacy Policy — Physio Metric">
-    <meta property="og:description" content="How your data is used and protected in the Physio Metric application.">
+    <title>Privacy Policy — PosMetric</title>
+    <meta name="description" content="Privacy policy for the PosMetric application. How your data is used and protected.">
+    <meta property="og:title" content="Privacy Policy — PosMetric">
+    <meta property="og:description" content="How your data is used and protected in the PosMetric application.">
     <link rel="icon" type="image/png" href="../assets/app_icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -79,91 +79,96 @@
     <div class="container">
         <div class="page-header">
             <h1>Privacy Policy</h1>
-            <p>Last updated: August 19, 2026</p>
+            <p>Last updated: September 24, 2026</p>
         </div>
-
         <div class="content">
-            <p><strong>Core Principle:</strong> Physio Metric was developed with a privacy-first approach. We believe your health data belongs only to you.</p>
-            
             <div class="highlight-box">
-                <strong>Important Note:</strong> The Physio Metric app is designed to work completely offline. Account creation is optional. The core posture analysis features are designed to work offline without requiring an account, and your health data is never sent to our servers.
+                <strong>🔒 Core principle:</strong> PosMetric is a privacy-first app. Posture analysis runs entirely on your device.
+                Your photos, posture results and exercise data are never sent to our servers.
             </div>
-
             <div class="highlight-box" style="background:rgba(251,191,36,0.06); border-color:rgba(251,191,36,0.15);">
-                <strong>⚕️ Medical Disclaimer:</strong> This app evaluates posture and provides postural exercises. It does not provide medical diagnoses or recommend treatments.<br><br>Always consult a specialist for any health issues.
+                <strong>ℹ️ Note:</strong> PosMetric is a fitness and wellness app, not a medical device.
             </div>
 
-            <h2>1. Collected Data</h2>
-            
-            <h3>1.1. On-Device Data (Not Sent to Servers)</h3>
+            <h2>1. Data That Stays on Your Device</h2>
+            <p>The following data is stored only in a local database on your device and is never sent to servers:</p>
             <ul>
-                <li><strong>Posture Analysis Data:</strong> Skeletal point detection, angle calculations, and posture evaluation results powered by machine learning algorithms are processed and stored entirely on your device. These results do not constitute a medical diagnosis.</li>
-                <li><strong>Photos:</strong> Photos taken for analysis do not leave your device. They are not transferred to servers or cloud services.</li>
-                <li><strong>Exercise Data:</strong> Exercise history, streak information, and progress data are stored in a local database.</li>
-                <li><strong>Pain Map:</strong> Pain points and severity information you mark are kept solely on your device.</li>
+                <li><strong>Photos:</strong> Photos you take or pick from your gallery for a scan never leave your device.</li>
+                <li><strong>Posture results:</strong> Body landmark detection, angle calculations, your Posture Score and findings are calculated and stored on your device.</li>
+                <li><strong>Tension map:</strong> The tension areas and levels you mark.</li>
+                <li><strong>Exercise data:</strong> Your daily routines, session history, streak and progress.</li>
             </ul>
 
-            <h3>1.2. Account Information (Firebase Authentication)</h3>
+            <h2>2. Data We Collect</h2>
+            <h3>2.1. Account information (optional)</h3>
+            <p>You can use the app without an account. If you sign in with Google or Apple, your <strong>email address</strong>, <strong>display name</strong> and <strong>user ID</strong> are processed by Firebase Authentication for sign-in.</p>
+
+            <h3>2.2. Free scan counter</h3>
+            <p>Your first 3 scans are free. To prevent abuse of this allowance, only the following is stored in Firebase Firestore:</p>
             <ul>
-                <li><strong>Email address:</strong> If you sign in with Google or Apple, it is processed by Firebase Authentication for identity verification purposes.</li>
-                <li><strong>Display name:</strong> If you sign in with Google or Apple, it is processed by Firebase Authentication for identity verification purposes.</li>
-                <li>This information is only used for session management and basic account creation. It is not shared with third parties.</li>
+                <li>If you are signed in, the <strong>total number of scans</strong> and the time of your last scan, linked to your user ID.</li>
+                <li>An <strong>anonymous device hash</strong> (SHA-256) that does not identify you, and the total number of scans on that device.</li>
+            </ul>
+            <p>These records do not contain photos, posture results or exercise data.</p>
+
+            <h3>2.3. Feedback</h3>
+            <p>If you use the in-app feedback form, your message together with the app version and device information (model, OS, screen resolution) is stored in Firestore and forwarded to our support email.</p>
+
+            <h3>2.4. Subscription</h3>
+            <p>PosMetric Pro purchases are made through Google Play Billing. Your subscription status is verified via RevenueCat. We never see your payment details; they are processed by Google.</p>
+
+            <h3>2.5. Usage and crash data</h3>
+            <ul>
+                <li><strong>Firebase Analytics:</strong> Screen views, session durations, general device information and anonymous interaction events (e.g. completing a scan, starting or finishing an exercise). This data does not include photos, posture results or information that directly identifies you.</li>
+                <li><strong>Advertising ID:</strong> Firebase Analytics may use the device advertising ID for usage analytics only. The app does not show ads.</li>
+                <li><strong>Firebase Crashlytics:</strong> When the app crashes, a crash report, device model, OS and app version, and a technical identifier linked to the installation.</li>
+                <li><strong>Firebase App Check:</strong> An integrity check to verify the app is running unmodified on a genuine device.</li>
             </ul>
 
-            <h3>1.3. Anonymous Usage Data</h3>
+            <h2>3. Permissions</h2>
             <ul>
-                <li><strong>Firebase Analytics:</strong> To analyze user experience and optimize application performance, screen views, session durations, general device technical specifications (device model, OS version), and anonymized interaction events (such as completing analysis cycles, starting/finishing exercises, generating prescriptions) may be collected. This data strictly does not contain personal health data, captured photos, or personally identifiable information.</li>
-                <li><strong>Firebase Crashlytics:</strong> In the event of an app crash, crash reports, device model, OS version, app version, error logs, and technical identifiers linked to the app installation (Crashlytics Installation UUID) may be processed for debugging purposes. This data is used to identify and fix app errors; it does not contain direct health data or photos.</li>
-                <li><strong>Firebase App Check:</strong> Device integrity checks are performed to verify that the app is running on a genuine device.</li>
+                <li><strong>Camera:</strong> Only to take photos for a posture scan.</li>
+                <li><strong>Photos / gallery:</strong> To let you pick a photo for a scan.</li>
+                <li><strong>Notifications:</strong> For exercise and re-scan reminders (optional).</li>
             </ul>
 
-            <h2>2. Permissions and Purposes of Use</h2>
+            <h2>4. Data Sharing</h2>
+            <p>We do not sell, rent or share your personal data for marketing. Data is processed only by the following service providers we use to run the service:</p>
             <ul>
-                <li><strong>Camera Permission:</strong> Used only to perform live posture analysis.</li>
-                <li><strong>Storage / Photos Permission:</strong> Requested to let you choose a photo from your gallery for analysis and to save analysis results to your device.</li>
+                <li><strong>Google Firebase:</strong> Authentication, Firestore, Analytics, Crashlytics, App Check. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
+                <li><strong>RevenueCat:</strong> Subscription verification. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">revenuecat.com/privacy</a></li>
+                <li><strong>Google Play Billing:</strong> Payment processing.</li>
+                <li><strong>Legal requirements:</strong> Where required by applicable law.</li>
             </ul>
 
-            <h2>3. Data Sharing</h2>
-            <p>We do not sell, rent, or share your personal data or health information with third parties for marketing purposes.</p>
-
-            <h2>4. Data Security</h2>
+            <h2>5. Data Security</h2>
             <ul>
-                <li>Analysis data is stored in a local database on your device. It is protected by the device's operating system security mechanisms and the app sandbox architecture.</li>
-                <li>API requests are verified with Firebase App Check</li>
-                <li>Data transmission is protected with SSL/TLS encryption</li>
-                <li>Minimum data collection principle is applied</li>
-            </ul>
-            <p>When you uninstall the app, all app data stored on your device is permanently deleted.</p>
-
-            <h2>5. Third-Party Services</h2>
-            <p>The app uses the following third-party services:</p>
-            <ul>
-                <li><strong>Firebase (Google):</strong> Google Firebase infrastructure is used for authentication, usage analytics (Analytics), error reporting, and app security. Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
+                <li>On-device data is kept in the operating system's app sandbox.</li>
+                <li>All data sent to servers is encrypted with SSL/TLS.</li>
+                <li>We collect only the minimum data needed.</li>
+                <li>Uninstalling the app deletes all app data stored on your device.</li>
             </ul>
 
-            <h2>6. User Rights</h2>
-            <p>You have the following rights:</p>
+            <h2>6. Your Rights and Data Deletion</h2>
             <ul>
-                <li><strong>Data deletion:</strong> You can permanently delete all your data using the "Profile > Delete Account" option within the app. If you cannot access the app, you can follow instructions on our <a href="delete-account.html" style="color:var(--accent);">account deletion page</a>.</li>
-                <li><strong>Data access:</strong> You can access all your data stored on your device through the app.</li>
-                <li><strong>Account closure:</strong> You can close your account and delete all associated data at any time.</li>
+                <li><strong>Account and data deletion:</strong> Use <em>Account &gt; Delete Account</em> in the app to delete your account and its server records. If you cannot access the app, follow the steps on our <a href="delete-account.html" style="color:var(--accent);">account deletion page</a>.</li>
+                <li><strong>Anonymous device counter:</strong> Because it does not identify you, it may be kept after account deletion to enforce the free scan allowance.</li>
+                <li><strong>Access:</strong> You can access all data stored on your device through the app.</li>
             </ul>
 
-            <h2>7. Children's Privacy</h2>
-            <p>This app does not knowingly collect personal data from children under 13. If we learn that we have collected such data, we will immediately delete it.</p>
+            <h2>7. Age Requirement</h2>
+            <p>PosMetric is intended for users aged 18 and over. We do not knowingly collect personal data from anyone under 18; if we become aware of such data, we delete it.</p>
 
             <h2>8. Changes</h2>
-            <p>Our privacy policy may be updated from time to time. The current version will always be published on this page.</p>
+            <p>This policy may be updated from time to time. The current version is always published on this page.</p>
 
             <h2>9. Contact</h2>
-            <p>For questions regarding privacy:</p>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></li>
                 <li><strong>Developer:</strong> FArk Studio</li>
             </ul>
         </div>
     </div>
-
     <footer class="footer">
         <p>© 2026 FArk Studio · <a href="index.html">Home</a> · <a href="terms.html">Terms of Use</a> · <a href="delete-account.html">Delete Account</a></p>
     </footer>

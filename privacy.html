@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası — Physio Metric</title>
-    <meta name="description" content="Physio Metric uygulamasının gizlilik politikası.">
+    <title>Gizlilik Politikası — PosMetric</title>
+    <meta name="description" content="PosMetric uygulamasının gizlilik politikası.">
     <link rel="icon" type="image/png" href="assets/app_icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -73,90 +73,96 @@
     <div class="container">
         <div class="page-header">
             <h1>Gizlilik Politikası</h1>
-            <p>Son güncelleme: 19 Ağustos 2026</p>
+            <p>Son güncelleme: 24 Eylül 2026</p>
         </div>
-
         <div class="content">
             <div class="highlight-box">
-                <strong>🔒 Temel İlke:</strong> Physio Metric, gizlilik öncelikli (privacy-first) bir uygulamadır. 
-                Postür analizi tamamen cihazınızda gerçekleştirilir. Fotoğraflarınız, analiz sonuçlarınız ve kişisel 
-                sağlık verileriniz hiçbir zaman sunucularımıza gönderilmez.
+                <strong>🔒 Temel İlke:</strong> PosMetric gizlilik öncelikli bir uygulamadır. Duruş analizi tamamen cihazınızda yapılır.
+                Fotoğraflarınız, duruş sonuçlarınız ve egzersiz verileriniz sunucularımıza gönderilmez.
             </div>
-
             <div class="highlight-box" style="background:rgba(251,191,36,0.06); border-color:rgba(251,191,36,0.15);">
-                <strong>⚕️ Tıbbi Feragat Beyanı:</strong> Bu uygulama postür değerlendirmesi yaparak duruş egzersizleri sunar. Tıbbi bir tanı koymaz, tedavi önermez.<br><br>Sağlık sorunlarınız için mutlaka uzman bir hekime danışın.
+                <strong>ℹ️ Not:</strong> PosMetric bir fitness ve sağlıklı yaşam uygulamasıdır; tıbbi cihaz değildir.
             </div>
 
-            <h2>1. Toplanan Veriler</h2>
-            
-            <h3>1.1. Cihazda Kalan Veriler (Sunucuya Gönderilmez)</h3>
+            <h2>1. Cihazınızda Kalan Veriler</h2>
+            <p>Aşağıdaki veriler yalnızca cihazınızdaki yerel veritabanında tutulur, sunuculara gönderilmez:</p>
             <ul>
-                <li><strong>Postür Analiz Verileri:</strong> Makine öğrenmesi (ML) destekli iskelet noktası tespiti, açı hesaplamaları ve postür değerlendirme sonuçları tamamen cihazınızda işlenir ve saklanır. Bu sonuçlar tıbbi tanı niteliği taşımaz.</li>
-                <li><strong>Fotoğraflar:</strong> Analiz için çekilen fotoğraflar cihazınızdan çıkmaz. Sunucuya veya bulut servisine aktarılmaz.</li>
-                <li><strong>Egzersiz Verileri:</strong> Egzersiz geçmişi, streak bilgisi ve ilerleme verileri cihaz içi yerel veritabanında saklanır.</li>
-                <li><strong>Ağrı Haritası:</strong> İşaretlediğiniz ağrı noktaları ve şiddet bilgileri yalnızca cihazınızda tutulur.</li>
+                <li><strong>Fotoğraflar:</strong> Ölçüm için çektiğiniz veya galeriden seçtiğiniz fotoğraflar cihazınızdan çıkmaz.</li>
+                <li><strong>Duruş sonuçları:</strong> Vücut noktası tespiti, açı hesaplamaları, Duruş Skoru ve bulgular cihazınızda hesaplanır ve saklanır.</li>
+                <li><strong>Gerginlik haritası:</strong> İşaretlediğiniz gerginlik bölgeleri ve seviyeleri.</li>
+                <li><strong>Egzersiz verileri:</strong> Günlük rutinleriniz, seans geçmişi, seri (streak) ve ilerleme bilgileri.</li>
             </ul>
 
-            <h3>1.2. Hesap Bilgileri (Firebase Authentication)</h3>
-            <ul>
-                <li><strong>E-posta adresi:</strong> Google veya Apple ile giriş yaptığınızda, kimlik doğrulama amacıyla Firebase Authentication tarafından işlenir.</li>
-                <li><strong>Görüntü adı:</strong> Giriş sağlayıcınızdan alınan kullanıcı adı.</li>
-            </ul>
-            <p>Bu bilgiler yalnızca oturum yönetimi için kullanılır ve üçüncü taraflarla paylaşılmaz.</p>
+            <h2>2. Toplanan Veriler</h2>
+            <h3>2.1. Hesap bilgileri (isteğe bağlı)</h3>
+            <p>Uygulamayı hesap açmadan kullanabilirsiniz. Google veya Apple ile giriş yaparsanız, <strong>e-posta adresiniz</strong>, <strong>görünen adınız</strong> ve <strong>kullanıcı kimliğiniz</strong> kimlik doğrulama için Firebase Authentication tarafından işlenir.</p>
 
-            <h3>1.3. Anonim Kullanım Verileri</h3>
+            <h3>2.2. Ücretsiz analiz sayacı</h3>
+            <p>İlk 3 ölçüm ücretsizdir. Bu hakkın kötüye kullanılmasını önlemek için yalnızca şu bilgiler Firebase Firestore'da tutulur:</p>
             <ul>
-                <li><strong>Firebase Analytics:</strong> Kullanıcı deneyimini ve uygulama performansını analiz etmek amacıyla ekran görüntülemeleri, oturum süreleri, genel cihaz teknik bilgileri (cihaz modeli, işletim sistemi sürümü) ve anonimleştirilmiş etkileşim olayları (analiz tamamlama döngüsü, egzersiz başlatma/bitirme, reçete oluşturma gibi anonim olaylar) işlenebilir. Bu veriler kesinlikle kişisel sağlık verilerini, çekilen fotoğrafları veya kişiyi doğrudan tanımlayan bilgileri içermez.</li>
-                <li><strong>Firebase Crashlytics:</strong> Uygulama çökmesi durumunda hata ayıklama amacıyla çökme raporları, cihaz modeli, işletim sistemi sürümü, uygulama sürümü, hata günlükleri ve uygulama kurulumuna bağlı teknik tanımlayıcılar (Crashlytics Installation UUID) işlenebilir. Bu veriler uygulama hatalarını tespit etmek ve gidermek amacıyla kullanılır; doğrudan sağlık verisi veya fotoğraf içermez.</li>
-                <li><strong>Firebase App Check:</strong> Uygulamanın gerçek bir cihazda çalıştığını doğrulamak için cihaz bütünlüğü kontrolü yapılır.</li>
+                <li>Giriş yaptıysanız, kullanıcı kimliğinize bağlı <strong>toplam analiz sayısı</strong> ve son analiz zamanı.</li>
+                <li>Cihazınızdan üretilen, kişiyi tanımlamayan <strong>anonim bir cihaz özeti</strong> (SHA-256) ve bu cihazdaki toplam analiz sayısı.</li>
+            </ul>
+            <p>Bu kayıtlar fotoğraf, duruş sonucu veya egzersiz verisi içermez.</p>
+
+            <h3>2.3. Geri bildirim</h3>
+            <p>Uygulama içindeki geri bildirim formunu kullanırsanız, yazdığınız mesaj ile uygulama sürümü ve cihaz bilgisi (model, işletim sistemi, ekran çözünürlüğü) Firestore'a kaydedilir ve destek e-posta adresimize iletilir.</p>
+
+            <h3>2.4. Abonelik</h3>
+            <p>PosMetric Pro satın alımları Google Play Faturalandırma üzerinden yapılır. Abonelik durumunuz RevenueCat hizmeti aracılığıyla doğrulanır. Ödeme bilgilerinizi biz görmeyiz; bunlar Google tarafından işlenir.</p>
+
+            <h3>2.5. Kullanım ve hata verileri</h3>
+            <ul>
+                <li><strong>Firebase Analytics:</strong> Ekran görüntülemeleri, oturum süreleri, genel cihaz bilgileri ve anonim etkileşim olayları (ör. ölçüm tamamlama, egzersiz başlatma/bitirme). Bu veriler fotoğraf, duruş sonucu veya kişiyi doğrudan tanımlayan bilgi içermez.</li>
+                <li><strong>Reklam kimliği:</strong> Firebase Analytics, cihazın reklam kimliğini yalnızca kullanım analizi için kullanabilir. Uygulamada reklam gösterilmez.</li>
+                <li><strong>Firebase Crashlytics:</strong> Uygulama çöktüğünde hata raporu, cihaz modeli, işletim sistemi ve uygulama sürümü ile kuruluma bağlı teknik bir tanımlayıcı.</li>
+                <li><strong>Firebase App Check:</strong> Uygulamanın orijinal ve güvenli bir cihazda çalıştığını doğrulamak için bütünlük kontrolü.</li>
             </ul>
 
-            <h2>2. Veri Kullanım Amaçları</h2>
+            <h2>3. İzinler</h2>
             <ul>
-                <li>Postür analizi ve egzersiz önerisi sunmak</li>
-                <li>Kullanıcı deneyimini iyileştirmek</li>
-                <li>Uygulama hatalarını tespit ve gidermek</li>
-                <li>Hesap güvenliğini sağlamak</li>
+                <li><strong>Kamera:</strong> Yalnızca duruş ölçümü için fotoğraf çekmek amacıyla.</li>
+                <li><strong>Fotoğraflar / galeri:</strong> Ölçüm için galeriden fotoğraf seçmeniz amacıyla.</li>
+                <li><strong>Bildirimler:</strong> Egzersiz ve yeniden ölçüm hatırlatmaları için (isteğe bağlı).</li>
             </ul>
 
-            <h2>3. Veri Paylaşımı</h2>
-            <p>Kişisel verileriniz üçüncü taraflarla paylaşılmaz, satılmaz veya kiralanmaz. Aşağıdaki istisnalar dışında:</p>
+            <h2>4. Veri Paylaşımı</h2>
+            <p>Kişisel verilerinizi satmayız, kiralamayız ve pazarlama amacıyla paylaşmayız. Veriler yalnızca hizmeti sunmak için kullandığımız aşağıdaki hizmet sağlayıcılar tarafından işlenir:</p>
             <ul>
-                <li><strong>Firebase (Google):</strong> Kimlik doğrulama, kullanım analizi (Analytics), hata raporlama ve uygulama güvenliği için Google Firebase altyapısı kullanılır. Google'ın gizlilik politikası: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
+                <li><strong>Google Firebase:</strong> Kimlik doğrulama, Firestore, Analytics, Crashlytics, App Check. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
+                <li><strong>RevenueCat:</strong> Abonelik doğrulama. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">revenuecat.com/privacy</a></li>
+                <li><strong>Google Play Faturalandırma:</strong> Ödeme işlemleri.</li>
                 <li><strong>Yasal zorunluluk:</strong> Yürürlükteki yasaların gerektirdiği durumlarda.</li>
             </ul>
 
-            <h2>4. Veri Güvenliği</h2>
+            <h2>5. Veri Güvenliği</h2>
             <ul>
-                <li>Analiz verileri cihazınızda yerel veritabanında saklanır. Cihazın işletim sistemi güvenlik mekanizmaları ve uygulama sandbox yapısı ile korunur.</li>
-                <li>Firebase App Check ile API istekleri doğrulanır</li>
-                <li>SSL/TLS şifreleme ile veri iletimi korunur</li>
-                <li>Minimum veri toplama prensibi uygulanır</li>
+                <li>Cihazdaki veriler işletim sisteminin uygulama korumalı alanında (sandbox) saklanır.</li>
+                <li>Sunuculara giden tüm veriler SSL/TLS ile şifrelenir.</li>
+                <li>Yalnızca gerekli en az veri toplanır.</li>
+                <li>Uygulamayı kaldırdığınızda cihazdaki tüm uygulama verileri silinir.</li>
             </ul>
 
-            <h2>5. Kullanıcı Hakları</h2>
-            <p>Aşağıdaki haklara sahipsiniz:</p>
+            <h2>6. Haklarınız ve Veri Silme</h2>
             <ul>
-                <li><strong>Veri silme:</strong> Uygulama içinden "Profil > Hesabı Sil" seçeneği ile tüm verilerinizi kalıcı olarak silebilirsiniz. Uygulamaya erişemiyorsanız <a href="delete-account.html" style="color:var(--accent);">hesap silme sayfamızdan</a> talimatları takip edebilirsiniz.</li>
-                <li><strong>Veri erişimi:</strong> Cihazınızda saklanan tüm verilerinize uygulama üzerinden erişebilirsiniz.</li>
-                <li><strong>Hesap kapatma:</strong> İstediğiniz zaman hesabınızı kapatabilir ve tüm ilişkili verileri silebilirsiniz.</li>
+                <li><strong>Hesap ve veri silme:</strong> Uygulamada <em>Hesap &gt; Hesabı Sil</em> seçeneğiyle hesabınızı ve sunucudaki hesap kayıtlarınızı silebilirsiniz. Uygulamaya erişemiyorsanız <a href="delete-account.html" style="color:var(--accent);">hesap silme sayfasındaki</a> adımları izleyin.</li>
+                <li><strong>Anonim cihaz sayacı:</strong> Kişiyi tanımlamadığı için hesap silindikten sonra da ücretsiz hak kontrolü amacıyla saklanabilir.</li>
+                <li><strong>Erişim:</strong> Cihazınızdaki tüm verilerinize uygulama üzerinden erişebilirsiniz.</li>
             </ul>
 
-            <h2>6. Çocukların Gizliliği</h2>
-            <p>Physio Metric, 13 yaşın altındaki çocuklara yönelik değildir. Bilerek 13 yaşın altındaki kişilerden kişisel bilgi toplamayız.</p>
+            <h2>7. Yaş Sınırı</h2>
+            <p>PosMetric 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. 18 yaşından küçüklerden bilerek kişisel veri toplamayız; böyle bir durumu fark edersek verileri sileriz.</p>
 
-            <h2>7. Değişiklikler</h2>
-            <p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler uygulama içinden bildirilecektir.</p>
+            <h2>8. Değişiklikler</h2>
+            <p>Bu politika zaman zaman güncellenebilir. Güncel sürüm her zaman bu sayfada yayımlanır.</p>
 
-            <h2>8. İletişim</h2>
-            <p>Gizlilik ile ilgili sorularınız için:</p>
+            <h2>9. İletişim</h2>
             <ul>
                 <li><strong>E-posta:</strong> <a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></li>
                 <li><strong>Geliştirici:</strong> FArk Studio</li>
             </ul>
         </div>
     </div>
-
     <footer class="footer">
         <p>© 2026 FArk Studio · <a href="index.html">Ana Sayfa</a> · <a href="terms.html">Kullanım Şartları</a> · <a href="delete-account.html">Hesap Silme</a></p>
     </footer>
