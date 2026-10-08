@@ -1,154 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hesap Silme — PosMetric</title>
-    <meta name="description" content="PosMetric uygulaması hesap ve veri silme işlemleri.">
-    <link rel="icon" type="image/png" href="assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-        .nav-back:hover { color:var(--accent); }
-        .page-header { padding:80px 0 40px; }
-        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
-        .page-header p { color:var(--text-muted); font-size:14px; }
-        .content { padding:0 0 80px; }
-        .content h2 {
-            font-size:20px; font-weight:700; margin:40px 0 16px;
-            padding-bottom:8px; border-bottom:1px solid var(--border);
-        }
-        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
-        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
-        .content ul { padding-left:20px; }
-        .content li { margin-bottom:8px; }
-        .warning-box {
-            padding:20px; margin:20px 0;
-            background:rgba(233,69,96,0.06); border:1px solid rgba(233,69,96,0.15);
-            border-radius:14px; font-size:14px;
-        }
-        .warning-box strong { color:var(--accent); font-weight:700; }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 24px 0;
-            font-size: 14px;
-        }
-        .data-table th, .data-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .data-table th {
-            color: var(--text);
-            font-weight: 600;
-            background: rgba(255,255,255,0.03);
-        }
-        .data-table td {
-            color: var(--text-secondary);
-        }
-        
-        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-        .footer a { color:var(--text-muted); text-decoration:none; }
-        .footer a:hover { color:var(--accent); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:20px;">
-                <a href="index.html" class="nav-back">← Ana Sayfa</a>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
-                    <a href="#" style="color:var(--text); text-decoration:none;">TR</a>
-                    <span style="color:var(--text-muted)">|</span>
-                    <a href="en/delete-account.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hesap Silme — PosMetric</title>
+  <meta name="description" content="PosMetric hesabınızı uygulamadan ya da e-postayla nasıl silersiniz ve hangi veriler silinir.">
+  <link rel="canonical" href="https://physiometric.app/delete-account.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/delete-account.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/delete-account.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/delete-account.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/delete-account.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/delete-account.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Hesap Silme — PosMetric">
+  <meta property="og:description" content="PosMetric hesabınızı uygulamadan ya da e-postayla nasıl silersiniz ve hangi veriler silinir.">
+  <meta property="og:url" content="https://physiometric.app/delete-account.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-tr.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="/">Ana sayfa</a></nav>
+    <nav class="langs" aria-label="Dil"><a href="/delete-account.html" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/delete-account.html" hreflang="en" lang="en" title="English">EN</a><a href="/de/delete-account.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/delete-account.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Hesap Silme</h1>
+<p class="date">Son güncelleme: 8 Ekim 2026</p>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Hesap Silme Talebi</h1>
-            <p>Son güncelleme: 17 Haziran 2026</p>
-        </div>
+<div class="callout warn"><p><strong>Önemli:</strong> Hesap silme <strong>geri alınamaz</strong>. Hesabınıza bağlı sunucu kayıtları kalıcı olarak silinir.</p></div>
+<h2>Yöntem 1: Uygulamadan silme (önerilen)</h2><ol><li>PosMetric uygulamasını açın.</li><li><strong>Profil</strong> sekmesine gidin.</li><li><strong>Hesabı Sil</strong>'e dokunun ve onaylayın.</li></ol>
+<h2>Yöntem 2: E-postayla silme talebi</h2><ol><li>Giriş yaptığınız e-posta adresinden yazın.</li><li>Adres: <a href="mailto:info@physiometric.app?subject=Hesap%20Silme%20Talebi%20-%20PosMetric">info@physiometric.app</a></li><li>Konu: "Hesap Silme Talebi - PosMetric"</li></ol>
+<p>Talebiniz doğrulandıktan sonra verileriniz en geç 48 saat içinde silinir.</p>
+<h2>Hesap silinince ne olur?</h2>
+<table class="table"><thead><tr><th>Veri</th><th>Ne olur</th></tr></thead><tbody><tr><td><strong>Oturum bilgileri</strong><small>Firebase Authentication</small></td><td>Talep işlendiği anda kalıcı olarak silinir.</td></tr><tr><td><strong>Ücretsiz kullanım sayacı</strong><small>Kimliğinize bağlı kayıt</small></td><td>Silinir. Kişiyi tanımlamayan anonim cihaz özeti ücretsiz hak kontrolü için saklanabilir.</td></tr><tr><td><strong>Ölçüm ve antrenman verileri</strong><small>Fotoğraflar, sonuçlar, kayıtlar</small></td><td>Sunucularımızda zaten tutulmaz. Telefonunuzda kalır; uygulamayı kaldırdığınızda tamamen silinir.</td></tr><tr><td><strong>Hata kayıtları</strong><small>Firebase Crashlytics</small></td><td>Teknik çökme kayıtları en geç 90 gün içinde kendiliğinden silinir.</td></tr></tbody></table>
+<div class="callout"><p><strong>Abonelik:</strong> Hesabı silmek aboneliği iptal etmez. Aboneliğinizi Google Play'den (iOS'ta App Store'dan) iptal edin.</p></div>
+<p>Ayrıntılar için <a href="/privacy.html">Gizlilik Politikası</a>.</p>
 
-        <div class="content">
-            <div class="warning-box">
-                <strong>⚠️ Önemli:</strong> Hesap silme işlemi <strong>geri alınamaz</strong>. Hesabınızı sildiğinizde, ilerlemeleriniz, egzersiz geçmişiniz ve uygulamaya dair tüm verileriniz kalıcı olarak kaldırılır.
-            </div>
-
-            <h2>Yöntem 1: Uygulama İçinden Hızlı Silme (Önerilen)</h2>
-            <p>Uygulamaya erişiminiz varsa, hesabınızı en hızlı şekilde doğrudan cihazınızdan silebilirsiniz:</p>
-            <ul>
-                <li>PosMetric uygulamasını açın.</li>
-                <li>Profil sekmesine gidin.</li>
-                <li><strong>"Hesabı Sil"</strong> butonuna dokunun ve onaylayın.</li>
-            </ul>
-
-            <h2>Yöntem 2: E-posta ile Hesap Silme Talebi</h2>
-            <p>Uygulamayı sildiyseniz veya erişiminiz yoksa, hesabınızın silinmesini e-posta yoluyla talep edebilirsiniz:</p>
-            <ul>
-                <li>Kayıt olduğunuz veya giriş yaptığınız e-posta adresinizden bize ulaşın.</li>
-                <li>E-postayı <strong><a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></strong> adresine gönderin.</li>
-                <li>Konu başlığına "Hesap Silme Talebi - PosMetric" yazın.</li>
-                <li>Talebiniz doğrulandıktan sonra verileriniz 48 saat içinde kalıcı olarak silinecektir.</li>
-            </ul>
-
-            <h2>Hesap Silindiğinde Ne Olur?</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Veri Türü</th>
-                        <th>Silinme Durumu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Oturum Bilgileri</strong><br>(Firebase Auth)</td>
-                        <td>Talep işleme alındığı an kalıcı olarak silinir.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Duruş ve Egzersiz Verileri</strong><br>(Postür, Egzersiz vb.)</td>
-                        <td>Sunucularımızda zaten tutulmaz. Cihazınızdaki uygulamayı kaldırdığınız an tamamen yok olur.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hata Günlükleri</strong><br>(Crashlytics)</td>
-                        <td>Teknik çökme kayıtları ve uygulama kurulumuna bağlı teknik tanımlayıcılar, hata ayıklama amacıyla işlenebilir ve maksimum 90 gün içinde otomatik olarak sistemden silinir.</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>Gizlilik uygulamalarımız hakkında daha fazla bilgi almak için <a href="privacy.html" style="color:var(--accent);">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>© 2026 FArk Studio · <a href="index.html">Ana Sayfa</a> · <a href="privacy.html">Gizlilik Politikası</a> · <a href="terms.html">Kullanım Şartları</a></p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et.</p></div>
+    <nav aria-label="Bağlantılar"><a href="/privacy.html">Gizlilik Politikası</a><a href="/terms.html">Kullanım Şartları</a><a href="/developer.html">Hakkımızda</a><a href="/delete-account.html">Hesap Silme</a><a href="mailto:info@physiometric.app">İletişim</a></nav>
+    <p class="disc">PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

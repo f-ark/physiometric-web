@@ -1,176 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — PosMetric</title>
-    <meta name="description" content="Privacy policy for the PosMetric application. How your data is used and protected.">
-    <meta property="og:title" content="Privacy Policy — PosMetric">
-    <meta property="og:description" content="How your data is used and protected in the PosMetric application.">
-    <link rel="icon" type="image/png" href="../assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
-        
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-        .nav-back:hover { color:var(--accent); }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — PosMetric</title>
+  <meta name="description" content="What data PosMetric processes, what stays on your phone and what your rights are.">
+  <link rel="canonical" href="https://physiometric.app/en/privacy.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/privacy.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/privacy.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Privacy Policy — PosMetric">
+  <meta property="og:description" content="What data PosMetric processes, what stays on your phone and what your rights are.">
+  <meta property="og:url" content="https://physiometric.app/en/privacy.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-en.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Page menu"><a href="/en/">Home</a></nav>
+    <nav class="langs" aria-label="Language"><a href="/privacy.html" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/privacy.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a><a href="/de/privacy.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/privacy.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Privacy Policy</h1>
+<p class="date">Last updated: October 8, 2026</p>
 
-        .page-header { padding:80px 0 40px; }
-        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
-        .page-header p { color:var(--text-muted); font-size:14px; }
+<div class="callout key"><p><strong>Core principle:</strong> Posture measurement runs on your phone. Your photos, measurement results and workout data are never sent to our servers.</p></div>
+<div class="callout"><p><strong>Note:</strong> PosMetric is a fitness app, not a medical device.</p></div>
 
-        .content { padding:0 0 80px; }
-        .content h2 {
-            font-size:20px; font-weight:700; margin:40px 0 16px;
-            padding-bottom:8px; border-bottom:1px solid var(--border);
-        }
-        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
-        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
-        .content ul { padding-left:20px; }
-        .content li { margin-bottom:8px; }
-        .content a { color:var(--accent); text-decoration:none; }
-        .content a:hover { text-decoration:underline; }
-        
-        .highlight-box {
-            padding:20px; margin:20px 0;
-            background:rgba(76,201,240,0.05); border:1px solid var(--border);
-            border-radius:14px; font-size:14px;
-        }
+<h2>1. Data that stays on your phone</h2>
+<p>The following data is kept only in the app's storage on your phone and is never sent to our servers:</p>
+<ul>
+<li><strong>Photos:</strong> Photos you take or pick from your gallery for a measurement.</li>
+<li><strong>Measurement results:</strong> Body landmarks, angle calculations, observations and your past measurements.</li>
+<li><strong>Plan settings:</strong> Your goal, sensitive or resting areas, reminder time and coach choice.</li>
+<li><strong>Workout records:</strong> The movements you do, active days, streaks, badges and your plan's progress.</li>
+</ul>
+<p><strong>Device backup:</strong> If your phone's backup is turned on (Google backup or iCloud), the operating system may include this data in a backup in your own account. These backups belong to your account; we cannot access them.</p>
 
-        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="../assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:20px;">
-                <a href="index.html" class="nav-back">← Home</a>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
-                    <a href="../privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">TR</a>
-                    <span style="color:var(--text-muted)">|</span>
-                    <a href="#" style="color:var(--text); text-decoration:none;">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<h2>2. Data we process</h2>
+<h3>2.1. Identity and account</h3>
+<p>When you first open the app, Firebase Authentication assigns you an <strong>anonymous user ID</strong>; no name or email is needed. If you sign in with Google or Apple, your <strong>email address</strong>, <strong>display name</strong> and <strong>user ID</strong> are processed for sign-in, and your anonymous ID is linked to that sign-in.</p>
+<h3>2.2. Free allowance</h3>
+<p>To prevent abuse of the free measurement allowance, only the following is stored in Firebase Firestore:</p>
+<ul>
+<li>The <strong>number of measurements</strong> and the time of your last measurement, linked to your user ID.</li>
+<li>An <strong>anonymous device hash</strong> (SHA-256) that does not identify you, and the number of measurements on that device.</li>
+</ul>
+<p>These records contain no photos, measurement results or workout data.</p>
+<h3>2.3. Feedback</h3>
+<p>If you use the in-app feedback form, your message together with the app version and device information (model, OS, screen resolution) is stored in Firestore and forwarded to our support email.</p>
+<h3>2.4. Subscription</h3>
+<p>PosMetric Pro is purchased through Google Play Billing (and through the App Store once the iOS version is released). Your subscription status is verified via RevenueCat, which receives your in-app user ID for this purpose. We never see your payment details.</p>
+<h3>2.5. Usage, crash and service data</h3>
+<ul>
+<li><strong>Firebase Analytics:</strong> Screen views, session lengths, general device information and anonymous interaction events (e.g. completing a measurement, starting or finishing a workout). No photos, measurement results or information that directly identifies you.</li>
+<li><strong>Advertising ID:</strong> Firebase Analytics may use the device advertising ID for usage analytics only. The app shows no ads.</li>
+<li><strong>Firebase Crashlytics:</strong> When the app crashes: a crash report, device model, OS, app version and a technical identifier linked to the installation.</li>
+<li><strong>Firebase App Check:</strong> An integrity check that verifies the app is running unmodified on a genuine device.</li>
+<li><strong>Firebase Remote Config and Storage:</strong> Updating app settings and downloading coach voice packs. An installation identifier and your IP address are processed in the process.</li>
+</ul>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: September 24, 2026</p>
-        </div>
-        <div class="content">
-            <div class="highlight-box">
-                <strong>🔒 Core principle:</strong> PosMetric is a privacy-first app. Posture analysis runs entirely on your device.
-                Your photos, posture results and exercise data are never sent to our servers.
-            </div>
-            <div class="highlight-box" style="background:rgba(251,191,36,0.06); border-color:rgba(251,191,36,0.15);">
-                <strong>ℹ️ Note:</strong> PosMetric is a fitness and wellness app, not a medical device.
-            </div>
+<h2>3. Permissions</h2>
+<ul>
+<li><strong>Camera:</strong> Only to take measurement photos.</li>
+<li><strong>Photos / gallery:</strong> So you can pick a photo for a measurement.</li>
+<li><strong>Notifications (optional):</strong> For a daily reminder at the time you choose. Reminders are scheduled on your phone.</li>
+</ul>
 
-            <h2>1. Data That Stays on Your Device</h2>
-            <p>The following data is stored only in a local database on your device and is never sent to servers:</p>
-            <ul>
-                <li><strong>Photos:</strong> Photos you take or pick from your gallery for a scan never leave your device.</li>
-                <li><strong>Posture results:</strong> Body landmark detection, angle calculations, your Posture Score and findings are calculated and stored on your device.</li>
-                <li><strong>Tension map:</strong> The tension areas and levels you mark.</li>
-                <li><strong>Exercise data:</strong> Your daily routines, session history, streak and progress.</li>
-            </ul>
+<h2>4. Data sharing</h2>
+<p>We do not sell, rent or share your personal data for marketing. Data is processed only by the following service providers we use to run the service:</p>
+<ul>
+<li><strong>Google Firebase:</strong> Authentication, Firestore, Analytics, Crashlytics, App Check, Remote Config, Storage. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+<li><strong>RevenueCat:</strong> Subscription verification. <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+<li><strong>Google Play Billing and Apple App Store:</strong> Payment processing.</li>
+<li><strong>Legal requirements:</strong> Where required by applicable law.</li>
+</ul>
+<p>These providers may process data outside Türkiye and the European Economic Area, in particular in the United States.</p>
 
-            <h2>2. Data We Collect</h2>
-            <h3>2.1. Account information (optional)</h3>
-            <p>You can use the app without an account. If you sign in with Google or Apple, your <strong>email address</strong>, <strong>display name</strong> and <strong>user ID</strong> are processed by Firebase Authentication for sign-in.</p>
+<h2>5. Data security</h2>
+<ul>
+<li>On-device data is kept in the operating system's app sandbox.</li>
+<li>All data sent to servers is encrypted with TLS.</li>
+<li>We collect only the minimum data needed.</li>
+<li>Uninstalling the app deletes all app data on your phone.</li>
+</ul>
 
-            <h3>2.2. Free scan counter</h3>
-            <p>Your first 3 scans are free. To prevent abuse of this allowance, only the following is stored in Firebase Firestore:</p>
-            <ul>
-                <li>If you are signed in, the <strong>total number of scans</strong> and the time of your last scan, linked to your user ID.</li>
-                <li>An <strong>anonymous device hash</strong> (SHA-256) that does not identify you, and the total number of scans on that device.</li>
-            </ul>
-            <p>These records do not contain photos, posture results or exercise data.</p>
+<h2>6. Your rights and data deletion</h2>
+<ul>
+<li><strong>Account and data deletion:</strong> Use Profile &gt; Delete Account in the app to delete your account and its server records. If you cannot access the app, follow the steps on our <a href="/en/delete-account.html">account deletion page</a>.</li>
+<li><strong>Anonymous device hash:</strong> Because it does not identify you, it may be kept after account deletion to enforce the free allowance.</li>
+<li><strong>Other rights:</strong> Under the GDPR and Turkish data protection law (KVKK) you can ask to access, correct or delete your data, object to processing or lodge a complaint. Just write to us.</li>
+</ul>
 
-            <h3>2.3. Feedback</h3>
-            <p>If you use the in-app feedback form, your message together with the app version and device information (model, OS, screen resolution) is stored in Firestore and forwarded to our support email.</p>
+<h2>7. Age requirement</h2>
+<p>PosMetric is intended for users aged 18 and over. We do not knowingly collect personal data from anyone under 18; if we become aware of such data, we delete it.</p>
 
-            <h3>2.4. Subscription</h3>
-            <p>PosMetric Pro purchases are made through Google Play Billing. Your subscription status is verified via RevenueCat. We never see your payment details; they are processed by Google.</p>
+<h2>8. Changes</h2>
+<p>This policy may be updated from time to time. The current version is always published on this page.</p>
 
-            <h3>2.5. Usage and crash data</h3>
-            <ul>
-                <li><strong>Firebase Analytics:</strong> Screen views, session durations, general device information and anonymous interaction events (e.g. completing a scan, starting or finishing an exercise). This data does not include photos, posture results or information that directly identifies you.</li>
-                <li><strong>Advertising ID:</strong> Firebase Analytics may use the device advertising ID for usage analytics only. The app does not show ads.</li>
-                <li><strong>Firebase Crashlytics:</strong> When the app crashes, a crash report, device model, OS and app version, and a technical identifier linked to the installation.</li>
-                <li><strong>Firebase App Check:</strong> An integrity check to verify the app is running unmodified on a genuine device.</li>
-            </ul>
+<h2>9. Contact</h2>
+<p>Controller: FArk Studio · Email: <a href="mailto:info@physiometric.app">info@physiometric.app</a></p>
 
-            <h2>3. Permissions</h2>
-            <ul>
-                <li><strong>Camera:</strong> Only to take photos for a posture scan.</li>
-                <li><strong>Photos / gallery:</strong> To let you pick a photo for a scan.</li>
-                <li><strong>Notifications:</strong> For exercise and re-scan reminders (optional).</li>
-            </ul>
-
-            <h2>4. Data Sharing</h2>
-            <p>We do not sell, rent or share your personal data for marketing. Data is processed only by the following service providers we use to run the service:</p>
-            <ul>
-                <li><strong>Google Firebase:</strong> Authentication, Firestore, Analytics, Crashlytics, App Check. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
-                <li><strong>RevenueCat:</strong> Subscription verification. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">revenuecat.com/privacy</a></li>
-                <li><strong>Google Play Billing:</strong> Payment processing.</li>
-                <li><strong>Legal requirements:</strong> Where required by applicable law.</li>
-            </ul>
-
-            <h2>5. Data Security</h2>
-            <ul>
-                <li>On-device data is kept in the operating system's app sandbox.</li>
-                <li>All data sent to servers is encrypted with SSL/TLS.</li>
-                <li>We collect only the minimum data needed.</li>
-                <li>Uninstalling the app deletes all app data stored on your device.</li>
-            </ul>
-
-            <h2>6. Your Rights and Data Deletion</h2>
-            <ul>
-                <li><strong>Account and data deletion:</strong> Use <em>Account &gt; Delete Account</em> in the app to delete your account and its server records. If you cannot access the app, follow the steps on our <a href="delete-account.html" style="color:var(--accent);">account deletion page</a>.</li>
-                <li><strong>Anonymous device counter:</strong> Because it does not identify you, it may be kept after account deletion to enforce the free scan allowance.</li>
-                <li><strong>Access:</strong> You can access all data stored on your device through the app.</li>
-            </ul>
-
-            <h2>7. Age Requirement</h2>
-            <p>PosMetric is intended for users aged 18 and over. We do not knowingly collect personal data from anyone under 18; if we become aware of such data, we delete it.</p>
-
-            <h2>8. Changes</h2>
-            <p>This policy may be updated from time to time. The current version is always published on this page.</p>
-
-            <h2>9. Contact</h2>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></li>
-                <li><strong>Developer:</strong> FArk Studio</li>
-            </ul>
-        </div>
-    </div>
-    <footer class="footer">
-        <p>© 2026 FArk Studio · <a href="index.html">Home</a> · <a href="terms.html">Terms of Use</a> · <a href="delete-account.html">Delete Account</a></p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Measure your posture and move every day with a short plan built around you.</p></div>
+    <nav aria-label="Links"><a href="/en/privacy.html">Privacy Policy</a><a href="/en/terms.html">Terms of Use</a><a href="/en/developer.html">About us</a><a href="/en/delete-account.html">Delete Account</a><a href="mailto:info@physiometric.app">Contact</a></nav>
+    <p class="disc">PosMetric is a fitness app, not a medical device. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

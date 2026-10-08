@@ -1,154 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Account — PosMetric</title>
-    <meta name="description" content="Account and data deletion for PosMetric app.">
-    <link rel="icon" type="image/png" href="../assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-        .nav-back:hover { color:var(--accent); }
-        .page-header { padding:80px 0 40px; }
-        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
-        .page-header p { color:var(--text-muted); font-size:14px; }
-        .content { padding:0 0 80px; }
-        .content h2 {
-            font-size:20px; font-weight:700; margin:40px 0 16px;
-            padding-bottom:8px; border-bottom:1px solid var(--border);
-        }
-        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
-        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
-        .content ul { padding-left:20px; }
-        .content li { margin-bottom:8px; }
-        .warning-box {
-            padding:20px; margin:20px 0;
-            background:rgba(233,69,96,0.06); border:1px solid rgba(233,69,96,0.15);
-            border-radius:14px; font-size:14px;
-        }
-        .warning-box strong { color:var(--accent); font-weight:700; }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 24px 0;
-            font-size: 14px;
-        }
-        .data-table th, .data-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .data-table th {
-            color: var(--text);
-            font-weight: 600;
-            background: rgba(255,255,255,0.03);
-        }
-        .data-table td {
-            color: var(--text-secondary);
-        }
-        
-        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-        .footer a { color:var(--text-muted); text-decoration:none; }
-        .footer a:hover { color:var(--accent); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="../assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:20px;">
-                <a href="index.html" class="nav-back">← Home</a>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
-                    <a href="../delete-account.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">TR</a>
-                    <span style="color:var(--text-muted)">|</span>
-                    <a href="#" style="color:var(--text); text-decoration:none;">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delete Account — PosMetric</title>
+  <meta name="description" content="How to delete your PosMetric account in the app or by email, and what gets deleted.">
+  <link rel="canonical" href="https://physiometric.app/en/delete-account.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/delete-account.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/delete-account.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/delete-account.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/delete-account.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/delete-account.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Delete Account — PosMetric">
+  <meta property="og:description" content="How to delete your PosMetric account in the app or by email, and what gets deleted.">
+  <meta property="og:url" content="https://physiometric.app/en/delete-account.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-en.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Page menu"><a href="/en/">Home</a></nav>
+    <nav class="langs" aria-label="Language"><a href="/delete-account.html" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/delete-account.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a><a href="/de/delete-account.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/delete-account.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Delete Account</h1>
+<p class="date">Last updated: October 8, 2026</p>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Account Deletion Request</h1>
-            <p>Last updated: June 17, 2026</p>
-        </div>
+<div class="callout warn"><p><strong>Important:</strong> Deleting your account <strong>cannot be undone</strong>. Server records linked to your account are permanently deleted.</p></div>
+<h2>Option 1: Delete in the app (recommended)</h2><ol><li>Open the PosMetric app.</li><li>Go to the <strong>Profile</strong> tab.</li><li>Tap <strong>Delete Account</strong> and confirm.</li></ol>
+<h2>Option 2: Request deletion by email</h2><ol><li>Write from the email address you signed in with.</li><li>Address: <a href="mailto:info@physiometric.app?subject=Account%20Deletion%20Request%20-%20PosMetric">info@physiometric.app</a></li><li>Subject: "Account Deletion Request - PosMetric"</li></ol>
+<p>Once your request is verified, your data is deleted within 48 hours.</p>
+<h2>What happens when you delete your account?</h2>
+<table class="table"><thead><tr><th>Data</th><th>What happens</th></tr></thead><tbody><tr><td><strong>Sign-in data</strong><small>Firebase Authentication</small></td><td>Permanently deleted as soon as the request is processed.</td></tr><tr><td><strong>Free allowance counter</strong><small>Record linked to your ID</small></td><td>Deleted. An anonymous device hash that does not identify you may be kept to enforce the free allowance.</td></tr><tr><td><strong>Measurement and workout data</strong><small>Photos, results, records</small></td><td>Never stored on our servers. It stays on your phone and is fully deleted when you uninstall the app.</td></tr><tr><td><strong>Crash logs</strong><small>Firebase Crashlytics</small></td><td>Technical crash records are deleted automatically within 90 days.</td></tr></tbody></table>
+<div class="callout"><p><strong>Subscription:</strong> Deleting your account does not cancel your subscription. Cancel it in Google Play (or the App Store on iOS).</p></div>
+<p>More details in our <a href="/en/privacy.html">Privacy Policy</a>.</p>
 
-        <div class="content">
-            <div class="warning-box">
-                <strong>⚠️ Important:</strong> The account deletion process is <strong>irreversible</strong>. When you delete your account, your progress, exercise history, and all data related to the app will be permanently removed.
-            </div>
-
-            <h2>Method 1: Quick Deletion In-App (Recommended)</h2>
-            <p>If you have access to the app, you can delete your account directly from your device most quickly:</p>
-            <ul>
-                <li>Open the PosMetric app.</li>
-                <li>Go to the Profile tab.</li>
-                <li>Tap the <strong>"Delete Account"</strong> button and confirm.</li>
-            </ul>
-
-            <h2>Method 2: Account Deletion Request via Email</h2>
-            <p>If you have uninstalled the app or don't have access, you can request account deletion via email:</p>
-            <ul>
-                <li>Contact us from the email address you registered or logged in with.</li>
-                <li>Send the email to <strong><a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></strong>.</li>
-                <li>Write "Account Deletion Request - PosMetric" in the subject line.</li>
-                <li>Once your request is verified, your data will be permanently deleted within 48 hours.</li>
-            </ul>
-
-            <h2>What Happens When Your Account is Deleted?</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Data Type</th>
-                        <th>Deletion Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Session Information</strong><br>(Firebase Auth)</td>
-                        <td>Permanently deleted as soon as the request is processed.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Posture and Exercise Data</strong><br>(Posture, Exercises, etc.)</td>
-                        <td>Not stored on our servers. Completely disappears the moment you uninstall the app from your device.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Error Logs</strong><br>(Crashlytics)</td>
-                        <td>Technical crash records and technical identifiers linked to the app installation may be processed for debugging purposes and are automatically deleted from the system within a maximum of 90 days.</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>To learn more about our privacy practices, please review our <a href="privacy.html" style="color:var(--accent);">Privacy Policy</a>.</p>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>© 2026 FArk Studio · <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Measure your posture and move every day with a short plan built around you.</p></div>
+    <nav aria-label="Links"><a href="/en/privacy.html">Privacy Policy</a><a href="/en/terms.html">Terms of Use</a><a href="/en/developer.html">About us</a><a href="/en/delete-account.html">Delete Account</a><a href="mailto:info@physiometric.app">Contact</a></nav>
+    <p class="disc">PosMetric is a fitness app, not a medical device. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

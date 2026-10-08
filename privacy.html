@@ -1,170 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası — PosMetric</title>
-    <meta name="description" content="PosMetric uygulamasının gizlilik politikası.">
-    <link rel="icon" type="image/png" href="assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-        .nav-back:hover { color:var(--accent); }
-        .page-header { padding:80px 0 40px; }
-        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
-        .page-header p { color:var(--text-muted); font-size:14px; }
-        .content { padding:0 0 80px; }
-        .content h2 {
-            font-size:20px; font-weight:700; margin:40px 0 16px;
-            padding-bottom:8px; border-bottom:1px solid var(--border);
-        }
-        .content h3 { font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--accent); }
-        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
-        .content ul { padding-left:20px; }
-        .content li { margin-bottom:8px; }
-        .highlight-box {
-            padding:20px; margin:20px 0;
-            background:rgba(233,69,96,0.06); border:1px solid rgba(233,69,96,0.15);
-            border-radius:14px; font-size:14px;
-        }
-        .highlight-box strong { color:var(--text); }
-        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-        .footer a { color:var(--text-muted); text-decoration:none; }
-        .footer a:hover { color:var(--accent); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:20px;">
-                <a href="index.html" class="nav-back">← Ana Sayfa</a>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
-                    <a href="#" style="color:var(--text); text-decoration:none;">TR</a>
-                    <span style="color:var(--text-muted)">|</span>
-                    <a href="en/privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gizlilik Politikası — PosMetric</title>
+  <meta name="description" content="PosMetric hangi verileri işler, hangileri telefonunuzda kalır ve haklarınız nelerdir.">
+  <link rel="canonical" href="https://physiometric.app/privacy.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/privacy.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/privacy.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Gizlilik Politikası — PosMetric">
+  <meta property="og:description" content="PosMetric hangi verileri işler, hangileri telefonunuzda kalır ve haklarınız nelerdir.">
+  <meta property="og:url" content="https://physiometric.app/privacy.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-tr.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="/">Ana sayfa</a></nav>
+    <nav class="langs" aria-label="Dil"><a href="/privacy.html" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/privacy.html" hreflang="en" lang="en" title="English">EN</a><a href="/de/privacy.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/privacy.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Gizlilik Politikası</h1>
+<p class="date">Son güncelleme: 8 Ekim 2026</p>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Gizlilik Politikası</h1>
-            <p>Son güncelleme: 24 Eylül 2026</p>
-        </div>
-        <div class="content">
-            <div class="highlight-box">
-                <strong>🔒 Temel İlke:</strong> PosMetric gizlilik öncelikli bir uygulamadır. Duruş analizi tamamen cihazınızda yapılır.
-                Fotoğraflarınız, duruş sonuçlarınız ve egzersiz verileriniz sunucularımıza gönderilmez.
-            </div>
-            <div class="highlight-box" style="background:rgba(251,191,36,0.06); border-color:rgba(251,191,36,0.15);">
-                <strong>ℹ️ Not:</strong> PosMetric bir fitness ve sağlıklı yaşam uygulamasıdır; tıbbi cihaz değildir.
-            </div>
+<div class="callout key"><p><strong>Temel ilke:</strong> Duruş ölçümü telefonunuzda yapılır. Fotoğraflarınız, ölçüm sonuçlarınız ve antrenman verileriniz sunucularımıza gönderilmez.</p></div>
+<div class="callout"><p><strong>Not:</strong> PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir.</p></div>
 
-            <h2>1. Cihazınızda Kalan Veriler</h2>
-            <p>Aşağıdaki veriler yalnızca cihazınızdaki yerel veritabanında tutulur, sunuculara gönderilmez:</p>
-            <ul>
-                <li><strong>Fotoğraflar:</strong> Ölçüm için çektiğiniz veya galeriden seçtiğiniz fotoğraflar cihazınızdan çıkmaz.</li>
-                <li><strong>Duruş sonuçları:</strong> Vücut noktası tespiti, açı hesaplamaları, Duruş Skoru ve bulgular cihazınızda hesaplanır ve saklanır.</li>
-                <li><strong>Gerginlik haritası:</strong> İşaretlediğiniz gerginlik bölgeleri ve seviyeleri.</li>
-                <li><strong>Egzersiz verileri:</strong> Günlük rutinleriniz, seans geçmişi, seri (streak) ve ilerleme bilgileri.</li>
-            </ul>
+<h2>1. Telefonunuzda kalan veriler</h2>
+<p>Aşağıdaki veriler yalnızca telefonunuzdaki uygulama alanında tutulur ve sunucularımıza gönderilmez:</p>
+<ul>
+<li><strong>Fotoğraflar:</strong> Ölçüm için çektiğiniz ya da galeriden seçtiğiniz fotoğraflar.</li>
+<li><strong>Ölçüm sonuçları:</strong> Vücut noktaları, açı hesapları, gözlemler ve geçmiş ölçümleriniz.</li>
+<li><strong>Plan ayarları:</strong> Hedefiniz, hassas ya da dinlendirdiğiniz bölgeler, hatırlatma saatiniz ve koç seçiminiz.</li>
+<li><strong>Antrenman kayıtları:</strong> Yaptığınız hareketler, dolu günler, seri, rozetler ve planınızın ilerleyişi.</li>
+</ul>
+<p><strong>Cihaz yedeği:</strong> Telefonunuzun yedekleme özelliği açıksa (Google yedeği ya da iCloud), işletim sistemi bu verileri kendi hesabınızdaki yedeğe alabilir. Bu yedekler sizin hesabınızdadır; biz erişemeyiz.</p>
 
-            <h2>2. Toplanan Veriler</h2>
-            <h3>2.1. Hesap bilgileri (isteğe bağlı)</h3>
-            <p>Uygulamayı hesap açmadan kullanabilirsiniz. Google veya Apple ile giriş yaparsanız, <strong>e-posta adresiniz</strong>, <strong>görünen adınız</strong> ve <strong>kullanıcı kimliğiniz</strong> kimlik doğrulama için Firebase Authentication tarafından işlenir.</p>
+<h2>2. İşlenen veriler</h2>
+<h3>2.1. Kimlik ve hesap</h3>
+<p>Uygulama ilk açıldığında size Firebase Authentication üzerinden <strong>anonim bir kullanıcı kimliği</strong> atanır; bunun için ad ya da e-posta istenmez. Google veya Apple ile giriş yaparsanız <strong>e-posta adresiniz</strong>, <strong>görünen adınız</strong> ve <strong>kullanıcı kimliğiniz</strong> kimlik doğrulama için işlenir ve anonim kimliğiniz bu girişe bağlanır.</p>
+<h3>2.2. Ücretsiz kullanım hakkı</h3>
+<p>Ücretsiz ölçüm hakkının kötüye kullanılmasını önlemek için Firebase Firestore'da yalnızca şunlar tutulur:</p>
+<ul>
+<li>Kullanıcı kimliğinize bağlı <strong>ölçüm sayısı</strong> ve son ölçüm zamanı.</li>
+<li>Cihazınızdan üretilen, kişiyi tanımlamayan <strong>anonim bir cihaz özeti</strong> (SHA-256) ve bu cihazdaki ölçüm sayısı.</li>
+</ul>
+<p>Bu kayıtlar fotoğraf, ölçüm sonucu ya da antrenman verisi içermez.</p>
+<h3>2.3. Geri bildirim</h3>
+<p>Uygulamadaki geri bildirim formunu kullanırsanız, mesajınız ile uygulama sürümü ve cihaz bilgisi (model, işletim sistemi, ekran çözünürlüğü) Firestore'a kaydedilir ve destek e-posta adresimize iletilir.</p>
+<h3>2.4. Abonelik</h3>
+<p>PosMetric Pro satın alımları Google Play Faturalandırma üzerinden (iOS sürümü yayımlandığında App Store üzerinden) yapılır. Abonelik durumunuz RevenueCat aracılığıyla doğrulanır; bunun için RevenueCat'e uygulamadaki kullanıcı kimliğiniz iletilir. Ödeme bilgilerinizi biz görmeyiz.</p>
+<h3>2.5. Kullanım, hata ve hizmet verileri</h3>
+<ul>
+<li><strong>Firebase Analytics:</strong> Ekran görüntülemeleri, oturum süreleri, genel cihaz bilgileri ve anonim etkileşim olayları (ör. ölçümü tamamlama, antrenmana başlama ve bitirme). Fotoğraf, ölçüm sonucu ya da sizi doğrudan tanımlayan bilgi içermez.</li>
+<li><strong>Reklam kimliği:</strong> Firebase Analytics, cihazın reklam kimliğini yalnızca kullanım analizi için kullanabilir. Uygulamada reklam gösterilmez.</li>
+<li><strong>Firebase Crashlytics:</strong> Uygulama çöktüğünde hata raporu, cihaz modeli, işletim sistemi, uygulama sürümü ve kuruluma bağlı teknik bir tanımlayıcı.</li>
+<li><strong>Firebase App Check:</strong> Uygulamanın orijinal hâliyle gerçek bir cihazda çalıştığını doğrulayan bütünlük kontrolü.</li>
+<li><strong>Firebase Remote Config ve Storage:</strong> Uygulama ayarlarının güncellenmesi ve koç ses paketlerinin indirilmesi. Bu sırada kuruluma bağlı teknik bir tanımlayıcı ve IP adresi işlenir.</li>
+</ul>
 
-            <h3>2.2. Ücretsiz analiz sayacı</h3>
-            <p>İlk 3 ölçüm ücretsizdir. Bu hakkın kötüye kullanılmasını önlemek için yalnızca şu bilgiler Firebase Firestore'da tutulur:</p>
-            <ul>
-                <li>Giriş yaptıysanız, kullanıcı kimliğinize bağlı <strong>toplam analiz sayısı</strong> ve son analiz zamanı.</li>
-                <li>Cihazınızdan üretilen, kişiyi tanımlamayan <strong>anonim bir cihaz özeti</strong> (SHA-256) ve bu cihazdaki toplam analiz sayısı.</li>
-            </ul>
-            <p>Bu kayıtlar fotoğraf, duruş sonucu veya egzersiz verisi içermez.</p>
+<h2>3. İzinler</h2>
+<ul>
+<li><strong>Kamera:</strong> Yalnızca ölçüm fotoğrafı çekmek için.</li>
+<li><strong>Fotoğraflar / galeri:</strong> Ölçüm için galeriden fotoğraf seçebilmeniz için.</li>
+<li><strong>Bildirimler (isteğe bağlı):</strong> Seçtiğiniz saatte günlük hatırlatma için. Hatırlatmalar telefonunuzda zamanlanır.</li>
+</ul>
 
-            <h3>2.3. Geri bildirim</h3>
-            <p>Uygulama içindeki geri bildirim formunu kullanırsanız, yazdığınız mesaj ile uygulama sürümü ve cihaz bilgisi (model, işletim sistemi, ekran çözünürlüğü) Firestore'a kaydedilir ve destek e-posta adresimize iletilir.</p>
+<h2>4. Veri paylaşımı</h2>
+<p>Kişisel verilerinizi satmayız, kiralamayız ve pazarlama amacıyla paylaşmayız. Veriler yalnızca hizmeti sunmak için kullandığımız şu hizmet sağlayıcılar tarafından işlenir:</p>
+<ul>
+<li><strong>Google Firebase:</strong> Authentication, Firestore, Analytics, Crashlytics, App Check, Remote Config, Storage. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+<li><strong>RevenueCat:</strong> Abonelik doğrulama. <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+<li><strong>Google Play Faturalandırma ve Apple App Store:</strong> Ödeme işlemleri.</li>
+<li><strong>Yasal zorunluluk:</strong> Yürürlükteki yasaların gerektirdiği durumlarda.</li>
+</ul>
+<p>Bu hizmet sağlayıcılar verileri Türkiye ve Avrupa Ekonomik Alanı dışında, özellikle ABD'de işleyebilir.</p>
 
-            <h3>2.4. Abonelik</h3>
-            <p>PosMetric Pro satın alımları Google Play Faturalandırma üzerinden yapılır. Abonelik durumunuz RevenueCat hizmeti aracılığıyla doğrulanır. Ödeme bilgilerinizi biz görmeyiz; bunlar Google tarafından işlenir.</p>
+<h2>5. Veri güvenliği</h2>
+<ul>
+<li>Telefondaki veriler işletim sisteminin uygulama korumalı alanında (sandbox) saklanır.</li>
+<li>Sunuculara giden tüm veriler TLS ile şifrelenir.</li>
+<li>Yalnızca gereken en az veri toplanır.</li>
+<li>Uygulamayı kaldırdığınızda telefondaki tüm uygulama verileri silinir.</li>
+</ul>
 
-            <h3>2.5. Kullanım ve hata verileri</h3>
-            <ul>
-                <li><strong>Firebase Analytics:</strong> Ekran görüntülemeleri, oturum süreleri, genel cihaz bilgileri ve anonim etkileşim olayları (ör. ölçüm tamamlama, egzersiz başlatma/bitirme). Bu veriler fotoğraf, duruş sonucu veya kişiyi doğrudan tanımlayan bilgi içermez.</li>
-                <li><strong>Reklam kimliği:</strong> Firebase Analytics, cihazın reklam kimliğini yalnızca kullanım analizi için kullanabilir. Uygulamada reklam gösterilmez.</li>
-                <li><strong>Firebase Crashlytics:</strong> Uygulama çöktüğünde hata raporu, cihaz modeli, işletim sistemi ve uygulama sürümü ile kuruluma bağlı teknik bir tanımlayıcı.</li>
-                <li><strong>Firebase App Check:</strong> Uygulamanın orijinal ve güvenli bir cihazda çalıştığını doğrulamak için bütünlük kontrolü.</li>
-            </ul>
+<h2>6. Haklarınız ve veri silme</h2>
+<ul>
+<li><strong>Hesap ve veri silme:</strong> Uygulamada Profil &gt; Hesabı Sil ile hesabınızı ve sunucudaki hesap kayıtlarınızı silebilirsiniz. Uygulamaya erişemiyorsanız <a href="/delete-account.html">hesap silme sayfasındaki</a> adımları izleyin.</li>
+<li><strong>Anonim cihaz özeti:</strong> Kişiyi tanımlamadığı için hesap silindikten sonra da ücretsiz hak kontrolü amacıyla saklanabilir.</li>
+<li><strong>Diğer haklar:</strong> KVKK ve GDPR kapsamında verilerinize erişme, düzeltme, silme, işlemeye itiraz etme ve şikâyette bulunma haklarınızı kullanmak için bize yazabilirsiniz.</li>
+</ul>
 
-            <h2>3. İzinler</h2>
-            <ul>
-                <li><strong>Kamera:</strong> Yalnızca duruş ölçümü için fotoğraf çekmek amacıyla.</li>
-                <li><strong>Fotoğraflar / galeri:</strong> Ölçüm için galeriden fotoğraf seçmeniz amacıyla.</li>
-                <li><strong>Bildirimler:</strong> Egzersiz ve yeniden ölçüm hatırlatmaları için (isteğe bağlı).</li>
-            </ul>
+<h2>7. Yaş sınırı</h2>
+<p>PosMetric 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. 18 yaşından küçüklerden bilerek kişisel veri toplamayız; fark edersek sileriz.</p>
 
-            <h2>4. Veri Paylaşımı</h2>
-            <p>Kişisel verilerinizi satmayız, kiralamayız ve pazarlama amacıyla paylaşmayız. Veriler yalnızca hizmeti sunmak için kullandığımız aşağıdaki hizmet sağlayıcılar tarafından işlenir:</p>
-            <ul>
-                <li><strong>Google Firebase:</strong> Kimlik doğrulama, Firestore, Analytics, Crashlytics, App Check. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">policies.google.com/privacy</a></li>
-                <li><strong>RevenueCat:</strong> Abonelik doğrulama. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener" style="color:var(--accent);">revenuecat.com/privacy</a></li>
-                <li><strong>Google Play Faturalandırma:</strong> Ödeme işlemleri.</li>
-                <li><strong>Yasal zorunluluk:</strong> Yürürlükteki yasaların gerektirdiği durumlarda.</li>
-            </ul>
+<h2>8. Değişiklikler</h2>
+<p>Bu politika zaman zaman güncellenebilir. Güncel sürüm her zaman bu sayfada yayımlanır.</p>
 
-            <h2>5. Veri Güvenliği</h2>
-            <ul>
-                <li>Cihazdaki veriler işletim sisteminin uygulama korumalı alanında (sandbox) saklanır.</li>
-                <li>Sunuculara giden tüm veriler SSL/TLS ile şifrelenir.</li>
-                <li>Yalnızca gerekli en az veri toplanır.</li>
-                <li>Uygulamayı kaldırdığınızda cihazdaki tüm uygulama verileri silinir.</li>
-            </ul>
+<h2>9. İletişim</h2>
+<p>Veri sorumlusu: FArk Studio · E-posta: <a href="mailto:info@physiometric.app">info@physiometric.app</a></p>
 
-            <h2>6. Haklarınız ve Veri Silme</h2>
-            <ul>
-                <li><strong>Hesap ve veri silme:</strong> Uygulamada <em>Hesap &gt; Hesabı Sil</em> seçeneğiyle hesabınızı ve sunucudaki hesap kayıtlarınızı silebilirsiniz. Uygulamaya erişemiyorsanız <a href="delete-account.html" style="color:var(--accent);">hesap silme sayfasındaki</a> adımları izleyin.</li>
-                <li><strong>Anonim cihaz sayacı:</strong> Kişiyi tanımlamadığı için hesap silindikten sonra da ücretsiz hak kontrolü amacıyla saklanabilir.</li>
-                <li><strong>Erişim:</strong> Cihazınızdaki tüm verilerinize uygulama üzerinden erişebilirsiniz.</li>
-            </ul>
-
-            <h2>7. Yaş Sınırı</h2>
-            <p>PosMetric 18 yaş ve üzeri kullanıcılar için tasarlanmıştır. 18 yaşından küçüklerden bilerek kişisel veri toplamayız; böyle bir durumu fark edersek verileri sileriz.</p>
-
-            <h2>8. Değişiklikler</h2>
-            <p>Bu politika zaman zaman güncellenebilir. Güncel sürüm her zaman bu sayfada yayımlanır.</p>
-
-            <h2>9. İletişim</h2>
-            <ul>
-                <li><strong>E-posta:</strong> <a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></li>
-                <li><strong>Geliştirici:</strong> FArk Studio</li>
-            </ul>
-        </div>
-    </div>
-    <footer class="footer">
-        <p>© 2026 FArk Studio · <a href="index.html">Ana Sayfa</a> · <a href="terms.html">Kullanım Şartları</a> · <a href="delete-account.html">Hesap Silme</a></p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et.</p></div>
+    <nav aria-label="Bağlantılar"><a href="/privacy.html">Gizlilik Politikası</a><a href="/terms.html">Kullanım Şartları</a><a href="/developer.html">Hakkımızda</a><a href="/delete-account.html">Hesap Silme</a><a href="mailto:info@physiometric.app">İletişim</a></nav>
+    <p class="disc">PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

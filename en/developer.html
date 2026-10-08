@@ -1,221 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FArk Studio — About Us</title>
-    <meta name="description" content="FArk Studio — Mobile app and software studio.">
-    <meta property="og:title" content="FArk Studio — About Us">
-    <meta property="og:description" content="Mobile app and software studio.">
-    <link rel="icon" type="image/png" href="../assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --border-accent: rgba(233,69,96,0.2);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --accent-violet: #4CC9F0;
-            --accent-emerald: #00E676;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About us — PosMetric</title>
+  <meta name="description" content="FArk Studio, the independent studio behind PosMetric, and how to reach us.">
+  <link rel="canonical" href="https://physiometric.app/en/developer.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/developer.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/developer.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/developer.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/developer.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/developer.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="About us — PosMetric">
+  <meta property="og:description" content="FArk Studio, the independent studio behind PosMetric, and how to reach us.">
+  <meta property="og:url" content="https://physiometric.app/en/developer.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-en.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Page menu"><a href="/en/">Home</a></nav>
+    <nav class="langs" aria-label="Language"><a href="/developer.html" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/developer.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a><a href="/de/developer.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/developer.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>About us</h1>
 
-        /* Nav */
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-links { display:flex; gap:20px; }
-        .nav-links a { color:var(--text-secondary); text-decoration:none; font-size:13px; font-weight:500; transition:color 0.3s; }
-        .nav-links a:hover { color:var(--accent); }
 
-        /* Header */
-        .dev-header {
-            padding:100px 0 60px;
-            text-align:center;
-            position:relative;
-        }
-        .dev-header::before {
-            content:'';
-            position:absolute; top:0; left:50%; transform:translateX(-50%);
-            width:500px; height:500px;
-            background:radial-gradient(circle, rgba(233,69,96,0.06) 0%, transparent 70%);
-            pointer-events:none;
-        }
-        .dev-avatar {
-            width:100px; height:100px; border-radius:28px;
-            background:var(--bg-card);
-            border:1px solid var(--border);
-            display:inline-flex; align-items:center; justify-content:center;
-            margin-bottom:24px;
-            padding:14px;
-            box-shadow:0 8px 30px rgba(233,69,96,0.15);
-        }
-        .dev-avatar img {
-            width:100%; height:auto; object-fit:contain;
-        }
-        .dev-header h1 { font-size:32px; font-weight:800; letter-spacing:-0.5px; margin-bottom:6px; }
-        .dev-header .subtitle { font-size:16px; color:var(--accent); font-weight:600; margin-bottom:16px; }
-        .dev-header .bio { font-size:15px; color:var(--text-secondary); max-width:500px; margin:0 auto; }
+<p style="font-size:19px"><strong>FArk Studio</strong> is an independent developer studio based in Türkiye. We build PosMetric so that anyone who sits for long hours can build a daily habit of short, regular movement.</p>
+<h2>Contact</h2>
+<div class="contact">
+  <div class="card"><b>Email</b><a href="mailto:info@physiometric.app">info@physiometric.app</a></div>
+  <div class="card"><b>Location</b>Türkiye</div>
+  <div class="card"><b>Website</b><a href="https://physiometric.app">physiometric.app</a></div>
+</div>
+<h2>Our apps</h2>
+<div class="card" style="display:flex;gap:16px;align-items:center"><img src="/assets/app_icon.png" alt="" width="56" height="56" style="border-radius:14px"><div><strong>PosMetric</strong><p>Posture measurement with your phone camera, a personal workout plan and a 3D coach. On Android; iOS coming soon.</p></div></div>
+<h2>Credits and licenses</h2>
+<ul>
+<li>3D coach characters — Microsoft Rocketbox, MIT, © 2020 Microsoft. <a href="https://github.com/microsoft/Microsoft-Rocketbox">github.com/microsoft/Microsoft-Rocketbox</a></li>
+<li>three.js — MIT, © 2010–2024 three.js authors. <a href="https://threejs.org">threejs.org</a></li>
+<li>Typeface — Inter, SIL Open Font License 1.1, © The Inter Project Authors.</li>
+</ul>
+<h2>Legal</h2>
+<p><a href="/en/privacy.html">Privacy Policy</a> · <a href="/en/terms.html">Terms of Use</a> · <a href="/en/delete-account.html">Delete Account</a></p>
 
-        /* Info Cards */
-        .info-section { padding:40px 0; }
-        .info-section h2 {
-            font-size:18px; font-weight:700; margin-bottom:20px;
-            padding-bottom:10px; border-bottom:1px solid var(--border);
-            color:var(--text-muted); text-transform:uppercase; letter-spacing:1.5px; font-size:12px;
-        }
-        .info-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:40px; }
-        .info-card {
-            padding:24px; background:var(--bg-card); border:1px solid var(--border);
-            border-radius:16px; transition:all 0.3s;
-        }
-        .info-card:hover { border-color:var(--border-accent); }
-        .info-card-label { font-size:11px; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
-        .info-card-value { font-size:15px; font-weight:600; }
-        .info-card-value a { color:var(--accent); text-decoration:none; }
-        .info-card-value a:hover { text-decoration:underline; }
-
-        /* App showcase */
-        .app-card {
-            padding:32px; background:var(--bg-card); border:1px solid var(--border);
-            border-radius:20px; display:flex; gap:24px; align-items:center;
-            margin-bottom:16px; transition:all 0.3s;
-        }
-        .app-card:hover { border-color:var(--border-accent); transform:translateY(-2px); }
-        .app-icon {
-            width:64px; height:64px; border-radius:16px;
-            background:var(--bg-card);
-            border:1px solid var(--border-accent);
-            display:flex; align-items:center; justify-content:center;
-            flex-shrink:0; overflow:hidden; padding:8px;
-        }
-        .app-icon img {
-            width:100%; height:auto; object-fit:contain;
-        }
-        .app-info h3 { font-size:18px; font-weight:700; margin-bottom:4px; }
-        .app-info .app-desc { font-size:13px; color:var(--text-secondary); margin-bottom:8px; }
-
-        /* Footer */
-        .footer { padding:40px 0; border-top:1px solid var(--border); text-align:center; margin-top:40px; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-        .footer a { color:var(--text-muted); text-decoration:none; margin:0 8px; }
-        .footer a:hover { color:var(--accent); }
-
-        @media (max-width:600px) {
-            .info-grid { grid-template-columns:1fr; }
-            .app-card { flex-direction:column; text-align:center; }
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="../assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:24px;">
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                </div>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600; color:var(--text-muted);">
-                    <a href="../developer.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">TR</a>
-                    <span>|</span>
-                    <a href="#" style="color:var(--text); text-decoration:none;">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <!-- Developer Header -->
-        <div class="dev-header">
-            <div class="dev-avatar"><img src="../assets/app_icon.png" alt="FArk Studio Logo"></div>
-            <h1>About Us</h1>
-            <p class="bio">
-                <strong>FArk Studio</strong><br>
-                <span style="color:var(--accent); font-weight:600; display:block; margin:8px 0;">Independent Developer</span>
-                PosMetric is a fitness app that helps anyone who sits for long hours build a better posture habit with short, regular movement. Our goal is to make posture measurement and personal exercise routines accessible to everyone.
-            </p>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="info-section">
-            <h2>Contact Information</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-card-label">Email</div>
-                    <div class="info-card-value">
-                        <a href="mailto:info@physiometric.app">info@physiometric.app</a>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-label">Location</div>
-                    <div class="info-card-value">Turkey</div>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-label">Website</div>
-                    <div class="info-card-value">
-                        <a href="https://physiometric.app">physiometric.app</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Apps -->
-        <div class="info-section">
-            <h2>Applications</h2>
-            <div class="app-card">
-                <div class="app-icon"><img src="../assets/app_icon.png" alt="PosMetric"></div>
-                <div class="app-info">
-                    <h3>PosMetric</h3>
-                    <p class="app-desc">
-                        A posture and mobility coach with machine learning-powered posture measurement, personal daily exercise routines, and progress tracking.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Legal Links -->
-        <div class="info-section">
-            <h2>Legal</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-card-label">Privacy Policy</div>
-                    <div class="info-card-value">
-                        <a href="privacy.html">Privacy Policy →</a>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-label">Terms of Service</div>
-                    <div class="info-card-value">
-                        <a href="terms.html">Terms of Service →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>
-            <img src="../assets/fark_logo.png" alt="FArk Studio" style="height:32px; width:auto; border-radius:6px; margin-bottom:8px;">
-            <br>
-            <a href="index.html">Home</a> ·
-            <a href="privacy.html">Privacy</a> ·
-            <a href="terms.html">Terms</a> ·
-            <a href="mailto:info@physiometric.app">Contact</a>
-        </p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Measure your posture and move every day with a short plan built around you.</p></div>
+    <nav aria-label="Links"><a href="/en/privacy.html">Privacy Policy</a><a href="/en/terms.html">Terms of Use</a><a href="/en/developer.html">About us</a><a href="/en/delete-account.html">Delete Account</a><a href="mailto:info@physiometric.app">Contact</a></nav>
+    <p class="disc">PosMetric is a fitness app, not a medical device. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

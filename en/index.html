@@ -1,116 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PosMetric — Posture & Mobility Coach</title>
-  <meta name="description" content="PosMetric is a personal posture and mobility coach that measures your posture with your phone camera and builds a short daily exercise routine just for you.">
-  <meta property="og:title" content="PosMetric — Posture & Mobility Coach">
-  <meta property="og:description" content="PosMetric is a personal posture and mobility coach that measures your posture with your phone camera and builds a short daily exercise routine just for you.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PosMetric — Posture workouts with a personal coach</title>
+  <meta name="description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.">
+  <link rel="canonical" href="https://physiometric.app/en/">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="PosMetric — Posture workouts with a personal coach">
+  <meta property="og:description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.">
   <meta property="og:url" content="https://physiometric.app/en/">
-  <link rel="icon" type="image/png" href="../assets/app_icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-:root{--bg:#1A1A2E;--bg2:#16213E;--deep:#0F0F1E;--card:rgba(22,33,62,.55);--line:rgba(76,201,240,.12);
---text:#fff;--text2:#B0B0C0;--muted:#6E6E80;--primary:#E94560;--primary2:#FF4D6D;--cyan:#4CC9F0;
---grad:linear-gradient(135deg,#E94560,#FF4D6D,#4CC9F0);--radius:20px;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:linear-gradient(135deg,#1A1A2E 0%,#16213E 40%,#0F0F1E 100%);color:var(--text);line-height:1.6;min-height:100vh}
-a{color:inherit}
-.container{max-width:1080px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:0;z-index:10;background:rgba(26,26,46,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .container{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none}
-.brand img{width:34px;height:34px;border-radius:9px}
-.nav-links{display:flex;gap:22px;align-items:center;font-size:15px;color:var(--text2)}
-.nav-links a{text-decoration:none}.nav-links a:hover{color:#fff}
-.lang{font-size:13px;color:var(--muted)}.lang b{color:#fff}
-.hero{padding:96px 0 72px;text-align:center}
-.eyebrow{display:inline-block;padding:6px 14px;border:1px solid rgba(233,69,96,.35);border-radius:999px;color:var(--primary2);font-size:14px;font-weight:600;margin-bottom:22px}
-h1{font-size:clamp(40px,7vw,72px);font-weight:900;letter-spacing:-2px;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{max-width:640px;margin:22px auto 34px;font-size:19px;color:var(--text2)}
-.cta{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:14px;background:linear-gradient(135deg,#E94560,#FF4D6D);font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(233,69,96,.3)}
-.cta img{width:22px;height:22px}
-.free{margin-top:12px;font-size:14px;color:var(--muted)}
-section{padding:56px 0}
-h2{font-size:34px;font-weight:800;letter-spacing:-1px;margin-bottom:28px;text-align:center}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.card .ico{font-size:30px;margin-bottom:10px}.card h3{font-size:18px;margin-bottom:6px}.card p{font-size:15px;color:var(--text2)}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.two .card h3{font-size:22px;margin-bottom:10px}.two .card p{font-size:16px}
-.two .card a{display:inline-block;margin-top:12px;color:var(--cyan);font-weight:600;text-decoration:none}
-.note{text-align:center;font-size:14px;color:var(--muted);padding:8px 0 40px}
-.about{max-width:720px;margin:0 auto;text-align:center;color:var(--text2);font-size:17px}
-footer{border-top:1px solid var(--line);padding:28px 0;font-size:14px;color:var(--muted)}
-footer .container{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-footer .links{display:flex;flex-wrap:wrap;gap:18px}footer a{text-decoration:none}footer a:hover{color:#fff}
-@media(max-width:600px){.nav-links a.hide-sm{display:none}.hero{padding:64px 0 48px}}
-</style>
-</head>
-<body>
-  <nav>
-    <div class="container">
-      <a class="brand" href="#"><img src="../assets/app_icon.png" alt="PosMetric">PosMetric</a>
-      <div class="nav-links">
-        <a class="hide-sm" href="#how">How it works</a>
-        <a class="hide-sm" href="privacy.html">Privacy</a>
-        <span class="lang"><a href="../index.html">TR</a> | <b>EN</b></span>
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-en.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>
+  <script type="module" src="/assets/js/coach.js"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/en/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Page menu"><a href="#how">How it works</a><a href="#coach">Your coach</a><a href="#pricing">Free and Pro</a><a href="#faq">FAQ</a></nav>
+    <nav class="langs" aria-label="Language"><a href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" aria-current="page" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Posture workouts · Personal coach</span>
+        <h1>Measure. Move. <span>Progress.</span></h1>
+        <p class="lead">PosMetric measures your posture with your phone camera, builds a short workout plan around you and shows your progress honestly. Your coach joins you for every move.</p>
+        <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=en"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Get it on</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Coming soon</small>App Store</span></span>
+      </div>
+        <p class="fine">Start free · No account needed · No ads</p>
+      </div>
+      <div class="stage">
+        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" fetchpriority="high">
+        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
+        <p class="bubble">Hi! Are you ready?</p>
+        <div class="weekcard">This week 3/5 days<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Tu</span><span class="ring full"><i></i>We</span><span class="ring rest"><i></i>Th</span><span class="ring "><i></i>Fr</span><span class="ring "><i></i>Sa</span></div></div>
       </div>
     </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container">
-      <span class="eyebrow">Your personal posture & mobility coach</span>
-      <h1>Measure. Move. Progress.</h1>
-      <p class="lead">PosMetric measures your posture with your phone camera and builds a short daily exercise routine just for you. Re-scan every 3 days and watch your progress.</p>
-      <a class="cta" href="https://play.google.com/store/apps/details?id=com.fark.physiometric"><img src="../assets/play_store_logo.svg" alt="">Get it on Google Play</a>
-      <p class="free">Your first 3 scans are free</p>
-    </div>
-  </header>
+  </section>
 
   <section id="how">
-    <div class="container">
-      <h2>How it works</h2>
-      <div class="steps">
-        <div class="card"><div class="ico">📸</div><h3>Measure</h3><p>Take a front and a side photo. Body landmarks are detected and your alignment is calculated right on your phone.</p></div>
-        <div class="card"><div class="ico">📊</div><h3>See your score</h3><p>Get a clear Posture Score with easy-to-understand findings such as forward head posture or uneven shoulders.</p></div>
-        <div class="card"><div class="ico">🎯</div><h3>Mark tension</h3><p>Tap where you feel tight, and your routine adapts to your body map.</p></div>
-        <div class="card"><div class="ico">💪</div><h3>Move</h3><p>Follow a short daily routine with 3D animated guidance and voice coaching.</p></div>
-        <div class="card"><div class="ico">📈</div><h3>Progress</h3><p>Re-scan every 3 days, compare your score and keep your streak going.</p></div>
+    <div class="wrap">
+      <div class="head center"><h2>Start in three steps</h2><p>A few questions, two photos and your plan is ready.</p></div>
+      <div class="grid3"><article class="card step"><span class="n">1</span><h3>Tell us what you want</h3><p>Pick your coach and choose a goal: neck and shoulders, standing taller or a stronger lower back. Not sure? Your coach takes a look.</p></article><article class="card step"><span class="n">2</span><h3>A 2-minute check</h3><p>Take one photo from the front and one from the side. The measurement runs on your phone; your photos never leave it.</p></article><article class="card step"><span class="n">3</span><h3>Your plan is ready</h3><p>You start with 3 movements based on your measurement. New movements unlock as you complete your weeks.</p></article></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Observations, not verdicts</h2><p>Your results describe what the measurement sees in plain words: what was seen, when it&#x27;s common in daily life and what your plan focuses on. No scores, no red warnings.</p></div>
+      <article class="card finding">
+        <span class="tag">An example from a measurement</span>
+        <h3>Forward head posture</h3>
+        <div class="row"><span class="ico" aria-hidden="true">👁</span><span>Your head sits a little in front of your shoulders.</span></div>
+        <div class="row"><span class="ico" aria-hidden="true">🕒</span><span>It&#x27;s common when you look at a screen or sit at a desk for a long time.</span></div>
+        <div class="row"><span class="ico" aria-hidden="true">🧭</span><span>Your plan puts movements for your neck and upper back first.</span></div>
+        <p class="strong"><b>Your strength</b>Your shoulders sit evenly.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="wrap grid2">
+      <div>
+        <div class="head" style="margin-bottom:24px"><h2>A little every day, one step every week</h2><p>Workouts don&#x27;t have to be long. Showing up is what counts.</p></div>
+        <ul class="list"><li><b>Even one movement</b> fills the day. Finish your whole main workout and your ring turns gold.</li><li>The goal is <b>5 active days</b> a week. You get 2 rest days; your streak stays safe.</li><li>When the week is done, your plan <b>moves one step forward</b> and new movements unlock.</li><li><b>Every 28 days</b> a short check shows what has changed.</li></ul>
       </div>
+      <div class="card">
+        <p style="font-weight:800;margin-bottom:14px">An example week</p>
+        <div class="rings big-rings" aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Tu</span><span class="ring full"><i></i>We</span><span class="ring rest"><i></i>Th</span><span class="ring full"><i></i>Fr</span><span class="ring gold"><i></i>Sa</span><span class="ring rest"><i></i>Su</span></div>
+        <div class="legend"><span class="full"><i></i>Active day</span><span class="gold"><i></i>Whole main workout</span><span class="rest"><i></i>Rest day</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head center"><h2>Packs for short breaks</h2><p>Each pack is 3 movements and 3–5 minutes. Open one whenever you like, on top of your main plan. The pack that matches your goal sits at the top.</p></div>
+      <div class="packs"><div class="pack prio"><span class="dot" aria-hidden="true">💻</span><span>Desk break<small>3 movements · 3–5 min</small></span><span class="prio-badge">Your priority</span></div><div class="pack"><span class="dot" aria-hidden="true">🙆</span><span>Neck and shoulders<small>3 movements · 3–5 min</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🧍</span><span>Stand tall<small>3 movements · 3–5 min</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🧘</span><span>Lower back<small>3 movements · 3–5 min</small></span></div><div class="pack"><span class="dot" aria-hidden="true">☀️</span><span>Morning<small>3 movements · 3–5 min</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🌙</span><span>Evening<small>3 movements · 3–5 min</small></span></div></div>
     </div>
   </section>
 
   <section>
-    <div class="container two">
-      <div class="card"><h3>Who is it for?</h3><p>Desk workers, students and anyone who wants to stand taller, move better and build a daily mobility habit. No equipment or prior experience needed.</p></div>
-      <div class="card"><h3>🔒 Privacy first</h3><p>Posture analysis runs on your phone. Your photos and results never leave your device and are not sent to our servers.</p><a href="privacy.html">Read the privacy policy →</a></div>
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Got a sensitive area?</h2><p>Pick the area and tell us how you&#x27;d like to train. Movements that involve an area you&#x27;re resting are taken out of your plan; turn them back on in Profile when you&#x27;re ready.</p></div>
+      <div class="card">
+        <div class="chips" style="margin-bottom:18px"><span class="chip">Neck</span><span class="chip">Shoulder</span><span class="chip">Upper back</span><span class="chip">Lower back</span><span class="chip">Hip</span><span class="chip">Knee and leg</span><span class="chip">Hand and wrist</span><span class="chip">Foot and ankle</span></div>
+        <div class="chips"><span class="chip">🌿 I can go gently</span><span class="chip">⏸ I need to rest it for now</span></div>
+      </div>
     </div>
   </section>
 
-  <p class="note">PosMetric is a fitness and wellness app, not a medical device.</p>
-
-  <section id="about">
-    <div class="container">
-      <h2>About us</h2>
-      <p class="about">PosMetric is built by FArk Studio, an independent developer studio. Our goal is to help anyone who sits for long hours build a better posture habit with short, regular movement.</p>
+  <section id="coach" class="alt" data-coach data-greeting="Hi! Are you ready?" data-cheer="Great job! That’s it for today." data-loading="Your coach is on the way…" data-error="The 3D view couldn&#x27;t open on this device.">
+    <div class="wrap">
+      <div class="head center"><h2>Meet your coach</h2><p>Elif and Asım show every movement in 3D, guide you with their voice and keep you company. Try them out here.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Pick your coach</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Show live</button></div>
+          <div><h3>Try a movement</h3><div class="row"><button class="btn" type="button" data-move="greet_wave_01" aria-pressed="false">Wave</button><button class="btn" type="button" data-move="chintuck" aria-pressed="false">Chin Tuck</button><button class="btn" type="button" data-move="shoulder_elevation" aria-pressed="false">Shoulder Shrugs</button><button class="btn" type="button" data-move="neck_lateral_stretch" aria-pressed="false">Upper Trapezius Stretch</button><button class="btn" type="button" data-move="glute_bridge" aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" aria-pressed="false">Cat-Cow</button><button class="btn" type="button" data-move="celebrate_cheer_04" aria-pressed="false">Celebrate</button></div></div>
+          <p class="note">With sound. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <span>© 2026 FArk Studio. All rights reserved.</span>
-      <span class="links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-        <a href="developer.html">About Us</a>
-        <a href="delete-account.html">Delete Account</a>
-        <a href="mailto:info@physiometric.app">Contact</a>
-      </span>
+  <section id="pricing">
+    <div class="wrap">
+      <div class="head center"><h2>Start free, go Pro if you like</h2><p>The free version never expires. Try Pro free for 7 days; prices are shown in the app.</p></div>
+      <div class="plans">
+        <article class="card plan"><h3>Free</h3><p class="sub">No time limit</p><ul class="list"><li>Your first check and measurement preview</li><li>A summary of your results and your strength</li><li>A 3-movement plan based on your measurement</li><li>The Desk break pack</li><li>Rings, streaks and badges</li></ul></article>
+        <article class="card plan pro"><span class="badge">PRO</span><h3>PosMetric Pro</h3><p class="sub">Try 7 days free</p><ul class="list"><li>New movements that unlock every week</li><li>28-day checks and a progress report</li><li>All packs</li><li>Detailed results and comparisons</li></ul></article>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Your photos stay on your phone</h2><p>The measurement runs with on-device AI. Your photos and results are never sent to our servers.</p>
+        <p style="margin-top:16px"><a href="/en/privacy.html" style="color:var(--primary);font-weight:700">Read the privacy policy →</a></p></div>
+      <ul class="list card"><li><b>Measured on your phone</b>; no photos go to the cloud.</li><li><b>No account needed</b> to start; link Google or Apple later if you like.</li><li><b>No ads</b>; we don't sell your data.</li></ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="head center"><h2>Questions</h2></div>
+      <div class="faq"><details><summary>Is PosMetric a medical app?</summary><p>No. PosMetric is a fitness app; it is not a medical device and does not replace professional health care.</p></details><details><summary>Do I need an account?</summary><p>No. You start as a guest. You can link your Google or Apple account later; your records stay where they are.</p></details><details><summary>How much time do I need each day?</summary><p>Even one movement fills the day. Packs take 3–5 minutes; your main workout's length depends on your plan.</p></details><details><summary>What equipment do I need?</summary><p>A bed or a mat is enough for most movements. Some use a wall or a stick.</p></details><details><summary>Is it on iPhone?</summary><p>The iOS version is on its way. For now PosMetric is on Android, on Google Play.</p></details><details><summary>Which languages are supported?</summary><p>English, Turkish, German and Spanish.</p></details><details><summary>How do I cancel my subscription?</summary><p>Google Play → Payments &amp; subscriptions → Subscriptions → PosMetric. See the <a href="/en/terms.html">Terms of Use</a> for details.</p></details></div>
+    </div>
+  </section>
+
+  <section class="alt cta-final">
+    <div class="wrap">
+      <div class="head center" style="margin-bottom:0"><h2>Do your first check today</h2><p>Two photos, a few minutes. Your coach takes it from there with you.</p></div>
+      <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=en"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Get it on</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Coming soon</small>App Store</span></span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Measure your posture and move every day with a short plan built around you.</p></div>
+    <nav aria-label="Links"><a href="/en/privacy.html">Privacy Policy</a><a href="/en/terms.html">Terms of Use</a><a href="/en/developer.html">About us</a><a href="/en/delete-account.html">Delete Account</a><a href="mailto:info@physiometric.app">Contact</a></nav>
+    <p class="disc">PosMetric is a fitness app, not a medical device. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,169 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kullanım Şartları — PosMetric</title>
-    <meta name="description" content="PosMetric uygulamasının kullanım şartları ve koşulları.">
-    <link rel="icon" type="image/png" href="assets/app_icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1A1A2E;
-            --bg-card: rgba(22,33,62,0.5);
-            --border: rgba(76,201,240,0.08);
-            --text: #ffffff;
-            --text-secondary: #B0B0C0;
-            --text-muted: #6E6E80;
-            --accent: #E94560;
-            --font: 'Inter', -apple-system, sans-serif;
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
-        .container { max-width:760px; margin:0 auto; padding:0 24px; }
-        .navbar {
-            position:sticky; top:0; z-index:100; padding:16px 0;
-            background:rgba(26,26,46,0.9); backdrop-filter:blur(20px);
-            border-bottom:1px solid var(--border);
-        }
-        .navbar .container { display:flex; align-items:center; justify-content:space-between; }
-        .nav-brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; font-size:16px; }
-        .nav-back { color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.3s; }
-        .nav-back:hover { color:var(--accent); }
-        .page-header { padding:80px 0 40px; }
-        .page-header h1 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:8px; }
-        .page-header p { color:var(--text-muted); font-size:14px; }
-        .content { padding:0 0 80px; }
-        .content h2 {
-            font-size:20px; font-weight:700; margin:40px 0 16px;
-            padding-bottom:8px; border-bottom:1px solid var(--border);
-        }
-        .content p, .content li { font-size:15px; color:var(--text-secondary); margin-bottom:12px; }
-        .content ul { padding-left:20px; }
-        .content li { margin-bottom:8px; }
-        .warning-box {
-            padding:20px; margin:20px 0;
-            background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.15);
-            border-radius:14px; font-size:14px;
-        }
-        .warning-box strong { color:var(--text); }
-        .footer { padding:32px 0; border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-size:13px; color:var(--text-muted); }
-        .footer a { color:var(--text-muted); text-decoration:none; }
-        .footer a:hover { color:var(--accent); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand"><img src="assets/app_icon.png" alt="FArk" style="height:48px;width:auto;border-radius:8px;"></a>
-            <div style="display:flex; align-items:center; gap:20px;">
-                <a href="index.html" class="nav-back">← Ana Sayfa</a>
-                <div style="display:flex; gap:8px; font-size:13px; font-weight:600;">
-                    <a href="#" style="color:var(--text); text-decoration:none;">TR</a>
-                    <span style="color:var(--text-muted)">|</span>
-                    <a href="en/terms.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">EN</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kullanım Şartları — PosMetric</title>
+  <meta name="description" content="PosMetric&#x27;i kullanma koşulları, abonelik, deneme, iptal ve geri ödeme.">
+  <link rel="canonical" href="https://physiometric.app/terms.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/terms.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/terms.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/terms.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/terms.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/terms.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Kullanım Şartları — PosMetric">
+  <meta property="og:description" content="PosMetric&#x27;i kullanma koşulları, abonelik, deneme, iptal ve geri ödeme.">
+  <meta property="og:url" content="https://physiometric.app/terms.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-tr.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="/">Ana sayfa</a></nav>
+    <nav class="langs" aria-label="Dil"><a href="/terms.html" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/terms.html" hreflang="en" lang="en" title="English">EN</a><a href="/de/terms.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/terms.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Kullanım Şartları</h1>
+<p class="date">Son güncelleme: 8 Ekim 2026</p>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Kullanım Şartları</h1>
-            <p>Son güncelleme: 17 Haziran 2026</p>
-        </div>
+<div class="callout warn"><p><strong>Önemli:</strong> PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir ve profesyonel sağlık hizmetinin yerine geçmez. Sağlığınızla ilgili sorularınız için bir sağlık profesyoneline danışın.</p></div>
 
-        <div class="content">
-            <div class="warning-box">
-                <strong>⚠️ Önemli:</strong> PosMetric bir <strong>fitness ve sağlıklı yaşam uygulamasıdır</strong>; tıbbi cihaz değildir ve profesyonel sağlık hizmeti yerine geçmez. 
-                Sağlıkla ilgili endişeleriniz için bir sağlık profesyoneline danışın.
-            </div>
+<h2>1. Hizmetin tanımı</h2>
+<p>PosMetric ("Uygulama"), FArk Studio ("Geliştirici") tarafından sunulan bir fitness ve hareket uygulamasıdır. Uygulama; kamerayla duruş ölçümü, kişisel antrenman planı, 3D koç rehberliği ve ilerleme takibi sunar.</p>
 
-            <h2>1. Hizmetin Tanımı</h2>
-            <p>PosMetric ("Uygulama"), FArk Studio ("Geliştirici") tarafından sunulan bir fitness ve hareket uygulamasıdır. Uygulama, makine öğrenmesi destekli duruş ölçümü, kişisel egzersiz rutinleri ve ilerleme takibi sunar.</p>
+<h2>2. Kullanım koşulları</h2>
+<ul>
+<li>Uygulamayı kullanmak için 18 yaşından büyük olmanız gerekir.</li>
+<li>Uygulamayı yalnızca kişisel ve ticari olmayan amaçlarla kullanabilirsiniz.</li>
+<li>Kötüye kullanma, tersine mühendislik ve izinsiz erişim girişimleri yasaktır.</li>
+<li>Uygulama içeriğini izinsiz kopyalamak, dağıtmak ya da değiştirmek yasaktır.</li>
+</ul>
 
-            <h2>2. Kullanım Koşulları</h2>
-            <ul>
-                <li>Uygulamayı kullanmak için 18 yaşından büyük olmanız gerekmektedir.</li>
-                <li>Uygulamayı yalnızca kişisel, ticari olmayan amaçlarla kullanabilirsiniz.</li>
-                <li>Uygulamayı kötüye kullanma, tersine mühendislik yapma veya izinsiz erişim girişimleri yasaktır.</li>
-                <li>Uygulama içeriğini izinsiz kopyalama, dağıtma veya değiştirme yasaktır.</li>
-            </ul>
+<h2>3. Sorumluluk reddi</h2>
+<ul>
+<li>Ölçüm sonuçları, hareket önerileri ve ilerleme raporları <strong>yalnızca bilgilendirme amaçlıdır</strong>; genel fitness ve farkındalık içindir.</li>
+<li>Hareket sırasında rahatsızlık hissederseniz hareketi bırakın; gerekirse bir sağlık profesyoneline danışın.</li>
+<li>Hareketleri kendi sorumluluğunuzda yaparsınız. Geliştirici, hareketler sırasında oluşabilecek yaralanmalardan sorumlu değildir.</li>
+</ul>
 
-            <h2>3. Sorumluluk Reddi</h2>
-            <ul>
-                <li>Uygulama tarafından sağlanan analiz sonuçları, egzersiz önerileri ve ilerleme raporları <strong>yalnızca bilgilendirme amaçlıdır</strong>.</li>
-                <li>Bu sonuçlar genel fitness ve farkındalık amaçlıdır; profesyonel sağlık hizmeti yerine geçmez.</li>
-                <li>Egzersiz sırasında rahatsızlık hissederseniz egzersizi bırakın; gerekirse bir sağlık profesyoneline danışın.</li>
-                <li>Egzersizleri kendi sorumluluğunuzda yaparsınız. Geliştirici, egzersiz sırasında oluşabilecek yaralanmalardan sorumlu değildir.</li>
-                <li>PosMetric tıbbi cihaz değildir.</li>
-            </ul>
+<h2>4. Fikri mülkiyet</h2>
+<p>Uygulama ve içeriği (tasarım, kod, 3D animasyonlar, sesler, algoritmalar, metinler) FArk Studio'nun fikri mülkiyetidir ve telif hakkıyla korunur. Üçüncü taraf bileşenler kendi lisanslarına tabidir (bkz. <a href="/developer.html">Hakkımızda</a>).</p>
 
-            <h2>4. Fikri Mülkiyet</h2>
-            <p>Uygulama ve içeriği (tasarım, kod, 3D animasyonlar, algoritmalar, metinler) FArk Studio'nun fikri mülkiyetidir ve telif hakları ile korunmaktadır.</p>
+<h2>5. Abonelik ve ücretlendirme</h2>
+<h3>5.1. Ücretsiz sürüm ve PosMetric Pro</h3>
+<p>PosMetric'in ücretsiz sürümü süresizdir. Hangi özelliklerin ücretsiz, hangilerinin <strong>PosMetric Pro</strong> kapsamında olduğu uygulamadaki abonelik sayfasında gösterilir.</p>
+<h3>5.2. Planlar ve fiyatlar</h3>
+<p>Abonelik süreleri ve güncel fiyatlar satın almadan önce uygulamadaki abonelik sayfasında gösterilir. Fiyatlar ülkeye ve para birimine göre değişebilir.</p>
+<h3>5.3. Ücretsiz deneme</h3>
+<p>Ücretsiz deneme sunulduğunda, deneme süresi bitmeden iptal etmezseniz abonelik başlar ve ücret alınır. Deneme süresi ve sonrasında alınacak ücret onayınızdan önce gösterilir.</p>
+<h3>5.4. Otomatik yenileme</h3>
+<ul>
+<li>Abonelikler <strong>otomatik olarak yenilenir</strong>; dönem bitiminden en az 24 saat önce iptal edilmezse aynı süre için yenilenir.</li>
+<li>Yenileme ücreti dönemin bitiminden önceki 24 saat içinde tahsil edilir.</li>
+</ul>
+<h3>5.5. İptal</h3>
+<ul>
+<li>Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.</li>
+<li><strong>Android (Google Play):</strong> Google Play Store → profil simgesi → Ödemeler ve abonelikler → Abonelikler → PosMetric → İptal et.</li>
+<li><strong>iOS (App Store, yayımlandığında):</strong> Ayarlar → adınız → Abonelikler → PosMetric → Aboneliği İptal Et.</li>
+<li>İptalden sonra dönem sonuna kadar Pro özelliklerini kullanmaya devam edersiniz. Hesabınızı silmek aboneliği iptal etmez.</li>
+</ul>
+<h3>5.6. Geri ödeme</h3>
+<p>Geri ödeme talepleri satın almanın yapıldığı mağazanın politikasına tabidir: <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> · <a href="https://support.apple.com/118223">Apple</a>.</p>
 
-            <h2>5. Abonelik ve Ücretlendirme</h2>
-            <h3>5.1 Genel</h3>
-            <ul>
-                <li>Uygulamanın temel özellikleri ücretsizdir. Her kullanıcı <strong>3 ücretsiz postür analizi</strong> yapabilir.</li>
-                <li>Ücretsiz analiz hakkı dolduktan sonra sınırsız analiz için <strong>PosMetric Pro</strong> aboneliği gereklidir.</li>
-            </ul>
+<h2>6. Sorumluluğun sınırlandırılması</h2>
+<p>Uygulama "olduğu gibi" sunulur. Geliştirici; ölçüm sonuçlarının doğruluğunu ya da eksiksizliğini, uygulamanın kesintisiz ya da hatasız çalışacağını garanti etmez ve yürürlükteki hukukun izin verdiği ölçüde, kullanımdan doğan doğrudan ya da dolaylı zararlardan sorumlu değildir.</p>
 
-            <h3>5.2 Abonelik Planları</h3>
-            <ul>
-                <li><strong>Aylık Plan:</strong> Aylık olarak faturalandırılır.</li>
-                <li><strong>3 Aylık Plan:</strong> 3 ayda bir faturalandırılır.</li>
-                <li><strong>Yıllık Plan:</strong> Yıllık olarak faturalandırılır.</li>
-            </ul>
-            <p>Güncel fiyatlar uygulama içindeki abonelik sayfasında gösterilmektedir. Fiyatlar bulunduğunuz ülke ve para birimine göre değişebilir.</p>
+<h2>7. Değişiklikler</h2>
+<p>Bu şartlar güncellenebilir; güncel sürüm bu sayfada yayımlanır. Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
 
-            <h3>5.3 Otomatik Yenileme</h3>
-            <ul>
-                <li>Tüm abonelikler <strong>otomatik olarak yenilenir</strong>. Mevcut dönemin bitiminden en az 24 saat önce iptal edilmezse otomatik olarak aynı süre için yenilenir.</li>
-                <li>Yenileme ücreti, mevcut dönemin sona ermesinden 24 saat önce hesabınızdan tahsil edilir.</li>
-            </ul>
+<h2>8. Uygulanacak hukuk</h2>
+<p>Bu şartlar Türkiye Cumhuriyeti yasalarına tabidir. Bulunduğunuz ülkenin tüketiciyi koruyan zorunlu kuralları saklıdır.</p>
 
-            <h3>5.4 İptal</h3>
-            <ul>
-                <li>Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.</li>
-                <li><strong>Android (Google Play):</strong> Google Play Store → Profil simgesi → Ödemeler ve abonelikler → Abonelikler → PosMetric → İptal Et.</li>
-                <li>İptal sonrası mevcut abonelik döneminizin sonuna kadar Pro özellikleri kullanmaya devam edebilirsiniz.</li>
-                <li>İptal edilen abonelikler için kalan süre iade edilmez.</li>
-            </ul>
+<h2>9. İletişim</h2>
+<p>FArk Studio · <a href="mailto:info@physiometric.app">info@physiometric.app</a></p>
 
-            <h3>5.5 Geri Ödeme</h3>
-            <ul>
-                <li>Geri ödeme talepleri, satın almanın yapıldığı platformun (Google Play) geri ödeme politikasına tabidir.</li>
-                <li>Google Play üzerinden geri ödeme talebi: <a href="https://support.google.com/googleplay/answer/2479637" style="color:var(--accent);">Google Play Yardım</a></li>
-            </ul>
-
-            <h2>6. Sorumluluk Sınırlaması</h2>
-            <p>Uygulama "olduğu gibi" sunulmaktadır. Geliştirici:</p>
-            <ul>
-                <li>Analiz sonuçlarının doğruluğunu veya tamlığını garanti etmez.</li>
-                <li>Uygulamanın kesintisiz veya hatasız çalışacağını garanti etmez.</li>
-                <li>Kullanıcının uygulama kullanımından kaynaklanan doğrudan veya dolaylı zararlardan sorumlu değildir.</li>
-            </ul>
-
-            <h2>7. Değişiklikler</h2>
-            <p>Bu kullanım şartları önceden bildirimde bulunmaksızın değiştirilebilir. Güncellenmiş şartlar bu sayfada yayınlanır. Uygulamayı kullanmaya devam etmeniz, güncellenmiş şartları kabul ettiğiniz anlamına gelir.</p>
-
-            <h2>8. Uygulanacak Hukuk</h2>
-            <p>Bu kullanım şartları Türkiye Cumhuriyeti yasalarına tabidir.</p>
-
-            <h2>9. İletişim</h2>
-            <p>Kullanım şartları ile ilgili sorularınız için:</p>
-            <ul>
-                <li><strong>E-posta:</strong> <a href="mailto:info@physiometric.app" style="color:var(--accent);">info@physiometric.app</a></li>
-                <li><strong>Geliştirici:</strong> FArk Studio</li>
-            </ul>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>© 2026 FArk Studio · <a href="index.html">Ana Sayfa</a> · <a href="privacy.html">Gizlilik Politikası</a> · <a href="delete-account.html">Hesap Silme</a></p>
-    </footer>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et.</p></div>
+    <nav aria-label="Bağlantılar"><a href="/privacy.html">Gizlilik Politikası</a><a href="/terms.html">Kullanım Şartları</a><a href="/developer.html">Hakkımızda</a><a href="/delete-account.html">Hesap Silme</a><a href="mailto:info@physiometric.app">İletişim</a></nav>
+    <p class="disc">PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

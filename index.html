@@ -1,116 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PosMetric — Duruş ve Hareket Koçu</title>
-  <meta name="description" content="PosMetric, telefon kameranla duruşunu ölçen ve sana özel kısa günlük egzersiz rutini hazırlayan kişisel duruş ve hareket koçudur.">
-  <meta property="og:title" content="PosMetric — Duruş ve Hareket Koçu">
-  <meta property="og:description" content="PosMetric, telefon kameranla duruşunu ölçen ve sana özel kısa günlük egzersiz rutini hazırlayan kişisel duruş ve hareket koçudur.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PosMetric — Duruş antrenmanı ve kişisel koç</title>
+  <meta name="description" content="Telefon kameranla duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et. Koçun Elif ya da Asım her harekette yanında. Ücretsiz başla.">
+  <link rel="canonical" href="https://physiometric.app/">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="PosMetric — Duruş antrenmanı ve kişisel koç">
+  <meta property="og:description" content="Telefon kameranla duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et. Koçun Elif ya da Asım her harekette yanında. Ücretsiz başla.">
   <meta property="og:url" content="https://physiometric.app/">
-  <link rel="icon" type="image/png" href="assets/app_icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-:root{--bg:#1A1A2E;--bg2:#16213E;--deep:#0F0F1E;--card:rgba(22,33,62,.55);--line:rgba(76,201,240,.12);
---text:#fff;--text2:#B0B0C0;--muted:#6E6E80;--primary:#E94560;--primary2:#FF4D6D;--cyan:#4CC9F0;
---grad:linear-gradient(135deg,#E94560,#FF4D6D,#4CC9F0);--radius:20px;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:linear-gradient(135deg,#1A1A2E 0%,#16213E 40%,#0F0F1E 100%);color:var(--text);line-height:1.6;min-height:100vh}
-a{color:inherit}
-.container{max-width:1080px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:0;z-index:10;background:rgba(26,26,46,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .container{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none}
-.brand img{width:34px;height:34px;border-radius:9px}
-.nav-links{display:flex;gap:22px;align-items:center;font-size:15px;color:var(--text2)}
-.nav-links a{text-decoration:none}.nav-links a:hover{color:#fff}
-.lang{font-size:13px;color:var(--muted)}.lang b{color:#fff}
-.hero{padding:96px 0 72px;text-align:center}
-.eyebrow{display:inline-block;padding:6px 14px;border:1px solid rgba(233,69,96,.35);border-radius:999px;color:var(--primary2);font-size:14px;font-weight:600;margin-bottom:22px}
-h1{font-size:clamp(40px,7vw,72px);font-weight:900;letter-spacing:-2px;line-height:1.05;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{max-width:640px;margin:22px auto 34px;font-size:19px;color:var(--text2)}
-.cta{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:14px;background:linear-gradient(135deg,#E94560,#FF4D6D);font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(233,69,96,.3)}
-.cta img{width:22px;height:22px}
-.free{margin-top:12px;font-size:14px;color:var(--muted)}
-section{padding:56px 0}
-h2{font-size:34px;font-weight:800;letter-spacing:-1px;margin-bottom:28px;text-align:center}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.card .ico{font-size:30px;margin-bottom:10px}.card h3{font-size:18px;margin-bottom:6px}.card p{font-size:15px;color:var(--text2)}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.two .card h3{font-size:22px;margin-bottom:10px}.two .card p{font-size:16px}
-.two .card a{display:inline-block;margin-top:12px;color:var(--cyan);font-weight:600;text-decoration:none}
-.note{text-align:center;font-size:14px;color:var(--muted);padding:8px 0 40px}
-.about{max-width:720px;margin:0 auto;text-align:center;color:var(--text2);font-size:17px}
-footer{border-top:1px solid var(--line);padding:28px 0;font-size:14px;color:var(--muted)}
-footer .container{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-footer .links{display:flex;flex-wrap:wrap;gap:18px}footer a{text-decoration:none}footer a:hover{color:#fff}
-@media(max-width:600px){.nav-links a.hide-sm{display:none}.hero{padding:64px 0 48px}}
-</style>
-</head>
-<body>
-  <nav>
-    <div class="container">
-      <a class="brand" href="#"><img src="assets/app_icon.png" alt="PosMetric">PosMetric</a>
-      <div class="nav-links">
-        <a class="hide-sm" href="#how">Nasıl çalışır</a>
-        <a class="hide-sm" href="privacy.html">Gizlilik</a>
-        <span class="lang"><b>TR</b> | <a href="en/index.html">EN</a></span>
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-tr.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>
+  <script type="module" src="/assets/js/coach.js"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Telefon kameranla duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et. Koçun Elif ya da Asım her harekette yanında. Ücretsiz başla.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
+</head><body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="#how">Nasıl çalışır</a><a href="#coach">Koçun</a><a href="#pricing">Ücretsiz ve Pro</a><a href="#faq">SSS</a></nav>
+    <nav class="langs" aria-label="Dil"><a href="/" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Duruş antrenmanı · Kişisel koç</span>
+        <h1>Ölç. Hareket et. <span>İlerle.</span></h1>
+        <p class="lead">PosMetric telefon kameranla duruşunu ölçer, sana göre kısa bir antrenman planı kurar ve gelişimini dürüstçe gösterir. Koçun her harekette yanında.</p>
+        <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=tr"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Hemen indir</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Yakında</small>App Store</span></span>
+      </div>
+        <p class="fine">Ücretsiz başla · Hesap açman gerekmez · Reklam yok</p>
+      </div>
+      <div class="stage">
+        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" fetchpriority="high">
+        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
+        <p class="bubble">Merhaba! Hazır mısın?</p>
+        <div class="weekcard">Bu hafta 3/5 gün<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Pt</span><span class="ring gold"><i></i>Sa</span><span class="ring full"><i></i>Ça</span><span class="ring rest"><i></i>Pe</span><span class="ring "><i></i>Cu</span><span class="ring "><i></i>Ct</span></div></div>
       </div>
     </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container">
-      <span class="eyebrow">Kişisel duruş ve hareket koçun</span>
-      <h1>Ölç. Hareket et. İlerle.</h1>
-      <p class="lead">PosMetric, telefon kameranla duruşunu ölçer ve sana özel kısa bir günlük egzersiz rutini hazırlar. Her 3 günde bir yeniden ölç, ilerlemeni gör.</p>
-      <a class="cta" href="https://play.google.com/store/apps/details?id=com.fark.physiometric"><img src="assets/play_store_logo.svg" alt="">Google Play'den indir</a>
-      <p class="free">İlk 3 ölçüm ücretsiz</p>
-    </div>
-  </header>
+  </section>
 
   <section id="how">
-    <div class="container">
-      <h2>Nasıl çalışır?</h2>
-      <div class="steps">
-        <div class="card"><div class="ico">📸</div><h3>Ölç</h3><p>Önden ve yandan birer fotoğraf çek. Vücut noktaları tespit edilir ve hizalanman doğrudan telefonunda hesaplanır.</p></div>
-        <div class="card"><div class="ico">📊</div><h3>Skorunu gör</h3><p>İleri baş duruşu veya omuz seviye farkı gibi anlaşılır bulgularla net bir Duruş Skoru al.</p></div>
-        <div class="card"><div class="ico">🎯</div><h3>Gerginliği işaretle</h3><p>Gergin hissettiğin bölgelere dokun; rutinin beden haritana göre uyarlansın.</p></div>
-        <div class="card"><div class="ico">💪</div><h3>Hareket et</h3><p>3D animasyonlu rehberlik ve sesli koçlukla günde birkaç dakikalık rutinini uygula.</p></div>
-        <div class="card"><div class="ico">📈</div><h3>İlerle</h3><p>Her 3 günde bir yeniden ölç, skorunu karşılaştır ve serini sürdür.</p></div>
+    <div class="wrap">
+      <div class="head center"><h2>Üç adımda başla</h2><p>Birkaç soru, iki fotoğraf ve planın hazır.</p></div>
+      <div class="grid3"><article class="card step"><span class="n">1</span><h3>Ne istediğini söyle</h3><p>Koçunu seç ve hedefini işaretle: boyun ve omuzlar, daha dik duruş ya da daha güçlü bir bel. Emin değilsen koçun bakar.</p></article><article class="card step"><span class="n">2</span><h3>2 dakikalık kontrol</h3><p>Önden ve yandan iki fotoğraf çek. Ölçüm telefonunda yapılır; fotoğrafların telefonundan çıkmaz.</p></article><article class="card step"><span class="n">3</span><h3>Planın hazır</h3><p>Ölçümüne göre 3 hareketle başlarsın. Haftanı tamamladıkça yeni hareketler açılır.</p></article></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Hüküm değil, gözlem</h2><p>Sonuç ekranı ölçümün ne gördüğünü sade bir dille anlatır: ne görüldü, günlük hayatta ne zaman sık görülür ve planın neye öncelik veriyor. Puan ya da kırmızı uyarı yok.</p></div>
+      <article class="card finding">
+        <span class="tag">Ölçümünden bir örnek</span>
+        <h3>İleri baş duruşu</h3>
+        <div class="row"><span class="ico" aria-hidden="true">👁</span><span>Başın omuz hizasının biraz önünde duruyor.</span></div>
+        <div class="row"><span class="ico" aria-hidden="true">🕒</span><span>Uzun süre ekrana bakarken ya da masa başında otururken sık görülür.</span></div>
+        <div class="row"><span class="ico" aria-hidden="true">🧭</span><span>Planın boyun ve üst sırt çevresindeki hareketlere öncelik veriyor.</span></div>
+        <p class="strong"><b>Güçlü yanın</b>Omuzların dengeli duruyor.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="wrap grid2">
+      <div>
+        <div class="head" style="margin-bottom:24px"><h2>Her gün biraz, her hafta bir adım</h2><p>Antrenman uzun olmak zorunda değil. Önemli olan düzen.</p></div>
+        <ul class="list"><li><b>Tek bir hareket bile</b> günü doldurur. Ana antrenmanın tamamını yaparsan halkan altın olur.</li><li>Haftada <b>5 dolu gün</b> hedef. 2 gün izin hakkın var; serin bozulmaz.</li><li>Hafta tamamlanınca planın <b>bir adım ilerler</b> ve yeni hareketler açılır.</li><li><b>28 günde bir</b> kısa bir kontrolle neyin değiştiğini birlikte görürüz.</li></ul>
       </div>
+      <div class="card">
+        <p style="font-weight:800;margin-bottom:14px">Örnek bir hafta</p>
+        <div class="rings big-rings" aria-hidden="true"><span class="ring full"><i></i>Pt</span><span class="ring gold"><i></i>Sa</span><span class="ring full"><i></i>Ça</span><span class="ring rest"><i></i>Pe</span><span class="ring full"><i></i>Cu</span><span class="ring gold"><i></i>Ct</span><span class="ring rest"><i></i>Pz</span></div>
+        <div class="legend"><span class="full"><i></i>Dolu gün</span><span class="gold"><i></i>Ana antrenmanın tamamı</span><span class="rest"><i></i>İzin günü</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head center"><h2>Kısa molalar için paketler</h2><p>Her paket 3 hareket ve 3–5 dakika. Ana planına ek olarak istediğin an aç. Hedefine uyan paket en üstte durur.</p></div>
+      <div class="packs"><div class="pack prio"><span class="dot" aria-hidden="true">💻</span><span>Masa başı molası<small>3 hareket · 3–5 dk</small></span><span class="prio-badge">Önceliğin</span></div><div class="pack"><span class="dot" aria-hidden="true">🙆</span><span>Boyun ve omuz<small>3 hareket · 3–5 dk</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🧍</span><span>Dik duruş<small>3 hareket · 3–5 dk</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🧘</span><span>Bel<small>3 hareket · 3–5 dk</small></span></div><div class="pack"><span class="dot" aria-hidden="true">☀️</span><span>Sabah<small>3 hareket · 3–5 dk</small></span></div><div class="pack"><span class="dot" aria-hidden="true">🌙</span><span>Akşam<small>3 hareket · 3–5 dk</small></span></div></div>
     </div>
   </section>
 
   <section>
-    <div class="container two">
-      <div class="card"><h3>Kimler için?</h3><p>Masa başında çalışanlar, öğrenciler ve daha dik durmak, daha rahat hareket etmek, günlük hareket alışkanlığı kazanmak isteyen herkes için. Ekipman veya deneyim gerekmez.</p></div>
-      <div class="card"><h3>🔒 Önce gizlilik</h3><p>Duruş analizi telefonunda çalışır. Fotoğrafların ve sonuçların telefonundan çıkmaz; sunucularımıza gönderilmez.</p><a href="privacy.html">Gizlilik politikasını oku →</a></div>
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Hassas bir bölgen mi var?</h2><p>Bölgeni seç ve nasıl çalışmak istediğini söyle. Dinlendirdiğin bölgeye dokunan hareketler plandan çıkar; hazır olunca Profil&#x27;den geri açarsın.</p></div>
+      <div class="card">
+        <div class="chips" style="margin-bottom:18px"><span class="chip">Boyun</span><span class="chip">Omuz</span><span class="chip">Sırt</span><span class="chip">Bel</span><span class="chip">Kalça</span><span class="chip">Diz ve bacak</span><span class="chip">El ve bilek</span><span class="chip">Ayak ve bilek</span></div>
+        <div class="chips"><span class="chip">🌿 Nazik çalışabilirim</span><span class="chip">⏸ Şimdilik dinlendirmem lazım</span></div>
+      </div>
     </div>
   </section>
 
-  <p class="note">PosMetric bir fitness ve sağlıklı yaşam uygulamasıdır; tıbbi cihaz değildir.</p>
-
-  <section id="about">
-    <div class="container">
-      <h2>Hakkımızda</h2>
-      <p class="about">PosMetric, bağımsız geliştirici stüdyosu FArk Studio tarafından geliştirildi. Amacımız, uzun saatler oturan herkesin kısa ve düzenli hareketlerle daha iyi bir duruş alışkanlığı kazanmasına yardımcı olmak.</p>
+  <section id="coach" class="alt" data-coach data-greeting="Merhaba! Hazır mısın?" data-cheer="Harika iş! Bugünlük tamam." data-loading="Koç geliyor…" data-error="3D görünüm bu cihazda açılamadı.">
+    <div class="wrap">
+      <div class="head center"><h2>Koçunla tanış</h2><p>Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Koçunu seç</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Canlı göster</button></div>
+          <div><h3>Bir hareket dene</h3><div class="row"><button class="btn" type="button" data-move="greet_wave_01" aria-pressed="false">El salla</button><button class="btn" type="button" data-move="chintuck" aria-pressed="false">Chin Tuck</button><button class="btn" type="button" data-move="shoulder_elevation" aria-pressed="false">Shoulder Elevation</button><button class="btn" type="button" data-move="neck_lateral_stretch" aria-pressed="false">Neck Lateral Stretch</button><button class="btn" type="button" data-move="glute_bridge" aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" aria-pressed="false">Cat-Cow</button><button class="btn" type="button" data-move="celebrate_cheer_04" aria-pressed="false">Kutlama</button></div></div>
+          <p class="note">Sesli. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <span>© 2026 FArk Studio. Tüm hakları saklıdır.</span>
-      <span class="links">
-        <a href="privacy.html">Gizlilik Politikası</a>
-        <a href="terms.html">Kullanım Şartları</a>
-        <a href="developer.html">Hakkımızda</a>
-        <a href="delete-account.html">Hesap Silme</a>
-        <a href="mailto:info@physiometric.app">İletişim</a>
-      </span>
+  <section id="pricing">
+    <div class="wrap">
+      <div class="head center"><h2>Ücretsiz başla, istersen Pro&#x27;ya geç</h2><p>Ücretsiz sürüm süresiz. Pro&#x27;yu 7 gün ücretsiz deneyebilirsin; fiyatlar uygulamada gösterilir.</p></div>
+      <div class="plans">
+        <article class="card plan"><h3>Ücretsiz</h3><p class="sub">Süresiz</p><ul class="list"><li>İlk kontrol ve ölçüm önizlemesi</li><li>Sonucunun özeti ve güçlü yanın</li><li>Ölçümüne göre 3 hareketlik planın</li><li>Masa başı molası paketi</li><li>Halkalar, seri ve rozetler</li></ul></article>
+        <article class="card plan pro"><span class="badge">PRO</span><h3>PosMetric Pro</h3><p class="sub">7 gün ücretsiz dene</p><ul class="list"><li>Her hafta açılan yeni hareketler</li><li>28 günlük kontroller ve gelişim raporu</li><li>Bütün paketler</li><li>Ayrıntılı sonuçlar ve karşılaştırma</li></ul></article>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid2">
+      <div class="head" style="margin:0"><h2>Fotoğrafların telefonunda kalır</h2><p>Ölçüm yapay zekâyla doğrudan telefonunda yapılır. Fotoğrafların ve sonuçların sunucularımıza gönderilmez.</p>
+        <p style="margin-top:16px"><a href="/privacy.html" style="color:var(--primary);font-weight:700">Gizlilik politikasını oku →</a></p></div>
+      <ul class="list card"><li><b>Ölçüm telefonda</b> yapılır, buluta fotoğraf gitmez.</li><li><b>Hesap açmadan</b> başlarsın; istersen sonra Google ya da Apple ile bağlarsın.</li><li><b>Reklam yok</b>; verilerini satmayız.</li></ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="head center"><h2>Sık sorulanlar</h2></div>
+      <div class="faq"><details><summary>PosMetric tıbbi bir uygulama mı?</summary><p>Hayır. PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir ve sağlık hizmetinin yerine geçmez.</p></details><details><summary>Hesap açmam gerekiyor mu?</summary><p>Hayır. Misafir olarak başlarsın. İstersen sonra Google ya da Apple hesabınla bağlarsın; kayıtların yerinde kalır.</p></details><details><summary>Her gün ne kadar zaman ayırmalıyım?</summary><p>Tek bir hareket bile günü doldurur. Paketler 3–5 dakika sürer; ana antrenmanın uzunluğu planına göre değişir.</p></details><details><summary>Hangi ekipman gerekiyor?</summary><p>Çoğu hareket için bir yatak ya da minder yeterli. Bazı hareketlerde duvar ya da bir çubuk kullanılır.</p></details><details><summary>iPhone&#x27;da var mı?</summary><p>iOS sürümü hazırlanıyor. Şimdilik Android'de, Google Play'de.</p></details><details><summary>Hangi dillerde kullanabilirim?</summary><p>Türkçe, İngilizce, Almanca ve İspanyolca.</p></details><details><summary>Aboneliği nasıl iptal ederim?</summary><p>Google Play → Ödemeler ve abonelikler → Abonelikler → PosMetric. Ayrıntılar <a href="/terms.html">Kullanım Şartları</a>'nda.</p></details></div>
+    </div>
+  </section>
+
+  <section class="alt cta-final">
+    <div class="wrap">
+      <div class="head center" style="margin-bottom:0"><h2>Bugün ilk kontrolünü yap</h2><p>İki fotoğraf, birkaç dakika. Gerisini koçunla birlikte yaparsın.</p></div>
+      <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=tr"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Hemen indir</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Yakında</small>App Store</span></span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et.</p></div>
+    <nav aria-label="Bağlantılar"><a href="/privacy.html">Gizlilik Politikası</a><a href="/terms.html">Kullanım Şartları</a><a href="/developer.html">Hakkımızda</a><a href="/delete-account.html">Hesap Silme</a><a href="mailto:info@physiometric.app">İletişim</a></nav>
+    <p class="disc">PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir. · © 2026 FArk Studio</p>
+  </div>
+</footer>
 </body>
 </html>

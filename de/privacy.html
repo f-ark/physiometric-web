@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutzerklärung — PosMetric</title>
+  <meta name="description" content="Welche Daten PosMetric verarbeitet, was auf Ihrem Handy bleibt und welche Rechte Sie haben.">
+  <link rel="canonical" href="https://physiometric.app/de/privacy.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/privacy.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/privacy.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Datenschutzerklärung — PosMetric">
+  <meta property="og:description" content="Welche Daten PosMetric verarbeitet, was auf Ihrem Handy bleibt und welche Rechte Sie haben.">
+  <meta property="og:url" content="https://physiometric.app/de/privacy.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-de.jpg">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head><body>
+<a class="skip" href="#main">Zum Inhalt</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/de/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Seitenmenü"><a href="/de/">Startseite</a></nav>
+    <nav class="langs" aria-label="Sprache"><a href="/privacy.html" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/privacy.html" hreflang="en" lang="en" title="English">EN</a><a href="/de/privacy.html" hreflang="de" lang="de" aria-current="page" title="Deutsch">DE</a><a href="/es/privacy.html" hreflang="es" lang="es" title="Español">ES</a></nav>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>Datenschutzerklärung</h1>
+<p class="date">Zuletzt aktualisiert: 8. Oktober 2026</p>
+
+<div class="callout key"><p><strong>Grundsatz:</strong> Die Haltungsmessung läuft auf Ihrem Handy. Ihre Fotos, Messergebnisse und Trainingsdaten werden nicht an unsere Server gesendet.</p></div>
+<div class="callout"><p><strong>Hinweis:</strong> PosMetric ist eine Fitness-App und kein Medizinprodukt.</p></div>
+
+<h2>1. Daten, die auf Ihrem Handy bleiben</h2>
+<p>Die folgenden Daten werden nur im Speicherbereich der App auf Ihrem Handy abgelegt und nicht an unsere Server gesendet:</p>
+<ul>
+<li><strong>Fotos:</strong> Fotos, die Sie für eine Messung aufnehmen oder aus der Galerie auswählen.</li>
+<li><strong>Messergebnisse:</strong> Körperpunkte, Winkelberechnungen, Beobachtungen und frühere Messungen.</li>
+<li><strong>Planeinstellungen:</strong> Ihr Ziel, empfindliche oder ruhende Bereiche, Erinnerungszeit und Coach-Auswahl.</li>
+<li><strong>Trainingsdaten:</strong> Durchgeführte Übungen, aktive Tage, Serien, Abzeichen und der Fortschritt Ihres Plans.</li>
+</ul>
+<p><strong>Gerätesicherung:</strong> Ist die Sicherung Ihres Handys aktiviert (Google-Sicherung oder iCloud), kann das Betriebssystem diese Daten in eine Sicherung in Ihrem eigenen Konto übernehmen. Auf diese Sicherungen haben wir keinen Zugriff.</p>
+
+<h2>2. Verarbeitete Daten</h2>
+<h3>2.1. Kennung und Konto</h3>
+<p>Beim ersten Start erhalten Sie über Firebase Authentication eine <strong>anonyme Nutzerkennung</strong>; Name oder E-Mail sind dafür nicht nötig. Wenn Sie sich mit Google oder Apple anmelden, werden <strong>E-Mail-Adresse</strong>, <strong>Anzeigename</strong> und <strong>Nutzerkennung</strong> zur Anmeldung verarbeitet und Ihre anonyme Kennung mit dieser Anmeldung verknüpft.</p>
+<h3>2.2. Kostenloses Kontingent</h3>
+<p>Um Missbrauch des kostenlosen Messkontingents zu verhindern, wird in Firebase Firestore nur Folgendes gespeichert:</p>
+<ul>
+<li>Die <strong>Anzahl der Messungen</strong> und der Zeitpunkt der letzten Messung, verknüpft mit Ihrer Nutzerkennung.</li>
+<li>Ein <strong>anonymer Geräte-Hash</strong> (SHA-256), der Sie nicht identifiziert, und die Anzahl der Messungen auf diesem Gerät.</li>
+</ul>
+<p>Diese Einträge enthalten keine Fotos, Messergebnisse oder Trainingsdaten.</p>
+<h3>2.3. Feedback</h3>
+<p>Wenn Sie das Feedback-Formular in der App nutzen, werden Ihre Nachricht sowie App-Version und Geräteinformationen (Modell, Betriebssystem, Bildschirmauflösung) in Firestore gespeichert und an unsere Support-Adresse weitergeleitet.</p>
+<h3>2.4. Abonnement</h3>
+<p>PosMetric Pro wird über Google Play Billing gekauft (nach Veröffentlichung der iOS-Version auch über den App Store). Ihr Abostatus wird über RevenueCat geprüft; dazu erhält RevenueCat Ihre Nutzerkennung aus der App. Zahlungsdaten sehen wir nicht.</p>
+<h3>2.5. Nutzungs-, Absturz- und Dienstdaten</h3>
+<ul>
+<li><strong>Firebase Analytics:</strong> Bildschirmaufrufe, Sitzungsdauer, allgemeine Geräteinformationen und anonyme Ereignisse (z. B. Messung abgeschlossen, Training gestartet oder beendet). Keine Fotos, Messergebnisse oder Angaben, die Sie direkt identifizieren.</li>
+<li><strong>Werbe-ID:</strong> Firebase Analytics kann die Werbe-ID des Geräts ausschließlich für die Nutzungsanalyse verwenden. Die App zeigt keine Werbung.</li>
+<li><strong>Firebase Crashlytics:</strong> Bei einem Absturz ein Fehlerbericht, Gerätemodell, Betriebssystem, App-Version und eine technische Kennung der Installation.</li>
+<li><strong>Firebase App Check:</strong> Eine Integritätsprüfung, ob die App unverändert auf einem echten Gerät läuft.</li>
+<li><strong>Firebase Remote Config und Storage:</strong> Aktualisierung von App-Einstellungen und Download der Coach-Sprachpakete. Dabei werden eine Installationskennung und Ihre IP-Adresse verarbeitet.</li>
+</ul>
+
+<h2>3. Berechtigungen</h2>
+<ul>
+<li><strong>Kamera:</strong> Nur für Messfotos.</li>
+<li><strong>Fotos / Galerie:</strong> Damit Sie ein Foto für eine Messung auswählen können.</li>
+<li><strong>Benachrichtigungen (optional):</strong> Für eine tägliche Erinnerung zur gewählten Uhrzeit. Erinnerungen werden auf Ihrem Handy geplant.</li>
+</ul>
+
+<h2>4. Weitergabe von Daten</h2>
+<p>Wir verkaufen, vermieten oder teilen Ihre personenbezogenen Daten nicht zu Werbezwecken. Verarbeitet werden sie nur von diesen Dienstleistern, die wir für den Betrieb nutzen:</p>
+<ul>
+<li><strong>Google Firebase:</strong> Authentication, Firestore, Analytics, Crashlytics, App Check, Remote Config, Storage. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+<li><strong>RevenueCat:</strong> Abo-Prüfung. <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+<li><strong>Google Play Billing und Apple App Store:</strong> Zahlungsabwicklung.</li>
+<li><strong>Gesetzliche Pflichten:</strong> Soweit geltendes Recht es verlangt.</li>
+</ul>
+<p>Diese Dienstleister können Daten außerhalb der Türkei und des Europäischen Wirtschaftsraums verarbeiten, insbesondere in den USA.</p>
+
+<h2>5. Datensicherheit</h2>
+<ul>
+<li>Daten auf dem Gerät liegen im geschützten App-Bereich (Sandbox) des Betriebssystems.</li>
+<li>Alle an Server gesendeten Daten sind per TLS verschlüsselt.</li>
+<li>Wir erheben nur die nötigsten Daten.</li>
+<li>Beim Deinstallieren der App werden alle App-Daten auf dem Handy gelöscht.</li>
+</ul>
+
+<h2>6. Ihre Rechte und Löschung</h2>
+<ul>
+<li><strong>Konto und Daten löschen:</strong> In der App unter Profil &gt; Konto löschen entfernen Sie Ihr Konto und die zugehörigen Servereinträge. Ohne Zugang zur App folgen Sie den Schritten auf der <a href="/de/delete-account.html">Seite zur Kontolöschung</a>.</li>
+<li><strong>Anonymer Geräte-Hash:</strong> Da er Sie nicht identifiziert, kann er nach der Kontolöschung zur Prüfung des kostenlosen Kontingents aufbewahrt werden.</li>
+<li><strong>Weitere Rechte:</strong> Nach der DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde. Schreiben Sie uns einfach.</li>
+</ul>
+
+<h2>7. Altersgrenze</h2>
+<p>PosMetric richtet sich an Personen ab 18 Jahren. Wir erheben wissentlich keine Daten von Minderjährigen; erfahren wir davon, löschen wir sie.</p>
+
+<h2>8. Änderungen</h2>
+<p>Diese Erklärung kann gelegentlich aktualisiert werden. Die aktuelle Fassung steht immer auf dieser Seite.</p>
+
+<h2>9. Kontakt</h2>
+<p>Verantwortlich: FArk Studio · E-Mail: <a href="mailto:info@physiometric.app">info@physiometric.app</a></p>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/de/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Miss deine Haltung und beweg dich jeden Tag mit einem kurzen Plan, der zu dir passt.</p></div>
+    <nav aria-label="Links"><a href="/de/privacy.html">Datenschutz</a><a href="/de/terms.html">Nutzungsbedingungen</a><a href="/de/developer.html">Über uns</a><a href="/de/delete-account.html">Konto löschen</a><a href="mailto:info@physiometric.app">Kontakt</a></nav>
+    <p class="disc">PosMetric ist eine Fitness-App und kein Medizinprodukt. · © 2026 FArk Studio</p>
+  </div>
+</footer>
+</body>
+</html>
