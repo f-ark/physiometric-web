@@ -54,7 +54,7 @@ UI = {
 
 # Paket kimlikleri uygulamadaki görsellerle aynı: assets/images/paket/paket_{kimlik}_{koç}.webp
 PACK_IDS = ["masaBasi", "boyunOmuz", "dikDurus", "bel", "sabah", "aksam"]
-MOVE_IDS = ["shoulder_flexion_stick", "shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
+MOVE_IDS = ["shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
 LINE_KEYS = ["greeting_1", "halfway_1", "last_reps_1", "rest_1", "celebration_1"]
 
 HOME = {
@@ -106,7 +106,7 @@ HOME = {
         "coach_title": "Koçunla tanış",
         "coach_sub": "Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.",
         "pick_coach": "Koçunu seç", "live": "Canlı göster", "try_moves": "Bir hareket dene",
-        "moves": list(zip(MOVE_IDS, ['Shoulder Flexion (Stick)', 'Shoulder Elevation', 'Neck Lateral Stretch', 'Glute Bridge', 'Cat-Cow'], ['Çubuk ile kolunuzu yukarı kaldırın. Yavaşça indirin.', 'Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
+        "moves": list(zip(MOVE_IDS, ['Shoulder Elevation', 'Neck Lateral Stretch', 'Glute Bridge', 'Cat-Cow'], ['Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
         "coach_note": 'Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.',
         "guide": 'Rehberlik', "company": 'Eşlik', "listen": 'Sesi dinle',
         "lines": list(zip(LINE_KEYS, ['Merhaba! Hazır mısın?', 'Yarısı tamam!', 'Son üç!', 'Biraz dinlenelim.', 'Harika iş! Bugünlük tamam.'])),
@@ -183,7 +183,7 @@ HOME = {
         "coach_title": "Meet your coach",
         "coach_sub": "Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.",
         "pick_coach": "Pick your coach", "live": "Show live", "try_moves": "Try a movement",
-        "moves": list(zip(MOVE_IDS, ['Wand Shoulder Flexion', 'Shoulder Shrugs', 'Upper Trapezius Stretch', 'Glute Bridge', 'Cat-Cow'], ['Raise your arms up with the stick. Lower slowly.', 'Pull your shoulders up. Hold for two. Slowly release.', 'Tilt your head to the side, pull gently. Feel the stretch.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
+        "moves": list(zip(MOVE_IDS, ['Shoulder Shrugs', 'Upper Trapezius Stretch', 'Glute Bridge', 'Cat-Cow'], ['Pull your shoulders up. Hold for two. Slowly release.', 'Tilt your head to the side, pull gently. Feel the stretch.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
         "coach_note": 'Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.',
         "guide": 'Guidance', "company": 'Company', "listen": 'Listen',
         "lines": list(zip(LINE_KEYS, ['Hi! Are you ready?', 'Halfway there!', 'Last 3!', 'Let’s rest a little.', 'Great job! That’s it for today.'])),
@@ -260,7 +260,7 @@ HOME = {
         "coach_title": "Lern deinen Coach kennen",
         "coach_sub": "Anna und Max zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.",
         "pick_coach": "Wähl deinen Coach", "live": "Live zeigen", "try_moves": "Probier eine Übung",
-        "moves": list(zip(MOVE_IDS, ['Schulterflexion mit Stab', 'Schulterheben', 'Nackendehnung seitlich', 'Gesäßbrücke', 'Katze-Kuh'], ['Arme mit dem Stab anheben. Langsam absenken.', 'Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Kopf zur Seite neigen, sanft ziehen. Dehnung spüren.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
+        "moves": list(zip(MOVE_IDS, ['Schulterheben', 'Nackendehnung seitlich', 'Gesäßbrücke', 'Katze-Kuh'], ['Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Kopf zur Seite neigen, sanft ziehen. Dehnung spüren.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
         "coach_note": 'Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.',
         "guide": 'Anleitung', "company": 'Begleitung', "listen": 'Anhören',
         "lines": list(zip(LINE_KEYS, ['Hallo! Bist du bereit?', 'Die Hälfte ist geschafft!', 'Noch 3!', 'Kurze Pause.', 'Super gemacht! Das war’s für heute.'])),
@@ -337,7 +337,7 @@ HOME = {
         "coach_title": "Conoce a tu coach",
         "coach_sub": "Lucía y Carlos muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.",
         "pick_coach": "Elige tu coach", "live": "Ver en vivo", "try_moves": "Prueba un movimiento",
-        "moves": list(zip(MOVE_IDS, ['Flexión de hombro con palo', 'Elevación de hombros', 'Estiramiento lateral de cuello', 'Puente de glúteos', 'Gato-vaca'], ['Levante los brazos con el palo. Baje lentamente.', 'Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
+        "moves": list(zip(MOVE_IDS, ['Elevación de hombros', 'Estiramiento lateral de cuello', 'Puente de glúteos', 'Gato-vaca'], ['Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
         "coach_note": 'Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.',
         "guide": 'Guía', "company": 'Compañía', "listen": 'Escuchar',
         "lines": list(zip(LINE_KEYS, ['¡Hola! ¿Estás listo?', '¡Ya va la mitad!', '¡Últimas 3!', 'Descansemos un poco.', '¡Buen trabajo! Es todo por hoy.'])),

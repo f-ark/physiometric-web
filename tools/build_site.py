@@ -242,7 +242,7 @@ def home(lang: str) -> str:
       <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
       <div class="coach-box">
         <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-stick.webp" alt="{escape(fem)}" width="231" height="900" loading="lazy">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="{escape(fem)}" width="261" height="900" loading="lazy">
           <p class="bubble" aria-live="polite"></p>
           <p class="status" aria-live="polite"></p>
         </div>

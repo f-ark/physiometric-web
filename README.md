@@ -22,7 +22,7 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 `assets/js/coach.js`, ziyaretçi "Canlı göster"e basınca three.js'i (`assets/vendor/three`, r170) ve koç modelini yükler; sayfa açılışında hiçbir model inmez.
 
-- `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Beş hareket (sopalı omuz fleksiyonu, shoulder elevation, neck lateral stretch, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak ve sopa modelin içinde. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı; sopanın ele göre uzatılması bu sabit kanallarda.
+- `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Dört hareket (shoulder elevation, neck lateral stretch, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak modelin içinde, sopa ve duvar çıkarıldı. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı (sabit ama farklı değerler uygulamada anlam taşıyor).
 - `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın `coaching` sesleri (hareketi yönlendiren cümle).
 - `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın `coach` sesleri (selam, yarısı tamam, son üç, mola, kutlama).
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).

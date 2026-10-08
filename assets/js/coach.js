@@ -40,7 +40,7 @@ function init(box) {
   coachBtns.forEach((b) => b.addEventListener('click', async () => {
     coach = b.dataset.pick;
     coachBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    poster.src = `/assets/img/coach-${coach}-stick.webp`;
+    poster.src = `/assets/img/coach-${coach}-idle.webp`;
     poster.alt = b.textContent.trim();
     // Paket görselleri de uygulamadaki gibi seçili koça göre.
     document.querySelectorAll('img[data-pack]').forEach((img) => {
@@ -127,10 +127,9 @@ async function createScene(viewer) {
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const cache = {};
   const clock = new THREE.Clock();
-  let model = null, mixer = null, clips = {}, bed = [], stick = [], face = null;
-  // Yatakta yapılan hareketler; sopalı hareket ayakta yapılır.
+  let model = null, mixer = null, clips = {}, bed = [], face = null;
+  // Yatakta yapılan hareketler; yatak yalnızca bunlarda görünür.
   const BED_MOVES = new Set(['shoulder_elevation', 'neck_lateral_stretch', 'glute_bridge', 'cat_cow']);
-  const STICK_MOVES = new Set(['shoulder_flexion_stick']);
   const api = { coach: null };
 
   function resize() {
@@ -162,7 +161,6 @@ async function createScene(viewer) {
   api.loop = (name) => {
     const clip = clips[name]; if (!clip) return;
     bed.forEach((m) => { m.visible = BED_MOVES.has(name); });
-    stick.forEach((m) => { m.visible = STICK_MOVES.has(name); });
     const action = mixer.clipAction(clip);
     mixer.stopAllAction();
     action.setLoop(THREE.LoopRepeat, Infinity);
@@ -176,7 +174,7 @@ async function createScene(viewer) {
     const gltf = await cache[coach];
     model = gltf.scene;
     model.rotation.y = -Math.PI / 2; // modeller +X yönüne bakıyor
-    bed = []; stick = []; face = null;
+    bed = []; face = null;
     model.traverse((o) => {
       if (!o.isMesh) return;
       o.frustumCulled = false;
@@ -184,9 +182,6 @@ async function createScene(viewer) {
         bed.push(o);
         const legs = /_1$/.test(o.name);
         o.material = new THREE.MeshStandardMaterial({ color: legs ? 0x2a3046 : 0xdfe6f2, roughness: 0.85 });
-      } else if (/cylinder|çubuk/i.test(o.name)) {
-        stick.push(o);
-        o.material = new THREE.MeshStandardMaterial({ color: 0xc8a171, roughness: 0.6 });
       } else if (o.morphTargetDictionary && 'blink_l' in o.morphTargetDictionary) {
         face = o;
         const d = o.morphTargetDictionary;
