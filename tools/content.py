@@ -52,7 +52,8 @@ UI = {
     },
 }
 
-PACK_ICONS = ["💻", "🙆", "🧍", "🧘", "☀️", "🌙"]
+# Paket kimlikleri uygulamadaki görsellerle aynı: assets/images/paket/paket_{kimlik}_{koç}.webp
+PACK_IDS = ["masaBasi", "boyunOmuz", "dikDurus", "bel", "sabah", "aksam"]
 MOVE_IDS = ["shoulder_flexion_stick", "shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
 LINE_KEYS = ["greeting_1", "halfway_1", "last_reps_1", "rest_1", "celebration_1"]
 
@@ -95,7 +96,7 @@ HOME = {
         "legend": ["Dolu gün", "Ana antrenmanın tamamı", "İzin günü"],
         "packs_title": "Kısa molalar için paketler",
         "packs_sub": "Her paket 3 hareket ve 3–5 dakika. Ana planına ek olarak istediğin an aç. Hedefine uyan paket en üstte durur.",
-        "packs": list(zip(PACK_ICONS, ["Masa başı molası", "Boyun ve omuz", "Dik duruş", "Bel", "Sabah", "Akşam"])),
+        "packs": list(zip(PACK_IDS, ["Masa başı molası", "Boyun ve omuz", "Dik duruş", "Bel", "Sabah", "Akşam"])),
         "pack_meta": "3 hareket · 3–5 dk",
         "priority": "Önceliğin",
         "sens_title": "Hassas bir bölgen mi var?",
@@ -172,7 +173,7 @@ HOME = {
         "legend": ["Active day", "Whole main workout", "Rest day"],
         "packs_title": "Packs for short breaks",
         "packs_sub": "Each pack is 3 movements and 3–5 minutes. Open one whenever you like, on top of your main plan. The pack that matches your goal sits at the top.",
-        "packs": list(zip(PACK_ICONS, ["Desk break", "Neck and shoulders", "Stand tall", "Lower back", "Morning", "Evening"])),
+        "packs": list(zip(PACK_IDS, ["Desk break", "Neck and shoulders", "Stand tall", "Lower back", "Morning", "Evening"])),
         "pack_meta": "3 movements · 3–5 min",
         "priority": "Your priority",
         "sens_title": "Got a sensitive area?",
@@ -249,7 +250,7 @@ HOME = {
         "legend": ["Aktiver Tag", "Ganzes Haupttraining", "Ruhetag"],
         "packs_title": "Pakete für kurze Pausen",
         "packs_sub": "Jedes Paket hat 3 Übungen und dauert 3–5 Minuten. Öffne es jederzeit zusätzlich zu deinem Hauptplan. Das Paket zu deinem Ziel steht ganz oben.",
-        "packs": list(zip(PACK_ICONS, ["Schreibtischpause", "Nacken und Schultern", "Aufrecht", "Unterer Rücken", "Morgen", "Abend"])),
+        "packs": list(zip(PACK_IDS, ["Schreibtischpause", "Nacken und Schultern", "Aufrecht", "Unterer Rücken", "Morgen", "Abend"])),
         "pack_meta": "3 Übungen · 3–5 Min.",
         "priority": "Deine Priorität",
         "sens_title": "Gibt es einen empfindlichen Bereich?",
@@ -326,7 +327,7 @@ HOME = {
         "legend": ["Día activo", "Entrenamiento principal completo", "Día de descanso"],
         "packs_title": "Paquetes para pausas cortas",
         "packs_sub": "Cada paquete tiene 3 movimientos y dura 3–5 minutos. Ábrelo cuando quieras, además de tu plan principal. El paquete de tu objetivo queda arriba.",
-        "packs": list(zip(PACK_ICONS, ["Pausa de escritorio", "Cuello y hombros", "Postura erguida", "Zona lumbar", "Mañana", "Noche"])),
+        "packs": list(zip(PACK_IDS, ["Pausa de escritorio", "Cuello y hombros", "Postura erguida", "Zona lumbar", "Mañana", "Noche"])),
         "pack_meta": "3 movimientos · 3–5 min",
         "priority": "Tu prioridad",
         "sens_title": "¿Tienes una zona sensible?",

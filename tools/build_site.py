@@ -142,11 +142,11 @@ def home(lang: str) -> str:
     f = h["finding"]
     week_list = "".join(f"<li>{x}</li>" for x in h["week_points"])
     packs = "".join(
-        f'<div class="pack{" prio" if i == 0 else ""}"><span class="dot" aria-hidden="true">{ico}</span>'
+        f'<div class="pack{" prio" if i == 0 else ""}"><img class="dot" src="/assets/img/paket/paket_{pid}_elif.webp" data-pack="{pid}" alt="" width="64" height="64" loading="lazy">'
         f'<span>{escape(name)}<small>{escape(h["pack_meta"])}</small></span>'
         + (f'<span class="prio-badge">{escape(h["priority"])}</span>' if i == 0 else "")
         + "</div>"
-        for i, (ico, name) in enumerate(h["packs"])
+        for i, (pid, name) in enumerate(h["packs"])
     )
     regions = "".join(f'<span class="chip">{escape(r)}</span>' for r in h["regions"])
     fem, mal = h["coach_names"]

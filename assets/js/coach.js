@@ -42,6 +42,10 @@ function init(box) {
     coachBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     poster.src = `/assets/img/coach-${coach}-stick.webp`;
     poster.alt = b.textContent.trim();
+    // Paket görselleri de uygulamadaki gibi seçili koça göre.
+    document.querySelectorAll('img[data-pack]').forEach((img) => {
+      img.src = `/assets/img/paket/paket_${img.dataset.pack}_${coach}.webp`;
+    });
     if (scene) { await start(); scene.loop(move); }
   }));
 
