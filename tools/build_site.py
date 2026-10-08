@@ -149,10 +149,12 @@ def home(lang: str) -> str:
         for i, (ico, name) in enumerate(h["packs"])
     )
     regions = "".join(f'<span class="chip">{escape(r)}</span>' for r in h["regions"])
+    fem, mal = h["coach_names"]
     moves = "".join(
-        f'<button class="btn" type="button" data-move="{m}" aria-pressed="false">{escape(n)}</button>'
-        for m, n in h["moves"]
+        f'<button class="btn" type="button" data-move="{m}" data-text="{escape(g)}" aria-pressed="false">{escape(n)}</button>'
+        for m, n, g in h["moves"]
     )
+    lines_json = escape(json.dumps(h["lines"], ensure_ascii=False))
     free = "".join(f"<li>{escape(x)}</li>" for x in h["free"])
     pro = "".join(f"<li>{escape(x)}</li>" for x in h["pro"])
     priv = "".join(f"<li>{x}</li>" for x in h["privacy_points"])
@@ -175,8 +177,8 @@ def home(lang: str) -> str:
         <p class="fine">{escape(h['fine'])}</p>
       </div>
       <div class="stage">
-        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" fetchpriority="high">
-        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
+        <img class="c elif" src="/assets/img/coach-elif.webp" alt="{escape(fem)}" width="313" height="900" fetchpriority="high">
+        <img class="c asim" src="/assets/img/coach-asim.webp" alt="{escape(mal)}" width="374" height="900">
         <p class="bubble">{escape(h['hello'])}</p>
         <div class="weekcard">{escape(h['week_card'])}{rings(['full','gold','full','rest','',''],days[:6])}</div>
       </div>
@@ -235,21 +237,24 @@ def home(lang: str) -> str:
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-greeting="{escape(h['hello'])}" data-cheer="{escape(h['cheer'])}" data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
+  <section id="coach" class="alt" data-coach data-lines="{lines_json}" data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
     <div class="wrap">
       <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
       <div class="coach-box">
         <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" loading="lazy">
+          <img class="poster" src="/assets/img/coach-elif-stick.webp" alt="{escape(fem)}" width="231" height="900" loading="lazy">
           <p class="bubble" aria-live="polite"></p>
           <p class="status" aria-live="polite"></p>
         </div>
         <div class="controls">
           <div><h3>{escape(h['pick_coach'])}</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">{escape(fem)}</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">{escape(mal)}</button></div></div>
           <div><button class="btn primary" type="button" data-live>▶ {escape(h['live'])}</button></div>
           <div><h3>{escape(h['try_moves'])}</h3><div class="row">{moves}</div></div>
+          <div><h3>{escape(h['listen'])}</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 {escape(h['guide'])}</button>
+            <button class="btn" type="button" data-company>💬 {escape(h['company'])}</button></div></div>
           <p class="note">{escape(h['coach_note'])}</p>
         </div>
       </div>

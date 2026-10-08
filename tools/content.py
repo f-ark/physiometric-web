@@ -53,7 +53,8 @@ UI = {
 }
 
 PACK_ICONS = ["💻", "🙆", "🧍", "🧘", "☀️", "🌙"]
-MOVE_IDS = ["greet_wave_01", "chintuck", "shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow", "celebrate_cheer_04"]
+MOVE_IDS = ["shoulder_flexion_stick", "shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
+LINE_KEYS = ["greeting_1", "halfway_1", "last_reps_1", "rest_1", "celebration_1"]
 
 HOME = {
     "tr": {
@@ -104,8 +105,11 @@ HOME = {
         "coach_title": "Koçunla tanış",
         "coach_sub": "Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.",
         "pick_coach": "Koçunu seç", "live": "Canlı göster", "try_moves": "Bir hareket dene",
-        "moves": list(zip(MOVE_IDS, ["El salla", "Chin Tuck", "Shoulder Elevation", "Neck Lateral Stretch", "Glute Bridge", "Cat-Cow", "Kutlama"])),
-        "coach_note": "Sesli. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.",
+        "moves": list(zip(MOVE_IDS, ['Shoulder Flexion (Stick)', 'Shoulder Elevation', 'Neck Lateral Stretch', 'Glute Bridge', 'Cat-Cow'], ['Çubuk ile kolunuzu yukarı kaldırın. Yavaşça indirin.', 'Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
+        "coach_note": 'Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.',
+        "guide": 'Rehberlik', "company": 'Eşlik', "listen": 'Sesi dinle',
+        "lines": list(zip(LINE_KEYS, ['Merhaba! Hazır mısın?', 'Yarısı tamam!', 'Son üç!', 'Biraz dinlenelim.', 'Harika iş! Bugünlük tamam.'])),
+        "coach_names": ('Elif', 'Asım'),
         "loading": "Koç geliyor…", "load_error": "3D görünüm bu cihazda açılamadı.",
         "price_title": "Ücretsiz başla, istersen Pro'ya geç",
         "price_sub": "Ücretsiz sürüm süresiz. Pro'yu 7 gün ücretsiz deneyebilirsin; fiyatlar uygulamada gösterilir.",
@@ -132,7 +136,7 @@ HOME = {
     },
     "en": {
         "title": "PosMetric — Posture workouts with a personal coach",
-        "desc": "Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.",
+        "desc": "Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Emma or Jack joins every move. Start free.",
         "eyebrow": "Posture workouts · Personal coach",
         "h1": "Measure. Move. <span>Progress.</span>",
         "lead": "PosMetric measures your posture with your phone camera, builds a short workout plan around you and shows your progress honestly. Your coach joins you for every move.",
@@ -176,10 +180,13 @@ HOME = {
         "regions": ["Neck", "Shoulder", "Upper back", "Lower back", "Hip", "Knee and leg", "Hand and wrist", "Foot and ankle"],
         "gentle": "I can go gently", "rest": "I need to rest it for now",
         "coach_title": "Meet your coach",
-        "coach_sub": "Elif and Asım show every movement in 3D, guide you with their voice and keep you company. Try them out here.",
+        "coach_sub": "Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.",
         "pick_coach": "Pick your coach", "live": "Show live", "try_moves": "Try a movement",
-        "moves": list(zip(MOVE_IDS, ["Wave", "Chin Tuck", "Shoulder Shrugs", "Upper Trapezius Stretch", "Glute Bridge", "Cat-Cow", "Celebrate"])),
-        "coach_note": "With sound. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.",
+        "moves": list(zip(MOVE_IDS, ['Wand Shoulder Flexion', 'Shoulder Shrugs', 'Upper Trapezius Stretch', 'Glute Bridge', 'Cat-Cow'], ['Raise your arms up with the stick. Lower slowly.', 'Pull your shoulders up. Hold for two. Slowly release.', 'Tilt your head to the side, pull gently. Feel the stretch.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
+        "coach_note": 'Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.',
+        "guide": 'Guidance', "company": 'Company', "listen": 'Listen',
+        "lines": list(zip(LINE_KEYS, ['Hi! Are you ready?', 'Halfway there!', 'Last 3!', 'Let’s rest a little.', 'Great job! That’s it for today.'])),
+        "coach_names": ('Emma', 'Jack'),
         "loading": "Your coach is on the way…", "load_error": "The 3D view couldn't open on this device.",
         "price_title": "Start free, go Pro if you like",
         "price_sub": "The free version never expires. Try Pro free for 7 days; prices are shown in the app.",
@@ -206,7 +213,7 @@ HOME = {
     },
     "de": {
         "title": "PosMetric — Haltungstraining mit persönlichem Coach",
-        "desc": "Miss deine Haltung mit der Handykamera und beweg dich jeden Tag mit einem kurzen Plan, der zu dir passt. Dein Coach Elif oder Asım ist bei jeder Übung dabei. Kostenlos starten.",
+        "desc": "Miss deine Haltung mit der Handykamera und beweg dich jeden Tag mit einem kurzen Plan, der zu dir passt. Dein Coach Anna oder Max ist bei jeder Übung dabei. Kostenlos starten.",
         "eyebrow": "Haltungstraining · Persönlicher Coach",
         "h1": "Messen. Bewegen. <span>Dranbleiben.</span>",
         "lead": "PosMetric misst deine Haltung mit deiner Handykamera, stellt einen kurzen Trainingsplan für dich zusammen und zeigt deine Entwicklung ehrlich. Dein Coach ist bei jeder Übung dabei.",
@@ -250,10 +257,13 @@ HOME = {
         "regions": ["Nacken", "Schulter", "Oberer Rücken", "Unterer Rücken", "Hüfte", "Knie und Bein", "Hand und Handgelenk", "Fuß und Sprunggelenk"],
         "gentle": "Ich kann sanft trainieren", "rest": "Ich muss sie vorerst schonen",
         "coach_title": "Lern deinen Coach kennen",
-        "coach_sub": "Elif und Asım zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.",
+        "coach_sub": "Anna und Max zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.",
         "pick_coach": "Wähl deinen Coach", "live": "Live zeigen", "try_moves": "Probier eine Übung",
-        "moves": list(zip(MOVE_IDS, ["Winken", "Kinnrückzug", "Schulterheben", "Nackendehnung seitlich", "Gesäßbrücke", "Katze-Kuh", "Jubeln"])),
-        "coach_note": "Mit Ton. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.",
+        "moves": list(zip(MOVE_IDS, ['Schulterflexion mit Stab', 'Schulterheben', 'Nackendehnung seitlich', 'Gesäßbrücke', 'Katze-Kuh'], ['Arme mit dem Stab anheben. Langsam absenken.', 'Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Kopf zur Seite neigen, sanft ziehen. Dehnung spüren.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
+        "coach_note": 'Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.',
+        "guide": 'Anleitung', "company": 'Begleitung', "listen": 'Anhören',
+        "lines": list(zip(LINE_KEYS, ['Hallo! Bist du bereit?', 'Die Hälfte ist geschafft!', 'Noch 3!', 'Kurze Pause.', 'Super gemacht! Das war’s für heute.'])),
+        "coach_names": ('Anna', 'Max'),
         "loading": "Dein Coach kommt…", "load_error": "Die 3D-Ansicht lässt sich auf diesem Gerät nicht öffnen.",
         "price_title": "Kostenlos starten, Pro wenn du willst",
         "price_sub": "Die kostenlose Version ist unbefristet. Pro kannst du 7 Tage kostenlos testen; die Preise siehst du in der App.",
@@ -280,7 +290,7 @@ HOME = {
     },
     "es": {
         "title": "PosMetric — Entrenamiento postural con coach personal",
-        "desc": "Mide tu postura con la cámara del móvil y muévete cada día con un plan corto hecho para ti. Tu coach Elif o Asım te acompaña en cada movimiento. Empieza gratis.",
+        "desc": "Mide tu postura con la cámara del móvil y muévete cada día con un plan corto hecho para ti. Tu coach Lucía o Carlos te acompaña en cada movimiento. Empieza gratis.",
         "eyebrow": "Entrenamiento postural · Coach personal",
         "h1": "Mide. Muévete. <span>Avanza.</span>",
         "lead": "PosMetric mide tu postura con la cámara del móvil, arma un plan de entrenamiento corto para ti y te muestra tu evolución con honestidad. Tu coach te acompaña en cada movimiento.",
@@ -324,10 +334,13 @@ HOME = {
         "regions": ["Cuello", "Hombro", "Espalda", "Zona lumbar", "Cadera", "Rodilla y pierna", "Mano y muñeca", "Pie y tobillo"],
         "gentle": "Puedo trabajar con suavidad", "rest": "Necesito que descanse por ahora",
         "coach_title": "Conoce a tu coach",
-        "coach_sub": "Elif y Asım muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.",
+        "coach_sub": "Lucía y Carlos muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.",
         "pick_coach": "Elige tu coach", "live": "Ver en vivo", "try_moves": "Prueba un movimiento",
-        "moves": list(zip(MOVE_IDS, ["Saludar", "Retracción cervical", "Elevación de hombros", "Estiramiento lateral de cuello", "Puente de glúteos", "Gato-vaca", "Celebrar"])),
-        "coach_note": "Con sonido. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.",
+        "moves": list(zip(MOVE_IDS, ['Flexión de hombro con palo', 'Elevación de hombros', 'Estiramiento lateral de cuello', 'Puente de glúteos', 'Gato-vaca'], ['Levante los brazos con el palo. Baje lentamente.', 'Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
+        "coach_note": 'Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.',
+        "guide": 'Guía', "company": 'Compañía', "listen": 'Escuchar',
+        "lines": list(zip(LINE_KEYS, ['¡Hola! ¿Estás listo?', '¡Ya va la mitad!', '¡Últimas 3!', 'Descansemos un poco.', '¡Buen trabajo! Es todo por hoy.'])),
+        "coach_names": ('Lucía', 'Carlos'),
         "loading": "Tu coach está llegando…", "load_error": "La vista 3D no se pudo abrir en este dispositivo.",
         "price_title": "Empieza gratis, pásate a Pro si quieres",
         "price_sub": "La versión gratuita no caduca. Prueba Pro gratis durante 7 días; los precios se muestran en la app.",

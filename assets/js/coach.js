@@ -1,5 +1,6 @@
-// "Koçunla tanış" bölümü. three.js ve model yalnızca ziyaretçi "Canlı göster"e basınca yüklenir.
-// Modeller uygulamadaki koçlardan web için küçültülmüş kopyalardır (assets/models).
+// "Koçunla tanış" bölümü. three.js ve model yalnızca ziyaretçi "Canlı göster"e ya da bir harekete
+// basınca yüklenir. Modeller uygulamadaki koçlardan web için küçültülmüş kopyalardır (assets/models).
+// Sesler iki ayrı gruptur: rehberlik (hareketi yönlendiren cümle) ve eşlik (koçun cümleleri).
 const box = document.querySelector('[data-coach]');
 if (box) init(box);
 
@@ -10,51 +11,69 @@ function init(box) {
   const status = viewer.querySelector('.status');
   const lang = document.documentElement.lang;
   const t = box.dataset;
+  const lines = JSON.parse(t.lines); // [[anahtar, metin], ...]
   const coachBtns = [...box.querySelectorAll('[data-pick]')];
   const moveBtns = [...box.querySelectorAll('[data-move]')];
   const liveBtn = box.querySelector('[data-live]');
+  const guideBtn = box.querySelector('[data-guide]');
+  const companyBtn = box.querySelector('[data-company]');
   let coach = 'elif';
+  let move = moveBtns[0].dataset.move;
+  let lineIndex = 0;
   let scene = null; // three.js tarafı yüklenince dolar
   let loading = null;
+  let audio = null;
 
-  const say = (text, ms = 3200) => {
+  const say = (text, ms = 4200) => {
     bubble.textContent = text;
     bubble.classList.add('show');
     clearTimeout(say.timer);
     say.timer = setTimeout(() => bubble.classList.remove('show'), ms);
   };
-  const play = (kind) => {
-    const audio = new Audio(`/assets/audio/${lang}/${coach}-${kind}.m4a`);
+  const play = (path) => {
+    if (audio) audio.pause();
+    audio = new Audio(`/assets/audio/${lang}/${coach}/${path}.m4a`);
     audio.play().catch(() => {});
   };
+  const pressMove = () => moveBtns.forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.move === move)));
 
   coachBtns.forEach((b) => b.addEventListener('click', async () => {
     coach = b.dataset.pick;
     coachBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    poster.src = `/assets/img/coach-${coach}.webp`;
+    poster.src = `/assets/img/coach-${coach}-stick.webp`;
     poster.alt = b.textContent.trim();
-    if (scene) { await start(); greet(); }
+    if (scene) { await start(); scene.loop(move); }
   }));
 
   liveBtn.addEventListener('click', async () => {
     await start();
-    greet();
+    pressMove();
+    scene.loop(move);
   });
 
   moveBtns.forEach((b) => b.addEventListener('click', async () => {
+    move = b.dataset.move;
+    pressMove();
     await start();
-    const move = b.dataset.move;
-    moveBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    if (move === 'celebrate_cheer_04') { scene.once(move); say(t.cheer); play('celebration'); }
-    else if (move === 'greet_wave_01') greet();
-    else scene.loop(move);
+    scene.loop(move);
   }));
 
-  function greet() {
-    scene.once('greet_wave_01');
-    say(t.greeting);
-    play('greeting');
-  }
+  guideBtn.addEventListener('click', async () => {
+    await start();
+    pressMove();
+    scene.loop(move);
+    const btn = moveBtns.find((x) => x.dataset.move === move);
+    say(btn.dataset.text, 6000);
+    play(`guide/${move}`);
+  });
+
+  companyBtn.addEventListener('click', async () => {
+    await start();
+    const [key, text] = lines[lineIndex % lines.length];
+    lineIndex++;
+    say(text);
+    play(`company/${key}`);
+  });
 
   async function start() {
     if (scene && scene.coach === coach) return;
@@ -64,6 +83,7 @@ function init(box) {
       try {
         if (!scene) scene = await createScene(viewer);
         await scene.load(coach);
+        scene.loop(move);
         viewer.classList.add('live');
         liveBtn.hidden = true;
         status.textContent = '';
@@ -103,8 +123,10 @@ async function createScene(viewer) {
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const cache = {};
   const clock = new THREE.Clock();
-  let model = null, mixer = null, clips = {}, current = null, bed = [], face = null;
+  let model = null, mixer = null, clips = {}, bed = [], stick = [], face = null;
+  // Yatakta yapılan hareketler; sopalı hareket ayakta yapılır.
   const BED_MOVES = new Set(['shoulder_elevation', 'neck_lateral_stretch', 'glute_bridge', 'cat_cow']);
+  const STICK_MOVES = new Set(['shoulder_flexion_stick']);
   const api = { coach: null };
 
   function resize() {
@@ -126,33 +148,31 @@ async function createScene(viewer) {
     }
     action.reset();
     const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
-    const yaw = BED_MOVES.has(name) ? 0.75 : 0.12;
-    const fit = Math.max(s.y, Math.max(s.x, s.z) / camera.aspect) / 2 / Math.tan(THREE.MathUtils.degToRad(15)) * 1.15;
-    camera.position.set(c.x + Math.sin(yaw) * fit, c.y + s.y * 0.08, c.z + Math.cos(yaw) * fit);
+    const yaw = BED_MOVES.has(name) ? 0.75 : 0.35;
+    const h = Math.max(s.y, Math.max(s.x, s.z) / camera.aspect);
+    const fit = h / 2 / Math.tan(THREE.MathUtils.degToRad(15)) * 1.15;
+    camera.position.set(c.x + Math.sin(yaw) * fit, c.y + h * 0.08, c.z + Math.cos(yaw) * fit);
     controls.target.copy(c); controls.update();
   }
 
-  function run(name, once) {
+  api.loop = (name) => {
     const clip = clips[name]; if (!clip) return;
     bed.forEach((m) => { m.visible = BED_MOVES.has(name); });
-    const next = mixer.clipAction(clip);
+    stick.forEach((m) => { m.visible = STICK_MOVES.has(name); });
+    const action = mixer.clipAction(clip);
     mixer.stopAllAction();
-    next.setLoop(once ? THREE.LoopOnce : THREE.LoopRepeat, Infinity);
-    next.clampWhenFinished = true;
-    next.play();
-    frame(name, next);
-    current = next;
-  }
-  api.loop = (name) => run(name, false);
-  api.once = (name) => run(name, true);
+    action.setLoop(THREE.LoopRepeat, Infinity);
+    action.play();
+    frame(name, action);
+  };
 
   api.load = async (coach) => {
-    if (model) { world.remove(model); }
+    if (model) world.remove(model);
     cache[coach] ??= loader.loadAsync(`/assets/models/${coach}.glb`);
     const gltf = await cache[coach];
     model = gltf.scene;
     model.rotation.y = -Math.PI / 2; // modeller +X yönüne bakıyor
-    bed = []; face = null;
+    bed = []; stick = []; face = null;
     model.traverse((o) => {
       if (!o.isMesh) return;
       o.frustumCulled = false;
@@ -160,6 +180,9 @@ async function createScene(viewer) {
         bed.push(o);
         const legs = /_1$/.test(o.name);
         o.material = new THREE.MeshStandardMaterial({ color: legs ? 0x2a3046 : 0xdfe6f2, roughness: 0.85 });
+      } else if (/cylinder|çubuk/i.test(o.name)) {
+        stick.push(o);
+        o.material = new THREE.MeshStandardMaterial({ color: 0xc8a171, roughness: 0.6 });
       } else if (o.morphTargetDictionary && 'blink_l' in o.morphTargetDictionary) {
         face = o;
         const d = o.morphTargetDictionary;
@@ -169,10 +192,7 @@ async function createScene(viewer) {
     world.add(model);
     mixer = new THREE.AnimationMixer(model);
     clips = Object.fromEntries(gltf.animations.map((c) => [c.name, c]));
-    mixer.addEventListener('finished', () => api.loop('idle_breathe_01'));
-    current = null;
     api.coach = coach;
-    api.loop('idle_breathe_01');
   };
 
   // Göz kırpma: 3–5 saniyede bir.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PosMetric — Posture workouts with a personal coach</title>
-  <meta name="description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.">
+  <meta name="description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Emma or Jack joins every move. Start free.">
   <link rel="canonical" href="https://physiometric.app/en/">
   <link rel="alternate" hreflang="tr" href="https://physiometric.app/">
   <link rel="alternate" hreflang="en" href="https://physiometric.app/en/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PosMetric">
   <meta property="og:title" content="PosMetric — Posture workouts with a personal coach">
-  <meta property="og:description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.">
+  <meta property="og:description" content="Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Emma or Jack joins every move. Start free.">
   <meta property="og:url" content="https://physiometric.app/en/">
   <meta property="og:image" content="https://physiometric.app/assets/img/og-en.jpg">
   <meta property="og:locale" content="en_US">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>
   <script type="module" src="/assets/js/coach.js"></script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Elif or Asım joins every move. Start free.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/en/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Measure your posture with your phone camera and move every day with a short plan built around you. Your coach Emma or Jack joins every move. Start free.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/en/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
@@ -51,8 +51,8 @@
         <p class="fine">Start free · No account needed · No ads</p>
       </div>
       <div class="stage">
-        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" fetchpriority="high">
-        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
+        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Emma" width="313" height="900" fetchpriority="high">
+        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Jack" width="374" height="900">
         <p class="bubble">Hi! Are you ready?</p>
         <div class="weekcard">This week 3/5 days<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Tu</span><span class="ring full"><i></i>We</span><span class="ring rest"><i></i>Th</span><span class="ring "><i></i>Fr</span><span class="ring "><i></i>Sa</span></div></div>
       </div>
@@ -111,22 +111,25 @@
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-greeting="Hi! Are you ready?" data-cheer="Great job! That’s it for today." data-loading="Your coach is on the way…" data-error="The 3D view couldn&#x27;t open on this device.">
+  <section id="coach" class="alt" data-coach data-lines="[[&quot;greeting_1&quot;, &quot;Hi! Are you ready?&quot;], [&quot;halfway_1&quot;, &quot;Halfway there!&quot;], [&quot;last_reps_1&quot;, &quot;Last 3!&quot;], [&quot;rest_1&quot;, &quot;Let’s rest a little.&quot;], [&quot;celebration_1&quot;, &quot;Great job! That’s it for today.&quot;]]" data-loading="Your coach is on the way…" data-error="The 3D view couldn&#x27;t open on this device.">
     <div class="wrap">
-      <div class="head center"><h2>Meet your coach</h2><p>Elif and Asım show every movement in 3D, guide you with their voice and keep you company. Try them out here.</p></div>
+      <div class="head center"><h2>Meet your coach</h2><p>Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.</p></div>
       <div class="coach-box">
         <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" loading="lazy">
+          <img class="poster" src="/assets/img/coach-elif-stick.webp" alt="Emma" width="231" height="900" loading="lazy">
           <p class="bubble" aria-live="polite"></p>
           <p class="status" aria-live="polite"></p>
         </div>
         <div class="controls">
           <div><h3>Pick your coach</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Emma</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Jack</button></div></div>
           <div><button class="btn primary" type="button" data-live>▶ Show live</button></div>
-          <div><h3>Try a movement</h3><div class="row"><button class="btn" type="button" data-move="greet_wave_01" aria-pressed="false">Wave</button><button class="btn" type="button" data-move="chintuck" aria-pressed="false">Chin Tuck</button><button class="btn" type="button" data-move="shoulder_elevation" aria-pressed="false">Shoulder Shrugs</button><button class="btn" type="button" data-move="neck_lateral_stretch" aria-pressed="false">Upper Trapezius Stretch</button><button class="btn" type="button" data-move="glute_bridge" aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" aria-pressed="false">Cat-Cow</button><button class="btn" type="button" data-move="celebrate_cheer_04" aria-pressed="false">Celebrate</button></div></div>
-          <p class="note">With sound. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.</p>
+          <div><h3>Try a movement</h3><div class="row"><button class="btn" type="button" data-move="shoulder_flexion_stick" data-text="Raise your arms up with the stick. Lower slowly." aria-pressed="false">Wand Shoulder Flexion</button><button class="btn" type="button" data-move="shoulder_elevation" data-text="Pull your shoulders up. Hold for two. Slowly release." aria-pressed="false">Shoulder Shrugs</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Tilt your head to the side, pull gently. Feel the stretch." aria-pressed="false">Upper Trapezius Stretch</button><button class="btn" type="button" data-move="glute_bridge" data-text="Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly." aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" data-text="Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going." aria-pressed="false">Cat-Cow</button></div></div>
+          <div><h3>Listen</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 Guidance</button>
+            <button class="btn" type="button" data-company>💬 Company</button></div></div>
+          <p class="note">Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.</p>
         </div>
       </div>
     </div>
