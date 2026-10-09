@@ -251,6 +251,7 @@ def home(lang: str) -> str:
         <div class="hero-cta">
           <a class="btn primary big" href="#try">📷 {escape(h['try_btn'])}</a>
           <a class="store play" href="{PLAY}&amp;hl={u['play_hl']}"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['play_small'])}</small>Google Play</span></a>
+          <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['soon'])}</small>App Store</span></span>
         </div>
         <p class="fine">{escape(h['try_hint'])}</p>
       </div>
