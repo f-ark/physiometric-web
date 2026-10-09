@@ -124,7 +124,7 @@ p{margin:0}
 .hero-demo .res-card b{display:block;font-size:15px;margin-top:4px}
 .hero-demo .res-card p{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--text-2);margin-top:2px}
 .hero-demo .res-card .ok-i{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--success);font-size:12px}
-.demo-cap{margin-top:10px;text-align:center;font-size:13px;color:var(--muted)}
+.demo-cap{margin:10px auto 0;max-width:460px;text-align:center;font-size:13px;line-height:1.45;color:var(--muted)}
 /* Zaman çizelgeleri: önden 0–32%, yandan 32–64%, sonuç kartı 66–94%; sonda hepsi söner. */
 @keyframes hd-scan{0%,0%{transform:translateY(0);opacity:1}0.1%{transform:translateY(0);opacity:1}8%{transform:translateY(820px);opacity:1}9%,100%{opacity:0;transform:translateY(820px)}}
 @keyframes hd-bones{0%,7%{opacity:0}11%,96%{opacity:1}99%,100%{opacity:0}}

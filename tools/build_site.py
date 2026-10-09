@@ -123,23 +123,23 @@ def rings(states: list[str], labels: list[str], cls: str = "") -> str:
 def hero_demo(lang: str) -> str:
     """Karşılamadaki ölçüm canlandırması: önden ve yandan çekim, ardından sonuç kartı.
 
-    Noktalar örnek fotoğraflarda poz modelinin (MediaPipe Pose Landmarker lite) gerçek çıktısıdır;
-    sonuçlar uygulamanın formülleriyle hesaplandı:
-    - Önden: baş eğikliği 0,6° (eşik 3°), omuz yükseklik farkı %1,1 (eşik %2) → bulgu yok.
+    Noktalar BlazePose'un 33 noktalık numaralarıyla. Gövde, el ve ayak noktaları poz modelinin
+    (MediaPipe Pose Landmarker heavy) bu fotoğraflardaki çıktısıdır. Yüz noktaları (burun, gözler,
+    kulaklar, ağız) elle yerleştirildi: model bu görselde kulakları yüzün içine kaydırıyor.
+    Sonuçlar uygulamanın formülleriyle bu noktalardan hesaplandı:
+    - Önden: baş eğikliği 0° (eşik 3°), omuz yükseklik farkı %0,5 (eşik %2) → bulgu yok.
       Güçlü yan, uygulamadaki bölge sırasıyla omuz.
-    - Yandan (çekül hattı): kulak, beş noktanın ortalamasından gövde boyunun %14'ü kadar önde
-      (eşik %1,8) → İleri baş duruşu.
-    Fotoğraflar değişirse model yeniden çalıştırılıp konumlar güncellenir."""
+    - Yandan (çekül hattı, sol taraf): kulak, beş noktanın x ortalamasından gövde boyunun %12,9'u
+      kadar önde (eşik %1,8) → İleri baş duruşu.
+    Fotoğraflar değişirse noktalar yeniden çıkarılıp sonuçlar yeniden hesaplanır."""
     c, h = CHECK[lang], HOME[lang]
     # 340x820 kırpılmış fotoğraflarda piksel konumları (kırpma: önden x 97, yandan x 80, ikisinde y 80)
-    f = {"nose": (165.6, 127.4), "le": (191.7, 121.3), "re": (142, 121.8), "ls": (242.4, 215.4), "rs": (98.3, 223.1),
-         "lel": (263.7, 333.8), "rel": (72.5, 335.2), "lw": (267.2, 440.1), "rw": (67.4, 438),
-         "lh": (212.1, 424.6), "rh": (128.5, 427.2), "lk": (210.5, 593.6), "rk": (126.2, 590.3),
-         "la": (215, 752.5), "ra": (125.1, 754.2)}
-    fb = [("ls", "rs"), ("ls", "lel"), ("lel", "lw"), ("rs", "rel"), ("rel", "rw"), ("ls", "lh"), ("rs", "rh"),
-          ("lh", "rh"), ("lh", "lk"), ("lk", "la"), ("rh", "rk"), ("rk", "ra")]
-    sd = {"ear": (151, 122.3), "sh": (186.7, 202.8), "hip": (187.5, 429.5), "knee": (189.6, 588.9), "ank": (203.9, 754.6)}
-    ref = 183.7  # çekül hattı: beş noktanın x ortalaması
+    f = {0: (166, 132), 2: (150, 114.5), 5: (180, 114), 7: (203, 124), 8: (132, 124), 9: (157, 144), 10: (175, 144), 11: (245, 217.7), 12: (94.6, 220.8), 13: (265.8, 328.2), 14: (74, 333.6), 15: (269.2, 434.3), 16: (69.5, 441.1), 19: (261.5, 468), 20: (74, 474.4), 23: (211.9, 427.6), 24: (126.4, 426.8), 25: (213.4, 589.9), 26: (125.4, 592.1), 27: (213.1, 749.8), 28: (126.8, 750.4), 31: (213.5, 797.3), 32: (116.2, 796.8)}
+    fb = [(8, 2), (2, 0), (0, 5), (5, 7), (9, 10), (11, 12), (11, 13), (13, 15), (15, 19), (12, 14), (14, 16),
+          (16, 20), (11, 23), (12, 24), (23, 24), (23, 25), (25, 27), (27, 31), (24, 26), (26, 28), (28, 32)]
+    sd = {0: (107, 135), 5: (122.5, 120), 7: (161, 124), 9: (117.5, 146), 11: (189.4, 208.2), 13: (192.9, 337.2), 15: (153, 444.3), 19: (137.7, 475.1), 23: (190.7, 420.9), 25: (193.9, 596.5), 27: (207.3, 756.7), 29: (222.4, 786.6), 31: (131.5, 790.9)}
+    sb = [(7, 5), (5, 0), (11, 13), (13, 15), (15, 19), (11, 23), (23, 25), (25, 27), (27, 29), (29, 31), (27, 31)]
+    ref = 188.5  # çekül hattı: kulak, omuz, kalça, diz ve ayak bileğinin x ortalaması
 
     def line(p, q, cls=""):
         return f'<line{cls} x1="{p[0]}" y1="{p[1]}" x2="{q[0]}" y2="{q[1]}"/>'
@@ -149,22 +149,21 @@ def hero_demo(lang: str) -> str:
         return (round(p[0] - dx * k, 1), round(p[1] - dy * k, 1)), (round(q[0] + dx * k, 1), round(q[1] + dy * k, 1))
 
     def dots(pts):
-        return "".join(f'<circle cx="{x}" cy="{y}" r="6" style="--d:{i * 0.05:.2f}s"/>' for i, (x, y) in enumerate(pts))
+        return "".join(f'<circle cx="{x}" cy="{y}" r="5" style="--d:{i * 0.03:.2f}s"/>' for i, (x, y) in enumerate(pts))
 
-    mx = round((f["la"][0] + f["ra"][0]) / 2, 1)
+    mx = round((f[27][0] + f[28][0]) / 2, 1)
     front = (
         f'<g class="bones">{"".join(line(f[a], f[b]) for a, b in fb)}</g>'
-        f'<line class="mid" x1="{mx}" y1="40" x2="{mx}" y2="780"/>'
-        f'{line(*ext(f["re"], f["le"]), cls=" class=ok")}{line(*ext(f["rs"], f["ls"], 0.25), cls=" class=ok")}'
+        f'<line class="mid" x1="{mx}" y1="40" x2="{mx}" y2="800"/>'
+        f'{line(*ext(f[8], f[7], 0.3), cls=" class=ok")}{line(*ext(f[12], f[11], 0.2), cls=" class=ok")}'
         f'<g class="dots">{dots(f.values())}</g>'
     )
-    chain = ["ear", "sh", "hip", "knee", "ank"]
     side = (
-        f'<g class="bones">{"".join(line(sd[a], sd[b]) for a, b in zip(chain, chain[1:]))}</g>'
-        f'<line class="mid" x1="{ref}" y1="40" x2="{ref}" y2="780"/>'
-        f'<line class="seen" x1="{ref}" y1="{sd["ear"][1]}" x2="{sd["ear"][0]}" y2="{sd["ear"][1]}"/>'
+        f'<g class="bones">{"".join(line(sd[a], sd[b]) for a, b in sb)}</g>'
+        f'<line class="mid" x1="{ref}" y1="40" x2="{ref}" y2="800"/>'
+        f'<line class="seen" x1="{ref}" y1="{sd[7][1]}" x2="{sd[7][0]}" y2="{sd[7][1]}"/>'
         f'<g class="dots">{dots(sd.values())}</g>'
-        f'<circle class="seen-dot" cx="{sd["ear"][0]}" cy="{sd["ear"][1]}" r="10"/>'
+        f'<circle class="seen-dot" cx="{sd[7][0]}" cy="{sd[7][1]}" r="10"/>'
     )
 
     def panel(cls, img, label, overlay):
