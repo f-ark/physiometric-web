@@ -11,7 +11,7 @@ import json
 import pathlib
 from html import escape
 
-from content import LANGS, UI, HOME, LEGAL
+from content import LANGS, UI, HOME, LEGAL, CHECK
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://physiometric.app"
@@ -314,6 +314,62 @@ def doc(lang: str, page: str) -> str:
     )
 
 
+def check(lang: str) -> str:
+    """Mini kontrol: listede yok, arama motorlarına kapalı, site haritasına girmez."""
+    c = CHECK[lang]
+    keys = ["loading", "ready", "hold", "no_person", "cam_error", "unsupported", "need_full", "head", "shoulders",
+            "seen", "daily", "strong_label", "dir_left", "dir_right", "side_left", "side_right",
+            "head_tilt", "head_daily", "head_strong", "sh_tilt", "sh_daily", "sh_strong", "again"]
+    data = escape(json.dumps({k: c[k] for k in keys}, ensure_ascii=False))
+    tips = "".join(f"<li>{escape(t)}</li>" for t in c["tips"])
+    return (
+        head(lang, "mini-check", c["title"], c["desc"],
+             '  <meta name="robots" content="noindex">\n'
+             '  <script type="module" src="/assets/js/check.js"></script>\n')
+        + topbar(lang, "mini-check")
+        + f"""
+<main id="main" class="check" data-check data-t="{data}">
+  <section>
+    <div class="wrap">
+      <div class="head center">
+        <span class="eyebrow">{escape(c['eyebrow'])}</span>
+        <h1>{escape(c['h1'])}</h1>
+        <p>{escape(c['lead'])}</p>
+      </div>
+      <div class="check-box">
+        <div class="cam">
+          <video playsinline muted></video>
+          <canvas></canvas>
+          <p class="status" aria-live="polite"></p>
+          <div class="cam-actions">
+            <button class="btn primary" type="button" data-start>📷 {escape(c['start'])}</button>
+            <button class="btn primary" type="button" data-measure hidden>{escape(c['measure'])}</button>
+          </div>
+        </div>
+        <div class="side">
+          <p class="callout key">🔒 {escape(c['privacy'])}</p>
+          <h3>{escape(c['tips_title'])}</h3>
+          <ul class="tips">{tips}</ul>
+        </div>
+      </div>
+      <div class="results" aria-live="polite" hidden>
+        <div class="cards"></div>
+        <p class="note">{escape(c['result_note'])}</p>
+      </div>
+    </div>
+  </section>
+  <section class="alt cta-final">
+    <div class="wrap">
+      <div class="head center" style="margin-bottom:0"><h2>{escape(c['cta_title'])}</h2><p>{escape(HOME[lang]['end_sub'])}</p></div>
+      {stores(lang)}
+    </div>
+  </section>
+</main>
+"""
+        + footer(lang)
+    )
+
+
 def not_found() -> str:
     blocks = "".join(
         f'<p lang="{l}">{escape(UI[l]["nf"])} <a href="{url(l, "index")}" style="color:var(--primary)">{escape(UI[l]["home"])}</a></p>'
@@ -340,6 +396,10 @@ def main() -> None:
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(html, encoding="utf-8")
             written.append(out)
+    for lang in LANGS:
+        out = ROOT / url(lang, "mini-check").lstrip("/")
+        out.write_text(check(lang), encoding="utf-8")
+        written.append(out)
     (ROOT / "404.html").write_text(not_found(), encoding="utf-8")
     entries = []
     for page in PAGES:

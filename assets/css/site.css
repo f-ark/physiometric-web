@@ -296,3 +296,24 @@ section{padding:72px 0}
 .viewer .bubble{top:auto;bottom:14px;max-height:45%;overflow:auto}
 .viewer .bubble::after{bottom:auto;top:-7px;transform:rotate(225deg)}
 @media (max-width:600px){.viewer .bubble{font-size:13px;padding:8px 12px}}
+
+/* Mini kontrol */
+.check h1{font-size:clamp(30px,4.4vw,44px);line-height:1.15;margin-bottom:12px}
+.check-box{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+.cam{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:radial-gradient(80% 70% at 50% 35%,color-mix(in srgb,var(--cyan) 22%,var(--surface)),var(--surface) 75%)}
+.cam video,.cam canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:scaleX(-1);opacity:0}
+.check.live .cam video,.check.live .cam canvas{opacity:1}
+.cam .status{position:absolute;top:14px;left:50%;transform:translateX(-50%);max-width:calc(100% - 28px);text-align:center;font-size:14px;font-weight:600;color:var(--text);background:var(--surface);padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+.cam .status:empty{display:none}
+.cam-actions{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center}
+.cam-actions [hidden]{display:none}
+.check-box .side h3{font-size:18px;margin:18px 0 8px}
+.tips{padding-left:20px;color:var(--text-2)}
+.tips li{margin:6px 0}
+.results{margin-top:28px}
+.results .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.results .row p{margin:0}
+.results .row b{color:var(--text)}
+.results .muted{color:var(--muted)}
+.results .note{margin-top:16px;color:var(--muted);font-size:15px;text-align:center}
+@media (max-width:860px){.check-box,.results .cards{grid-template-columns:1fr}.cam{aspect-ratio:3/4}}

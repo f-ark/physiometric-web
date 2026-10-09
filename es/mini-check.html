@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minicontrol — PosMetric</title>
+  <meta name="description" content="Ponte frente a la cámara y mira en tu navegador cómo se alinean tu cabeza y tus hombros. La imagen no sale de tu dispositivo.">
+  <link rel="canonical" href="https://physiometric.app/es/mini-check.html">
+  <link rel="alternate" hreflang="tr" href="https://physiometric.app/mini-check.html">
+  <link rel="alternate" hreflang="en" href="https://physiometric.app/en/mini-check.html">
+  <link rel="alternate" hreflang="de" href="https://physiometric.app/de/mini-check.html">
+  <link rel="alternate" hreflang="es" href="https://physiometric.app/es/mini-check.html">
+  <link rel="alternate" hreflang="x-default" href="https://physiometric.app/en/mini-check.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PosMetric">
+  <meta property="og:title" content="Minicontrol — PosMetric">
+  <meta property="og:description" content="Ponte frente a la cámara y mira en tu navegador cómo se alinean tu cabeza y tus hombros. La imagen no sale de tu dispositivo.">
+  <meta property="og:url" content="https://physiometric.app/es/mini-check.html">
+  <meta property="og:image" content="https://physiometric.app/assets/img/og-es.jpg">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F7FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12121F" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/app_icon.png">
+  <link rel="apple-touch-icon" href="/assets/app_icon.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+  <meta name="robots" content="noindex">
+  <script type="module" src="/assets/js/check.js"></script>
+</head><body>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/es/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+    <nav class="menu" aria-label="Menú de la página"><a href="/es/">Inicio</a></nav>
+    <nav class="langs" aria-label="Idioma"><a href="/mini-check.html" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/mini-check.html" hreflang="en" lang="en" title="English">EN</a><a href="/de/mini-check.html" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/mini-check.html" hreflang="es" lang="es" aria-current="page" title="Español">ES</a></nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="Tema claro u oscuro" title="Tema claro u oscuro">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="check" data-check data-t="{&quot;loading&quot;: &quot;Preparando…&quot;, &quot;ready&quot;: &quot;Todo listo. Ponte recto y pulsa «Medir».&quot;, &quot;hold&quot;: &quot;Ponte recto, estoy midiendo…&quot;, &quot;no_person&quot;: &quot;No te veo. Mira de frente a la cámara.&quot;, &quot;cam_error&quot;: &quot;No se pudo activar la cámara. Revisa el permiso de cámara de tu navegador o haz el control completo en la app.&quot;, &quot;unsupported&quot;: &quot;Este navegador no puede ejecutar el minicontrol. Puedes hacer el control completo en la app.&quot;, &quot;need_full&quot;: &quot;Para los hombros, aléjate un poco; tienen que verse tus tobillos.&quot;, &quot;head&quot;: &quot;Cabeza&quot;, &quot;shoulders&quot;: &quot;Hombros&quot;, &quot;seen&quot;: &quot;Lo que vemos&quot;, &quot;daily&quot;: &quot;En el día a día&quot;, &quot;strong_label&quot;: &quot;Tu punto fuerte&quot;, &quot;dir_left&quot;: &quot;hacia la izquierda&quot;, &quot;dir_right&quot;: &quot;hacia la derecha&quot;, &quot;side_left&quot;: &quot;izquierdo&quot;, &quot;side_right&quot;: &quot;derecho&quot;, &quot;head_tilt&quot;: &quot;Tu cabeza está un poco inclinada {direction}.&quot;, &quot;head_daily&quot;: &quot;Es frecuente cuando sujetas el teléfono entre la oreja y el hombro o miras siempre hacia el mismo lado.&quot;, &quot;head_strong&quot;: &quot;Tu cabeza está recta y centrada.&quot;, &quot;sh_tilt&quot;: &quot;Tu hombro del lado {highSide} está un poco más alto que el otro.&quot;, &quot;sh_daily&quot;: &quot;Es frecuente cuando haces casi todo con la misma mano o llevas el bolso en un solo hombro.&quot;, &quot;sh_strong&quot;: &quot;Tus hombros están a la misma altura.&quot;, &quot;again&quot;: &quot;Medir de nuevo&quot;}">
+  <section>
+    <div class="wrap">
+      <div class="head center">
+        <span class="eyebrow">Pruébalo en tu navegador</span>
+        <h1>Minicontrol: alineación de cabeza y hombros</h1>
+        <p>Prueba aquí dos de las mediciones de la app. Solo tienes que mirar de frente a la cámara.</p>
+      </div>
+      <div class="check-box">
+        <div class="cam">
+          <video playsinline muted></video>
+          <canvas></canvas>
+          <p class="status" aria-live="polite"></p>
+          <div class="cam-actions">
+            <button class="btn primary" type="button" data-start>📷 Activar cámara</button>
+            <button class="btn primary" type="button" data-measure hidden>Medir</button>
+          </div>
+        </div>
+        <div class="side">
+          <p class="callout key">🔒 La imagen no sale de tu dispositivo. La medición se hace en tu navegador; no se envía ni se guarda nada.</p>
+          <h3>Cómo colocarte</h3>
+          <ul class="tips"><li>Mira de frente a la cámara, con los brazos relajados a los lados.</li><li>Para la cabeza basta con que se vea tu cara.</li><li>Para los hombros, da unos pasos atrás para que también se vean tus tobillos.</li><li>Que la luz te llegue de frente, sin una ventana detrás.</li></ul>
+        </div>
+      </div>
+      <div class="results" aria-live="polite" hidden>
+        <div class="cards"></div>
+        <p class="note">Es solo un vistazo rápido. La app mira toda tu postura con dos fotos, de frente y de lado, y prepara un plan de movimiento a tu medida.</p>
+      </div>
+    </div>
+  </section>
+  <section class="alt cta-final">
+    <div class="wrap">
+      <div class="head center" style="margin-bottom:0"><h2>El control completo y tu plan, en la app</h2><p>Dos fotos y unos minutos. Lo demás lo haces junto a tu coach.</p></div>
+      <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=es"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Disponible en</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Próximamente</small>App Store</span></span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="brand" href="/es/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
+      <p style="margin-top:10px">Mide tu postura y muévete cada día con un plan corto hecho para ti.</p></div>
+    <nav aria-label="Enlaces"><a href="/es/privacy.html">Política de privacidad</a><a href="/es/terms.html">Términos de uso</a><a href="/es/developer.html">Sobre nosotros</a><a href="/es/delete-account.html">Eliminar cuenta</a><a href="mailto:info@physiometric.app">Contacto</a></nav>
+    <p class="disc">PosMetric es una app de fitness, no un dispositivo médico. · © 2026 FArk Studio</p>
+  </div>
+</footer>
+</body>
+</html>

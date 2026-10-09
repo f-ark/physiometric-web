@@ -28,10 +28,19 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).
 - `assets/img/coach-*.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
 
+## Mini kontrol (deneme)
+
+`/mini-check.html` (ve `en/`, `de/`, `es/`): kameradan baş eğikliği ve omuz yükseklik farkı. Menüde ve site haritasında yok, `noindex`; bağlantıyı bilen açar.
+
+- Poz modeli MediaPipe Pose Landmarker (lite) tarayıcıda çalışır: `assets/vendor/mediapipe` (tasks-vision 1.1.0, WebAssembly + WebGL, GPU yoksa CPU), `assets/models/pose_landmarker_lite.task`. Görüntü cihazdan çıkmaz.
+- Formüller ve eşikler uygulamadakiyle aynı (`assets/js/check.js` başındaki dosya listesi). Uygulamada değişirse burası da güncellenir.
+- Cümleler uygulamanın ARB metinleri (`tools/content.py` → `CHECK`).
+- Omuz ölçümü uygulamadaki gibi omuz–ayak bileği mesafesine bakar; ayak bilekleri görünmüyorsa yalnızca baş ölçülür.
+
 Tema cihaz ayarına uyar; menüdeki düğmeyle açık ya da koyu seçilebilir (`assets/js/site.js`, seçim tarayıcıda saklanır).
 
 Yazı tipi (Inter) ve three.js siteye gömülüdür; ziyaretçinin bilgisi üçüncü taraf bir sunucuya gitmez.
 
 ## Lisanslar
 
-Koç karakterleri Microsoft Rocketbox (MIT, © 2020 Microsoft), three.js (MIT), Inter (SIL OFL 1.1).
+Koç karakterleri Microsoft Rocketbox (MIT, © 2020 Microsoft), three.js (MIT), MediaPipe Tasks Vision ve Pose Landmarker modeli (Apache 2.0), Inter (SIL OFL 1.1).
