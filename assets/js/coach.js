@@ -1,6 +1,7 @@
 // "Koçunla tanış" bölümü. three.js ve model yalnızca ziyaretçi "Canlı göster"e ya da bir harekete
 // basınca yüklenir. Modeller uygulamadaki koçlardan web için küçültülmüş kopyalardır (assets/models).
-// Sesler iki ayrı gruptur: rehberlik (hareketi yönlendiren cümle) ve eşlik (koçun cümleleri).
+// Her hareketin iki sesi var, uygulamadaki gibi: rehberlik hareketi anlatır (tanıtım sesi, intro),
+// eşlikte koç hareketi kullanıcıyla birlikte yapar ve sayar (koçluk sesi, coaching).
 const box = document.querySelector('[data-coach]');
 if (box) init(box);
 
@@ -11,7 +12,6 @@ function init(box) {
   const status = viewer.querySelector('.status');
   const lang = document.documentElement.lang;
   const t = box.dataset;
-  const lines = JSON.parse(t.lines); // [[anahtar, metin], ...]
   const coachBtns = [...box.querySelectorAll('[data-pick]')];
   const moveBtns = [...box.querySelectorAll('[data-move]')];
   const liveBtn = box.querySelector('[data-live]');
@@ -19,25 +19,31 @@ function init(box) {
   const companyBtn = box.querySelector('[data-company]');
   let coach = 'elif';
   let move = moveBtns[0].dataset.move;
-  let lineIndex = 0;
   let scene = null; // three.js tarafı yüklenince dolar
   let loading = null;
   let audio = null;
-  let companyTimer = null;
 
-  const say = (text, ms = 4200) => {
+  // Ses çalarken balon açık kalır, ses bitince kapanır.
+  const speak = (kind, text) => {
+    if (audio) audio.pause();
     bubble.textContent = text;
     bubble.classList.add('show');
-    clearTimeout(say.timer);
-    say.timer = setTimeout(() => bubble.classList.remove('show'), ms);
+    audio = new Audio(`/assets/audio/${lang}/${coach}/${kind}/${move}.m4a`);
+    clearTimeout(speak.timer);
+    const close = () => bubble.classList.remove('show');
+    // Ses çalamazsa balon okunacak kadar açık kalır.
+    const fallback = () => { speak.timer = setTimeout(close, 2000 + text.length * 50); };
+    audio.addEventListener('ended', close, { once: true });
+    audio.addEventListener('error', fallback, { once: true });
+    audio.play().catch(fallback);
   };
-  const play = (path) => {
+  const stopVoice = () => {
     if (audio) audio.pause();
-    clearTimeout(companyTimer);
-    audio = new Audio(`/assets/audio/${lang}/${coach}/${path}.m4a`);
-    audio.play().catch(() => {});
+    clearTimeout(speak.timer);
+    bubble.classList.remove('show');
   };
   const pressMove = () => moveBtns.forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.move === move)));
+  const current = () => moveBtns.find((x) => x.dataset.move === move);
 
   coachBtns.forEach((b) => b.addEventListener('click', async () => {
     coach = b.dataset.pick;
@@ -48,6 +54,7 @@ function init(box) {
     document.querySelectorAll('img[data-pack]').forEach((img) => {
       img.src = `/assets/img/paket/paket_${img.dataset.pack}_${coach}.webp`;
     });
+    stopVoice();
     if (scene) { await start(); scene.loop(move); }
   }));
 
@@ -60,6 +67,7 @@ function init(box) {
   moveBtns.forEach((b) => b.addEventListener('click', async () => {
     move = b.dataset.move;
     pressMove();
+    stopVoice();
     await start();
     scene.loop(move);
   }));
@@ -68,27 +76,14 @@ function init(box) {
     await start();
     pressMove();
     scene.loop(move);
-    const btn = moveBtns.find((x) => x.dataset.move === move);
-    say(btn.dataset.text, 6000);
-    play(`guide/${move}`);
+    speak('guide', current().dataset.guideText);
   });
 
-  // Eşlik: hareket sürerken koç önce yarı, sonra son tekrar cümlesini söyler (uygulamadaki gibi).
   companyBtn.addEventListener('click', async () => {
     await start();
     pressMove();
-    scene.loop(move);
-    clearTimeout(companyTimer);
-    const [half, last] = [lines[lineIndex % lines.length], lines[(lineIndex + 1) % lines.length]];
-    lineIndex += 2;
-    say(half[1], 2600);
-    play(`company/${half[0]}`);
-    const next = () => {
-      companyTimer = setTimeout(() => { say(last[1], 2600); play(`company/${last[0]}`); }, 2200);
-    };
-    const current = audio;
-    current.addEventListener('ended', next, { once: true });
-    current.addEventListener('error', next, { once: true });
+    scene.loop(move); // hareket baştan başlar, koç sesle birlikte yapar
+    speak('company', current().dataset.companyText);
   });
 
   async function start() {

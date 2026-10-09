@@ -51,7 +51,9 @@ def head(lang: str, page: str, title: str, desc: str, extra: str = "") -> str:
   <link rel="icon" type="image/png" href="/assets/app_icon.png">
   <link rel="apple-touch-icon" href="/assets/app_icon.png">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
   <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
 {extra}</head>"""
 
 
@@ -77,6 +79,10 @@ def topbar(lang: str, page: str) -> str:
     <a class="brand" href="{home}"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
     <nav class="menu" aria-label="{escape(u['nav_label'])}">{menu}</nav>
     <nav class="langs" aria-label="{escape(u['lang_label'])}">{langs}</nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="{escape(u['theme'])}" title="{escape(u['theme'])}">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
   </div>
 </header>"""
 
@@ -151,10 +157,9 @@ def home(lang: str) -> str:
     regions = "".join(f'<span class="chip">{escape(r)}</span>' for r in h["regions"])
     fem, mal = h["coach_names"]
     moves = "".join(
-        f'<button class="btn" type="button" data-move="{m}" data-text="{escape(g)}" aria-pressed="false">{escape(n)}</button>'
-        for m, n, g in h["moves"]
+        f'<button class="btn" type="button" data-move="{m}" data-guide-text="{escape(g)}" data-company-text="{escape(c)}" aria-pressed="false">{escape(n)}</button>'
+        for m, n, g, c in h["moves"]
     )
-    lines_json = escape(json.dumps(h["lines"], ensure_ascii=False))
     free = "".join(f"<li>{escape(x)}</li>" for x in h["free"])
     pro = "".join(f"<li>{escape(x)}</li>" for x in h["pro"])
     priv = "".join(f"<li>{x}</li>" for x in h["privacy_points"])
@@ -185,7 +190,7 @@ def home(lang: str) -> str:
     </div>
   </section>
 
-  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="{lines_json}" data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
+  <section id="coach" class="stage-dark coach-sec" data-coach data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
     <div class="wrap">
       <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
       <div class="coach-box">

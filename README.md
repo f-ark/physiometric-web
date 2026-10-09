@@ -22,11 +22,13 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 `assets/js/coach.js`, ziyaretçi "Canlı göster"e basınca three.js'i (`assets/vendor/three`, r170) ve koç modelini yükler; sayfa açılışında hiçbir model inmez.
 
-- `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Dört hareket (shoulder elevation, neck lateral stretch, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak modelin içinde, sopa ve duvar çıkarıldı. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı (sabit ama farklı değerler uygulamada anlam taşıyor).
-- `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın `coaching` sesleri (hareketi yönlendiren cümle).
-- `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın egzersiz sırasındaki `coach` sesleri (yarısı tamam ve son tekrarlar, ikişer çeşit). Eşlik düğmesi hareket sürerken önce yarı, sonra son tekrar cümlesini çalar.
+- `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Üç hareket (shoulder elevation, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak modelin içinde, sopa ve duvar çıkarıldı. Neck lateral stretch, tanıtım sesindeki iddia cümlesi yüzünden sitede yok. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı (sabit ama farklı değerler uygulamada anlam taşıyor).
+- `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın tanıtım (`intro`) sesleri; hareketi anlatır.
+- `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın koçluk (`coaching`) sesleri; koç hareketi kullanıcıyla birlikte yapar ve sayar.
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).
 - `assets/img/coach-*.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
+
+Tema cihaz ayarına uyar; menüdeki düğmeyle açık ya da koyu seçilebilir (`assets/js/site.js`, seçim tarayıcıda saklanır).
 
 Yazı tipi (Inter) ve three.js siteye gömülüdür; ziyaretçinin bilgisi üçüncü taraf bir sunucuya gitmez.
 

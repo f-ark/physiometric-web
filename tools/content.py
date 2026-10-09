@@ -7,7 +7,7 @@ LANGS = ("tr", "en", "de", "es")
 
 UI = {
     "tr": {
-        "locale": "tr_TR", "lang_name": "Türkçe", "play_hl": "tr", "play_small": "Hemen indir", "soon": "Yakında",
+        "locale": "tr_TR", "theme": "Açık ya da koyu tema", "lang_name": "Türkçe", "play_hl": "tr", "play_small": "Hemen indir", "soon": "Yakında",
         "skip": "İçeriğe geç", "home": "Ana sayfa", "nav_label": "Sayfa menüsü", "lang_label": "Dil",
         "footer_label": "Bağlantılar", "contact": "İletişim", "updated": "Son güncelleme",
         "nav": [("coach", "Koçun"), ("how", "Nasıl çalışır"), ("pricing", "Ücretsiz ve Pro"), ("faq", "SSS")],
@@ -18,7 +18,7 @@ UI = {
         "nf": "Aradığın sayfa bulunamadı.",
     },
     "en": {
-        "locale": "en_US", "lang_name": "English", "play_hl": "en", "play_small": "Get it on", "soon": "Coming soon",
+        "locale": "en_US", "theme": "Light or dark theme", "lang_name": "English", "play_hl": "en", "play_small": "Get it on", "soon": "Coming soon",
         "skip": "Skip to content", "home": "Home", "nav_label": "Page menu", "lang_label": "Language",
         "footer_label": "Links", "contact": "Contact", "updated": "Last updated",
         "nav": [("coach", "Your coach"), ("how", "How it works"), ("pricing", "Free and Pro"), ("faq", "FAQ")],
@@ -29,7 +29,7 @@ UI = {
         "nf": "We couldn't find that page.",
     },
     "de": {
-        "locale": "de_DE", "lang_name": "Deutsch", "play_hl": "de", "play_small": "Jetzt bei", "soon": "Demnächst",
+        "locale": "de_DE", "theme": "Helles oder dunkles Design", "lang_name": "Deutsch", "play_hl": "de", "play_small": "Jetzt bei", "soon": "Demnächst",
         "skip": "Zum Inhalt", "home": "Startseite", "nav_label": "Seitenmenü", "lang_label": "Sprache",
         "footer_label": "Links", "contact": "Kontakt", "updated": "Zuletzt aktualisiert",
         "nav": [("coach", "Dein Coach"), ("how", "So funktioniert's"), ("pricing", "Kostenlos und Pro"), ("faq", "FAQ")],
@@ -40,7 +40,7 @@ UI = {
         "nf": "Diese Seite gibt es leider nicht.",
     },
     "es": {
-        "locale": "es_ES", "lang_name": "Español", "play_hl": "es", "play_small": "Disponible en", "soon": "Próximamente",
+        "locale": "es_ES", "theme": "Tema claro u oscuro", "lang_name": "Español", "play_hl": "es", "play_small": "Disponible en", "soon": "Próximamente",
         "skip": "Ir al contenido", "home": "Inicio", "nav_label": "Menú de la página", "lang_label": "Idioma",
         "footer_label": "Enlaces", "contact": "Contacto", "updated": "Última actualización",
         "nav": [("coach", "Tu coach"), ("how", "Cómo funciona"), ("pricing", "Gratis y Pro"), ("faq", "Preguntas")],
@@ -54,9 +54,7 @@ UI = {
 
 # Paket kimlikleri uygulamadaki görsellerle aynı: assets/images/paket/paket_{kimlik}_{koç}.webp
 PACK_IDS = ["masaBasi", "boyunOmuz", "dikDurus", "bel", "sabah", "aksam"]
-MOVE_IDS = ["shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
-# Eşlik: egzersiz sürerken söylenenler, uygulamadaki gibi (CoachMoment.halfway ve lastReps); çiftler halinde.
-LINE_KEYS = ["halfway_1", "last_reps_1", "halfway_2", "last_reps_2"]
+MOVE_IDS = ["shoulder_elevation", "glute_bridge", "cat_cow"]
 
 HOME = {
     "tr": {
@@ -107,10 +105,9 @@ HOME = {
         "coach_title": "Koçunla tanış",
         "coach_sub": "Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.",
         "pick_coach": "Koçunu seç", "live": "Canlı göster", "try_moves": "Bir hareket dene",
-        "moves": list(zip(MOVE_IDS, ['Shoulder Elevation', 'Neck Lateral Stretch', 'Glute Bridge', 'Cat-Cow'], ['Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
-        "coach_note": 'Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.',
+        "moves": list(zip(MOVE_IDS, ['Shoulder Elevation', 'Glute Bridge', 'Cat-Cow'], ['Omuz elevasyon egzersizi üst trapez kaslarını çalıştırır. Dik bir pozisyonda dururken omuzlarınızı kulaklarınıza doğru çekin, tepe noktasında iki saniye bekleyip yavaşça aşağı bırakın.', 'Köprü egzersizi kalça ve hamstring kaslarını güçlendirir. Sırt üstü uzanın, dizlerinizi bükün. Kalçanızı havaya kaldırın, tepede beş saniye sıkın ve kontrollü bir şekilde indirin.', 'Kedi-İnek hareketi omurganızı mobilize eden harika bir egzersizdir. Emekleme pozisyonuna geçin. Nefes alırken sırtınızı düzleştirin ve belinizi çukurlaştırın bu inek pozisyonu. Nefes verirken sırtınızı kamburlaştırın ve belinizi düzleştirin, bu da kedi pozisyonu.'], ['Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
+        "coach_note": 'Rehberlik hareketi baştan anlatır; eşlikte koç hareketi seninle birlikte yapar ve sayar. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.',
         "guide": 'Rehberlik', "company": 'Eşlik', "listen": 'Sesi dinle',
-        "lines": list(zip(LINE_KEYS, ['Yarısı tamam!', 'Son üç!', 'Güzel gidiyor.', 'Az kaldı.'])),
         "coach_names": ('Elif', 'Asım'),
         "loading": "Koç geliyor…", "load_error": "3D görünüm bu cihazda açılamadı.",
         "price_title": "Ücretsiz başla, istersen Pro'ya geç",
@@ -184,10 +181,9 @@ HOME = {
         "coach_title": "Meet your coach",
         "coach_sub": "Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.",
         "pick_coach": "Pick your coach", "live": "Show live", "try_moves": "Try a movement",
-        "moves": list(zip(MOVE_IDS, ['Shoulder Shrugs', 'Upper Trapezius Stretch', 'Glute Bridge', 'Cat-Cow'], ['Pull your shoulders up. Hold for two. Slowly release.', 'Tilt your head to the side, pull gently. Feel the stretch.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
-        "coach_note": 'Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.',
+        "moves": list(zip(MOVE_IDS, ['Shoulder Shrugs', 'Glute Bridge', 'Cat-Cow'], ['The shoulder elevation exercise works the upper trapezius muscles. While standing tall, shrug your shoulders towards your ears, hold for two seconds at the top, and slowly release down.', 'The bridge exercise strengthens the glute and hamstring muscles. Lie on your back with your knees bent. Lift your hips into the air, squeeze at the top for five seconds, and lower with control.', 'The Cat-Cow is a great exercise to mobilize your spine. Get into a quadruped position. As you inhale, flatten your back and drop your belly; this is the cow pose. As you exhale, arch your back and tuck your pelvis; this is the cat pose.'], ['Pull your shoulders up. Hold for two. Slowly release.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
+        "coach_note": 'Guidance explains the movement from the start; in company mode your coach does the movement with you and counts along. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.',
         "guide": 'Guidance', "company": 'Company', "listen": 'Listen',
-        "lines": list(zip(LINE_KEYS, ['Halfway there!', 'Last 3!', 'Looking good.', 'Almost done.'])),
         "coach_names": ('Emma', 'Jack'),
         "loading": "Your coach is on the way…", "load_error": "The 3D view couldn't open on this device.",
         "price_title": "Start free, go Pro if you like",
@@ -261,10 +257,9 @@ HOME = {
         "coach_title": "Lern deinen Coach kennen",
         "coach_sub": "Anna und Max zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.",
         "pick_coach": "Wähl deinen Coach", "live": "Live zeigen", "try_moves": "Probier eine Übung",
-        "moves": list(zip(MOVE_IDS, ['Schulterheben', 'Nackendehnung seitlich', 'Gesäßbrücke', 'Katze-Kuh'], ['Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Kopf zur Seite neigen, sanft ziehen. Dehnung spüren.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
-        "coach_note": 'Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.',
+        "moves": list(zip(MOVE_IDS, ['Schulterheben', 'Gesäßbrücke', 'Katze-Kuh'], ['Diese Übung trainiert den oberen Trapezius. Im Stehen die Schultern in Richtung der Ohren hochziehen, zwei Sekunden oben halten und langsam wieder nach unten absenken.', 'Die Gesäßbrücke stärkt die Gesäß- und hintere Oberschenkelmuskulatur. Legen Sie sich auf den Rücken, Knie angewinkelt. Heben Sie das Becken an, spannen Sie die Muskulatur fünf Sekunden lang oben an und senken Sie das Becken kontrolliert ab.', 'Die Katze-Kuh-Übung ist hervorragend zur Mobilisation der Wirbelsäule. Kommen Sie in den Vierfüßlerstand. Beim Einatmen flachen Sie Ihren Rücken ab und lassen den Bauch sinken – dies ist die Kuh-Position. Beim Ausatmen machen Sie einen runden Rücken und kippen Ihr Becken – dies ist die Katze-Position.'], ['Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
+        "coach_note": 'Die Anleitung erklärt die Übung von Anfang an; bei der Begleitung macht dein Coach die Übung mit dir und zählt mit. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.',
         "guide": 'Anleitung', "company": 'Begleitung', "listen": 'Anhören',
-        "lines": list(zip(LINE_KEYS, ['Die Hälfte ist geschafft!', 'Noch 3!', 'Das läuft gut.', 'Gleich geschafft.'])),
         "coach_names": ('Anna', 'Max'),
         "loading": "Dein Coach kommt…", "load_error": "Die 3D-Ansicht lässt sich auf diesem Gerät nicht öffnen.",
         "price_title": "Kostenlos starten, Pro wenn du willst",
@@ -338,10 +333,9 @@ HOME = {
         "coach_title": "Conoce a tu coach",
         "coach_sub": "Lucía y Carlos muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.",
         "pick_coach": "Elige tu coach", "live": "Ver en vivo", "try_moves": "Prueba un movimiento",
-        "moves": list(zip(MOVE_IDS, ['Elevación de hombros', 'Estiramiento lateral de cuello', 'Puente de glúteos', 'Gato-vaca'], ['Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
-        "coach_note": 'Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.',
+        "moves": list(zip(MOVE_IDS, ['Elevación de hombros', 'Puente de glúteos', 'Gato-vaca'], ['El ejercicio de elevación de hombros trabaja los músculos del trapecio superior. Estando de pie, encoja los hombros hacia las orejas, mantenga durante dos segundos en la parte superior y baje lentamente.', 'El ejercicio de puente fortalece los glúteos y los músculos isquiotibiales. Acuéstese boca arriba con las rodillas dobladas. Levante las caderas en el aire, apriete en la parte superior durante cinco segundos y baje con control.', 'El Gato-Vaca es un excelente ejercicio para movilizar la columna vertebral. Póngase en posición cuadrúpeda. Al inhalar, aplane la espalda y baje el vientre; esta es la postura de la vaca. Al exhalar, arquee la espalda y meta la pelvis; esta es la postura del gato.'], ['Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
+        "coach_note": 'La guía explica el movimiento desde el principio; en compañía tu coach hace el movimiento contigo y cuenta. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.',
         "guide": 'Guía', "company": 'Compañía', "listen": 'Escuchar',
-        "lines": list(zip(LINE_KEYS, ['¡Ya va la mitad!', '¡Últimas 3!', 'Vas muy bien.', 'Ya casi.'])),
         "coach_names": ('Lucía', 'Carlos'),
         "loading": "Tu coach está llegando…", "load_error": "La vista 3D no se pudo abrir en este dispositivo.",
         "price_title": "Empieza gratis, pásate a Pro si quieres",
