@@ -26,11 +26,13 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 - `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın tanıtım (`intro`) sesleri; hareketi anlatır.
 - `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın koçluk (`coaching`) sesleri; koç hareketi kullanıcıyla birlikte yapar ve sayar.
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).
-- `assets/img/coach-*.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
+- `assets/img/coach-*-idle.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
 
-## Mini kontrol (deneme)
+## Karşılama ve mini kontrol
 
-`/mini-check.html` (ve `en/`, `de/`, `es/`): uygulamadaki ön çekimin tarayıcıdaki demosu. Amacı sistemin çalıştığını göstermek ve uygulamaya yönlendirmek. Menüde ve site haritasında yok, `noindex`; bağlantıyı bilen açar.
+Karşılamada (en üst) ölçüm canlandırması var: `assets/img/hero-check.webp` (ödeme ekranı için üretilmiş görsel, üstü kırpıldı) üzerinde poz modelinin bu fotoğraftaki gerçek noktaları ve uygulamanın formülüyle çıkan gerçek sonuç ("Başın dik ve ortada duruyor", baş eğikliği -0,6°). Noktalar `tools/build_site.py` → `hero_demo` içinde; fotoğraf değişirse model yeniden çalıştırılıp güncellenir. Hareket azaltma ayarında canlandırma durur, son kare görünür.
+
+Mini kontrol anasayfada "Koçunla tanış"tan önce (`#try`, menüde "Dene") ve tek başına `/mini-check.html`'de (paylaşmak için; içerik aynı olduğu için `noindex`, site haritasında yok). Uygulamadaki ön çekimin tarayıcıdaki demosu; amacı sistemin çalıştığını göstermek ve uygulamaya yönlendirmek.
 
 - Poz modeli MediaPipe Pose Landmarker (lite) tarayıcıda çalışır: `assets/vendor/mediapipe` (tasks-vision 1.1.0, WebAssembly + WebGL, GPU yoksa CPU), `assets/models/pose_landmarker_lite.task`. Görüntü cihazdan çıkmaz.
 - Akış uygulamadaki gibi (`assets/js/check.js` başındaki dosya listesi): yönlendirme (görünürlük → yön → mesafe → ortalama), 2 sn sabit durunca kendiliğinden yakalama, koçun sesli uyarıları ve bekleme kuralları, baş eğikliği ve omuz yükseklik farkı formülleri ve eşikleri. Uygulamada değişirse burası da güncellenir.

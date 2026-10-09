@@ -29,13 +29,14 @@
   <script src="/assets/js/site.js" defer></script>
   <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>
   <script type="module" src="/assets/js/coach.js"></script>
+  <script type="module" src="/assets/js/check.js"></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Miss deine Haltung mit der Handykamera und beweg dich jeden Tag mit einem kurzen Plan, der zu dir passt. Dein Coach Anna oder Max ist bei jeder Übung dabei. Kostenlos starten.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/de/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
 </head><body>
 <a class="skip" href="#main">Zum Inhalt</a>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/de/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Seitenmenü"><a href="#coach">Dein Coach</a><a href="#how">So funktioniert&#x27;s</a><a href="#pricing">Kostenlos und Pro</a><a href="#faq">FAQ</a></nav>
+    <nav class="menu" aria-label="Seitenmenü"><a href="#try">Ausprobieren</a><a href="#coach">Dein Coach</a><a href="#how">So funktioniert&#x27;s</a><a href="#pricing">Kostenlos und Pro</a><a href="#faq">FAQ</a></nav>
     <nav class="langs" aria-label="Sprache"><a href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" aria-current="page" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Helles oder dunkles Design" title="Helles oder dunkles Design">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -50,17 +51,79 @@
         <span class="eyebrow">Haltungstraining · Persönlicher Coach</span>
         <h1>Messen. Bewegen. <span>Dranbleiben.</span></h1>
         <p class="lead">PosMetric misst deine Haltung mit deiner Handykamera, stellt einen kurzen Trainingsplan für dich zusammen und zeigt deine Entwicklung ehrlich. Dein Coach ist bei jeder Übung dabei.</p>
-        <div class="stores">
+        <div class="hero-cta">
+          <a class="btn primary big" href="#try">📷 Im Browser ausprobieren</a>
+          <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=de"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Jetzt bei</small>Google Play</span></a>
+        </div>
+        <p class="fine">Keine Installation · 30 Sekunden · Das Bild bleibt auf deinem Gerät</p>
+      </div>
+      <div class="hero-side"><figure class="hero-demo" aria-hidden="true">
+        <img src="/assets/img/hero-check.webp" alt="" width="600" height="422" fetchpriority="high">
+        <svg viewBox="0 0 600 422" preserveAspectRatio="xMidYMid slice">
+          <line class="scan" x1="0" y1="0" x2="600" y2="0"/>
+          <g class="bones"><line x1="435.5" y1="176.1" x2="324.8" y2="168"/><line x1="435.5" y1="176.1" x2="409.4" y2="274.4"/><line x1="409.4" y1="274.4" x2="308.4" y2="278.7"/><line x1="324.8" y1="168" x2="277.4" y2="252.4"/><line x1="277.4" y1="252.4" x2="269.6" y2="270.8"/></g>
+          <line class="mid" x1="361.5" y1="30" x2="361.5" y2="250"/>
+          <line class="ear" x1="320.7" y1="92.2" x2="422.3" y2="93.3"/>
+          <g class="dots"><circle cx="361.5" cy="98.5" r="5" style="--d:0.00s"/><circle cx="394.6" cy="93" r="5" style="--d:0.06s"/><circle cx="348.4" cy="92.5" r="5" style="--d:0.12s"/><circle cx="435.5" cy="176.1" r="5" style="--d:0.18s"/><circle cx="324.8" cy="168" r="5" style="--d:0.24s"/><circle cx="409.4" cy="274.4" r="5" style="--d:0.30s"/><circle cx="277.4" cy="252.4" r="5" style="--d:0.36s"/><circle cx="308.4" cy="278.7" r="5" style="--d:0.42s"/><circle cx="269.6" cy="270.8" r="5" style="--d:0.48s"/></g>
+        </svg>
+        <span class="pill hold">So bleiben</span>
+        <span class="pill ok">Foto wird gemacht</span>
+        <i class="flash"></i>
+        <div class="res-card">
+          <small>Dein Check-Ergebnis</small>
+          <b>Deine Stärke</b>
+          <p><span class="ok">✓</span>Dein Kopf steht gerade und mittig.</p>
+        </div>
+      </figure>
+      <p class="demo-cap">Echte Messung an einem Beispielfoto</p></div>
+    </div>
+  </section>
+
+  <section id="try" class="check" data-check data-t="{&quot;again&quot;: &quot;Noch einmal messen&quot;, &quot;loading&quot;: &quot;Wird vorbereitet…&quot;, &quot;cam_error&quot;: &quot;Die Kamera ließ sich nicht starten. Prüf die Kameraberechtigung deines Browsers oder mach den vollständigen Check in der App.&quot;, &quot;unsupported&quot;: &quot;Dieser Browser kann den Mini-Check nicht ausführen. Den vollständigen Check kannst du in der App machen.&quot;, &quot;live&quot;: {&quot;moving&quot;: &quot;Stillhalten&quot;, &quot;stabilizing&quot;: &quot;So bleiben&quot;, &quot;pose_not_clear&quot;: &quot;Bild unscharf&quot;, &quot;valid&quot;: &quot;Analyse läuft&quot;, &quot;too_far&quot;: &quot;Näher kommen&quot;, &quot;too_close&quot;: &quot;Zurücktreten&quot;, &quot;move_left&quot;: &quot;Schritt nach links&quot;, &quot;move_right&quot;: &quot;Schritt nach rechts&quot;, &quot;body_not_visible&quot;: &quot;Ganz ins Bild&quot;, &quot;pose_not_found&quot;: &quot;Ins Bild treten&quot;, &quot;face_camera&quot;: &quot;Zur Kamera drehen&quot;, &quot;capturing_photo&quot;: &quot;Foto wird gemacht&quot;}, &quot;res_title&quot;: &quot;Dein Check-Ergebnis&quot;, &quot;res_today&quot;: &quot;Heutige Messung · {date}&quot;, &quot;top_one&quot;: &quot;Der auffälligste Bereich der Messung&quot;, &quot;top_n&quot;: &quot;Die {count} auffälligsten Bereiche der Messung&quot;, &quot;tag1&quot;: &quot;Am auffälligsten&quot;, &quot;tag2&quot;: &quot;An zweiter Stelle&quot;, &quot;locked&quot;: &quot;Wann es im Alltag auftritt und was dein Plan dafür tut&quot;, &quot;strong_title&quot;: &quot;Deine Stärke&quot;, &quot;no_findings&quot;: &quot;Bei diesem Check ist kein Bereich aufgefallen.&quot;, &quot;disclaimer&quot;: &quot;PosMetric stellt keine Diagnosen und empfiehlt keine Behandlung.&quot;, &quot;front&quot;: &quot;Von vorn&quot;, &quot;name_head&quot;: &quot;Seitlich geneigter Kopf&quot;, &quot;name_sh&quot;: &quot;Unterschiedliche Schulterhöhe&quot;, &quot;dir_left&quot;: &quot;nach links&quot;, &quot;dir_right&quot;: &quot;nach rechts&quot;, &quot;side_left&quot;: &quot;links&quot;, &quot;side_right&quot;: &quot;rechts&quot;, &quot;head_tilt&quot;: &quot;Dein Kopf ist etwas {direction} geneigt.&quot;, &quot;head_strong&quot;: &quot;Dein Kopf steht gerade und mittig.&quot;, &quot;sh_tilt&quot;: &quot;Deine Schulter ({highSide}) steht etwas höher als die andere.&quot;, &quot;sh_strong&quot;: &quot;Deine Schultern stehen auf gleicher Höhe.&quot;}">
+    <div class="wrap">
+      <div class="head center"><h2>Sieh dir deine Haltung jetzt an</h2><p>Dieselbe Messung wie in der App, in deinem Browser. Dein Coach leitet dich mit der Stimme an die richtige Stelle; sobald du richtig stehst, startet die Messung von selbst.</p></div>
+      <div class="check-box">
+        <div class="cam">
+          <video playsinline muted></video>
+          <canvas></canvas>
+          <p class="live-pill" aria-live="polite"></p>
+          <div class="hold-bar" aria-hidden="true"><i></i></div>
+          <div class="cam-actions">
+            <button class="btn primary" type="button" data-start>📷 Check starten</button>
+          </div>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="side">
+          <h3>Wähl deinen Coach</h3>
+          <div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Anna</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Max</button>
+          </div>
+          <label class="switch"><input type="checkbox" data-sound checked> <span>🔊 Sprachführung</span></label>
+          <h3>So stellst du dich hin</h3>
+          <ul class="tips"><li>Stell deinen Computer oder dein Handy etwa auf Hüfthöhe.</li><li>Geh ein paar Schritte zurück, sodass du vom Kopf bis zu den Knöcheln zu sehen bist.</li><li>Schau frontal in die Kamera, die Arme locker neben dem Körper.</li><li>Das Licht sollte von vorn kommen, kein Fenster hinter dir.</li></ul>
+          <p class="callout key">🔒 Das Bild verlässt dein Gerät nicht. Die Messung läuft in deinem Browser; nichts wird gesendet oder gespeichert.</p>
+        </div>
+      </div>
+      <div class="results" aria-live="polite" hidden>
+        <div class="res-head">
+          <div><h2>Dein Check-Ergebnis</h2><p class="date"></p></div>
+          <button class="btn" type="button" data-again>↻ Noch einmal messen</button>
+        </div>
+        <div class="res-grid">
+          <figure class="shot"><canvas></canvas><figcaption>Von vorn</figcaption></figure>
+          <div class="res-body"></div>
+        </div>
+        <div class="pitch card">
+          <h2>Was dich in der App erwartet</h2>
+          <p>Diese Messung lief mit demselben System wie in der App. Die App kann noch mehr:</p>
+          <ul class="app-list"><li><span class="ico">📐</span><div><b>Der vollständige Check</b><p>Zwei Fotos, von vorn und von der Seite, decken 23 Bereiche ab; hier hast du nur 2 gesehen.</p></div></li><li><span class="ico">🎯</span><div><b>Ein Plan, der zu dir passt</b> <span class="free">Kostenlos</span><p>Ein Plan mit 3 Übungen, der die auffälligsten Bereiche deiner Messung zuerst angeht.</p></div></li><li><span class="ico">🗣️</span><div><b>Dein Coach an deiner Seite</b><p>Anna oder Max macht jede Übung mit dir und zählt laut mit.</p></div></li><li><span class="ico">☕</span><div><b>Schreibtischpause</b> <span class="free">Kostenlos</span><p>3 kurze Übungen direkt am Platz.</p></div></li><li><span class="ico">🔥</span><div><b>Ringe und Serien</b> <span class="free">Kostenlos</span><p>An jedem Tag, an dem du dich bewegst, füllen sich deine Ringe.</p></div></li></ul>
+          <div class="stores">
         <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=de"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Jetzt bei</small>Google Play</span></a>
         <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Demnächst</small>App Store</span></span>
       </div>
-        <p class="fine">Kostenlos starten · Kein Konto nötig · Keine Werbung</p>
-      </div>
-      <div class="stage">
-        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Anna" width="313" height="900" fetchpriority="high">
-        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Max" width="374" height="900">
-        <p class="bubble">Hallo! Bist du bereit?</p>
-        <div class="weekcard">Diese Woche 3/5 Tage<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Di</span><span class="ring full"><i></i>Mi</span><span class="ring rest"><i></i>Do</span><span class="ring "><i></i>Fr</span><span class="ring "><i></i>Sa</span></div></div>
+          <p class="fine">Kostenlos starten · Kein Konto nötig · Keine Werbung</p>
+        </div>
       </div>
     </div>
   </section>

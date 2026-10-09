@@ -29,13 +29,14 @@
   <script src="/assets/js/site.js" defer></script>
   <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>
   <script type="module" src="/assets/js/coach.js"></script>
+  <script type="module" src="/assets/js/check.js"></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "PosMetric", "operatingSystem": "Android", "applicationCategory": "SportsApplication", "description": "Telefon kameranla duruşunu ölç, sana göre kurulan kısa bir planla her gün hareket et. Koçun Elif ya da Asım her harekette yanında. Ücretsiz başla.", "inLanguage": ["tr", "en", "de", "es"], "url": "https://physiometric.app/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.fark.physiometric", "image": "https://physiometric.app/assets/app_icon.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "FArk Studio", "url": "https://physiometric.app", "email": "info@physiometric.app"}}</script>
 </head><body>
 <a class="skip" href="#main">İçeriğe geç</a>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Sayfa menüsü"><a href="#coach">Koçun</a><a href="#how">Nasıl çalışır</a><a href="#pricing">Ücretsiz ve Pro</a><a href="#faq">SSS</a></nav>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="#try">Dene</a><a href="#coach">Koçun</a><a href="#how">Nasıl çalışır</a><a href="#pricing">Ücretsiz ve Pro</a><a href="#faq">SSS</a></nav>
     <nav class="langs" aria-label="Dil"><a href="/" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Açık ya da koyu tema" title="Açık ya da koyu tema">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -50,17 +51,79 @@
         <span class="eyebrow">Duruş antrenmanı · Kişisel koç</span>
         <h1>Ölç. Hareket et. <span>İlerle.</span></h1>
         <p class="lead">PosMetric telefon kameranla duruşunu ölçer, sana göre kısa bir antrenman planı kurar ve gelişimini dürüstçe gösterir. Koçun her harekette yanında.</p>
-        <div class="stores">
+        <div class="hero-cta">
+          <a class="btn primary big" href="#try">📷 Tarayıcında dene</a>
+          <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=tr"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Hemen indir</small>Google Play</span></a>
+        </div>
+        <p class="fine">Kurulum yok · 30 saniye · Görüntü cihazında kalır</p>
+      </div>
+      <div class="hero-side"><figure class="hero-demo" aria-hidden="true">
+        <img src="/assets/img/hero-check.webp" alt="" width="600" height="422" fetchpriority="high">
+        <svg viewBox="0 0 600 422" preserveAspectRatio="xMidYMid slice">
+          <line class="scan" x1="0" y1="0" x2="600" y2="0"/>
+          <g class="bones"><line x1="435.5" y1="176.1" x2="324.8" y2="168"/><line x1="435.5" y1="176.1" x2="409.4" y2="274.4"/><line x1="409.4" y1="274.4" x2="308.4" y2="278.7"/><line x1="324.8" y1="168" x2="277.4" y2="252.4"/><line x1="277.4" y1="252.4" x2="269.6" y2="270.8"/></g>
+          <line class="mid" x1="361.5" y1="30" x2="361.5" y2="250"/>
+          <line class="ear" x1="320.7" y1="92.2" x2="422.3" y2="93.3"/>
+          <g class="dots"><circle cx="361.5" cy="98.5" r="5" style="--d:0.00s"/><circle cx="394.6" cy="93" r="5" style="--d:0.06s"/><circle cx="348.4" cy="92.5" r="5" style="--d:0.12s"/><circle cx="435.5" cy="176.1" r="5" style="--d:0.18s"/><circle cx="324.8" cy="168" r="5" style="--d:0.24s"/><circle cx="409.4" cy="274.4" r="5" style="--d:0.30s"/><circle cx="277.4" cy="252.4" r="5" style="--d:0.36s"/><circle cx="308.4" cy="278.7" r="5" style="--d:0.42s"/><circle cx="269.6" cy="270.8" r="5" style="--d:0.48s"/></g>
+        </svg>
+        <span class="pill hold">Böyle kalın</span>
+        <span class="pill ok">Fotoğraf çekiliyor</span>
+        <i class="flash"></i>
+        <div class="res-card">
+          <small>Kontrol sonucun</small>
+          <b>Güçlü yanın</b>
+          <p><span class="ok">✓</span>Başın dik ve ortada duruyor.</p>
+        </div>
+      </figure>
+      <p class="demo-cap">Örnek fotoğrafta gerçek ölçüm</p></div>
+    </div>
+  </section>
+
+  <section id="try" class="check" data-check data-t="{&quot;again&quot;: &quot;Tekrar ölç&quot;, &quot;loading&quot;: &quot;Hazırlanıyor…&quot;, &quot;cam_error&quot;: &quot;Kamera açılamadı. Tarayıcının kamera iznini kontrol et ya da tam kontrolü uygulamada yap.&quot;, &quot;unsupported&quot;: &quot;Bu tarayıcı mini kontrolü çalıştıramıyor. Tam kontrolü uygulamada yapabilirsin.&quot;, &quot;live&quot;: {&quot;moving&quot;: &quot;Sabit durun&quot;, &quot;stabilizing&quot;: &quot;Böyle kalın&quot;, &quot;pose_not_clear&quot;: &quot;Görüntü net değil&quot;, &quot;valid&quot;: &quot;Analiz ediliyor&quot;, &quot;too_far&quot;: &quot;Yaklaşın&quot;, &quot;too_close&quot;: &quot;Uzaklaşın&quot;, &quot;move_left&quot;: &quot;Sola bir adım&quot;, &quot;move_right&quot;: &quot;Sağa bir adım&quot;, &quot;body_not_visible&quot;: &quot;Tam boy görünün&quot;, &quot;pose_not_found&quot;: &quot;Kadraja girin&quot;, &quot;face_camera&quot;: &quot;Kameraya dönün&quot;, &quot;capturing_photo&quot;: &quot;Fotoğraf çekiliyor&quot;}, &quot;res_title&quot;: &quot;Kontrol sonucun&quot;, &quot;res_today&quot;: &quot;Bugünkü ölçüm · {date}&quot;, &quot;top_one&quot;: &quot;Ölçümde en belirgin alan&quot;, &quot;top_n&quot;: &quot;Ölçümde en belirgin {count} alan&quot;, &quot;tag1&quot;: &quot;Ölçümde en belirgin&quot;, &quot;tag2&quot;: &quot;Ölçümde ikinci&quot;, &quot;locked&quot;: &quot;Günlük hayatta ne zaman görülür ve planın ne yapıyor&quot;, &quot;strong_title&quot;: &quot;Güçlü yanın&quot;, &quot;no_findings&quot;: &quot;Bu kontrolde öne çıkan bir alan görülmedi.&quot;, &quot;disclaimer&quot;: &quot;PosMetric tıbbi tanı koymaz, tedavi önermez.&quot;, &quot;front&quot;: &quot;Önden&quot;, &quot;name_head&quot;: &quot;Yana eğik baş&quot;, &quot;name_sh&quot;: &quot;Omuz yükseklik farkı&quot;, &quot;dir_left&quot;: &quot;sola&quot;, &quot;dir_right&quot;: &quot;sağa&quot;, &quot;side_left&quot;: &quot;Sol&quot;, &quot;side_right&quot;: &quot;Sağ&quot;, &quot;head_tilt&quot;: &quot;Başın {direction} doğru biraz eğik duruyor.&quot;, &quot;head_strong&quot;: &quot;Başın dik ve ortada duruyor.&quot;, &quot;sh_tilt&quot;: &quot;{highSide} omzun diğerinden biraz yukarıda duruyor.&quot;, &quot;sh_strong&quot;: &quot;Omuzların aynı yükseklikte duruyor.&quot;}">
+    <div class="wrap">
+      <div class="head center"><h2>Duruşuna şimdi bak</h2><p>Uygulamadaki ölçümün aynısı, tarayıcında. Koçun seni sesle yerine yönlendirir; doğru durduğunda ölçüm kendiliğinden yapılır.</p></div>
+      <div class="check-box">
+        <div class="cam">
+          <video playsinline muted></video>
+          <canvas></canvas>
+          <p class="live-pill" aria-live="polite"></p>
+          <div class="hold-bar" aria-hidden="true"><i></i></div>
+          <div class="cam-actions">
+            <button class="btn primary" type="button" data-start>📷 Kontrole başla</button>
+          </div>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="side">
+          <h3>Koçunu seç</h3>
+          <div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button>
+          </div>
+          <label class="switch"><input type="checkbox" data-sound checked> <span>🔊 Sesli yönlendirme</span></label>
+          <h3>Nasıl durmalısın?</h3>
+          <ul class="tips"><li>Bilgisayarı ya da telefonu bel hizasında bir yere koy.</li><li>Birkaç adım geri çekil; başından ayak bileklerine kadar görünmelisin.</li><li>Kameraya önden bak, kolların yanında serbest dursun.</li><li>Işık önünden gelsin, arkanda pencere olmasın.</li></ul>
+          <p class="callout key">🔒 Görüntü cihazından çıkmaz. Ölçüm tarayıcında yapılır; hiçbir yere gönderilmez, kaydedilmez.</p>
+        </div>
+      </div>
+      <div class="results" aria-live="polite" hidden>
+        <div class="res-head">
+          <div><h2>Kontrol sonucun</h2><p class="date"></p></div>
+          <button class="btn" type="button" data-again>↻ Tekrar ölç</button>
+        </div>
+        <div class="res-grid">
+          <figure class="shot"><canvas></canvas><figcaption>Önden</figcaption></figure>
+          <div class="res-body"></div>
+        </div>
+        <div class="pitch card">
+          <h2>Uygulamada seni neler bekliyor?</h2>
+          <p>Bu ölçüm uygulamadaki sistemin aynısıyla yapıldı. Uygulamada daha fazlası var:</p>
+          <ul class="app-list"><li><span class="ico">📐</span><div><b>Tam kontrol</b><p>Önden ve yandan iki fotoğrafla 23 alana bakılır; burada yalnızca 2&#x27;sini gördün.</p></div></li><li><span class="ico">🎯</span><div><b>Sana göre plan</b> <span class="free">Ücretsiz</span><p>Ölçümünde öne çıkan alanlara öncelik veren 3 hareketlik bir plan.</p></div></li><li><span class="ico">🗣️</span><div><b>Koçun yanında</b><p>Elif ya da Asım her hareketi seninle birlikte yapar, sesle sayar.</p></div></li><li><span class="ico">☕</span><div><b>Masa başı molası</b> <span class="free">Ücretsiz</span><p>Oturduğun yerde 3 kısa hareket.</p></div></li><li><span class="ico">🔥</span><div><b>Halkalar ve seri</b> <span class="free">Ücretsiz</span><p>Hareket ettiğin her gün halkaların dolar.</p></div></li></ul>
+          <div class="stores">
         <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=tr"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Hemen indir</small>Google Play</span></a>
         <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Yakında</small>App Store</span></span>
       </div>
-        <p class="fine">Ücretsiz başla · Hesap açman gerekmez · Reklam yok</p>
-      </div>
-      <div class="stage">
-        <img class="c elif" src="/assets/img/coach-elif.webp" alt="Elif" width="313" height="900" fetchpriority="high">
-        <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
-        <p class="bubble">Merhaba! Hazır mısın?</p>
-        <div class="weekcard">Bu hafta 3/5 gün<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Pt</span><span class="ring gold"><i></i>Sa</span><span class="ring full"><i></i>Ça</span><span class="ring rest"><i></i>Pe</span><span class="ring "><i></i>Cu</span><span class="ring "><i></i>Ct</span></div></div>
+          <p class="fine">Ücretsiz başla · Hesap açman gerekmez · Reklam yok</p>
+        </div>
       </div>
     </div>
   </section>

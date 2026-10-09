@@ -120,6 +120,47 @@ def rings(states: list[str], labels: list[str], cls: str = "") -> str:
     return f'<div class="rings {cls}" aria-hidden="true">{items}</div>'
 
 
+def hero_demo(lang: str) -> str:
+    """Karşılamadaki ölçüm canlandırması. Noktalar, örnek fotoğrafta poz modelinin (MediaPipe
+    Pose Landmarker lite) gerçek çıktısıdır; baş eğikliği uygulamanın formülüyle -0,6°, yani
+    eşiğin (3°) altında: "Güçlü yanın". Kişi oturduğu ve ayak bilekleri görünmediği için omuz
+    ölçülmez, yalnızca noktaları çizilir."""
+    c, h = CHECK[lang], HOME[lang]
+    # 600x422 kırpılmış fotoğrafta piksel konumları
+    pts = {"nose": (361.5, 98.5), "le": (394.6, 93), "re": (348.4, 92.5), "ls": (435.5, 176.1), "rs": (324.8, 168),
+           "lel": (409.4, 274.4), "rel": (277.4, 252.4), "lw": (308.4, 278.7), "rw": (269.6, 270.8)}
+    # Kalçalar masanın altında kalıyor (model tahmin ediyor); çizilmez.
+    bones = [("ls", "rs"), ("ls", "lel"), ("lel", "lw"), ("rs", "rel"), ("rel", "rw")]
+    lines = "".join(
+        f'<line x1="{pts[a][0]}" y1="{pts[a][1]}" x2="{pts[b][0]}" y2="{pts[b][1]}"/>' for a, b in bones
+    )
+    dots = "".join(
+        f'<circle cx="{x}" cy="{y}" r="5" style="--d:{i * 0.06:.2f}s"/>' for i, (x, y) in enumerate(pts.values())
+    )
+    (x1, y1), (x2, y2) = pts["re"], pts["le"]
+    dx, dy = x2 - x1, y2 - y1
+    ear = f'<line class="ear" x1="{x1 - dx * 0.6:.1f}" y1="{y1 - dy * 0.6:.1f}" x2="{x2 + dx * 0.6:.1f}" y2="{y2 + dy * 0.6:.1f}"/>'
+    return f"""<div class="hero-side"><figure class="hero-demo" aria-hidden="true">
+        <img src="/assets/img/hero-check.webp" alt="" width="600" height="422" fetchpriority="high">
+        <svg viewBox="0 0 600 422" preserveAspectRatio="xMidYMid slice">
+          <line class="scan" x1="0" y1="0" x2="600" y2="0"/>
+          <g class="bones">{lines}</g>
+          <line class="mid" x1="{pts['nose'][0]}" y1="30" x2="{pts['nose'][0]}" y2="250"/>
+          {ear}
+          <g class="dots">{dots}</g>
+        </svg>
+        <span class="pill hold">{escape(c['live']['stabilizing'])}</span>
+        <span class="pill ok">{escape(c['live']['capturing_photo'])}</span>
+        <i class="flash"></i>
+        <div class="res-card">
+          <small>{escape(c['res_title'])}</small>
+          <b>{escape(c['strong_title'])}</b>
+          <p><span class="ok">✓</span>{escape(c['head_strong'])}</p>
+        </div>
+      </figure>
+      <p class="demo-cap">{escape(h['demo_caption'])}</p></div>"""
+
+
 def home(lang: str) -> str:
     u, h = UI[lang], HOME[lang]
     ld = {
@@ -139,6 +180,7 @@ def home(lang: str) -> str:
     extra = (
         '  <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>\n'
         '  <script type="module" src="/assets/js/coach.js"></script>\n'
+        '  <script type="module" src="/assets/js/check.js"></script>\n'
         f'  <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n'
     )
     steps = "".join(
@@ -178,15 +220,20 @@ def home(lang: str) -> str:
         <span class="eyebrow">{escape(h['eyebrow'])}</span>
         <h1>{h['h1']}</h1>
         <p class="lead">{escape(h['lead'])}</p>
-        {stores(lang)}
-        <p class="fine">{escape(h['fine'])}</p>
+        <div class="hero-cta">
+          <a class="btn primary big" href="#try">📷 {escape(h['try_btn'])}</a>
+          <a class="store play" href="{PLAY}&amp;hl={u['play_hl']}"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['play_small'])}</small>Google Play</span></a>
+        </div>
+        <p class="fine">{escape(h['try_hint'])}</p>
       </div>
-      <div class="stage">
-        <img class="c elif" src="/assets/img/coach-elif.webp" alt="{escape(fem)}" width="313" height="900" fetchpriority="high">
-        <img class="c asim" src="/assets/img/coach-asim.webp" alt="{escape(mal)}" width="374" height="900">
-        <p class="bubble">{escape(h['hello'])}</p>
-        <div class="weekcard">{escape(h['week_card'])}{rings(['full','gold','full','rest','',''],days[:6])}</div>
-      </div>
+      {hero_demo(lang)}
+    </div>
+  </section>
+
+  <section id="try" class="check" data-check data-t="{check_data(lang)}">
+    <div class="wrap">
+      <div class="head center"><h2>{escape(h['try_title'])}</h2><p>{escape(h['try_sub'])}</p></div>
+      {check_core(lang)}
     </div>
   </section>
 
@@ -314,13 +361,18 @@ def doc(lang: str, page: str) -> str:
     )
 
 
-def check(lang: str) -> str:
-    """Mini kontrol: listede yok, arama motorlarına kapalı, site haritasına girmez."""
+def check_data(lang: str) -> str:
+    """check.js'in okuduğu metinler (data-t)."""
     c = CHECK[lang]
-    fem, mal = HOME[lang]["coach_names"]
     skip = {"title", "desc", "eyebrow", "h1", "lead", "privacy", "pick", "sound", "tips_title", "tips", "start",
             "cta_title", "app_title", "app_lead", "free_tag", "app_items"}
-    data = escape(json.dumps({k: v for k, v in c.items() if k not in skip}, ensure_ascii=False))
+    return escape(json.dumps({k: v for k, v in c.items() if k not in skip}, ensure_ascii=False))
+
+
+def check_core(lang: str) -> str:
+    """Mini kontrolün kamera, ayarlar ve sonuç alanı; anasayfada ve /mini-check.html'de aynıdır."""
+    c = CHECK[lang]
+    fem, mal = HOME[lang]["coach_names"]
     tips = "".join(f"<li>{escape(t)}</li>" for t in c["tips"])
     items = "".join(
         f'<li><span class="ico">{i}</span><div><b>{escape(h)}</b>'
@@ -328,22 +380,8 @@ def check(lang: str) -> str:
         + f'<p>{escape(d.format(fem=fem, mal=mal))}</p></div></li>'
         for i, h, d, free in c["app_items"]
     )
-    return (
-        head(lang, "mini-check", c["title"], c["desc"],
-             '  <meta name="robots" content="noindex">\n'
-             '  <script type="module" src="/assets/js/check.js"></script>\n')
-        + topbar(lang, "mini-check")
-        + f"""
-<main id="main" class="check" data-check data-t="{data}">
-  <section>
-    <div class="wrap">
-      <div class="head center">
-        <span class="eyebrow">{escape(c['eyebrow'])}</span>
-        <h1>{escape(c['h1'])}</h1>
-        <p>{escape(c['lead'])}</p>
-      </div>
-      <div class="check-box">
-        <div class="cam" data-state="">
+    return f"""<div class="check-box">
+        <div class="cam">
           <video playsinline muted></video>
           <canvas></canvas>
           <p class="live-pill" aria-live="polite"></p>
@@ -381,7 +419,28 @@ def check(lang: str) -> str:
           {stores(lang)}
           <p class="fine">{escape(HOME[lang]['fine'])}</p>
         </div>
+      </div>"""
+
+
+def check(lang: str) -> str:
+    """Mini kontrolün tek başına sayfası: paylaşmak için. Anasayfadakinin aynısı; menüde ve site
+    haritasında yok, arama motorlarına kapalı (aynı içerik anasayfada)."""
+    c = CHECK[lang]
+    return (
+        head(lang, "mini-check", c["title"], c["desc"],
+             '  <meta name="robots" content="noindex">\n'
+             '  <script type="module" src="/assets/js/check.js"></script>\n')
+        + topbar(lang, "mini-check")
+        + f"""
+<main id="main" class="check" data-check data-t="{check_data(lang)}">
+  <section>
+    <div class="wrap">
+      <div class="head center">
+        <span class="eyebrow">{escape(c['eyebrow'])}</span>
+        <h1>{escape(c['h1'])}</h1>
+        <p>{escape(c['lead'])}</p>
       </div>
+      {check_core(lang)}
     </div>
   </section>
   <section class="alt cta-final" data-cta>

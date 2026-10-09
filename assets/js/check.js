@@ -82,7 +82,7 @@ function init(root) {
 
   $('[data-again]').addEventListener('click', () => {
     results.hidden = true;
-    cta.hidden = false;
+    if (cta) cta.hidden = false;
     cam.scrollIntoView({ behavior: 'smooth', block: 'center' });
     begin();
   });
@@ -210,7 +210,7 @@ function init(root) {
     out.push(el('p', 'disc', t.disclaimer));
     body.replaceChildren(...out);
     results.hidden = false;
-    cta.hidden = true;
+    if (cta) cta.hidden = true;
     results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
