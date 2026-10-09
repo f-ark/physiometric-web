@@ -33,12 +33,12 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Sayfa menüsü"><a href="#how">Nasıl çalışır</a><a href="#coach">Koçun</a><a href="#pricing">Ücretsiz ve Pro</a><a href="#faq">SSS</a></nav>
+    <nav class="menu" aria-label="Sayfa menüsü"><a href="#coach">Koçun</a><a href="#how">Nasıl çalışır</a><a href="#pricing">Ücretsiz ve Pro</a><a href="#faq">SSS</a></nav>
     <nav class="langs" aria-label="Dil"><a href="/" hreflang="tr" lang="tr" aria-current="page" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
   </div>
 </header>
 <main id="main">
-  <section class="hero">
+  <section class="hero stage-dark">
     <div class="wrap">
       <div>
         <span class="eyebrow">Duruş antrenmanı · Kişisel koç</span>
@@ -55,6 +55,30 @@
         <img class="c asim" src="/assets/img/coach-asim.webp" alt="Asım" width="374" height="900">
         <p class="bubble">Merhaba! Hazır mısın?</p>
         <div class="weekcard">Bu hafta 3/5 gün<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Pt</span><span class="ring gold"><i></i>Sa</span><span class="ring full"><i></i>Ça</span><span class="ring rest"><i></i>Pe</span><span class="ring "><i></i>Cu</span><span class="ring "><i></i>Ct</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Yarısı tamam!&quot;], [&quot;last_reps_1&quot;, &quot;Son üç!&quot;], [&quot;halfway_2&quot;, &quot;Güzel gidiyor.&quot;], [&quot;last_reps_2&quot;, &quot;Az kaldı.&quot;]]" data-loading="Koç geliyor…" data-error="3D görünüm bu cihazda açılamadı.">
+    <div class="wrap">
+      <div class="head center"><h2>Koçunla tanış</h2><p>Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Elif" width="261" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Koçunu seç</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Canlı göster</button></div>
+          <div><h3>Bir hareket dene</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın." aria-pressed="false">Shoulder Elevation</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin." aria-pressed="false">Neck Lateral Stretch</button><button class="btn" type="button" data-move="glute_bridge" data-text="Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin." aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" data-text="Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin." aria-pressed="false">Cat-Cow</button></div></div>
+          <div><h3>Sesi dinle</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 Rehberlik</button>
+            <button class="btn" type="button" data-company>💬 Eşlik</button></div></div>
+          <p class="note">Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -111,31 +135,7 @@
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Yarısı tamam!&quot;], [&quot;last_reps_1&quot;, &quot;Son üç!&quot;], [&quot;halfway_2&quot;, &quot;Güzel gidiyor.&quot;], [&quot;last_reps_2&quot;, &quot;Az kaldı.&quot;]]" data-loading="Koç geliyor…" data-error="3D görünüm bu cihazda açılamadı.">
-    <div class="wrap">
-      <div class="head center"><h2>Koçunla tanış</h2><p>Elif ve Asım her hareketi 3D olarak gösterir, sesli yönlendirir ve sana eşlik eder. Burada deneyebilirsin.</p></div>
-      <div class="coach-box">
-        <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Elif" width="261" height="900" loading="lazy">
-          <p class="bubble" aria-live="polite"></p>
-          <p class="status" aria-live="polite"></p>
-        </div>
-        <div class="controls">
-          <div><h3>Koçunu seç</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button></div></div>
-          <div><button class="btn primary" type="button" data-live>▶ Canlı göster</button></div>
-          <div><h3>Bir hareket dene</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın." aria-pressed="false">Shoulder Elevation</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin." aria-pressed="false">Neck Lateral Stretch</button><button class="btn" type="button" data-move="glute_bridge" data-text="Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin." aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" data-text="Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin." aria-pressed="false">Cat-Cow</button></div></div>
-          <div><h3>Sesi dinle</h3><div class="row">
-            <button class="btn" type="button" data-guide>🧭 Rehberlik</button>
-            <button class="btn" type="button" data-company>💬 Eşlik</button></div></div>
-          <p class="note">Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
+  <section id="pricing" class="alt">
     <div class="wrap">
       <div class="head center"><h2>Ücretsiz başla, istersen Pro&#x27;ya geç</h2><p>Ücretsiz sürüm süresiz. Pro&#x27;yu 7 gün ücretsiz deneyebilirsin; fiyatlar uygulamada gösterilir.</p></div>
       <div class="plans">
@@ -145,7 +145,7 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap grid2">
       <div class="head" style="margin:0"><h2>Fotoğrafların telefonunda kalır</h2><p>Ölçüm yapay zekâyla doğrudan telefonunda yapılır. Fotoğrafların ve sonuçların sunucularımıza gönderilmez.</p>
         <p style="margin-top:16px"><a href="/privacy.html" style="color:var(--primary);font-weight:700">Gizlilik politikasını oku →</a></p></div>

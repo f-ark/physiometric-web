@@ -33,12 +33,12 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/es/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Menú de la página"><a href="#how">Cómo funciona</a><a href="#coach">Tu coach</a><a href="#pricing">Gratis y Pro</a><a href="#faq">Preguntas</a></nav>
+    <nav class="menu" aria-label="Menú de la página"><a href="#coach">Tu coach</a><a href="#how">Cómo funciona</a><a href="#pricing">Gratis y Pro</a><a href="#faq">Preguntas</a></nav>
     <nav class="langs" aria-label="Idioma"><a href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" aria-current="page" title="Español">ES</a></nav>
   </div>
 </header>
 <main id="main">
-  <section class="hero">
+  <section class="hero stage-dark">
     <div class="wrap">
       <div>
         <span class="eyebrow">Entrenamiento postural · Coach personal</span>
@@ -55,6 +55,30 @@
         <img class="c asim" src="/assets/img/coach-asim.webp" alt="Carlos" width="374" height="900">
         <p class="bubble">¡Hola! ¿Estás listo?</p>
         <div class="weekcard">Esta semana 3/5 días<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Lu</span><span class="ring gold"><i></i>Ma</span><span class="ring full"><i></i>Mi</span><span class="ring rest"><i></i>Ju</span><span class="ring "><i></i>Vi</span><span class="ring "><i></i>Sá</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;¡Ya va la mitad!&quot;], [&quot;last_reps_1&quot;, &quot;¡Últimas 3!&quot;], [&quot;halfway_2&quot;, &quot;Vas muy bien.&quot;], [&quot;last_reps_2&quot;, &quot;Ya casi.&quot;]]" data-loading="Tu coach está llegando…" data-error="La vista 3D no se pudo abrir en este dispositivo.">
+    <div class="wrap">
+      <div class="head center"><h2>Conoce a tu coach</h2><p>Lucía y Carlos muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Lucía" width="261" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Elige tu coach</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Lucía</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Carlos</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Ver en vivo</button></div>
+          <div><h3>Prueba un movimiento</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Levante los hombros. Mantenga durante dos. Baje lentamente." aria-pressed="false">Elevación de hombros</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento." aria-pressed="false">Estiramiento lateral de cuello</button><button class="btn" type="button" data-move="glute_bridge" data-text="Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente." aria-pressed="false">Puente de glúteos</button><button class="btn" type="button" data-move="cat_cow" data-text="Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe." aria-pressed="false">Gato-vaca</button></div></div>
+          <div><h3>Escuchar</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 Guía</button>
+            <button class="btn" type="button" data-company>💬 Compañía</button></div></div>
+          <p class="note">Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -111,31 +135,7 @@
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;¡Ya va la mitad!&quot;], [&quot;last_reps_1&quot;, &quot;¡Últimas 3!&quot;], [&quot;halfway_2&quot;, &quot;Vas muy bien.&quot;], [&quot;last_reps_2&quot;, &quot;Ya casi.&quot;]]" data-loading="Tu coach está llegando…" data-error="La vista 3D no se pudo abrir en este dispositivo.">
-    <div class="wrap">
-      <div class="head center"><h2>Conoce a tu coach</h2><p>Lucía y Carlos muestran cada movimiento en 3D, te guían con su voz y te acompañan. Pruébalos aquí.</p></div>
-      <div class="coach-box">
-        <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Lucía" width="261" height="900" loading="lazy">
-          <p class="bubble" aria-live="polite"></p>
-          <p class="status" aria-live="polite"></p>
-        </div>
-        <div class="controls">
-          <div><h3>Elige tu coach</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Lucía</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Carlos</button></div></div>
-          <div><button class="btn primary" type="button" data-live>▶ Ver en vivo</button></div>
-          <div><h3>Prueba un movimiento</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Levante los hombros. Mantenga durante dos. Baje lentamente." aria-pressed="false">Elevación de hombros</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento." aria-pressed="false">Estiramiento lateral de cuello</button><button class="btn" type="button" data-move="glute_bridge" data-text="Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente." aria-pressed="false">Puente de glúteos</button><button class="btn" type="button" data-move="cat_cow" data-text="Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe." aria-pressed="false">Gato-vaca</button></div></div>
-          <div><h3>Escuchar</h3><div class="row">
-            <button class="btn" type="button" data-guide>🧭 Guía</button>
-            <button class="btn" type="button" data-company>💬 Compañía</button></div></div>
-          <p class="note">Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
+  <section id="pricing" class="alt">
     <div class="wrap">
       <div class="head center"><h2>Empieza gratis, pásate a Pro si quieres</h2><p>La versión gratuita no caduca. Prueba Pro gratis durante 7 días; los precios se muestran en la app.</p></div>
       <div class="plans">
@@ -145,7 +145,7 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap grid2">
       <div class="head" style="margin:0"><h2>Tus fotos se quedan en tu móvil</h2><p>La medición se hace con IA directamente en tu dispositivo. Tus fotos y resultados no se envían a nuestros servidores.</p>
         <p style="margin-top:16px"><a href="/es/privacy.html" style="color:var(--primary);font-weight:700">Leer la política de privacidad →</a></p></div>

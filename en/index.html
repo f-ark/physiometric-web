@@ -33,12 +33,12 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/en/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Page menu"><a href="#how">How it works</a><a href="#coach">Your coach</a><a href="#pricing">Free and Pro</a><a href="#faq">FAQ</a></nav>
+    <nav class="menu" aria-label="Page menu"><a href="#coach">Your coach</a><a href="#how">How it works</a><a href="#pricing">Free and Pro</a><a href="#faq">FAQ</a></nav>
     <nav class="langs" aria-label="Language"><a href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" aria-current="page" title="English">EN</a><a href="/de/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
   </div>
 </header>
 <main id="main">
-  <section class="hero">
+  <section class="hero stage-dark">
     <div class="wrap">
       <div>
         <span class="eyebrow">Posture workouts · Personal coach</span>
@@ -55,6 +55,30 @@
         <img class="c asim" src="/assets/img/coach-asim.webp" alt="Jack" width="374" height="900">
         <p class="bubble">Hi! Are you ready?</p>
         <div class="weekcard">This week 3/5 days<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Tu</span><span class="ring full"><i></i>We</span><span class="ring rest"><i></i>Th</span><span class="ring "><i></i>Fr</span><span class="ring "><i></i>Sa</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Halfway there!&quot;], [&quot;last_reps_1&quot;, &quot;Last 3!&quot;], [&quot;halfway_2&quot;, &quot;Looking good.&quot;], [&quot;last_reps_2&quot;, &quot;Almost done.&quot;]]" data-loading="Your coach is on the way…" data-error="The 3D view couldn&#x27;t open on this device.">
+    <div class="wrap">
+      <div class="head center"><h2>Meet your coach</h2><p>Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Emma" width="261" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Pick your coach</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Emma</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Jack</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Show live</button></div>
+          <div><h3>Try a movement</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Pull your shoulders up. Hold for two. Slowly release." aria-pressed="false">Shoulder Shrugs</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Tilt your head to the side, pull gently. Feel the stretch." aria-pressed="false">Upper Trapezius Stretch</button><button class="btn" type="button" data-move="glute_bridge" data-text="Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly." aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" data-text="Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going." aria-pressed="false">Cat-Cow</button></div></div>
+          <div><h3>Listen</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 Guidance</button>
+            <button class="btn" type="button" data-company>💬 Company</button></div></div>
+          <p class="note">Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -111,31 +135,7 @@
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Halfway there!&quot;], [&quot;last_reps_1&quot;, &quot;Last 3!&quot;], [&quot;halfway_2&quot;, &quot;Looking good.&quot;], [&quot;last_reps_2&quot;, &quot;Almost done.&quot;]]" data-loading="Your coach is on the way…" data-error="The 3D view couldn&#x27;t open on this device.">
-    <div class="wrap">
-      <div class="head center"><h2>Meet your coach</h2><p>Emma and Jack show every movement in 3D, guide you with their voice and keep you company. Try them out here.</p></div>
-      <div class="coach-box">
-        <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Emma" width="261" height="900" loading="lazy">
-          <p class="bubble" aria-live="polite"></p>
-          <p class="status" aria-live="polite"></p>
-        </div>
-        <div class="controls">
-          <div><h3>Pick your coach</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Emma</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Jack</button></div></div>
-          <div><button class="btn primary" type="button" data-live>▶ Show live</button></div>
-          <div><h3>Try a movement</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Pull your shoulders up. Hold for two. Slowly release." aria-pressed="false">Shoulder Shrugs</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Tilt your head to the side, pull gently. Feel the stretch." aria-pressed="false">Upper Trapezius Stretch</button><button class="btn" type="button" data-move="glute_bridge" data-text="Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly." aria-pressed="false">Glute Bridge</button><button class="btn" type="button" data-move="cat_cow" data-text="Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going." aria-pressed="false">Cat-Cow</button></div></div>
-          <div><h3>Listen</h3><div class="row">
-            <button class="btn" type="button" data-guide>🧭 Guidance</button>
-            <button class="btn" type="button" data-company>💬 Company</button></div></div>
-          <p class="note">Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
+  <section id="pricing" class="alt">
     <div class="wrap">
       <div class="head center"><h2>Start free, go Pro if you like</h2><p>The free version never expires. Try Pro free for 7 days; prices are shown in the app.</p></div>
       <div class="plans">
@@ -145,7 +145,7 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap grid2">
       <div class="head" style="margin:0"><h2>Your photos stay on your phone</h2><p>The measurement runs with on-device AI. Your photos and results are never sent to our servers.</p>
         <p style="margin-top:16px"><a href="/en/privacy.html" style="color:var(--primary);font-weight:700">Read the privacy policy →</a></p></div>

@@ -33,12 +33,12 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="/de/"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-    <nav class="menu" aria-label="Seitenmenü"><a href="#how">So funktioniert&#x27;s</a><a href="#coach">Dein Coach</a><a href="#pricing">Kostenlos und Pro</a><a href="#faq">FAQ</a></nav>
+    <nav class="menu" aria-label="Seitenmenü"><a href="#coach">Dein Coach</a><a href="#how">So funktioniert&#x27;s</a><a href="#pricing">Kostenlos und Pro</a><a href="#faq">FAQ</a></nav>
     <nav class="langs" aria-label="Sprache"><a href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a><a href="/de/" hreflang="de" lang="de" aria-current="page" title="Deutsch">DE</a><a href="/es/" hreflang="es" lang="es" title="Español">ES</a></nav>
   </div>
 </header>
 <main id="main">
-  <section class="hero">
+  <section class="hero stage-dark">
     <div class="wrap">
       <div>
         <span class="eyebrow">Haltungstraining · Persönlicher Coach</span>
@@ -55,6 +55,30 @@
         <img class="c asim" src="/assets/img/coach-asim.webp" alt="Max" width="374" height="900">
         <p class="bubble">Hallo! Bist du bereit?</p>
         <div class="weekcard">Diese Woche 3/5 Tage<div class="rings " aria-hidden="true"><span class="ring full"><i></i>Mo</span><span class="ring gold"><i></i>Di</span><span class="ring full"><i></i>Mi</span><span class="ring rest"><i></i>Do</span><span class="ring "><i></i>Fr</span><span class="ring "><i></i>Sa</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Die Hälfte ist geschafft!&quot;], [&quot;last_reps_1&quot;, &quot;Noch 3!&quot;], [&quot;halfway_2&quot;, &quot;Das läuft gut.&quot;], [&quot;last_reps_2&quot;, &quot;Gleich geschafft.&quot;]]" data-loading="Dein Coach kommt…" data-error="Die 3D-Ansicht lässt sich auf diesem Gerät nicht öffnen.">
+    <div class="wrap">
+      <div class="head center"><h2>Lern deinen Coach kennen</h2><p>Anna und Max zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Anna" width="261" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>Wähl deinen Coach</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Anna</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Max</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ Live zeigen</button></div>
+          <div><h3>Probier eine Übung</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Schultern hochziehen. Halten, zwei. Langsam absenken." aria-pressed="false">Schulterheben</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Kopf zur Seite neigen, sanft ziehen. Dehnung spüren." aria-pressed="false">Nackendehnung seitlich</button><button class="btn" type="button" data-move="glute_bridge" data-text="Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken." aria-pressed="false">Gesäßbrücke</button><button class="btn" type="button" data-move="cat_cow" data-text="Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so." aria-pressed="false">Katze-Kuh</button></div></div>
+          <div><h3>Anhören</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 Anleitung</button>
+            <button class="btn" type="button" data-company>💬 Begleitung</button></div></div>
+          <p class="note">Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -111,31 +135,7 @@
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-lines="[[&quot;halfway_1&quot;, &quot;Die Hälfte ist geschafft!&quot;], [&quot;last_reps_1&quot;, &quot;Noch 3!&quot;], [&quot;halfway_2&quot;, &quot;Das läuft gut.&quot;], [&quot;last_reps_2&quot;, &quot;Gleich geschafft.&quot;]]" data-loading="Dein Coach kommt…" data-error="Die 3D-Ansicht lässt sich auf diesem Gerät nicht öffnen.">
-    <div class="wrap">
-      <div class="head center"><h2>Lern deinen Coach kennen</h2><p>Anna und Max zeigen jede Übung in 3D, leiten dich mit ihrer Stimme an und begleiten dich. Probier es hier aus.</p></div>
-      <div class="coach-box">
-        <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="Anna" width="261" height="900" loading="lazy">
-          <p class="bubble" aria-live="polite"></p>
-          <p class="status" aria-live="polite"></p>
-        </div>
-        <div class="controls">
-          <div><h3>Wähl deinen Coach</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Anna</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Max</button></div></div>
-          <div><button class="btn primary" type="button" data-live>▶ Live zeigen</button></div>
-          <div><h3>Probier eine Übung</h3><div class="row"><button class="btn" type="button" data-move="shoulder_elevation" data-text="Schultern hochziehen. Halten, zwei. Langsam absenken." aria-pressed="false">Schulterheben</button><button class="btn" type="button" data-move="neck_lateral_stretch" data-text="Kopf zur Seite neigen, sanft ziehen. Dehnung spüren." aria-pressed="false">Nackendehnung seitlich</button><button class="btn" type="button" data-move="glute_bridge" data-text="Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken." aria-pressed="false">Gesäßbrücke</button><button class="btn" type="button" data-move="cat_cow" data-text="Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so." aria-pressed="false">Katze-Kuh</button></div></div>
-          <div><h3>Anhören</h3><div class="row">
-            <button class="btn" type="button" data-guide>🧭 Anleitung</button>
-            <button class="btn" type="button" data-company>💬 Begleitung</button></div></div>
-          <p class="note">Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
+  <section id="pricing" class="alt">
     <div class="wrap">
       <div class="head center"><h2>Kostenlos starten, Pro wenn du willst</h2><p>Die kostenlose Version ist unbefristet. Pro kannst du 7 Tage kostenlos testen; die Preise siehst du in der App.</p></div>
       <div class="plans">
@@ -145,7 +145,7 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap grid2">
       <div class="head" style="margin:0"><h2>Deine Fotos bleiben auf deinem Handy</h2><p>Die Messung läuft mit KI direkt auf deinem Gerät. Fotos und Ergebnisse werden nicht an unsere Server gesendet.</p>
         <p style="margin-top:16px"><a href="/de/privacy.html" style="color:var(--primary);font-weight:700">Datenschutzerklärung lesen →</a></p></div>

@@ -215,3 +215,31 @@ section{padding:72px 0}
 .nf{text-align:center;padding:96px 20px}
 .nf h1{font-size:64px;font-weight:900;margin-bottom:8px}
 .nf p{color:var(--text-2);margin-bottom:24px}
+
+/* Üst bölümler (karşılama ve koç): temadan bağımsız koyu ve canlı, uygulamanın açılış ekranı gibi. */
+.stage-dark{
+  color-scheme:dark;
+  --text:#FFFFFF; --text-2:#C9CBDA; --muted:#9A9DB4;
+  --surface:#1E2540; --surface-2:#262F52; --line:rgba(76,201,240,.18);
+  --cyan:#4CC9F0; --gold:#FFB300; --ring-rest:#3A4466;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 40px rgba(0,0,0,.4);
+  color:var(--text);
+}
+.hero.stage-dark{background:linear-gradient(160deg,#1A1A2E 0%,#16213E 55%,#0F0F1E 100%)}
+.hero.stage-dark::before{background:
+  radial-gradient(48% 62% at 76% 34%,rgba(233,69,96,.42),transparent 70%),
+  radial-gradient(42% 58% at 8% 18%,rgba(76,201,240,.30),transparent 70%),
+  radial-gradient(40% 50% at 45% 105%,rgba(67,97,238,.28),transparent 70%)}
+.hero.stage-dark .eyebrow{color:#FF6B85;background:rgba(233,69,96,.16)}
+.hero.stage-dark .store.apple img{filter:none}
+.hero.stage-dark .store.apple{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:#C9CBDA}
+.coach-sec{position:relative;overflow:hidden;background:linear-gradient(180deg,#0F0F1E 0%,#141B33 100%);border-top:1px solid rgba(76,201,240,.12)}
+.coach-sec::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(45% 55% at 22% 40%,rgba(76,201,240,.22),transparent 70%),
+  radial-gradient(40% 50% at 85% 75%,rgba(233,69,96,.22),transparent 70%)}
+.coach-sec .wrap{position:relative}
+.coach-sec .head h2{background:linear-gradient(120deg,#fff 30%,#FF8FA3 70%,#4CC9F0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.coach-sec .viewer{background:radial-gradient(80% 70% at 50% 30%,rgba(76,201,240,.28),#1A2140 70%);border-color:rgba(76,201,240,.25)}
+.coach-sec .btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff}
+.coach-sec .btn:hover{border-color:var(--primary)}
+.coach-sec .btn[aria-pressed=true],.coach-sec .btn.primary{background:var(--primary);border-color:var(--primary)}

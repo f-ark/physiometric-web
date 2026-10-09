@@ -167,7 +167,7 @@ def home(lang: str) -> str:
         + topbar(lang, "index")
         + f"""
 <main id="main">
-  <section class="hero">
+  <section class="hero stage-dark">
     <div class="wrap">
       <div>
         <span class="eyebrow">{escape(h['eyebrow'])}</span>
@@ -181,6 +181,30 @@ def home(lang: str) -> str:
         <img class="c asim" src="/assets/img/coach-asim.webp" alt="{escape(mal)}" width="374" height="900">
         <p class="bubble">{escape(h['hello'])}</p>
         <div class="weekcard">{escape(h['week_card'])}{rings(['full','gold','full','rest','',''],days[:6])}</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coach" class="stage-dark coach-sec" data-coach data-lines="{lines_json}" data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
+    <div class="wrap">
+      <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
+      <div class="coach-box">
+        <div class="viewer">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="{escape(fem)}" width="261" height="900" loading="lazy">
+          <p class="bubble" aria-live="polite"></p>
+          <p class="status" aria-live="polite"></p>
+        </div>
+        <div class="controls">
+          <div><h3>{escape(h['pick_coach'])}</h3><div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">{escape(fem)}</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">{escape(mal)}</button></div></div>
+          <div><button class="btn primary" type="button" data-live>▶ {escape(h['live'])}</button></div>
+          <div><h3>{escape(h['try_moves'])}</h3><div class="row">{moves}</div></div>
+          <div><h3>{escape(h['listen'])}</h3><div class="row">
+            <button class="btn" type="button" data-guide>🧭 {escape(h['guide'])}</button>
+            <button class="btn" type="button" data-company>💬 {escape(h['company'])}</button></div></div>
+          <p class="note">{escape(h['coach_note'])}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -237,31 +261,7 @@ def home(lang: str) -> str:
     </div>
   </section>
 
-  <section id="coach" class="alt" data-coach data-lines="{lines_json}" data-loading="{escape(h['loading'])}" data-error="{escape(h['load_error'])}">
-    <div class="wrap">
-      <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
-      <div class="coach-box">
-        <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="{escape(fem)}" width="261" height="900" loading="lazy">
-          <p class="bubble" aria-live="polite"></p>
-          <p class="status" aria-live="polite"></p>
-        </div>
-        <div class="controls">
-          <div><h3>{escape(h['pick_coach'])}</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">{escape(fem)}</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">{escape(mal)}</button></div></div>
-          <div><button class="btn primary" type="button" data-live>▶ {escape(h['live'])}</button></div>
-          <div><h3>{escape(h['try_moves'])}</h3><div class="row">{moves}</div></div>
-          <div><h3>{escape(h['listen'])}</h3><div class="row">
-            <button class="btn" type="button" data-guide>🧭 {escape(h['guide'])}</button>
-            <button class="btn" type="button" data-company>💬 {escape(h['company'])}</button></div></div>
-          <p class="note">{escape(h['coach_note'])}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
+  <section id="pricing" class="alt">
     <div class="wrap">
       <div class="head center"><h2>{escape(h['price_title'])}</h2><p>{escape(h['price_sub'])}</p></div>
       <div class="plans">
@@ -271,7 +271,7 @@ def home(lang: str) -> str:
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap grid2">
       <div class="head" style="margin:0"><h2>{escape(h['priv_title'])}</h2><p>{escape(h['priv_sub'])}</p>
         <p style="margin-top:16px"><a href="{url(lang,'privacy')}" style="color:var(--primary);font-weight:700">{escape(h['priv_link'])} →</a></p></div>
