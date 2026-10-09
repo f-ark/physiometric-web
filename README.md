@@ -30,12 +30,13 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 ## Mini kontrol (deneme)
 
-`/mini-check.html` (ve `en/`, `de/`, `es/`): kameradan baş eğikliği ve omuz yükseklik farkı. Menüde ve site haritasında yok, `noindex`; bağlantıyı bilen açar.
+`/mini-check.html` (ve `en/`, `de/`, `es/`): uygulamadaki ön çekimin tarayıcıdaki demosu. Amacı sistemin çalıştığını göstermek ve uygulamaya yönlendirmek. Menüde ve site haritasında yok, `noindex`; bağlantıyı bilen açar.
 
 - Poz modeli MediaPipe Pose Landmarker (lite) tarayıcıda çalışır: `assets/vendor/mediapipe` (tasks-vision 1.1.0, WebAssembly + WebGL, GPU yoksa CPU), `assets/models/pose_landmarker_lite.task`. Görüntü cihazdan çıkmaz.
-- Formüller ve eşikler uygulamadakiyle aynı (`assets/js/check.js` başındaki dosya listesi). Uygulamada değişirse burası da güncellenir.
-- Cümleler uygulamanın ARB metinleri (`tools/content.py` → `CHECK`).
-- Omuz ölçümü uygulamadaki gibi omuz–ayak bileği mesafesine bakar; ayak bilekleri görünmüyorsa yalnızca baş ölçülür.
+- Akış uygulamadaki gibi (`assets/js/check.js` başındaki dosya listesi): yönlendirme (görünürlük → yön → mesafe → ortalama), 2 sn sabit durunca kendiliğinden yakalama, koçun sesli uyarıları ve bekleme kuralları, baş eğikliği ve omuz yükseklik farkı formülleri ve eşikleri. Uygulamada değişirse burası da güncellenir.
+- Sesler: `assets/audio/{dil}/{elif|asim}/feedback/`, uygulamanın analiz uyarıları.
+- Sonuç ücretsiz sürümdeki gibi: alanın adı ve gözlem cümlesi, ayrıntı "Pro" kilitli, güçlü yan. Altında "Uygulamada seni neler bekliyor?" bölümü ve mağaza düğmeleri.
+- Metinler uygulamanın ARB metinleri (`tools/content.py` → `CHECK`).
 
 Tema cihaz ayarına uyar; menüdeki düğmeyle açık ya da koyu seçilebilir (`assets/js/site.js`, seçim tarayıcıda saklanır).
 

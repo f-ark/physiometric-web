@@ -317,11 +317,17 @@ def doc(lang: str, page: str) -> str:
 def check(lang: str) -> str:
     """Mini kontrol: listede yok, arama motorlarına kapalı, site haritasına girmez."""
     c = CHECK[lang]
-    keys = ["loading", "ready", "hold", "no_person", "cam_error", "unsupported", "need_full", "head", "shoulders",
-            "seen", "daily", "strong_label", "dir_left", "dir_right", "side_left", "side_right",
-            "head_tilt", "head_daily", "head_strong", "sh_tilt", "sh_daily", "sh_strong", "again"]
-    data = escape(json.dumps({k: c[k] for k in keys}, ensure_ascii=False))
+    fem, mal = HOME[lang]["coach_names"]
+    skip = {"title", "desc", "eyebrow", "h1", "lead", "privacy", "pick", "sound", "tips_title", "tips", "start",
+            "cta_title", "app_title", "app_lead", "free_tag", "app_items"}
+    data = escape(json.dumps({k: v for k, v in c.items() if k not in skip}, ensure_ascii=False))
     tips = "".join(f"<li>{escape(t)}</li>" for t in c["tips"])
+    items = "".join(
+        f'<li><span class="ico">{i}</span><div><b>{escape(h)}</b>'
+        + (f' <span class="free">{escape(c["free_tag"])}</span>' if free else "")
+        + f'<p>{escape(d.format(fem=fem, mal=mal))}</p></div></li>'
+        for i, h, d, free in c["app_items"]
+    )
     return (
         head(lang, "mini-check", c["title"], c["desc"],
              '  <meta name="robots" content="noindex">\n'
@@ -337,28 +343,48 @@ def check(lang: str) -> str:
         <p>{escape(c['lead'])}</p>
       </div>
       <div class="check-box">
-        <div class="cam">
+        <div class="cam" data-state="">
           <video playsinline muted></video>
           <canvas></canvas>
-          <p class="status" aria-live="polite"></p>
+          <p class="live-pill" aria-live="polite"></p>
+          <div class="hold-bar" aria-hidden="true"><i></i></div>
           <div class="cam-actions">
             <button class="btn primary" type="button" data-start>📷 {escape(c['start'])}</button>
-            <button class="btn primary" type="button" data-measure hidden>{escape(c['measure'])}</button>
           </div>
+          <p class="status" aria-live="polite"></p>
         </div>
         <div class="side">
-          <p class="callout key">🔒 {escape(c['privacy'])}</p>
+          <h3>{escape(c['pick'])}</h3>
+          <div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">{escape(fem)}</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">{escape(mal)}</button>
+          </div>
+          <label class="switch"><input type="checkbox" data-sound checked> <span>🔊 {escape(c['sound'])}</span></label>
           <h3>{escape(c['tips_title'])}</h3>
           <ul class="tips">{tips}</ul>
+          <p class="callout key">🔒 {escape(c['privacy'])}</p>
         </div>
       </div>
       <div class="results" aria-live="polite" hidden>
-        <div class="cards"></div>
-        <p class="note">{escape(c['result_note'])}</p>
+        <div class="res-head">
+          <div><h2>{escape(c['res_title'])}</h2><p class="date"></p></div>
+          <button class="btn" type="button" data-again>↻ {escape(c['again'])}</button>
+        </div>
+        <div class="res-grid">
+          <figure class="shot"><canvas></canvas><figcaption>{escape(c['front'])}</figcaption></figure>
+          <div class="res-body"></div>
+        </div>
+        <div class="pitch card">
+          <h2>{escape(c['app_title'])}</h2>
+          <p>{escape(c['app_lead'])}</p>
+          <ul class="app-list">{items}</ul>
+          {stores(lang)}
+          <p class="fine">{escape(HOME[lang]['fine'])}</p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="alt cta-final">
+  <section class="alt cta-final" data-cta>
     <div class="wrap">
       <div class="head center" style="margin-bottom:0"><h2>{escape(c['cta_title'])}</h2><p>{escape(HOME[lang]['end_sub'])}</p></div>
       {stores(lang)}

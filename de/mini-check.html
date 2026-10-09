@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mini-Check — PosMetric</title>
-  <meta name="description" content="Stell dich vor deine Kamera und sieh dir im Browser an, wie Kopf und Schultern ausgerichtet sind. Das Bild verlässt dein Gerät nicht.">
+  <meta name="description" content="Stell dich vor deine Kamera; dein Coach leitet dich mit der Stimme an und die Messung startet von selbst. Das Bild verlässt dein Gerät nicht.">
   <link rel="canonical" href="https://physiometric.app/de/mini-check.html">
   <link rel="alternate" hreflang="tr" href="https://physiometric.app/mini-check.html">
   <link rel="alternate" hreflang="en" href="https://physiometric.app/en/mini-check.html">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PosMetric">
   <meta property="og:title" content="Mini-Check — PosMetric">
-  <meta property="og:description" content="Stell dich vor deine Kamera und sieh dir im Browser an, wie Kopf und Schultern ausgerichtet sind. Das Bild verlässt dein Gerät nicht.">
+  <meta property="og:description" content="Stell dich vor deine Kamera; dein Coach leitet dich mit der Stimme an und die Messung startet von selbst. Das Bild verlässt dein Gerät nicht.">
   <meta property="og:url" content="https://physiometric.app/de/mini-check.html">
   <meta property="og:image" content="https://physiometric.app/assets/img/og-de.jpg">
   <meta property="og:locale" content="de_DE">
@@ -42,37 +42,60 @@
     </button>
   </div>
 </header>
-<main id="main" class="check" data-check data-t="{&quot;loading&quot;: &quot;Wird vorbereitet…&quot;, &quot;ready&quot;: &quot;Alles bereit. Steh aufrecht und drück auf „Messen“.&quot;, &quot;hold&quot;: &quot;Steh aufrecht, ich messe…&quot;, &quot;no_person&quot;: &quot;Ich kann dich nicht sehen. Schau frontal in die Kamera.&quot;, &quot;cam_error&quot;: &quot;Die Kamera ließ sich nicht starten. Prüf die Kameraberechtigung deines Browsers oder mach den vollständigen Check in der App.&quot;, &quot;unsupported&quot;: &quot;Dieser Browser kann den Mini-Check nicht ausführen. Den vollständigen Check kannst du in der App machen.&quot;, &quot;need_full&quot;: &quot;Für die Schultern geh etwas zurück; deine Knöchel müssen zu sehen sein.&quot;, &quot;head&quot;: &quot;Kopf&quot;, &quot;shoulders&quot;: &quot;Schultern&quot;, &quot;seen&quot;: &quot;Was wir sehen&quot;, &quot;daily&quot;: &quot;Im Alltag&quot;, &quot;strong_label&quot;: &quot;Deine Stärke&quot;, &quot;dir_left&quot;: &quot;nach links&quot;, &quot;dir_right&quot;: &quot;nach rechts&quot;, &quot;side_left&quot;: &quot;links&quot;, &quot;side_right&quot;: &quot;rechts&quot;, &quot;head_tilt&quot;: &quot;Dein Kopf ist etwas {direction} geneigt.&quot;, &quot;head_daily&quot;: &quot;Das sieht man oft, wenn man das Telefon zwischen Ohr und Schulter klemmt oder immer zur selben Seite schaut.&quot;, &quot;head_strong&quot;: &quot;Dein Kopf steht gerade und mittig.&quot;, &quot;sh_tilt&quot;: &quot;Deine Schulter ({highSide}) steht etwas höher als die andere.&quot;, &quot;sh_daily&quot;: &quot;Das sieht man oft, wenn man fast alles mit derselben Hand macht oder eine Tasche auf einer Schulter trägt.&quot;, &quot;sh_strong&quot;: &quot;Deine Schultern stehen auf gleicher Höhe.&quot;, &quot;again&quot;: &quot;Noch einmal messen&quot;}">
+<main id="main" class="check" data-check data-t="{&quot;again&quot;: &quot;Noch einmal messen&quot;, &quot;loading&quot;: &quot;Wird vorbereitet…&quot;, &quot;cam_error&quot;: &quot;Die Kamera ließ sich nicht starten. Prüf die Kameraberechtigung deines Browsers oder mach den vollständigen Check in der App.&quot;, &quot;unsupported&quot;: &quot;Dieser Browser kann den Mini-Check nicht ausführen. Den vollständigen Check kannst du in der App machen.&quot;, &quot;live&quot;: {&quot;moving&quot;: &quot;Stillhalten&quot;, &quot;stabilizing&quot;: &quot;So bleiben&quot;, &quot;pose_not_clear&quot;: &quot;Bild unscharf&quot;, &quot;valid&quot;: &quot;Analyse läuft&quot;, &quot;too_far&quot;: &quot;Näher kommen&quot;, &quot;too_close&quot;: &quot;Zurücktreten&quot;, &quot;move_left&quot;: &quot;Schritt nach links&quot;, &quot;move_right&quot;: &quot;Schritt nach rechts&quot;, &quot;body_not_visible&quot;: &quot;Ganz ins Bild&quot;, &quot;pose_not_found&quot;: &quot;Ins Bild treten&quot;, &quot;face_camera&quot;: &quot;Zur Kamera drehen&quot;, &quot;capturing_photo&quot;: &quot;Foto wird gemacht&quot;}, &quot;res_title&quot;: &quot;Dein Check-Ergebnis&quot;, &quot;res_today&quot;: &quot;Heutige Messung · {date}&quot;, &quot;top_one&quot;: &quot;Der auffälligste Bereich der Messung&quot;, &quot;top_n&quot;: &quot;Die {count} auffälligsten Bereiche der Messung&quot;, &quot;tag1&quot;: &quot;Am auffälligsten&quot;, &quot;tag2&quot;: &quot;An zweiter Stelle&quot;, &quot;locked&quot;: &quot;Wann es im Alltag auftritt und was dein Plan dafür tut&quot;, &quot;strong_title&quot;: &quot;Deine Stärke&quot;, &quot;no_findings&quot;: &quot;Bei diesem Check ist kein Bereich aufgefallen.&quot;, &quot;disclaimer&quot;: &quot;PosMetric stellt keine Diagnosen und empfiehlt keine Behandlung.&quot;, &quot;front&quot;: &quot;Von vorn&quot;, &quot;name_head&quot;: &quot;Seitlich geneigter Kopf&quot;, &quot;name_sh&quot;: &quot;Unterschiedliche Schulterhöhe&quot;, &quot;dir_left&quot;: &quot;nach links&quot;, &quot;dir_right&quot;: &quot;nach rechts&quot;, &quot;side_left&quot;: &quot;links&quot;, &quot;side_right&quot;: &quot;rechts&quot;, &quot;head_tilt&quot;: &quot;Dein Kopf ist etwas {direction} geneigt.&quot;, &quot;head_strong&quot;: &quot;Dein Kopf steht gerade und mittig.&quot;, &quot;sh_tilt&quot;: &quot;Deine Schulter ({highSide}) steht etwas höher als die andere.&quot;, &quot;sh_strong&quot;: &quot;Deine Schultern stehen auf gleicher Höhe.&quot;}">
   <section>
     <div class="wrap">
       <div class="head center">
         <span class="eyebrow">Im Browser ausprobieren</span>
-        <h1>Mini-Check: Kopf- und Schulterhaltung</h1>
-        <p>Probier hier zwei Messungen aus der App aus. Du musst nur frontal in die Kamera schauen.</p>
+        <h1>Mini-Check</h1>
+        <p>Ein kleiner Vorgeschmack auf das Frontfoto der App. Dein Coach leitet dich mit der Stimme an; sobald du richtig stehst, startet die Messung von selbst.</p>
       </div>
       <div class="check-box">
-        <div class="cam">
+        <div class="cam" data-state="">
           <video playsinline muted></video>
           <canvas></canvas>
-          <p class="status" aria-live="polite"></p>
+          <p class="live-pill" aria-live="polite"></p>
+          <div class="hold-bar" aria-hidden="true"><i></i></div>
           <div class="cam-actions">
-            <button class="btn primary" type="button" data-start>📷 Kamera einschalten</button>
-            <button class="btn primary" type="button" data-measure hidden>Messen</button>
+            <button class="btn primary" type="button" data-start>📷 Check starten</button>
           </div>
+          <p class="status" aria-live="polite"></p>
         </div>
         <div class="side">
-          <p class="callout key">🔒 Das Bild verlässt dein Gerät nicht. Die Messung läuft in deinem Browser; nichts wird gesendet oder gespeichert.</p>
+          <h3>Wähl deinen Coach</h3>
+          <div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Anna</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Max</button>
+          </div>
+          <label class="switch"><input type="checkbox" data-sound checked> <span>🔊 Sprachführung</span></label>
           <h3>So stellst du dich hin</h3>
-          <ul class="tips"><li>Schau frontal in die Kamera, die Arme locker neben dem Körper.</li><li>Für den Kopf reicht es, wenn dein Gesicht zu sehen ist.</li><li>Für die Schultern geh ein paar Schritte zurück, sodass auch deine Knöchel zu sehen sind.</li><li>Das Licht sollte von vorn kommen, kein Fenster hinter dir.</li></ul>
+          <ul class="tips"><li>Stell deinen Computer oder dein Handy etwa auf Hüfthöhe.</li><li>Geh ein paar Schritte zurück, sodass du vom Kopf bis zu den Knöcheln zu sehen bist.</li><li>Schau frontal in die Kamera, die Arme locker neben dem Körper.</li><li>Das Licht sollte von vorn kommen, kein Fenster hinter dir.</li></ul>
+          <p class="callout key">🔒 Das Bild verlässt dein Gerät nicht. Die Messung läuft in deinem Browser; nichts wird gesendet oder gespeichert.</p>
         </div>
       </div>
       <div class="results" aria-live="polite" hidden>
-        <div class="cards"></div>
-        <p class="note">Das ist nur ein kurzer Blick. Die App betrachtet deine ganze Haltung auf zwei Fotos, von vorn und von der Seite, und stellt dir einen passenden Bewegungsplan zusammen.</p>
+        <div class="res-head">
+          <div><h2>Dein Check-Ergebnis</h2><p class="date"></p></div>
+          <button class="btn" type="button" data-again>↻ Noch einmal messen</button>
+        </div>
+        <div class="res-grid">
+          <figure class="shot"><canvas></canvas><figcaption>Von vorn</figcaption></figure>
+          <div class="res-body"></div>
+        </div>
+        <div class="pitch card">
+          <h2>Was dich in der App erwartet</h2>
+          <p>Diese Messung lief mit demselben System wie in der App. Die App kann noch mehr:</p>
+          <ul class="app-list"><li><span class="ico">📐</span><div><b>Der vollständige Check</b><p>Zwei Fotos, von vorn und von der Seite, decken 23 Bereiche ab; hier hast du nur 2 gesehen.</p></div></li><li><span class="ico">🎯</span><div><b>Ein Plan, der zu dir passt</b> <span class="free">Kostenlos</span><p>Ein Plan mit 3 Übungen, der die auffälligsten Bereiche deiner Messung zuerst angeht.</p></div></li><li><span class="ico">🗣️</span><div><b>Dein Coach an deiner Seite</b><p>Anna oder Max macht jede Übung mit dir und zählt laut mit.</p></div></li><li><span class="ico">☕</span><div><b>Schreibtischpause</b> <span class="free">Kostenlos</span><p>3 kurze Übungen direkt am Platz.</p></div></li><li><span class="ico">🔥</span><div><b>Ringe und Serien</b> <span class="free">Kostenlos</span><p>An jedem Tag, an dem du dich bewegst, füllen sich deine Ringe.</p></div></li></ul>
+          <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=de"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Jetzt bei</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Demnächst</small>App Store</span></span>
+      </div>
+          <p class="fine">Kostenlos starten · Kein Konto nötig · Keine Werbung</p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="alt cta-final">
+  <section class="alt cta-final" data-cta>
     <div class="wrap">
       <div class="head center" style="margin-bottom:0"><h2>Vollständiger Check und dein Plan in der App</h2><p>Zwei Fotos, ein paar Minuten. Den Rest machst du zusammen mit deinem Coach.</p></div>
       <div class="stores">

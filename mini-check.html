@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mini kontrol — PosMetric</title>
-  <meta name="description" content="Kameranın karşısında dur, başının ve omuzlarının hizasına tarayıcında bak. Görüntü cihazından çıkmaz.">
+  <meta name="description" content="Kameranın karşısında dur; koçun seni sesle yönlendirsin, ölçüm kendiliğinden yapılsın. Görüntü cihazından çıkmaz.">
   <link rel="canonical" href="https://physiometric.app/mini-check.html">
   <link rel="alternate" hreflang="tr" href="https://physiometric.app/mini-check.html">
   <link rel="alternate" hreflang="en" href="https://physiometric.app/en/mini-check.html">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PosMetric">
   <meta property="og:title" content="Mini kontrol — PosMetric">
-  <meta property="og:description" content="Kameranın karşısında dur, başının ve omuzlarının hizasına tarayıcında bak. Görüntü cihazından çıkmaz.">
+  <meta property="og:description" content="Kameranın karşısında dur; koçun seni sesle yönlendirsin, ölçüm kendiliğinden yapılsın. Görüntü cihazından çıkmaz.">
   <meta property="og:url" content="https://physiometric.app/mini-check.html">
   <meta property="og:image" content="https://physiometric.app/assets/img/og-tr.jpg">
   <meta property="og:locale" content="tr_TR">
@@ -42,37 +42,60 @@
     </button>
   </div>
 </header>
-<main id="main" class="check" data-check data-t="{&quot;loading&quot;: &quot;Hazırlanıyor…&quot;, &quot;ready&quot;: &quot;Hazırsın. Dik dur ve “Ölç”e bas.&quot;, &quot;hold&quot;: &quot;Dik dur, ölçüyorum…&quot;, &quot;no_person&quot;: &quot;Seni göremiyorum. Kameraya önden bak.&quot;, &quot;cam_error&quot;: &quot;Kamera açılamadı. Tarayıcının kamera iznini kontrol et ya da tam kontrolü uygulamada yap.&quot;, &quot;unsupported&quot;: &quot;Bu tarayıcı mini kontrolü çalıştıramıyor. Tam kontrolü uygulamada yapabilirsin.&quot;, &quot;need_full&quot;: &quot;Omuzlar için biraz geri çekil; ayak bileklerin de görünmeli.&quot;, &quot;head&quot;: &quot;Baş&quot;, &quot;shoulders&quot;: &quot;Omuzlar&quot;, &quot;seen&quot;: &quot;Gözlem&quot;, &quot;daily&quot;: &quot;Günlük hayatta&quot;, &quot;strong_label&quot;: &quot;Güçlü yanın&quot;, &quot;dir_left&quot;: &quot;sola&quot;, &quot;dir_right&quot;: &quot;sağa&quot;, &quot;side_left&quot;: &quot;Sol&quot;, &quot;side_right&quot;: &quot;Sağ&quot;, &quot;head_tilt&quot;: &quot;Başın {direction} doğru biraz eğik duruyor.&quot;, &quot;head_daily&quot;: &quot;Telefonu omzunla kulağın arasında tutarken ya da hep aynı yana bakarken sık görülür.&quot;, &quot;head_strong&quot;: &quot;Başın dik ve ortada duruyor.&quot;, &quot;sh_tilt&quot;: &quot;{highSide} omzun diğerinden biraz yukarıda duruyor.&quot;, &quot;sh_daily&quot;: &quot;Çoğu işi aynı elle yaparken ya da çantayı tek omuzda taşırken sık görülür.&quot;, &quot;sh_strong&quot;: &quot;Omuzların aynı yükseklikte duruyor.&quot;, &quot;again&quot;: &quot;Tekrar ölç&quot;}">
+<main id="main" class="check" data-check data-t="{&quot;again&quot;: &quot;Tekrar ölç&quot;, &quot;loading&quot;: &quot;Hazırlanıyor…&quot;, &quot;cam_error&quot;: &quot;Kamera açılamadı. Tarayıcının kamera iznini kontrol et ya da tam kontrolü uygulamada yap.&quot;, &quot;unsupported&quot;: &quot;Bu tarayıcı mini kontrolü çalıştıramıyor. Tam kontrolü uygulamada yapabilirsin.&quot;, &quot;live&quot;: {&quot;moving&quot;: &quot;Sabit durun&quot;, &quot;stabilizing&quot;: &quot;Böyle kalın&quot;, &quot;pose_not_clear&quot;: &quot;Görüntü net değil&quot;, &quot;valid&quot;: &quot;Analiz ediliyor&quot;, &quot;too_far&quot;: &quot;Yaklaşın&quot;, &quot;too_close&quot;: &quot;Uzaklaşın&quot;, &quot;move_left&quot;: &quot;Sola bir adım&quot;, &quot;move_right&quot;: &quot;Sağa bir adım&quot;, &quot;body_not_visible&quot;: &quot;Tam boy görünün&quot;, &quot;pose_not_found&quot;: &quot;Kadraja girin&quot;, &quot;face_camera&quot;: &quot;Kameraya dönün&quot;, &quot;capturing_photo&quot;: &quot;Fotoğraf çekiliyor&quot;}, &quot;res_title&quot;: &quot;Kontrol sonucun&quot;, &quot;res_today&quot;: &quot;Bugünkü ölçüm · {date}&quot;, &quot;top_one&quot;: &quot;Ölçümde en belirgin alan&quot;, &quot;top_n&quot;: &quot;Ölçümde en belirgin {count} alan&quot;, &quot;tag1&quot;: &quot;Ölçümde en belirgin&quot;, &quot;tag2&quot;: &quot;Ölçümde ikinci&quot;, &quot;locked&quot;: &quot;Günlük hayatta ne zaman görülür ve planın ne yapıyor&quot;, &quot;strong_title&quot;: &quot;Güçlü yanın&quot;, &quot;no_findings&quot;: &quot;Bu kontrolde öne çıkan bir alan görülmedi.&quot;, &quot;disclaimer&quot;: &quot;PosMetric tıbbi tanı koymaz, tedavi önermez.&quot;, &quot;front&quot;: &quot;Önden&quot;, &quot;name_head&quot;: &quot;Yana eğik baş&quot;, &quot;name_sh&quot;: &quot;Omuz yükseklik farkı&quot;, &quot;dir_left&quot;: &quot;sola&quot;, &quot;dir_right&quot;: &quot;sağa&quot;, &quot;side_left&quot;: &quot;Sol&quot;, &quot;side_right&quot;: &quot;Sağ&quot;, &quot;head_tilt&quot;: &quot;Başın {direction} doğru biraz eğik duruyor.&quot;, &quot;head_strong&quot;: &quot;Başın dik ve ortada duruyor.&quot;, &quot;sh_tilt&quot;: &quot;{highSide} omzun diğerinden biraz yukarıda duruyor.&quot;, &quot;sh_strong&quot;: &quot;Omuzların aynı yükseklikte duruyor.&quot;}">
   <section>
     <div class="wrap">
       <div class="head center">
         <span class="eyebrow">Tarayıcıda dene</span>
-        <h1>Mini kontrol: baş ve omuz hizan</h1>
-        <p>Uygulamadaki ölçümlerden ikisini burada deneyebilirsin. Kameraya önden bakman yeter.</p>
+        <h1>Mini kontrol</h1>
+        <p>Uygulamadaki ön çekimin küçük bir denemesi. Koçun seni sesle yönlendirir; doğru durduğunda ölçüm kendiliğinden yapılır.</p>
       </div>
       <div class="check-box">
-        <div class="cam">
+        <div class="cam" data-state="">
           <video playsinline muted></video>
           <canvas></canvas>
-          <p class="status" aria-live="polite"></p>
+          <p class="live-pill" aria-live="polite"></p>
+          <div class="hold-bar" aria-hidden="true"><i></i></div>
           <div class="cam-actions">
-            <button class="btn primary" type="button" data-start>📷 Kamerayı aç</button>
-            <button class="btn primary" type="button" data-measure hidden>Ölç</button>
+            <button class="btn primary" type="button" data-start>📷 Kontrole başla</button>
           </div>
+          <p class="status" aria-live="polite"></p>
         </div>
         <div class="side">
-          <p class="callout key">🔒 Görüntü cihazından çıkmaz. Ölçüm tarayıcında yapılır; hiçbir yere gönderilmez, kaydedilmez.</p>
+          <h3>Koçunu seç</h3>
+          <div class="row">
+            <button class="btn" type="button" data-pick="elif" aria-pressed="true">Elif</button>
+            <button class="btn" type="button" data-pick="asim" aria-pressed="false">Asım</button>
+          </div>
+          <label class="switch"><input type="checkbox" data-sound checked> <span>🔊 Sesli yönlendirme</span></label>
           <h3>Nasıl durmalısın?</h3>
-          <ul class="tips"><li>Kameraya önden bak, kolların yanında serbest dursun.</li><li>Baş için yüzünün görünmesi yeter.</li><li>Omuzlar için birkaç adım geri çekil; ayak bileklerin de görünsün.</li><li>Işık önünden gelsin, arkanda pencere olmasın.</li></ul>
+          <ul class="tips"><li>Bilgisayarı ya da telefonu bel hizasında bir yere koy.</li><li>Birkaç adım geri çekil; başından ayak bileklerine kadar görünmelisin.</li><li>Kameraya önden bak, kolların yanında serbest dursun.</li><li>Işık önünden gelsin, arkanda pencere olmasın.</li></ul>
+          <p class="callout key">🔒 Görüntü cihazından çıkmaz. Ölçüm tarayıcında yapılır; hiçbir yere gönderilmez, kaydedilmez.</p>
         </div>
       </div>
       <div class="results" aria-live="polite" hidden>
-        <div class="cards"></div>
-        <p class="note">Bu, tek bir anlık bakış. Uygulama önden ve yandan iki fotoğrafla duruşunun tamamına bakar ve sana göre bir hareket planı hazırlar.</p>
+        <div class="res-head">
+          <div><h2>Kontrol sonucun</h2><p class="date"></p></div>
+          <button class="btn" type="button" data-again>↻ Tekrar ölç</button>
+        </div>
+        <div class="res-grid">
+          <figure class="shot"><canvas></canvas><figcaption>Önden</figcaption></figure>
+          <div class="res-body"></div>
+        </div>
+        <div class="pitch card">
+          <h2>Uygulamada seni neler bekliyor?</h2>
+          <p>Bu ölçüm uygulamadaki sistemin aynısıyla yapıldı. Uygulamada daha fazlası var:</p>
+          <ul class="app-list"><li><span class="ico">📐</span><div><b>Tam kontrol</b><p>Önden ve yandan iki fotoğrafla 23 alana bakılır; burada yalnızca 2&#x27;sini gördün.</p></div></li><li><span class="ico">🎯</span><div><b>Sana göre plan</b> <span class="free">Ücretsiz</span><p>Ölçümünde öne çıkan alanlara öncelik veren 3 hareketlik bir plan.</p></div></li><li><span class="ico">🗣️</span><div><b>Koçun yanında</b><p>Elif ya da Asım her hareketi seninle birlikte yapar, sesle sayar.</p></div></li><li><span class="ico">☕</span><div><b>Masa başı molası</b> <span class="free">Ücretsiz</span><p>Oturduğun yerde 3 kısa hareket.</p></div></li><li><span class="ico">🔥</span><div><b>Halkalar ve seri</b> <span class="free">Ücretsiz</span><p>Hareket ettiğin her gün halkaların dolar.</p></div></li></ul>
+          <div class="stores">
+        <a class="store play" href="https://play.google.com/store/apps/details?id=com.fark.physiometric&amp;hl=tr"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>Hemen indir</small>Google Play</span></a>
+        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>Yakında</small>App Store</span></span>
+      </div>
+          <p class="fine">Ücretsiz başla · Hesap açman gerekmez · Reklam yok</p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="alt cta-final">
+  <section class="alt cta-final" data-cta>
     <div class="wrap">
       <div class="head center" style="margin-bottom:0"><h2>Tam kontrol ve planın uygulamada</h2><p>İki fotoğraf, birkaç dakika. Gerisini koçunla birlikte yaparsın.</p></div>
       <div class="stores">
