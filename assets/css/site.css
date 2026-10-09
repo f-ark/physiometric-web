@@ -393,7 +393,7 @@ section{padding:72px 0}
 .area .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--primary);background:color-mix(in srgb,var(--primary) 10%,transparent);padding:3px 10px;border-radius:999px;margin-bottom:8px}
 .area h4{font-size:20px;margin-bottom:4px}
 .area .lock{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-.pro{flex:none;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);padding:3px 9px;border-radius:999px}
+.pro-tag{flex:none;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);padding:3px 9px;border-radius:999px}
 .strong-card{display:flex;align-items:center;gap:12px;font-weight:600}
 .strong-card .ok{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--success)}
 .res-body .disc{font-size:13px;color:var(--muted);margin-top:6px}

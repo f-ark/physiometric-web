@@ -196,7 +196,7 @@ function init(root) {
         const c = el('article', 'card area');
         c.append(el('span', 'tag', i ? t.tag2 : t.tag1), el('h4', '', f.name), el('p', '', f.text));
         const lock = el('div', 'lock');
-        lock.append(el('span', '', t.locked), el('span', 'pro', 'Pro'));
+        lock.append(el('span', '', t.locked), el('span', 'pro-tag', 'Pro'));
         c.append(lock);
         out.push(c);
       });
