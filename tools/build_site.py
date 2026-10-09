@@ -123,7 +123,8 @@ def rings(states: list[str], labels: list[str], cls: str = "") -> str:
 def hero_demo(lang: str) -> str:
     """Karşılamadaki ölçüm canlandırması: önden ve yandan çekim, ardından sonuç kartı.
 
-    Noktalar BlazePose'un 33 noktalık numaralarıyla. Gövde, el ve ayak noktaları poz modelinin
+    Önden 23, yandan 13 nokta çizilir (numaralar BlazePose'un 33 noktalık şemasından; altyazıdaki
+    sayılar bunlarla aynı kalmalı). Gövde, el ve ayak noktaları poz modelinin
     (MediaPipe Pose Landmarker heavy) bu fotoğraflardaki çıktısıdır. Yüz noktaları (burun, gözler,
     kulaklar, ağız) elle yerleştirildi: model bu görselde kulakları yüzün içine kaydırıyor.
     Sonuçlar uygulamanın formülleriyle bu noktalardan hesaplandı:
