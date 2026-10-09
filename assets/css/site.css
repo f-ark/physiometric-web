@@ -93,48 +93,71 @@ p{margin:0}
 .fine{margin-top:14px;font-size:14px;color:var(--muted)}
 .bubble{position:absolute;background:var(--surface);color:var(--text);border-radius:18px;padding:10px 14px;font-weight:700;font-size:15px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .bubble::after{content:"";position:absolute;bottom:-7px;left:26px;width:14px;height:14px;background:inherit;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
-/* Karşılamadaki ölçüm canlandırması: 9 sn'lik döngü (tara → noktalar → "Böyle kalın" → çekim → sonuç) */
+/* Karşılamadaki ölçüm canlandırması: 12 sn'lik döngü. */
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .btn{text-decoration:none}
 .btn.big{min-height:56px;padding:12px 22px;font-size:17px;border-radius:14px;box-shadow:0 10px 24px color-mix(in srgb,var(--primary) 30%,transparent)}
-.hero-demo{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:600/422;box-shadow:0 24px 60px rgba(20,24,60,.25);border:1px solid var(--line);--dur:9s}
-.hero-demo img,.hero-demo svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-demo img{object-fit:cover}
-.hero-demo svg *{vector-effect:non-scaling-stroke}
-.hero-demo .scan{stroke:#4CC9F0;stroke-width:3;filter:drop-shadow(0 0 6px #4CC9F0);animation:hd-scan var(--dur) linear infinite}
-.hero-demo .bones line{stroke:#4361EE;stroke-width:3;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:hd-draw var(--dur) ease-out infinite}
-.hero-demo .mid{stroke:rgba(255,255,255,.95);stroke-width:2;stroke-dasharray:6 5;opacity:0;animation:hd-mid var(--dur) linear infinite}
-.hero-demo .ear{stroke:#16A34A;stroke-width:4;stroke-linecap:round;opacity:0;animation:hd-ear var(--dur) linear infinite}
-.hero-demo .dots circle{fill:#fff;stroke:#4361EE;stroke-width:3;transform-box:fill-box;transform-origin:center;transform:scale(0);animation:hd-dot var(--dur) ease-out infinite;animation-delay:var(--d)}
-.hero-demo .pill{position:absolute;top:14px;left:50%;transform:translateX(-50%);color:#fff;font-weight:800;font-size:15px;padding:7px 16px;border-radius:999px;white-space:nowrap;opacity:0;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.2)}
-.hero-demo .pill.hold{background:#4361EE;animation:hd-hold var(--dur) linear infinite}
-.hero-demo .pill.hold::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:rgba(255,255,255,.85);transform-origin:left;animation:hd-bar var(--dur) linear infinite}
-.hero-demo .pill.ok{background:#16A34A;animation:hd-ok var(--dur) linear infinite}
-.hero-demo .flash{position:absolute;inset:0;background:#fff;opacity:0;animation:hd-flash var(--dur) linear infinite}
-.hero-demo .res-card{position:absolute;left:14px;right:14px;bottom:14px;max-width:360px;background:var(--surface);color:var(--text);border-radius:16px;padding:12px 16px;box-shadow:0 16px 40px rgba(0,0,0,.25);opacity:0;transform:translateY(24px);animation:hd-card var(--dur) cubic-bezier(.2,.8,.2,1) infinite}
-.hero-demo .res-card small{display:block;font-size:12px;color:var(--muted);font-weight:600}
-.hero-demo .res-card b{display:block;font-size:13px;color:var(--success);margin-top:2px}
-.hero-demo .res-card p{display:flex;gap:8px;align-items:center;font-weight:700;font-size:15px;margin-top:2px}
-.hero-demo .res-card .ok{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--success);font-size:13px}
+.hero-side{width:100%;max-width:500px;justify-self:center}
+.hero-demo{position:relative;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;--dur:12s}
+.hd-panel{position:relative;aspect-ratio:340/820;border-radius:20px;overflow:hidden;background:#8a8a8a;box-shadow:0 20px 50px rgba(20,24,60,.22);border:1px solid var(--line)}
+.hd-panel img,.hd-panel svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hd-panel img{object-fit:cover}
+.hd-panel svg *{vector-effect:non-scaling-stroke}
+.hd-panel .tag{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.5);padding:3px 10px;border-radius:999px}
+.hd-panel .scan{stroke:#4CC9F0;stroke-width:3;filter:drop-shadow(0 0 6px #4CC9F0);opacity:0;animation:hd-scan var(--dur) linear infinite}
+.hd-panel .bones line{stroke:#4361EE;stroke-width:3;stroke-linecap:round;opacity:0;animation:hd-bones var(--dur) ease-out infinite}
+.hd-panel .mid{stroke:rgba(255,255,255,.95);stroke-width:2;stroke-dasharray:6 5;opacity:0;animation:hd-lines var(--dur) linear infinite}
+.hd-panel .ok{stroke:#22C55E;stroke-width:4;stroke-linecap:round;opacity:0;animation:hd-lines var(--dur) linear infinite}
+.hd-panel .seen{stroke:#E94560;stroke-width:4;stroke-linecap:round;opacity:0;animation:hd-lines var(--dur) linear infinite}
+.hd-panel .seen-dot{fill:none;stroke:#E94560;stroke-width:3;opacity:0;animation:hd-lines var(--dur) linear infinite}
+.hd-panel .dots circle{fill:#fff;stroke:#4361EE;stroke-width:3;transform-box:fill-box;transform-origin:center;transform:scale(0);animation:hd-dot var(--dur) ease-out infinite;animation-delay:var(--d)}
+.hd-panel .pill{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#fff;font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;white-space:nowrap;opacity:0;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.hd-panel .pill.hold{background:#4361EE;animation:hd-hold var(--dur) linear infinite}
+.hd-panel .pill.hold::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.85);transform-origin:left;transform:scaleX(0);animation:hd-bar var(--dur) linear infinite}
+.hd-panel .pill.ok{background:#16A34A;animation:hd-okp var(--dur) linear infinite}
+.hd-panel .flash{position:absolute;inset:0;background:#fff;opacity:0;animation:hd-flash var(--dur) linear infinite}
+.hero-demo .res-card{position:absolute;left:12px;right:12px;bottom:12px;background:var(--surface);color:var(--text);border-radius:16px;padding:12px 14px;box-shadow:0 16px 40px rgba(0,0,0,.28);opacity:0;transform:translateY(24px);animation:hd-card var(--dur) cubic-bezier(.2,.8,.2,1) infinite}
+.hero-demo .res-card small{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.hero-demo .res-card .r + .r{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.hero-demo .res-card .t{display:inline-block;font-size:11px;font-weight:700;color:var(--primary);background:color-mix(in srgb,var(--primary) 10%,transparent);padding:2px 8px;border-radius:999px}
+.hero-demo .res-card .t.ok{color:var(--success);background:color-mix(in srgb,var(--success) 12%,transparent)}
+.hero-demo .res-card b{display:block;font-size:15px;margin-top:4px}
+.hero-demo .res-card p{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--text-2);margin-top:2px}
+.hero-demo .res-card .ok-i{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--success);font-size:12px}
 .demo-cap{margin-top:10px;text-align:center;font-size:13px;color:var(--muted)}
-@keyframes hd-scan{0%{transform:translateY(0);opacity:1}14%{transform:translateY(422px);opacity:1}15%,100%{opacity:0;transform:translateY(422px)}}
-@keyframes hd-draw{0%,14%{stroke-dashoffset:200;opacity:1}24%,92%{stroke-dashoffset:0;opacity:1}98%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes hd-dot{0%,10%{transform:scale(0)}15%{transform:scale(1.4)}18%,92%{transform:scale(1);opacity:1}98%,100%{transform:scale(1);opacity:0}}
-@keyframes hd-mid{0%,22%{opacity:0}28%,92%{opacity:1}98%,100%{opacity:0}}
-@keyframes hd-ear{0%,30%{opacity:0}34%,92%{opacity:1}98%,100%{opacity:0}}
-@keyframes hd-hold{0%,24%{opacity:0}27%,54%{opacity:1}56%,100%{opacity:0}}
-@keyframes hd-bar{0%,26%{transform:scaleX(0)}54%,100%{transform:scaleX(1)}}
-@keyframes hd-ok{0%,55%{opacity:0}57%,68%{opacity:1}70%,100%{opacity:0}}
-@keyframes hd-flash{0%,57%{opacity:0}58%{opacity:.75}64%,100%{opacity:0}}
-@keyframes hd-card{0%,63%{opacity:0;transform:translateY(24px)}68%,93%{opacity:1;transform:none}98%,100%{opacity:0;transform:none}}
+/* Zaman çizelgeleri: önden 0–32%, yandan 32–64%, sonuç kartı 66–94%; sonda hepsi söner. */
+@keyframes hd-scan{0%,0%{transform:translateY(0);opacity:1}0.1%{transform:translateY(0);opacity:1}8%{transform:translateY(820px);opacity:1}9%,100%{opacity:0;transform:translateY(820px)}}
+@keyframes hd-bones{0%,7%{opacity:0}11%,96%{opacity:1}99%,100%{opacity:0}}
+@keyframes hd-dot{0%,6%{transform:scale(0)}9%{transform:scale(1.4)}11%,96%{transform:scale(1);opacity:1}99%,100%{transform:scale(1);opacity:0}}
+@keyframes hd-hold{0%,10%{opacity:0}12%,24%{opacity:1}25%,100%{opacity:0}}
+@keyframes hd-bar{0%,11%{transform:scaleX(0)}24%,100%{transform:scaleX(1)}}
+@keyframes hd-okp{0%,24%{opacity:0}25%,31%{opacity:1}32%,100%{opacity:0}}
+@keyframes hd-flash{0%,25%{opacity:0}25.5%{opacity:.8}29%,100%{opacity:0}}
+@keyframes hd-lines{0%,26%{opacity:0}29%,96%{opacity:1}99%,100%{opacity:0}}
+@keyframes hd-scan-s{0%,32%{transform:translateY(0);opacity:0}32.1%{transform:translateY(0);opacity:1}40%{transform:translateY(820px);opacity:1}41%,100%{opacity:0;transform:translateY(820px)}}
+@keyframes hd-bones-s{0%,39%{opacity:0}43%,96%{opacity:1}99%,100%{opacity:0}}
+@keyframes hd-dot-s{0%,38%{transform:scale(0)}41%{transform:scale(1.4)}43%,96%{transform:scale(1);opacity:1}99%,100%{transform:scale(1);opacity:0}}
+@keyframes hd-hold-s{0%,42%{opacity:0}44%,56%{opacity:1}57%,100%{opacity:0}}
+@keyframes hd-bar-s{0%,43%{transform:scaleX(0)}56%,100%{transform:scaleX(1)}}
+@keyframes hd-okp-s{0%,56%{opacity:0}57%,63%{opacity:1}64%,100%{opacity:0}}
+@keyframes hd-flash-s{0%,57%{opacity:0}57.5%{opacity:.8}61%,100%{opacity:0}}
+@keyframes hd-lines-s{0%,58%{opacity:0}61%,96%{opacity:1}99%,100%{opacity:0}}
+.hd-panel.side .scan{animation-name:hd-scan-s}
+.hd-panel.side .bones line{animation-name:hd-bones-s}
+.hd-panel.side .dots circle{animation-name:hd-dot-s}
+.hd-panel.side .pill.hold{animation-name:hd-hold-s}
+.hd-panel.side .pill.hold::after{animation-name:hd-bar-s}
+.hd-panel.side .pill.ok{animation-name:hd-okp-s}
+.hd-panel.side .flash{animation-name:hd-flash-s}
+.hd-panel.side .mid,.hd-panel.side .ok,.hd-panel.side .seen,.hd-panel.side .seen-dot{animation-name:hd-lines-s}
+@keyframes hd-card{0%,66%{opacity:0;transform:translateY(24px)}70%,94%{opacity:1;transform:none}98%,100%{opacity:0;transform:none}}
 @media (prefers-reduced-motion:reduce){
   .hero-demo *{animation:none!important}
-  .hero-demo .scan,.hero-demo .pill,.hero-demo .flash{display:none}
-  .hero-demo .bones line{stroke-dashoffset:0}
-  .hero-demo .dots circle{transform:none}
-  .hero-demo .mid,.hero-demo .ear,.hero-demo .res-card{opacity:1;transform:none}
+  .hd-panel .scan,.hd-panel .pill,.hd-panel .flash{display:none}
+  .hd-panel .dots circle{transform:none}
+  .hd-panel .bones line,.hd-panel .mid,.hd-panel .ok,.hd-panel .seen,.hd-panel .seen-dot,.hero-demo .res-card{opacity:1;transform:none}
 }
-@media (max-width:860px){.hero{padding-top:36px}.hero .wrap{grid-template-columns:1fr}.hero-side{max-width:560px;width:100%;margin:0 auto}.hero-demo .res-card{left:10px;right:10px;bottom:10px;padding:9px 12px}.hero-demo .res-card p{font-size:14px}.hero-demo .pill{font-size:13px;top:10px}}
+@media (max-width:860px){.hero{padding-top:36px}.hero .wrap{grid-template-columns:1fr}.hero-demo .res-card{left:8px;right:8px;bottom:8px;padding:10px 12px}.hero-demo .res-card b{font-size:14px}.hero-demo .res-card p{font-size:13px}}
 
 /* Bölümler */
 section{padding:72px 0}

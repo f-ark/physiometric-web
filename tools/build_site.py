@@ -121,41 +121,69 @@ def rings(states: list[str], labels: list[str], cls: str = "") -> str:
 
 
 def hero_demo(lang: str) -> str:
-    """Karşılamadaki ölçüm canlandırması. Noktalar, örnek fotoğrafta poz modelinin (MediaPipe
-    Pose Landmarker lite) gerçek çıktısıdır; baş eğikliği uygulamanın formülüyle -0,6°, yani
-    eşiğin (3°) altında: "Güçlü yanın". Kişi oturduğu ve ayak bilekleri görünmediği için omuz
-    ölçülmez, yalnızca noktaları çizilir."""
+    """Karşılamadaki ölçüm canlandırması: önden ve yandan çekim, ardından sonuç kartı.
+
+    Noktalar örnek fotoğraflarda poz modelinin (MediaPipe Pose Landmarker lite) gerçek çıktısıdır;
+    sonuçlar uygulamanın formülleriyle hesaplandı:
+    - Önden: baş eğikliği 0,6° (eşik 3°), omuz yükseklik farkı %1,1 (eşik %2) → bulgu yok.
+      Güçlü yan, uygulamadaki bölge sırasıyla omuz.
+    - Yandan (çekül hattı): kulak, beş noktanın ortalamasından gövde boyunun %14'ü kadar önde
+      (eşik %1,8) → İleri baş duruşu.
+    Fotoğraflar değişirse model yeniden çalıştırılıp konumlar güncellenir."""
     c, h = CHECK[lang], HOME[lang]
-    # 600x422 kırpılmış fotoğrafta piksel konumları
-    pts = {"nose": (361.5, 98.5), "le": (394.6, 93), "re": (348.4, 92.5), "ls": (435.5, 176.1), "rs": (324.8, 168),
-           "lel": (409.4, 274.4), "rel": (277.4, 252.4), "lw": (308.4, 278.7), "rw": (269.6, 270.8)}
-    # Kalçalar masanın altında kalıyor (model tahmin ediyor); çizilmez.
-    bones = [("ls", "rs"), ("ls", "lel"), ("lel", "lw"), ("rs", "rel"), ("rel", "rw")]
-    lines = "".join(
-        f'<line x1="{pts[a][0]}" y1="{pts[a][1]}" x2="{pts[b][0]}" y2="{pts[b][1]}"/>' for a, b in bones
+    # 340x820 kırpılmış fotoğraflarda piksel konumları (kırpma: önden x 97, yandan x 80, ikisinde y 80)
+    f = {"nose": (165.6, 127.4), "le": (191.7, 121.3), "re": (142, 121.8), "ls": (242.4, 215.4), "rs": (98.3, 223.1),
+         "lel": (263.7, 333.8), "rel": (72.5, 335.2), "lw": (267.2, 440.1), "rw": (67.4, 438),
+         "lh": (212.1, 424.6), "rh": (128.5, 427.2), "lk": (210.5, 593.6), "rk": (126.2, 590.3),
+         "la": (215, 752.5), "ra": (125.1, 754.2)}
+    fb = [("ls", "rs"), ("ls", "lel"), ("lel", "lw"), ("rs", "rel"), ("rel", "rw"), ("ls", "lh"), ("rs", "rh"),
+          ("lh", "rh"), ("lh", "lk"), ("lk", "la"), ("rh", "rk"), ("rk", "ra")]
+    sd = {"ear": (151, 122.3), "sh": (186.7, 202.8), "hip": (187.5, 429.5), "knee": (189.6, 588.9), "ank": (203.9, 754.6)}
+    ref = 183.7  # çekül hattı: beş noktanın x ortalaması
+
+    def line(p, q, cls=""):
+        return f'<line{cls} x1="{p[0]}" y1="{p[1]}" x2="{q[0]}" y2="{q[1]}"/>'
+
+    def ext(p, q, k=0.45):
+        dx, dy = q[0] - p[0], q[1] - p[1]
+        return (round(p[0] - dx * k, 1), round(p[1] - dy * k, 1)), (round(q[0] + dx * k, 1), round(q[1] + dy * k, 1))
+
+    def dots(pts):
+        return "".join(f'<circle cx="{x}" cy="{y}" r="6" style="--d:{i * 0.05:.2f}s"/>' for i, (x, y) in enumerate(pts))
+
+    mx = round((f["la"][0] + f["ra"][0]) / 2, 1)
+    front = (
+        f'<g class="bones">{"".join(line(f[a], f[b]) for a, b in fb)}</g>'
+        f'<line class="mid" x1="{mx}" y1="40" x2="{mx}" y2="780"/>'
+        f'{line(*ext(f["re"], f["le"]), cls=" class=ok")}{line(*ext(f["rs"], f["ls"], 0.25), cls=" class=ok")}'
+        f'<g class="dots">{dots(f.values())}</g>'
     )
-    dots = "".join(
-        f'<circle cx="{x}" cy="{y}" r="5" style="--d:{i * 0.06:.2f}s"/>' for i, (x, y) in enumerate(pts.values())
+    chain = ["ear", "sh", "hip", "knee", "ank"]
+    side = (
+        f'<g class="bones">{"".join(line(sd[a], sd[b]) for a, b in zip(chain, chain[1:]))}</g>'
+        f'<line class="mid" x1="{ref}" y1="40" x2="{ref}" y2="780"/>'
+        f'<line class="seen" x1="{ref}" y1="{sd["ear"][1]}" x2="{sd["ear"][0]}" y2="{sd["ear"][1]}"/>'
+        f'<g class="dots">{dots(sd.values())}</g>'
+        f'<circle class="seen-dot" cx="{sd["ear"][0]}" cy="{sd["ear"][1]}" r="10"/>'
     )
-    (x1, y1), (x2, y2) = pts["re"], pts["le"]
-    dx, dy = x2 - x1, y2 - y1
-    ear = f'<line class="ear" x1="{x1 - dx * 0.6:.1f}" y1="{y1 - dy * 0.6:.1f}" x2="{x2 + dx * 0.6:.1f}" y2="{y2 + dy * 0.6:.1f}"/>'
+
+    def panel(cls, img, label, overlay):
+        return f"""<div class="hd-panel {cls}">
+          <img src="/assets/img/{img}" alt="" width="340" height="820"{' fetchpriority="high"' if cls == "front" else ' loading="eager"'}>
+          <svg viewBox="0 0 340 820" preserveAspectRatio="xMidYMid slice"><line class="scan" x1="0" y1="0" x2="340" y2="0"/>{overlay}</svg>
+          <span class="tag">{escape(label)}</span>
+          <span class="pill hold">{escape(c['live']['stabilizing'])}</span>
+          <span class="pill ok">{escape(c['live']['capturing_photo'])}</span>
+          <i class="flash"></i>
+        </div>"""
+
     return f"""<div class="hero-side"><figure class="hero-demo" aria-hidden="true">
-        <img src="/assets/img/hero-check.webp" alt="" width="600" height="422" fetchpriority="high">
-        <svg viewBox="0 0 600 422" preserveAspectRatio="xMidYMid slice">
-          <line class="scan" x1="0" y1="0" x2="600" y2="0"/>
-          <g class="bones">{lines}</g>
-          <line class="mid" x1="{pts['nose'][0]}" y1="30" x2="{pts['nose'][0]}" y2="250"/>
-          {ear}
-          <g class="dots">{dots}</g>
-        </svg>
-        <span class="pill hold">{escape(c['live']['stabilizing'])}</span>
-        <span class="pill ok">{escape(c['live']['capturing_photo'])}</span>
-        <i class="flash"></i>
+        {panel("front", "hero-front.webp", c['front'], front)}
+        {panel("side", "hero-side.webp", c['side'], side)}
         <div class="res-card">
           <small>{escape(c['res_title'])}</small>
-          <b>{escape(c['strong_title'])}</b>
-          <p><span class="ok">✓</span>{escape(c['head_strong'])}</p>
+          <div class="r"><span class="t">{escape(c['tag1'])}</span><b>{escape(c['name_fwd'])}</b><p>{escape(c['fwd_text'])}</p></div>
+          <div class="r"><span class="t ok">{escape(c['strong_title'])}</span><p><span class="ok-i">✓</span>{escape(c['sh_strong'])}</p></div>
         </div>
       </figure>
       <p class="demo-cap">{escape(h['demo_caption'])}</p></div>"""

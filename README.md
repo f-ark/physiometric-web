@@ -30,7 +30,7 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 ## Karşılama ve mini kontrol
 
-Karşılamada (en üst) ölçüm canlandırması var: `assets/img/hero-check.webp` (ödeme ekranı için üretilmiş görsel, üstü kırpıldı) üzerinde poz modelinin bu fotoğraftaki gerçek noktaları ve uygulamanın formülüyle çıkan gerçek sonuç ("Başın dik ve ortada duruyor", baş eğikliği -0,6°). Noktalar `tools/build_site.py` → `hero_demo` içinde; fotoğraf değişirse model yeniden çalıştırılıp güncellenir. Hareket azaltma ayarında canlandırma durur, son kare görünür.
+Karşılamada (en üst) ölçüm canlandırması var: önden ve yandan iki örnek fotoğraf (`assets/img/hero-front.webp`, `hero-side.webp`; uygulamanın demo görselinden bölündü). Noktalar poz modelinin bu fotoğraflardaki gerçek çıktısı, sonuçlar uygulamanın formülleriyle hesaplandı: önden baş 0,6° ve omuz farkı %1,1 (bulgu yok, güçlü yan omuz), yandan çekül hattına göre kulak %14 önde (İleri baş duruşu). Konumlar `tools/build_site.py` → `hero_demo` içinde; fotoğraf değişirse model yeniden çalıştırılıp güncellenir. Hareket azaltma ayarında canlandırma durur, son kare görünür.
 
 Mini kontrol anasayfada "Koçunla tanış"tan önce (`#try`, menüde "Dene") ve tek başına `/mini-check.html`'de (paylaşmak için; içerik aynı olduğu için `noindex`, site haritasında yok). Uygulamadaki ön çekimin tarayıcıdaki demosu; amacı sistemin çalıştığını göstermek ve uygulamaya yönlendirmek.
 
