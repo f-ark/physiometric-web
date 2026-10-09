@@ -24,7 +24,7 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 - `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Dört hareket (shoulder elevation, neck lateral stretch, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak modelin içinde, sopa ve duvar çıkarıldı. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı (sabit ama farklı değerler uygulamada anlam taşıyor).
 - `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın `coaching` sesleri (hareketi yönlendiren cümle).
-- `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın `coach` sesleri (selam, yarısı tamam, son üç, mola, kutlama).
+- `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın egzersiz sırasındaki `coach` sesleri (yarısı tamam ve son tekrarlar, ikişer çeşit). Eşlik düğmesi hareket sürerken önce yarı, sonra son tekrar cümlesini çalar.
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).
 - `assets/img/coach-*.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
 

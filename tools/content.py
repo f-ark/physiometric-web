@@ -55,7 +55,8 @@ UI = {
 # Paket kimlikleri uygulamadaki görsellerle aynı: assets/images/paket/paket_{kimlik}_{koç}.webp
 PACK_IDS = ["masaBasi", "boyunOmuz", "dikDurus", "bel", "sabah", "aksam"]
 MOVE_IDS = ["shoulder_elevation", "neck_lateral_stretch", "glute_bridge", "cat_cow"]
-LINE_KEYS = ["greeting_1", "halfway_1", "last_reps_1", "rest_1", "celebration_1"]
+# Eşlik: egzersiz sürerken söylenenler, uygulamadaki gibi (CoachMoment.halfway ve lastReps); çiftler halinde.
+LINE_KEYS = ["halfway_1", "last_reps_1", "halfway_2", "last_reps_2"]
 
 HOME = {
     "tr": {
@@ -109,7 +110,7 @@ HOME = {
         "moves": list(zip(MOVE_IDS, ['Shoulder Elevation', 'Neck Lateral Stretch', 'Glute Bridge', 'Cat-Cow'], ['Omuzlarınızı yukarı çekin. Tutun, iki. Yavaşça bırakın.', 'Başınızı yana eğin, hafifçe çekin. Gerilmeyi hissedin.', 'Kalçanızı yukarı kaldırın. Tepede sıkın, iki, üç, dört, beş. Yavaşça indirin.', 'Nefes alın, sırtı düzleştirip belinizi çukurlaştırın. Nefes verin, sırtı kamburlaştırın ve belinizi düzleştirip çenenizi göğsünüze yaklaştırın. Çok güzel, devam edin.'])),
         "coach_note": 'Koçun sesi iki türlü: rehberlik hareketi yönlendirir, eşlik antrenman boyunca yanında olur. Koçu parmağınla ya da fareyle döndürebilirsin. 3D görünüm yaklaşık 1–1,5 MB indirir.',
         "guide": 'Rehberlik', "company": 'Eşlik', "listen": 'Sesi dinle',
-        "lines": list(zip(LINE_KEYS, ['Merhaba! Hazır mısın?', 'Yarısı tamam!', 'Son üç!', 'Biraz dinlenelim.', 'Harika iş! Bugünlük tamam.'])),
+        "lines": list(zip(LINE_KEYS, ['Yarısı tamam!', 'Son üç!', 'Güzel gidiyor.', 'Az kaldı.'])),
         "coach_names": ('Elif', 'Asım'),
         "loading": "Koç geliyor…", "load_error": "3D görünüm bu cihazda açılamadı.",
         "price_title": "Ücretsiz başla, istersen Pro'ya geç",
@@ -186,7 +187,7 @@ HOME = {
         "moves": list(zip(MOVE_IDS, ['Shoulder Shrugs', 'Upper Trapezius Stretch', 'Glute Bridge', 'Cat-Cow'], ['Pull your shoulders up. Hold for two. Slowly release.', 'Tilt your head to the side, pull gently. Feel the stretch.', 'Lift your hips up. Squeeze at the top, two, three, four, five. Lower slowly.', 'Inhale, flatten your back and drop your belly. Exhale, arch your back, tuck your pelvis, and bring your chin towards your chest. Very good, keep going.'])),
         "coach_note": 'Your coach speaks in two ways: guidance leads you through the movement, company keeps you going during the workout. Drag to turn the coach around. The 3D view downloads about 1–1.5 MB.',
         "guide": 'Guidance', "company": 'Company', "listen": 'Listen',
-        "lines": list(zip(LINE_KEYS, ['Hi! Are you ready?', 'Halfway there!', 'Last 3!', 'Let’s rest a little.', 'Great job! That’s it for today.'])),
+        "lines": list(zip(LINE_KEYS, ['Halfway there!', 'Last 3!', 'Looking good.', 'Almost done.'])),
         "coach_names": ('Emma', 'Jack'),
         "loading": "Your coach is on the way…", "load_error": "The 3D view couldn't open on this device.",
         "price_title": "Start free, go Pro if you like",
@@ -263,7 +264,7 @@ HOME = {
         "moves": list(zip(MOVE_IDS, ['Schulterheben', 'Nackendehnung seitlich', 'Gesäßbrücke', 'Katze-Kuh'], ['Schultern hochziehen. Halten, zwei. Langsam absenken.', 'Kopf zur Seite neigen, sanft ziehen. Dehnung spüren.', 'Becken anheben. Oben anspannen, zwei, drei, vier, fünf. Langsam absenken.', 'Einatmen, den Rücken abflachen und den Bauch sinken lassen. Ausatmen, den Rücken runden, das Becken kippen und das Kinn zur Brust führen. Sehr gut, weiter so.'])),
         "coach_note": 'Dein Coach spricht auf zwei Arten: Die Anleitung führt dich durch die Übung, die Begleitung ist während des Trainings an deiner Seite. Zieh mit dem Finger oder der Maus, um den Coach zu drehen. Die 3D-Ansicht lädt etwa 1–1,5 MB.',
         "guide": 'Anleitung', "company": 'Begleitung', "listen": 'Anhören',
-        "lines": list(zip(LINE_KEYS, ['Hallo! Bist du bereit?', 'Die Hälfte ist geschafft!', 'Noch 3!', 'Kurze Pause.', 'Super gemacht! Das war’s für heute.'])),
+        "lines": list(zip(LINE_KEYS, ['Die Hälfte ist geschafft!', 'Noch 3!', 'Das läuft gut.', 'Gleich geschafft.'])),
         "coach_names": ('Anna', 'Max'),
         "loading": "Dein Coach kommt…", "load_error": "Die 3D-Ansicht lässt sich auf diesem Gerät nicht öffnen.",
         "price_title": "Kostenlos starten, Pro wenn du willst",
@@ -340,7 +341,7 @@ HOME = {
         "moves": list(zip(MOVE_IDS, ['Elevación de hombros', 'Estiramiento lateral de cuello', 'Puente de glúteos', 'Gato-vaca'], ['Levante los hombros. Mantenga durante dos. Baje lentamente.', 'Incline su cabeza hacia un lado, jale suavemente. Sienta el estiramiento.', 'Levante las caderas hacia arriba. Apriete en la parte superior, dos, tres, cuatro, cinco. Baje lentamente.', 'Inhale, aplane la espalda y baje el vientre. Exhale, arquee la espalda, meta la pelvis y lleve la barbilla hacia el pecho. Muy bien, continúe.'])),
         "coach_note": 'Tu coach habla de dos formas: la guía te lleva por el movimiento y la compañía te acompaña durante el entrenamiento. Arrastra para girar al coach. La vista 3D descarga unos 1–1,5 MB.',
         "guide": 'Guía', "company": 'Compañía', "listen": 'Escuchar',
-        "lines": list(zip(LINE_KEYS, ['¡Hola! ¿Estás listo?', '¡Ya va la mitad!', '¡Últimas 3!', 'Descansemos un poco.', '¡Buen trabajo! Es todo por hoy.'])),
+        "lines": list(zip(LINE_KEYS, ['¡Ya va la mitad!', '¡Últimas 3!', 'Vas muy bien.', 'Ya casi.'])),
         "coach_names": ('Lucía', 'Carlos'),
         "loading": "Tu coach está llegando…", "load_error": "La vista 3D no se pudo abrir en este dispositivo.",
         "price_title": "Empieza gratis, pásate a Pro si quieres",

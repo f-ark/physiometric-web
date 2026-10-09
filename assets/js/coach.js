@@ -23,6 +23,7 @@ function init(box) {
   let scene = null; // three.js tarafı yüklenince dolar
   let loading = null;
   let audio = null;
+  let companyTimer = null;
 
   const say = (text, ms = 4200) => {
     bubble.textContent = text;
@@ -32,6 +33,7 @@ function init(box) {
   };
   const play = (path) => {
     if (audio) audio.pause();
+    clearTimeout(companyTimer);
     audio = new Audio(`/assets/audio/${lang}/${coach}/${path}.m4a`);
     audio.play().catch(() => {});
   };
@@ -71,12 +73,22 @@ function init(box) {
     play(`guide/${move}`);
   });
 
+  // Eşlik: hareket sürerken koç önce yarı, sonra son tekrar cümlesini söyler (uygulamadaki gibi).
   companyBtn.addEventListener('click', async () => {
     await start();
-    const [key, text] = lines[lineIndex % lines.length];
-    lineIndex++;
-    say(text);
-    play(`company/${key}`);
+    pressMove();
+    scene.loop(move);
+    clearTimeout(companyTimer);
+    const [half, last] = [lines[lineIndex % lines.length], lines[(lineIndex + 1) % lines.length]];
+    lineIndex += 2;
+    say(half[1], 2600);
+    play(`company/${half[0]}`);
+    const next = () => {
+      companyTimer = setTimeout(() => { say(last[1], 2600); play(`company/${last[0]}`); }, 2200);
+    };
+    const current = audio;
+    current.addEventListener('ended', next, { once: true });
+    current.addEventListener('error', next, { once: true });
   });
 
   async function start() {
