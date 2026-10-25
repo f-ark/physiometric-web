@@ -11,7 +11,7 @@ import json
 import pathlib
 from html import escape
 
-from content import LANGS, UI, HOME, LEGAL, CHECK
+from content import COACH_IDS, LANGS, UI, HOME, LEGAL, CHECK
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://physiometric.app"
@@ -225,7 +225,7 @@ def home(lang: str) -> str:
         for i, (pid, name) in enumerate(h["packs"])
     )
     regions = "".join(f'<span class="chip">{escape(r)}</span>' for r in h["regions"])
-    fem, mal = h["coach_names"]
+    koclar = list(zip(COACH_IDS, h["coach_names"]))
     moves = "".join(
         f'<button class="btn" type="button" data-move="{m}" data-guide-text="{escape(g)}" data-company-text="{escape(c)}" aria-pressed="false">{escape(n)}</button>'
         for m, n, g, c in h["moves"]
@@ -271,14 +271,13 @@ def home(lang: str) -> str:
       <div class="head center"><h2>{escape(h['coach_title'])}</h2><p>{escape(h['coach_sub'])}</p></div>
       <div class="coach-box">
         <div class="viewer">
-          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="{escape(fem)}" width="261" height="900" loading="lazy">
+          <img class="poster" src="/assets/img/coach-elif-idle.webp" alt="{escape(koclar[0][1])}" width="261" height="900" loading="lazy">
           <p class="bubble" aria-live="polite"></p>
           <p class="status" aria-live="polite"></p>
         </div>
         <div class="controls">
           <div><h3>{escape(h['pick_coach'])}</h3><div class="row">
-            <button class="btn" type="button" data-pick="elif" aria-pressed="true">{escape(fem)}</button>
-            <button class="btn" type="button" data-pick="asim" aria-pressed="false">{escape(mal)}</button></div></div>
+            {"".join(f'<button class="btn" type="button" data-pick="{k}" aria-pressed="{str(i == 0).lower()}">{escape(n)}</button>' for i, (k, n) in enumerate(koclar))}</div></div>
           <div><button class="btn primary" type="button" data-live>▶ {escape(h['live'])}</button></div>
           <div><h3>{escape(h['try_moves'])}</h3><div class="row">{moves}</div></div>
           <div><h3>{escape(h['listen'])}</h3><div class="row">
@@ -401,12 +400,13 @@ def check_data(lang: str) -> str:
 def check_core(lang: str) -> str:
     """Mini kontrolün kamera, ayarlar ve sonuç alanı; anasayfada ve /mini-check.html'de aynıdır."""
     c = CHECK[lang]
-    fem, mal = HOME[lang]["coach_names"]
+    adlar = HOME[lang]["coach_names"]
+    fem, mal = adlar[0], adlar[2]
     tips = "".join(f"<li>{escape(t)}</li>" for t in c["tips"])
     items = "".join(
         f'<li><span class="ico">{i}</span><div><b>{escape(h)}</b>'
         + (f' <span class="free">{escape(c["free_tag"])}</span>' if free else "")
-        + f'<p>{escape(d.format(fem=fem, mal=mal))}</p></div></li>'
+        + f'<p>{escape(d.format(**{f"k{i}": n for i, n in enumerate(adlar)}))}</p></div></li>'
         for i, h, d, free in c["app_items"]
     )
     return f"""<div class="check-box">

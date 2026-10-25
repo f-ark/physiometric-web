@@ -22,11 +22,17 @@ Sayfa adresleri değişmemeli; mağaza kayıtları ve uygulama bu adreslere bağ
 
 `assets/js/coach.js`, ziyaretçi "Canlı göster"e basınca three.js'i (`assets/vendor/three`, r170) ve koç modelini yükler; sayfa açılışında hiçbir model inmez.
 
-- `assets/models/elif.glb`, `asim.glb`: uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar. Üç hareket (shoulder elevation, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak modelin içinde, sopa ve duvar çıkarıldı. Neck lateral stretch, tanıtım sesindeki iddia cümlesi yüzünden sitede yok. Dokular 1024 px WebP, geometri ve animasyon meshopt ile sıkıştırıldı (gltf-transform). Hareket etmeyen kanallar yalnızca değerleri düğümün varsayılanına eşitse atıldı (sabit ama farklı değerler uygulamada anlam taşıyor).
+- Dört koç, uygulamadaki gibi iki beden × iki görünüm: Elif, Defne, Asım, Kerem. `assets/models/elif.glb` ve `asim.glb` uygulamadaki koçlardan (`physio_metric/assets/3d_animations/koc_sports_*.glb`) web için küçültülmüş kopyalar; Defne Elif'in, Kerem Asım'ın modelini kullanır, yalnızca gövde ve baş dokusu değişir (`assets/models/{defne,kerem}_{body,head}.webp`, uygulamadaki `dokular/*_color1.jpg`'den 1024 px). Üç hareket (shoulder elevation, glute bridge, cat-cow) ve bekleme duruşu kaldı; yatak ve rengi (grafit) uygulamadaki gibi, sopa ve duvar çıkarıldı. Neck lateral stretch, tanıtım sesindeki iddia cümlesi yüzünden sitede yok. Yeniden üretmek için:
+  ```bash
+  python3 tools/koc_modeli.py <uygulama>/assets/3d_animations/koc_sports_female_01.glb assets/models/elif.glb
+  npx -y @gltf-transform/cli@4 prune assets/models/elif.glb assets/models/elif.glb   # sonra webp, meshopt
+  ```
+- Sesler koçun bedenine göre: Defne Elif'in, Kerem Asım'ın seslerini çalar (`coach.js` → `MODEL`).
 - `assets/audio/{dil}/{elif|asim}/guide/`: rehberlik, uygulamanın tanıtım (`intro`) sesleri; hareketi anlatır.
 - `assets/audio/{dil}/{elif|asim}/company/`: eşlik, uygulamanın koçluk (`coaching`) sesleri; koç hareketi kullanıcıyla birlikte yapar ve sayar.
 - Dosya adlarındaki `elif` ve `asim` yalnızca kimliktir; ekranda görünen ad dile göre değişir (TR Elif/Asım, EN Emma/Jack, DE Anna/Max, ES Lucía/Carlos; `tools/content.py`).
-- `assets/img/coach-*-idle.webp`, `og-*.jpg`: modellerden çizilmiş görseller.
+- `assets/img/coach-*-idle.webp`: uygulamanın boy görselleri (`assets/images/coach/koc_*_boy.webp`), aynı ölçekte. `og-*.jpg`: `python3 tools/og_gorselleri.py <koclar_grup.png>` ile çizilir (uygulamanın mağaza görsellerindeki dört koç).
+- `assets/img/paket/`: uygulamanın paket görselleri (8 paket × 4 koç), seçili koça göre değişir.
 
 ## Karşılama ve mini kontrol
 

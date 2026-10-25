@@ -2,6 +2,9 @@
 // basınca yüklenir. Modeller uygulamadaki koçlardan web için küçültülmüş kopyalardır (assets/models).
 // Her hareketin iki sesi var, uygulamadaki gibi: rehberlik hareketi anlatır (tanıtım sesi, intro),
 // eşlikte koç hareketi kullanıcıyla birlikte yapar ve sayar (koçluk sesi, coaching).
+// Dört koç, uygulamadaki gibi iki beden × iki görünüm: Defne Elif'in modeli ve sesiyle, Kerem
+// Asım'ınkiyle gelir; yalnızca dokuları farklıdır (assets/models/{defne,kerem}_{body,head}.webp).
+const MODEL = { elif: 'elif', defne: 'elif', asim: 'asim', kerem: 'asim' };
 const box = document.querySelector('[data-coach]');
 if (box) init(box);
 
@@ -28,7 +31,7 @@ function init(box) {
     if (audio) audio.pause();
     bubble.textContent = text;
     bubble.classList.add('show');
-    audio = new Audio(`/assets/audio/${lang}/${coach}/${kind}/${move}.m4a`);
+    audio = new Audio(`/assets/audio/${lang}/${MODEL[coach]}/${kind}/${move}.m4a`);
     clearTimeout(speak.timer);
     const close = () => bubble.classList.remove('show');
     // Ses çalamazsa balon okunacak kadar açık kalır.
@@ -175,20 +178,36 @@ async function createScene(viewer) {
     frame(name, action);
   };
 
+  const texLoader = new THREE.TextureLoader();
+  const looks = {};
+  // İkinci görünüm: gövde ve baş malzemesinin dokusu değişir (glTF'teki gibi ters çevrilmeden).
+  const look = (coach) => looks[coach] ??= Promise.all(['body', 'head'].map(async (part) => {
+    const tex = await texLoader.loadAsync(`/assets/models/${coach}_${part}.webp`);
+    tex.flipY = false;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return [part, tex];
+  })).then(Object.fromEntries);
+
   api.load = async (coach) => {
     if (model) world.remove(model);
-    cache[coach] ??= loader.loadAsync(`/assets/models/${coach}.glb`);
-    const gltf = await cache[coach];
+    const file = MODEL[coach];
+    cache[file] ??= loader.loadAsync(`/assets/models/${file}.glb`);
+    const [gltf, maps] = await Promise.all([cache[file], file === coach ? null : look(coach)]);
     model = gltf.scene;
     model.rotation.y = -Math.PI / 2; // modeller +X yönüne bakıyor
     bed = []; face = null;
     model.traverse((o) => {
       if (!o.isMesh) return;
       o.frustumCulled = false;
+      for (const m of [o.material].flat()) {
+        const part = /_(body|head)$/.exec(m.name)?.[1];
+        if (!part) continue;
+        m.userData.map ??= m.map;
+        m.map = maps ? maps[part] : m.userData.map;
+        m.needsUpdate = true;
+      }
       if (/cube/i.test(o.name)) {
-        bed.push(o);
-        const legs = /_1$/.test(o.name);
-        o.material = new THREE.MeshStandardMaterial({ color: legs ? 0x2a3046 : 0xdfe6f2, roughness: 0.85 });
+        bed.push(o); // renkler uygulamadaki gibi (grafit yatak)
       } else if (o.morphTargetDictionary && 'blink_l' in o.morphTargetDictionary) {
         face = o;
         const d = o.morphTargetDictionary;
