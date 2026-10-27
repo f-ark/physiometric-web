@@ -257,6 +257,10 @@ section{padding:72px 0}
 .foot nav{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:flex-end}
 .foot a{text-decoration:none}.foot a:hover{color:var(--text)}
 .foot .disc{grid-column:1/-1;font-size:13px}
+.foot .social{display:flex;gap:10px;margin-top:14px}
+.foot .social a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--text-2)}
+.foot .social a::before{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:var(--ikon) center/contain no-repeat;mask:var(--ikon) center/contain no-repeat}
+.foot .social a:hover{color:var(--primary);border-color:var(--primary)}
 @media (max-width:860px){.foot .wrap{grid-template-columns:1fr}.foot nav{justify-content:flex-start}}
 
 /* Hukuki ve bilgi sayfaları */
