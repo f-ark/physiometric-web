@@ -17,6 +17,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://physiometric.app"
 PAGES = ["index", "privacy", "terms", "delete-account", "developer"]
 PLAY = "https://play.google.com/store/apps/details?id=com.fark.physiometric"
+APPSTORE = "https://apps.apple.com/app/id6823140621"
+# Alt bilgideki sosyal hesaplar: (ad, adres, simge dosyası).
+SOSYAL = [
+    ("Instagram", "https://www.instagram.com/posmetric/", "sosyal_instagram.svg"),
+    ("TikTok", "https://www.tiktok.com/@posmetric", "sosyal_tiktok.svg"),
+    ("YouTube", "https://www.youtube.com/@posmetric", "sosyal_youtube.svg"),
+]
 
 
 def url(lang: str, page: str) -> str:
@@ -91,19 +98,25 @@ def stores(lang: str) -> str:
     u = UI[lang]
     return f"""<div class="stores">
         <a class="store play" href="{PLAY}&amp;hl={u['play_hl']}"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['play_small'])}</small>Google Play</span></a>
-        <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['soon'])}</small>App Store</span></span>
+        <a class="store apple" href="{APPSTORE}"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['apple_small'])}</small>App Store</span></a>
       </div>"""
 
 
 def footer(lang: str) -> str:
     u = UI[lang]
+    social = "".join(
+        f'<a href="{adres}" rel="me noopener" target="_blank" aria-label="PosMetric {ad}" title="{ad}" '
+        f'style="--ikon:url(/assets/img/{simge})"></a>'
+        for ad, adres, simge in SOSYAL
+    )
     links = "".join(
         f'<a href="{url(lang, p)}">{escape(u["links"][p])}</a>' for p in ["privacy", "terms", "developer", "delete-account"]
     )
     return f"""<footer class="foot">
   <div class="wrap">
     <div><a class="brand" href="{url(lang, 'index')}"><img src="/assets/app_icon.png" alt="" width="32" height="32">PosMetric</a>
-      <p style="margin-top:10px">{escape(u['tagline'])}</p></div>
+      <p style="margin-top:10px">{escape(u['tagline'])}</p>
+      <div class="social">{social}</div></div>
     <nav aria-label="{escape(u['footer_label'])}">{links}<a href="mailto:info@physiometric.app">{escape(u['contact'])}</a></nav>
     <p class="disc">{escape(u['disclaimer'])} · © 2026 FArk Studio</p>
   </div>
@@ -195,15 +208,16 @@ def home(lang: str) -> str:
         "@context": "https://schema.org",
         "@type": "MobileApplication",
         "name": "PosMetric",
-        "operatingSystem": "Android",
+        "operatingSystem": "Android, iOS",
         "applicationCategory": "SportsApplication",
         "description": h["desc"],
         "inLanguage": list(LANGS),
         "url": SITE + url(lang, "index"),
-        "downloadUrl": PLAY,
+        "downloadUrl": [PLAY, APPSTORE],
         "image": SITE + "/assets/app_icon.png",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
         "author": {"@type": "Organization", "name": "FArk Studio", "url": SITE, "email": "info@physiometric.app"},
+        "sameAs": [adres for _, adres, _ in SOSYAL],
     }
     extra = (
         '  <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js"}}</script>\n'
@@ -251,7 +265,7 @@ def home(lang: str) -> str:
         <div class="hero-cta">
           <a class="btn primary big" href="#try">📷 {escape(h['try_btn'])}</a>
           <a class="store play" href="{PLAY}&amp;hl={u['play_hl']}"><img src="/assets/play_store_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['play_small'])}</small>Google Play</span></a>
-          <span class="store apple" aria-disabled="true"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['soon'])}</small>App Store</span></span>
+          <a class="store apple" href="{APPSTORE}"><img src="/assets/apple_logo.svg" alt="" width="22" height="22"><span><small>{escape(u['apple_small'])}</small>App Store</span></a>
         </div>
         <p class="fine">{escape(h['try_hint'])}</p>
       </div>

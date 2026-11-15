@@ -74,7 +74,7 @@ p{margin:0}
 .store small{display:block;font-size:11px;font-weight:600;opacity:.8;letter-spacing:.02em;text-transform:uppercase}
 .store.play{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:var(--on-primary);box-shadow:0 6px 22px rgba(233,69,96,.32)}
 .store.play:hover{filter:brightness(1.05)}
-.store.apple{background:#0B0B0F;color:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 22px rgba(0,0,0,.18);cursor:default}
+.store.apple{background:#0B0B0F;color:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 22px rgba(0,0,0,.18);}
 .store.apple small{opacity:.75}
 .store.apple img{filter:invert(1)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;font-weight:600;cursor:pointer}

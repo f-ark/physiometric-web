@@ -7,7 +7,7 @@ LANGS = ("tr", "en", "de", "es")
 
 UI = {
     "tr": {
-        "locale": "tr_TR", "theme": "Açık ya da koyu tema", "lang_name": "Türkçe", "play_hl": "tr", "play_small": "Hemen indir", "soon": "Yakında",
+        "locale": "tr_TR", "theme": "Açık ya da koyu tema", "lang_name": "Türkçe", "play_hl": "tr", "play_small": "Hemen indir", "apple_small": "Hemen indir",
         "skip": "İçeriğe geç", "home": "Ana sayfa", "nav_label": "Sayfa menüsü", "lang_label": "Dil",
         "footer_label": "Bağlantılar", "contact": "İletişim", "updated": "Son güncelleme",
         "nav": [("try", "Dene"), ("coach", "Koçun"), ("how", "Nasıl çalışır"), ("pricing", "Ücretsiz ve Pro"), ("faq", "SSS")],
@@ -18,7 +18,7 @@ UI = {
         "nf": "Aradığın sayfa bulunamadı.",
     },
     "en": {
-        "locale": "en_US", "theme": "Light or dark theme", "lang_name": "English", "play_hl": "en", "play_small": "Get it on", "soon": "Coming soon",
+        "locale": "en_US", "theme": "Light or dark theme", "lang_name": "English", "play_hl": "en", "play_small": "Get it on", "apple_small": "Download on the",
         "skip": "Skip to content", "home": "Home", "nav_label": "Page menu", "lang_label": "Language",
         "footer_label": "Links", "contact": "Contact", "updated": "Last updated",
         "nav": [("try", "Try it"), ("coach", "Your coach"), ("how", "How it works"), ("pricing", "Free and Pro"), ("faq", "FAQ")],
@@ -29,7 +29,7 @@ UI = {
         "nf": "We couldn't find that page.",
     },
     "de": {
-        "locale": "de_DE", "theme": "Helles oder dunkles Design", "lang_name": "Deutsch", "play_hl": "de", "play_small": "Jetzt bei", "soon": "Demnächst",
+        "locale": "de_DE", "theme": "Helles oder dunkles Design", "lang_name": "Deutsch", "play_hl": "de", "play_small": "Jetzt bei", "apple_small": "Laden im",
         "skip": "Zum Inhalt", "home": "Startseite", "nav_label": "Seitenmenü", "lang_label": "Sprache",
         "footer_label": "Links", "contact": "Kontakt", "updated": "Zuletzt aktualisiert",
         "nav": [("try", "Ausprobieren"), ("coach", "Dein Coach"), ("how", "So funktioniert's"), ("pricing", "Kostenlos und Pro"), ("faq", "FAQ")],
@@ -40,7 +40,7 @@ UI = {
         "nf": "Diese Seite gibt es leider nicht.",
     },
     "es": {
-        "locale": "es_ES", "theme": "Tema claro u oscuro", "lang_name": "Español", "play_hl": "es", "play_small": "Disponible en", "soon": "Próximamente",
+        "locale": "es_ES", "theme": "Tema claro u oscuro", "lang_name": "Español", "play_hl": "es", "play_small": "Disponible en", "apple_small": "Descárgalo en el",
         "skip": "Ir al contenido", "home": "Inicio", "nav_label": "Menú de la página", "lang_label": "Idioma",
         "footer_label": "Enlaces", "contact": "Contacto", "updated": "Última actualización",
         "nav": [("try", "Pruébalo"), ("coach", "Tu coach"), ("how", "Cómo funciona"), ("pricing", "Gratis y Pro"), ("faq", "Preguntas")],
@@ -130,7 +130,7 @@ HOME = {
             ("Hesap açmam gerekiyor mu?", "Hayır. Misafir olarak başlarsın. İstersen sonra Google ya da Apple hesabınla bağlarsın; kayıtların yerinde kalır."),
             ("Her gün ne kadar zaman ayırmalıyım?", "Tek bir hareket bile günü doldurur. Paketler 3–5 dakika sürer; ana antrenmanın uzunluğu planına göre değişir."),
             ("Hangi ekipman gerekiyor?", "Çoğu hareket için bir yatak ya da minder yeterli. Bazı hareketlerde duvar ya da bir çubuk kullanılır."),
-            ("iPhone'da var mı?", "iOS sürümü hazırlanıyor. Şimdilik Android'de, Google Play'de."),
+            ("iPhone'da var mı?", "Evet. PosMetric hem App Store'da hem Google Play'de."),
             ("Hangi dillerde kullanabilirim?", "Türkçe, İngilizce, Almanca ve İspanyolca."),
             ("Aboneliği nasıl iptal ederim?", 'Google Play → Ödemeler ve abonelikler → Abonelikler → PosMetric. Ayrıntılar <a href="/terms.html">Kullanım Şartları</a>\'nda.'),
         ],
@@ -208,7 +208,7 @@ HOME = {
             ("Do I need an account?", "No. You start as a guest. You can link your Google or Apple account later; your records stay where they are."),
             ("How much time do I need each day?", "Even one movement fills the day. Packs take 3–5 minutes; your main workout's length depends on your plan."),
             ("What equipment do I need?", "A bed or a mat is enough for most movements. Some use a wall or a stick."),
-            ("Is it on iPhone?", "The iOS version is on its way. For now PosMetric is on Android, on Google Play."),
+            ("Is it on iPhone?", "Yes. PosMetric is on the App Store and on Google Play."),
             ("Which languages are supported?", "English, Turkish, German and Spanish."),
             ("How do I cancel my subscription?", 'Google Play → Payments &amp; subscriptions → Subscriptions → PosMetric. See the <a href="/en/terms.html">Terms of Use</a> for details.'),
         ],
@@ -286,7 +286,7 @@ HOME = {
             ("Brauche ich ein Konto?", "Nein. Du startest als Gast. Später kannst du dein Google- oder Apple-Konto verknüpfen; deine Einträge bleiben erhalten."),
             ("Wie viel Zeit brauche ich pro Tag?", "Schon eine Übung füllt den Tag. Pakete dauern 3–5 Minuten; wie lang dein Haupttraining ist, hängt von deinem Plan ab."),
             ("Welche Ausrüstung brauche ich?", "Für die meisten Übungen reicht ein Bett oder eine Matte. Manche nutzen eine Wand oder einen Stab."),
-            ("Gibt es PosMetric fürs iPhone?", "Die iOS-Version ist in Arbeit. Bis dahin gibt es PosMetric für Android bei Google Play."),
+            ("Gibt es PosMetric fürs iPhone?", "Ja. PosMetric gibt es im App Store und bei Google Play."),
             ("In welchen Sprachen gibt es die App?", "Deutsch, Englisch, Türkisch und Spanisch."),
             ("Wie kündige ich mein Abo?", 'Google Play → Zahlungen und Abos → Abos → PosMetric. Details findest du in den <a href="/de/terms.html">Nutzungsbedingungen</a>.'),
         ],
@@ -364,7 +364,7 @@ HOME = {
             ("¿Necesito una cuenta?", "No. Empiezas como invitado. Más adelante puedes vincular tu cuenta de Google o Apple; tus registros se mantienen."),
             ("¿Cuánto tiempo necesito al día?", "Un solo movimiento ya llena el día. Los paquetes duran 3–5 minutos; la duración del entrenamiento principal depende de tu plan."),
             ("¿Qué material necesito?", "Para la mayoría de los movimientos basta una cama o una esterilla. Algunos usan una pared o un palo."),
-            ("¿Está disponible en iPhone?", "La versión para iOS está en camino. Por ahora PosMetric está en Android, en Google Play."),
+            ("¿Está disponible en iPhone?", "Sí. PosMetric está en el App Store y en Google Play."),
             ("¿En qué idiomas está?", "Español, inglés, turco y alemán."),
             ("¿Cómo cancelo mi suscripción?", 'Google Play → Pagos y suscripciones → Suscripciones → PosMetric. Más detalles en los <a href="/es/terms.html">Términos de uso</a>.'),
         ],
@@ -378,7 +378,7 @@ HOME = {
 LEGAL = {"tr": {}, "en": {}, "de": {}, "es": {}}
 
 LEGAL["tr"]["privacy"] = {
-    "title": "Gizlilik Politikası", "date": "8 Ekim 2026",
+    "title": "Gizlilik Politikası", "date": "15 Kasım 2026",
     "desc": "PosMetric hangi verileri işler, hangileri telefonunuzda kalır ve haklarınız nelerdir.",
     "body": """
 <div class="callout key"><p><strong>Temel ilke:</strong> Duruş ölçümü telefonunuzda yapılır. Fotoğraflarınız, ölçüm sonuçlarınız ve antrenman verileriniz sunucularımıza gönderilmez.</p></div>
@@ -407,7 +407,7 @@ LEGAL["tr"]["privacy"] = {
 <h3>2.3. Geri bildirim</h3>
 <p>Uygulamadaki geri bildirim formunu kullanırsanız, mesajınız ile uygulama sürümü ve cihaz bilgisi (model, işletim sistemi, ekran çözünürlüğü) Firestore'a kaydedilir ve destek e-posta adresimize iletilir.</p>
 <h3>2.4. Abonelik</h3>
-<p>PosMetric Pro satın alımları Google Play Faturalandırma üzerinden (iOS sürümü yayımlandığında App Store üzerinden) yapılır. Abonelik durumunuz RevenueCat aracılığıyla doğrulanır; bunun için RevenueCat'e uygulamadaki kullanıcı kimliğiniz iletilir. Ödeme bilgilerinizi biz görmeyiz.</p>
+<p>PosMetric Pro satın alımları Google Play Faturalandırma ya da App Store üzerinden yapılır. Abonelik durumunuz RevenueCat aracılığıyla doğrulanır; bunun için RevenueCat'e uygulamadaki kullanıcı kimliğiniz iletilir. Ödeme bilgilerinizi biz görmeyiz.</p>
 <h3>2.5. Kullanım, hata ve hizmet verileri</h3>
 <ul>
 <li><strong>Firebase Analytics:</strong> Ekran görüntülemeleri, oturum süreleri, genel cihaz bilgileri ve anonim etkileşim olayları (ör. ölçümü tamamlama, antrenmana başlama ve bitirme). Fotoğraf, ölçüm sonucu ya da sizi doğrudan tanımlayan bilgi içermez.</li>
@@ -461,7 +461,7 @@ LEGAL["tr"]["privacy"] = {
 }
 
 LEGAL["en"]["privacy"] = {
-    "title": "Privacy Policy", "date": "October 8, 2026",
+    "title": "Privacy Policy", "date": "November 15, 2026",
     "desc": "What data PosMetric processes, what stays on your phone and what your rights are.",
     "body": """
 <div class="callout key"><p><strong>Core principle:</strong> Posture measurement runs on your phone. Your photos, measurement results and workout data are never sent to our servers.</p></div>
@@ -490,7 +490,7 @@ LEGAL["en"]["privacy"] = {
 <h3>2.3. Feedback</h3>
 <p>If you use the in-app feedback form, your message together with the app version and device information (model, OS, screen resolution) is stored in Firestore and forwarded to our support email.</p>
 <h3>2.4. Subscription</h3>
-<p>PosMetric Pro is purchased through Google Play Billing (and through the App Store once the iOS version is released). Your subscription status is verified via RevenueCat, which receives your in-app user ID for this purpose. We never see your payment details.</p>
+<p>PosMetric Pro is purchased through Google Play Billing or the App Store. Your subscription status is verified via RevenueCat, which receives your in-app user ID for this purpose. We never see your payment details.</p>
 <h3>2.5. Usage, crash and service data</h3>
 <ul>
 <li><strong>Firebase Analytics:</strong> Screen views, session lengths, general device information and anonymous interaction events (e.g. completing a measurement, starting or finishing a workout). No photos, measurement results or information that directly identifies you.</li>
@@ -544,7 +544,7 @@ LEGAL["en"]["privacy"] = {
 }
 
 LEGAL["de"]["privacy"] = {
-    "title": "Datenschutzerklärung", "date": "8. Oktober 2026",
+    "title": "Datenschutzerklärung", "date": "15. November 2026",
     "desc": "Welche Daten PosMetric verarbeitet, was auf Ihrem Handy bleibt und welche Rechte Sie haben.",
     "body": """
 <div class="callout key"><p><strong>Grundsatz:</strong> Die Haltungsmessung läuft auf Ihrem Handy. Ihre Fotos, Messergebnisse und Trainingsdaten werden nicht an unsere Server gesendet.</p></div>
@@ -573,7 +573,7 @@ LEGAL["de"]["privacy"] = {
 <h3>2.3. Feedback</h3>
 <p>Wenn Sie das Feedback-Formular in der App nutzen, werden Ihre Nachricht sowie App-Version und Geräteinformationen (Modell, Betriebssystem, Bildschirmauflösung) in Firestore gespeichert und an unsere Support-Adresse weitergeleitet.</p>
 <h3>2.4. Abonnement</h3>
-<p>PosMetric Pro wird über Google Play Billing gekauft (nach Veröffentlichung der iOS-Version auch über den App Store). Ihr Abostatus wird über RevenueCat geprüft; dazu erhält RevenueCat Ihre Nutzerkennung aus der App. Zahlungsdaten sehen wir nicht.</p>
+<p>PosMetric Pro wird über Google Play Billing oder den App Store gekauft. Ihr Abostatus wird über RevenueCat geprüft; dazu erhält RevenueCat Ihre Nutzerkennung aus der App. Zahlungsdaten sehen wir nicht.</p>
 <h3>2.5. Nutzungs-, Absturz- und Dienstdaten</h3>
 <ul>
 <li><strong>Firebase Analytics:</strong> Bildschirmaufrufe, Sitzungsdauer, allgemeine Geräteinformationen und anonyme Ereignisse (z. B. Messung abgeschlossen, Training gestartet oder beendet). Keine Fotos, Messergebnisse oder Angaben, die Sie direkt identifizieren.</li>
@@ -627,7 +627,7 @@ LEGAL["de"]["privacy"] = {
 }
 
 LEGAL["es"]["privacy"] = {
-    "title": "Política de privacidad", "date": "8 de octubre de 2026",
+    "title": "Política de privacidad", "date": "15 de noviembre de 2026",
     "desc": "Qué datos trata PosMetric, cuáles se quedan en su móvil y cuáles son sus derechos.",
     "body": """
 <div class="callout key"><p><strong>Principio básico:</strong> La medición de la postura se hace en su móvil. Sus fotos, resultados y datos de entrenamiento no se envían a nuestros servidores.</p></div>
@@ -656,7 +656,7 @@ LEGAL["es"]["privacy"] = {
 <h3>2.3. Comentarios</h3>
 <p>Si usa el formulario de comentarios de la app, su mensaje junto con la versión de la app y datos del dispositivo (modelo, sistema operativo, resolución de pantalla) se guardan en Firestore y se reenvían a nuestro correo de soporte.</p>
 <h3>2.4. Suscripción</h3>
-<p>PosMetric Pro se compra a través de Google Play Billing (y del App Store cuando se publique la versión para iOS). El estado de su suscripción se verifica mediante RevenueCat, que recibe para ello su identificador de usuario de la app. Nunca vemos sus datos de pago.</p>
+<p>PosMetric Pro se compra a través de Google Play Billing o del App Store. El estado de su suscripción se verifica mediante RevenueCat, que recibe para ello su identificador de usuario de la app. Nunca vemos sus datos de pago.</p>
 <h3>2.5. Datos de uso, errores y servicio</h3>
 <ul>
 <li><strong>Firebase Analytics:</strong> Pantallas vistas, duración de sesiones, información general del dispositivo y eventos anónimos (p. ej., completar una medición, empezar o terminar un entrenamiento). Sin fotos, resultados ni datos que le identifiquen directamente.</li>
@@ -712,7 +712,7 @@ LEGAL["es"]["privacy"] = {
 # --- Kullanım şartları
 
 LEGAL["tr"]["terms"] = {
-    "title": "Kullanım Şartları", "date": "8 Ekim 2026",
+    "title": "Kullanım Şartları", "date": "15 Kasım 2026",
     "desc": "PosMetric'i kullanma koşulları, abonelik, deneme, iptal ve geri ödeme.",
     "body": """
 <div class="callout warn"><p><strong>Önemli:</strong> PosMetric bir fitness uygulamasıdır; tıbbi cihaz değildir ve profesyonel sağlık hizmetinin yerine geçmez. Sağlığınızla ilgili sorularınız için bir sağlık profesyoneline danışın.</p></div>
@@ -754,7 +754,7 @@ LEGAL["tr"]["terms"] = {
 <ul>
 <li>Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.</li>
 <li><strong>Android (Google Play):</strong> Google Play Store → profil simgesi → Ödemeler ve abonelikler → Abonelikler → PosMetric → İptal et.</li>
-<li><strong>iOS (App Store, yayımlandığında):</strong> Ayarlar → adınız → Abonelikler → PosMetric → Aboneliği İptal Et.</li>
+<li><strong>iOS (App Store):</strong> Ayarlar → adınız → Abonelikler → PosMetric → Aboneliği İptal Et.</li>
 <li>İptalden sonra dönem sonuna kadar Pro özelliklerini kullanmaya devam edersiniz. Hesabınızı silmek aboneliği iptal etmez.</li>
 </ul>
 <h3>5.6. Geri ödeme</h3>
@@ -775,7 +775,7 @@ LEGAL["tr"]["terms"] = {
 }
 
 LEGAL["en"]["terms"] = {
-    "title": "Terms of Use", "date": "October 8, 2026",
+    "title": "Terms of Use", "date": "November 15, 2026",
     "desc": "Terms for using PosMetric: subscriptions, free trials, cancellation and refunds.",
     "body": """
 <div class="callout warn"><p><strong>Important:</strong> PosMetric is a fitness app; it is not a medical device and does not replace professional health care. For questions about your health, consult a health professional.</p></div>
@@ -817,7 +817,7 @@ LEGAL["en"]["terms"] = {
 <ul>
 <li>You can cancel at any time.</li>
 <li><strong>Android (Google Play):</strong> Google Play Store → profile icon → Payments &amp; subscriptions → Subscriptions → PosMetric → Cancel.</li>
-<li><strong>iOS (App Store, once released):</strong> Settings → your name → Subscriptions → PosMetric → Cancel Subscription.</li>
+<li><strong>iOS (App Store):</strong> Settings → your name → Subscriptions → PosMetric → Cancel Subscription.</li>
 <li>After cancelling you keep Pro features until the end of the period. Deleting your account does not cancel your subscription.</li>
 </ul>
 <h3>5.6. Refunds</h3>
@@ -838,7 +838,7 @@ LEGAL["en"]["terms"] = {
 }
 
 LEGAL["de"]["terms"] = {
-    "title": "Nutzungsbedingungen", "date": "8. Oktober 2026",
+    "title": "Nutzungsbedingungen", "date": "15. November 2026",
     "desc": "Bedingungen für die Nutzung von PosMetric: Abos, Testzeitraum, Kündigung und Erstattung.",
     "body": """
 <div class="callout warn"><p><strong>Wichtig:</strong> PosMetric ist eine Fitness-App; sie ist kein Medizinprodukt und ersetzt keine professionelle Gesundheitsversorgung. Wenden Sie sich bei Fragen zu Ihrer Gesundheit an eine Fachperson.</p></div>
@@ -880,7 +880,7 @@ LEGAL["de"]["terms"] = {
 <ul>
 <li>Sie können jederzeit kündigen.</li>
 <li><strong>Android (Google Play):</strong> Google Play Store → Profilsymbol → Zahlungen und Abos → Abos → PosMetric → Kündigen.</li>
-<li><strong>iOS (App Store, nach Veröffentlichung):</strong> Einstellungen → Ihr Name → Abonnements → PosMetric → Abonnement kündigen.</li>
+<li><strong>iOS (App Store):</strong> Einstellungen → Ihr Name → Abonnements → PosMetric → Abonnement kündigen.</li>
 <li>Nach der Kündigung nutzen Sie Pro bis zum Ende der Laufzeit weiter. Das Löschen Ihres Kontos kündigt das Abo nicht.</li>
 </ul>
 <h3>5.6. Erstattung</h3>
@@ -901,7 +901,7 @@ LEGAL["de"]["terms"] = {
 }
 
 LEGAL["es"]["terms"] = {
-    "title": "Términos de uso", "date": "8 de octubre de 2026",
+    "title": "Términos de uso", "date": "15 de noviembre de 2026",
     "desc": "Condiciones de uso de PosMetric: suscripciones, prueba gratuita, cancelación y reembolsos.",
     "body": """
 <div class="callout warn"><p><strong>Importante:</strong> PosMetric es una app de fitness; no es un dispositivo médico y no sustituye la atención sanitaria profesional. Para dudas sobre su salud, consulte a un profesional sanitario.</p></div>
@@ -943,7 +943,7 @@ LEGAL["es"]["terms"] = {
 <ul>
 <li>Puede cancelar en cualquier momento.</li>
 <li><strong>Android (Google Play):</strong> Google Play Store → icono de perfil → Pagos y suscripciones → Suscripciones → PosMetric → Cancelar.</li>
-<li><strong>iOS (App Store, cuando se publique):</strong> Ajustes → su nombre → Suscripciones → PosMetric → Cancelar suscripción.</li>
+<li><strong>iOS (App Store):</strong> Ajustes → su nombre → Suscripciones → PosMetric → Cancelar suscripción.</li>
 <li>Tras cancelar, conserva Pro hasta el final del periodo. Eliminar su cuenta no cancela la suscripción.</li>
 </ul>
 <h3>5.6. Reembolsos</h3>
@@ -1095,7 +1095,7 @@ LEGAL["tr"]["developer"] = _about({
     "intro": "<strong>FArk Studio</strong> Türkiye'de bağımsız bir geliştirici stüdyosudur. PosMetric'i, uzun saatler oturan herkesin kısa ve düzenli hareketlerle günlük bir alışkanlık kazanabilmesi için geliştiriyoruz.",
     "contact_h": "İletişim", "labels": ["E-posta", "Konum", "Web sitesi"], "country": "Türkiye",
     "apps_h": "Uygulamalarımız",
-    "app_desc": "Telefon kamerasıyla duruş ölçümü, kişisel antrenman planı ve 3D koç. Android'de; iOS yakında.",
+    "app_desc": "Telefon kamerasıyla duruş ölçümü, kişisel antrenman planı ve 3D koç. Android ve iOS'ta.",
     "credits_h": "Teşekkürler ve lisanslar", "credits": ["3D koç karakterleri", "Yazı tipi"],
     "legal_h": "Yasal", "legal": '<a href="/privacy.html">Gizlilik Politikası</a> · <a href="/terms.html">Kullanım Şartları</a> · <a href="/delete-account.html">Hesap Silme</a>',
 })
@@ -1104,7 +1104,7 @@ LEGAL["en"]["developer"] = _about({
     "intro": "<strong>FArk Studio</strong> is an independent developer studio based in Türkiye. We build PosMetric so that anyone who sits for long hours can build a daily habit of short, regular movement.",
     "contact_h": "Contact", "labels": ["Email", "Location", "Website"], "country": "Türkiye",
     "apps_h": "Our apps",
-    "app_desc": "Posture measurement with your phone camera, a personal workout plan and a 3D coach. On Android; iOS coming soon.",
+    "app_desc": "Posture measurement with your phone camera, a personal workout plan and a 3D coach. On Android and iOS.",
     "credits_h": "Credits and licenses", "credits": ["3D coach characters", "Typeface"],
     "legal_h": "Legal", "legal": '<a href="/en/privacy.html">Privacy Policy</a> · <a href="/en/terms.html">Terms of Use</a> · <a href="/en/delete-account.html">Delete Account</a>',
 })
@@ -1113,7 +1113,7 @@ LEGAL["de"]["developer"] = _about({
     "intro": "<strong>FArk Studio</strong> ist ein unabhängiges Entwicklerstudio aus der Türkei. Wir entwickeln PosMetric, damit alle, die viel sitzen, mit kurzen, regelmäßigen Übungen eine tägliche Gewohnheit aufbauen können.",
     "contact_h": "Kontakt", "labels": ["E-Mail", "Standort", "Website"], "country": "Türkei",
     "apps_h": "Unsere Apps",
-    "app_desc": "Haltungsmessung mit der Handykamera, persönlicher Trainingsplan und 3D-Coach. Für Android; iOS folgt.",
+    "app_desc": "Haltungsmessung mit der Handykamera, persönlicher Trainingsplan und 3D-Coach. Für Android und iOS.",
     "credits_h": "Danksagungen und Lizenzen", "credits": ["3D-Coach-Figuren", "Schrift"],
     "legal_h": "Rechtliches", "legal": '<a href="/de/privacy.html">Datenschutz</a> · <a href="/de/terms.html">Nutzungsbedingungen</a> · <a href="/de/delete-account.html">Konto löschen</a>',
 })
@@ -1122,7 +1122,7 @@ LEGAL["es"]["developer"] = _about({
     "intro": "<strong>FArk Studio</strong> es un estudio de desarrollo independiente con sede en Turquía. Creamos PosMetric para que cualquier persona que pase muchas horas sentada pueda crear un hábito diario de movimiento corto y regular.",
     "contact_h": "Contacto", "labels": ["Correo", "Ubicación", "Sitio web"], "country": "Turquía",
     "apps_h": "Nuestras apps",
-    "app_desc": "Medición de la postura con la cámara del móvil, plan de entrenamiento personal y coach en 3D. En Android; iOS próximamente.",
+    "app_desc": "Medición de la postura con la cámara del móvil, plan de entrenamiento personal y coach en 3D. En Android e iOS.",
     "credits_h": "Créditos y licencias", "credits": ["Personajes 3D del coach", "Tipografía"],
     "legal_h": "Legal", "legal": '<a href="/es/privacy.html">Política de privacidad</a> · <a href="/es/terms.html">Términos de uso</a> · <a href="/es/delete-account.html">Eliminar cuenta</a>',
 })
