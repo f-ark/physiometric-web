@@ -77,9 +77,12 @@
     de: { h: 'PosMetric kostenlos laden', p: 'Prüfe deine Haltung mit der Handykamera und bewege dich jeden Tag mit einem kurzen Plan für dich.', s: 'Jetzt laden', q: 'Mit dem Handy scannen, der passende Store öffnet sich.' },
     es: { h: 'Descarga PosMetric gratis', p: 'Revisa tu postura con la cámara del móvil y muévete cada día con un plan corto hecho para ti.', s: 'Descárgala', q: 'Escanéalo con tu móvil y se abrirá la tienda adecuada.' },
     pt: { h: 'Baixe o PosMetric grátis', p: 'Avalie sua postura com a câmera do celular e se movimente todo dia com um plano curto feito para você.', s: 'Baixe agora', q: 'Escaneie com o celular para abrir a loja certa.' },
-    fr: { h: 'Télécharge PosMetric gratuitement', p: 'Vérifie ta posture avec la caméra de ton téléphone et bouge chaque jour avec un plan court fait pour toi.', s: 'Télécharger', q: 'Scanne avec ton téléphone pour ouvrir la bonne boutique.' }
+    fr: { h: 'Télécharge PosMetric gratuitement', p: 'Vérifie ta posture avec la caméra de ton téléphone et bouge chaque jour avec un plan court fait pour toi.', s: 'Télécharger', q: 'Scanne avec ton téléphone pour ouvrir la bonne boutique.' },
+    az: { h: 'PosMetric-i pulsuz yüklə', p: 'Telefonunun kamerası ilə duruşunu ölç və sənin üçün qurulan qısa planla hər gün hərəkət et.', s: 'İndi yüklə', q: 'Telefonunla skan et, doğru mağaza açılacaq.' },
+    it: { h: 'Scarica PosMetric gratis', p: 'Controlla la tua postura con la fotocamera del telefono e muoviti ogni giorno con un breve piano fatto per te.', s: 'Scarica ora', q: 'Inquadra con il telefono per aprire lo store giusto.' }
   };
-  var lang = (navigator.language || 'tr').slice(0, 2).toLowerCase();
+  // ?dil=en gibi bir ek tarayıcı dilinin önüne geçer (deneme için).
+  var lang = (new URLSearchParams(location.search).get('dil') || navigator.language || 'tr').slice(0, 2).toLowerCase();
   if (lang === 'tr') return;
   var t = T[lang] || T.en;
   document.documentElement.lang = lang;
